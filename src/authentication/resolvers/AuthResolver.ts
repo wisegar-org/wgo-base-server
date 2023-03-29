@@ -48,8 +48,7 @@ import { EmailModel } from "../../email";
 
 @Resolver()
 export class AuthResolver {
-  private options: IAuthModelArg;
-
+  private readonly options: IAuthModelArg;
   /**
    *
    */
@@ -67,7 +66,13 @@ export class AuthResolver {
       ctx: {} as any,
     };
   }
-
+  /**
+   * Get Auth Model options
+   * @returns internal options IAuthModelArg
+   */
+  public getOptions() {
+    return this.options;
+  }
   /**
    * @decorator @Mutation(() => LoginResponse, { name: AUTH_PATH_LOGIN })
    * @param data
