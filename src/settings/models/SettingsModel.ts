@@ -1,4 +1,4 @@
-import { IsNullOrUndefined } from "wgo-extensions";
+import { IsNullOrUndefined } from "@wisegar-org/wgo-object-extensions";
 import { DataSource } from "typeorm";
 import {
   IGetSettingsParam,
@@ -14,7 +14,7 @@ import {
   WRONG_TYPE,
 } from "@wisegar-org/wgo-base-models";
 import SettingsEntity from "../database/entities/SettingsEntity";
-import { cypherData, decypherData } from "wgo-crypto";
+import { cypherData, decypherData } from "@wisegar-org/wgo-crypto";
 import { EventEmitter } from "events";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 

@@ -1,4 +1,4 @@
-import { EmailServer } from "wgo-mailer";
+import { EmailServer } from "@wisegar-org/wgo-mailer";
 import { DataSource, In } from "typeorm";
 import {
   TOKEN_EXP,

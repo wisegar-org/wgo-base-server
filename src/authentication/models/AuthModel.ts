@@ -1,11 +1,11 @@
 import { DataSource } from "typeorm";
-import { IsNullOrUndefined } from "wgo-extensions";
+import { IsNullOrUndefined } from "@wisegar-org/wgo-object-extensions";
 import * as bcrypt from "bcrypt";
 import {
   ExpirationFreqEnum,
   generateAccessToken,
   validateAccessToken,
-} from "wgo-server";
+} from "@wisegar-org/wgo-server";
 import { UserUtils } from "./UserUtils";
 import { UserRolesModel } from "./UserRolesModel";
 import {

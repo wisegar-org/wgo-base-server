@@ -1,9 +1,8 @@
 {
   "name": "@wisegar-org/wgo-base-server",
-  "version": "0.0.1-32",
+  "version": "0.0.1-35",
   "description": "",
   "main": "build/index.js",
-  "type": "commonjs",
   "files": [
     "build"
   ],
@@ -13,43 +12,40 @@
     "promote": "npm version prerelease && npm run build && npm publish",
     "upgrade": "rimraf node_modules/@wisegar-org/wgo-base-models && npm install @wisegar-org/wgo-base-models@latest -E"
   },
-  "author": "Wisegar Development Group <info@wisegar.org>",
+  "author": "Wisegar Development Group",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wisegar-org/wgo-base-server.git"
+    "url": "git+https://github.com/wisegar-org/wgo-opengar.git"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
     "@types/fs-extra": "9.0.13",
     "@types/graphql-upload": "8.0.12",
     "@types/uuid": "^9.0.0",
+    "@wisegar-org/wgo-crypto": "0.0.1-build.7",
+    "@wisegar-org/wgo-server": "0.0.1-build.54",
     "bcrypt": "5.1.0",
-    "dayjs": "^1.11.7",
     "fs-extra": "11.1.0",
     "nodemon": "2.0.20",
-    "pg": "^8.9.0",
     "ts-node": "10.9.1",
-    "type-graphql": "2.0.0-beta.1"
+    "type-graphql": "1.1.1"
   },
   "peerDependencies": {
     "@types/bcrypt": "5.0.0",
+    "@wisegar-org/wgo-crypto": "0.0.1-build.7",
+    "@wisegar-org/wgo-server": "0.0.1-build.54",
     "bcrypt": "5.1.0",
     "currency.js": "2.0.4",
     "handlebars": "4.7.7",
-    "type-graphql": "2.0.0-beta.1",
+    "type-graphql": "1.1.1",
     "typeorm": "0.3.6",
     "uuid": "9.0.0"
   },
   "dependencies": {
-    "@wisegar-org/wgo-base-models": "^0.0.1-18",
+    "@wisegar-org/wgo-base-models": "0.0.1-18",
     "handlebars": "4.7.7",
     "inline-css": "4.0.1",
-    "uuid": "9.0.0",
-    "wgo-crypto": "^0.0.4",
-    "wgo-extensions": "^0.0.4",
-    "wgo-mailer": "^0.0.3",
-    "wgo-server": "^0.0.2-1",
-    "wgo-settings": "^0.0.1"
+    "uuid": "9.0.0"
   }
 }

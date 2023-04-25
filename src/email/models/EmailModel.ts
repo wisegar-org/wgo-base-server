@@ -1,10 +1,10 @@
-import { EmailServer, EmailOptions } from "wgo-mailer";
+import { EmailServer, EmailOptions } from "@wisegar-org/wgo-mailer";
 import {
   GetEmailAppAddressKey,
   GetEmailAppAddressNameKey,
   GetEmailSenderKey,
   GetEmailSenderNameKey,
-} from "wgo-settings";
+} from "@wisegar-org/wgo-settings";
 import { DataSource } from "typeorm";
 import {
   IContextBase,
@@ -220,7 +220,7 @@ export class EmailModel {
     const emailAppAddressKey = GetEmailAppAddressKey().split(",");
     const emailAppAddressNameKey = GetEmailAppAddressNameKey().split(",");
     const toSend: string[] = [];
-    emailAppAddressKey.forEach((email: string, index: number) => {
+    emailAppAddressKey.forEach((email, index) => {
       if (emailAppAddressNameKey.length > index)
         toSend.push(
           `<${email.split(" ").join("")}> ${emailAppAddressNameKey[index]}`

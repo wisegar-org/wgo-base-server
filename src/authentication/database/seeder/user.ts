@@ -1,4 +1,4 @@
-import { IsNullOrUndefined } from "wgo-extensions";
+import { IsNullOrUndefined } from "@wisegar-org/wgo-object-extensions";
 import { DataSource } from "typeorm";
 import { RoleEntity } from "../entities/RoleEntity";
 import { UserEntity } from "../entities/UserEntity";
