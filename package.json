@@ -23,29 +23,21 @@
     "@types/fs-extra": "9.0.13",
     "@types/graphql-upload": "8.0.12",
     "@types/uuid": "^9.0.0",
-    "@wisegar-org/wgo-crypto": "0.0.1-build.7",
-    "@wisegar-org/wgo-server": "0.0.1-build.54",
-    "bcrypt": "5.1.0",
     "fs-extra": "11.1.0",
     "nodemon": "2.0.20",
-    "ts-node": "10.9.1",
-    "type-graphql": "1.1.1"
+    "ts-node": "10.9.1"
   },
-  "peerDependencies": {
-    "@types/bcrypt": "5.0.0",
-    "@wisegar-org/wgo-crypto": "0.0.1-build.7",
-    "@wisegar-org/wgo-server": "0.0.1-build.54",
-    "bcrypt": "5.1.0",
-    "currency.js": "2.0.4",
-    "handlebars": "4.7.7",
-    "type-graphql": "1.1.1",
-    "typeorm": "0.3.6",
-    "uuid": "9.0.0"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@wisegar-org/wgo-base-models": "0.0.1-18",
+    "@wisegar-org/wgo-crypto": "0.0.1-build.7",
+    "@wisegar-org/wgo-server": "0.0.1-build.54",
     "handlebars": "4.7.7",
     "inline-css": "4.0.1",
-    "uuid": "9.0.0"
+    "uuid": "9.0.0",
+    "bcrypt": "5.1.0",
+    "type-graphql": "1.1.1",
+    "typeorm": "0.3.6",
+    "currency.js": "2.0.4"
   }
 }
