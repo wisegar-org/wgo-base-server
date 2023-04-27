@@ -40,6 +40,6 @@
     "wgo-crypto": "0.0.4",
     "wgo-extensions": "0.0.4",
     "wgo-mailer": "0.0.3",
-    "wgo-server": "0.0.2-1"
+    "wgo-server": "^0.0.2-1"
   }
 }
