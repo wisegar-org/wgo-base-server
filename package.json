@@ -27,17 +27,17 @@
     "nodemon": "2.0.20",
     "ts-node": "10.9.1"
   },
-  "peerDependencies": {},
   "dependencies": {
     "@wisegar-org/wgo-base-models": "0.0.1-18",
     "@wisegar-org/wgo-crypto": "0.0.1-build.7",
     "@wisegar-org/wgo-server": "0.0.1-build.54",
+    "bcrypt": "5.1.0",
+    "class-validator": "^0.14.0",
+    "currency.js": "2.0.4",
     "handlebars": "4.7.7",
     "inline-css": "4.0.1",
-    "uuid": "9.0.0",
-    "bcrypt": "5.1.0",
     "type-graphql": "1.1.1",
     "typeorm": "0.3.6",
-    "currency.js": "2.0.4"
+    "uuid": "9.0.0"
   }
 }
