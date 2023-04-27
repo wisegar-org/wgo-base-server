@@ -1,10 +1,10 @@
-import { EmailServer, EmailOptions } from "@wisegar-org/wgo-mailer";
+import { EmailServer, EmailOptions } from "wgo-mailer";
 import {
   GetEmailAppAddressKey,
   GetEmailAppAddressNameKey,
   GetEmailSenderKey,
   GetEmailSenderNameKey,
-} from "@wisegar-org/wgo-settings";
+} from "wgo-settings";
 import { DataSource } from "typeorm";
 import {
   IContextBase,

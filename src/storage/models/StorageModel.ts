@@ -1,4 +1,4 @@
-import { IsString } from "@wisegar-org/wgo-object-extensions";
+import { IsString } from "wgo-extensions";
 import { DataSource, Like, Repository } from "typeorm";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import StorageEntity from "../database/entities/StorageEntity";

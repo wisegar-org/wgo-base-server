@@ -1,4 +1,4 @@
-import { GetConfig } from "@wisegar-org/wgo-settings";
+import { GetConfig } from "wgo-settings";
 
 export const extraStyle = ``;
 

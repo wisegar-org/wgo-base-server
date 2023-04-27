@@ -36,7 +36,7 @@ import {
   GetHostBaseKey,
   GetPrivateKey,
   GetPublicKey,
-} from "@wisegar-org/wgo-settings";
+} from "wgo-settings";
 import { UserEntity } from "../database/entities/UserEntity";
 import { AuthModel } from "../models/AuthModel";
 import { SettingsModel } from "../../settings/models/SettingsModel";

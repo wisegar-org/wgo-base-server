@@ -1,5 +1,5 @@
 import SettingsEntity from "../entities/SettingsEntity";
-import { IsNullOrUndefined } from "@wisegar-org/wgo-object-extensions";
+import { IsNullOrUndefined } from "wgo-extensions";
 import { SettingsModel } from "../../models/SettingsModel";
 import {
   IContextBase,
