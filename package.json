@@ -34,7 +34,7 @@
     "typeorm": "0.3.6",
     "wgo-crypto": "0.0.4",
     "wgo-extensions": "0.0.4",
-    "wgo-server": "^0.0.2-2"
+    "wgo-server": "^0.0.2-3"
   },
   "peerDependencies": {
     "@wisegar-org/wgo-base-models": "0.0.1-19",
@@ -45,7 +45,7 @@
     "typeorm": "0.3.6",
     "wgo-crypto": "0.0.4",
     "wgo-extensions": "0.0.4",
-    "wgo-server": "^0.0.2"
+    "wgo-server": "^0.0.2-3"
   },
   "dependencies": {
     "handlebars": "4.7.7",
