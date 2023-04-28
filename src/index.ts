@@ -8,5 +8,3 @@ export * from "./settings";
 export * from "./storage";
 export * from "./template";
 export * from "./translation";
-export * from "wgo-server";
-export * from "type-graphql";
