@@ -10,7 +10,7 @@
     "start": "nodemon",
     "build": "npx rimraf ./build && tsc",
     "promote": "npm version prerelease && npm run build && npm publish",
-    "upgrade": "rimraf node_modules/@wisegar-org/wgo-base-models && npm install @wisegar-org/wgo-base-models@latest -E"
+    "upgrade": "rimraf node_modules/@wisegar-org/wgo-base-models && npm install @wisegar-org/wgo-base-models@latest -E -D"
   },
   "author": "Wisegar Development Group <info@wisegar.org>",
   "license": "ISC",
@@ -33,7 +33,8 @@
     "typeorm": "0.3.6",
     "wgo-crypto": "0.0.4",
     "wgo-extensions": "0.0.4",
-    "wgo-server": "0.0.1"
+    "wgo-server": "0.0.1",
+    "@wisegar-org/wgo-base-models": "0.0.1-19"
   },
   "peerDependencies": {
     "bcrypt": "5.1.0",
@@ -43,10 +44,10 @@
     "typeorm": "0.3.6",
     "wgo-crypto": "0.0.4",
     "wgo-extensions": "0.0.4",
-    "wgo-server": "0.0.1"
+    "wgo-server": "0.0.1",
+    "@wisegar-org/wgo-base-models": "0.0.1-19"
   },
   "dependencies": {
-    "@wisegar-org/wgo-base-models": "0.0.1-19",
     "handlebars": "4.7.7",
     "inline-css": "4.0.1",
     "uuid": "9.0.0"
