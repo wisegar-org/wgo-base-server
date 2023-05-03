@@ -79,7 +79,7 @@ export class TranslationModel {
     );
   }
 
-  async getTranslation(lang: number, key: string) {
+  async getTranslation(lang: number, key: string, create: boolean = true) {
     const translationRepository =
       this.dataSoure.getRepository(TranslationEntity);
     let translation = await translationRepository.findOne({
@@ -94,10 +94,22 @@ export class TranslationModel {
       translation.value = key;
       translation.languageId = lang;
 
-      translation = await translationRepository.save(translation);
+      if (create) translation = await translationRepository.save(translation);
     }
 
     return this.mapTranslationEntity(translation);
+  }
+
+  async getTranslationValue(lang: number, key: string) {
+    const translationRepository =
+      this.dataSoure.getRepository(TranslationEntity);
+    let translation = await translationRepository.findOne({
+      where: {
+        key: key,
+        languageId: lang,
+      },
+    });
+    return translation ? translation.value : key;
   }
 
   async getTranslationsByCriteria(criteria: any) {
