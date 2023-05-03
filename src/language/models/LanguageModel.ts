@@ -39,7 +39,7 @@ export class LanguageModel {
     const language = await repository.findOne({
       where: { id: data.id },
     });
-    if (!!language) this.mapLanguageEntity(language);
+    if (!!language) return this.mapLanguageEntity(language);
 
     throw new Error(WRONG_LANGUAGE_DONT_EXIST);
   }
@@ -103,6 +103,16 @@ export class LanguageModel {
         await this.historicModel.createPutHistoric(lang);
       }
     }
+  }
+
+  async getDefaultLanguage() {
+    const repository = this.dataSoure.getRepository(LanguageEntity);
+    const language = await repository.findOne({
+      where: { default: true },
+    });
+    if (!!language) return this.mapLanguageEntity(language);
+
+    throw new Error(WRONG_LANGUAGE_DONT_EXIST);
   }
 
   mapLanguageEntity(language: LanguageEntity) {
