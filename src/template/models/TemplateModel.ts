@@ -34,13 +34,13 @@ export class TemplateModel {
     }
 
     template.title = this.getTemplateKey(data.documentType, "title");
-    await this.translationModel.setTranslation(
+    await this.translationModel.setTranslationOptionalHistoric(
       this.ctx.language,
       template.title,
       data.title
     );
     template.body = this.getTemplateKey(data.documentType, "body");
-    await this.translationModel.setTranslation(
+    await this.translationModel.setTranslationOptionalHistoric(
       this.ctx.language,
       template.body,
       data.body

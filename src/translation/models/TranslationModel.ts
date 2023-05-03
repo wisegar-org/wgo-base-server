@@ -119,7 +119,12 @@ export class TranslationModel {
     return translations;
   }
 
-  async setTranslation(lang: number, key: string, value: string) {
+  async setTranslation(
+    lang: number,
+    key: string,
+    value: string,
+    historic: boolean = true
+  ) {
     const translationRepository =
       this.dataSoure.getRepository(TranslationEntity);
     let translation = await translationRepository.findOne({
@@ -135,8 +140,16 @@ export class TranslationModel {
     }
     translation.value = value;
     const translationResult = await translationRepository.save(translation);
-    await this.historicModel.createPutHistoric(translationResult);
+    if (historic) await this.historicModel.createPutHistoric(translationResult);
     return this.mapTranslationEntity(translationResult);
+  }
+
+  async setTranslationOptionalHistoric(
+    lang: number,
+    key: string,
+    value: string
+  ) {
+    return await this.setTranslation(lang, key, value, !!this.ctx.user);
   }
 
   async deleteTranslation(key: string) {
