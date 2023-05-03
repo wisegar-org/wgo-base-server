@@ -2,11 +2,13 @@ import { DataSource, Repository } from "typeorm";
 import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { TemplateEntity } from "../database/entities/TemplateEntity";
 import { TemplateInput } from "../resolvers/TemplateInputs";
+import { TranslationModel } from "../../translation";
 
 export class TemplateModel {
   private ctx: IContextBase;
   private dataSource: DataSource;
   private templateRepository: Repository<TemplateEntity>;
+  private translationModel: TranslationModel;
   /**
    *
    */
@@ -14,6 +16,7 @@ export class TemplateModel {
     this.ctx = ctx;
     this.dataSource = this.ctx.dataSource;
     this.templateRepository = this.dataSource.getRepository(TemplateEntity);
+    this.translationModel = new TranslationModel(ctx);
   }
 
   async saveTamplate(data: TemplateInput) {
@@ -30,11 +33,21 @@ export class TemplateModel {
       template = new TemplateEntity();
     }
 
-    template.title = data.title;
-    template.body = data.body;
+    template.title = this.getTemplateKey(data.documentType, "title");
+    await this.translationModel.setTranslation(
+      this.ctx.language,
+      template.title,
+      data.title
+    );
+    template.body = this.getTemplateKey(data.documentType, "body");
+    await this.translationModel.setTranslation(
+      this.ctx.language,
+      template.body,
+      data.body
+    );
     template.documentType = data.documentType;
     const result = await this.templateRepository.manager.save(template);
-    return this.ParseTemplate(result, data.documentType);
+    return await this.ParseTemplate(result, data.documentType);
   }
 
   async getTemplateByType(documentType: string) {
@@ -43,16 +56,26 @@ export class TemplateModel {
         documentType,
       },
     });
-    return this.ParseTemplate(template, documentType);
+    return await this.ParseTemplate(template, documentType);
   }
 
-  ParseTemplate(template: TemplateEntity | null, type: string) {
+  async ParseTemplate(template: TemplateEntity | null, type: string) {
     if (!template) return { id: 0, title: "", body: "", documentType: type };
     return {
       id: template.id,
-      title: template.title,
-      body: template.body,
+      title: await this.translationModel.getTranslationValue(
+        this.ctx.language,
+        template.title
+      ),
+      body: await this.translationModel.getTranslationValue(
+        this.ctx.language,
+        template.body
+      ),
       documentType: template.documentType,
     };
+  }
+
+  getTemplateKey(key: string, element: string) {
+    return `WGO_${key}_${element}`.toUpperCase();
   }
 }
