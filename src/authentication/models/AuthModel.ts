@@ -383,7 +383,16 @@ export class AuthModel {
         user.confirmationToken = "";
         user.isEmailConfirmed = true;
         const userEdited = await repo.save(user);
-        await this.historicModel.createPutHistoric(userEdited);
+        const historicModel = this.ctx.user?.id
+          ? this.historicModel
+          : new HistoricModel(UserEntity, {
+              ...this.ctx,
+              user: <IUserContext>{
+                email: user.email,
+                id: user.id,
+              },
+            });
+        await historicModel.createPutHistoric(userEdited);
         return UserUtils.mapUserEntity(user);
       }
     }
