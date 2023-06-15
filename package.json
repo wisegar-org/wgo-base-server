@@ -23,7 +23,7 @@
     "@types/fs-extra": "9.0.13",
     "@types/graphql-upload": "8.0.12",
     "@types/uuid": "^9.0.0",
-    "@wisegar-org/wgo-base-models": "0.0.1-19",
+    "@wisegar-org/wgo-base-models": "0.0.1-20",
     "bcrypt": "5.1.0",
     "currency.js": "2.0.4",
     "fs-extra": "11.1.0",

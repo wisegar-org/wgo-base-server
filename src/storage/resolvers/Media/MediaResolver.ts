@@ -29,11 +29,7 @@ export class MediaResolver {
   ) {
     const result: MediaResponse[] = [];
     for (const fileItem of data.files) {
-      const media = await this.saveFilePrivate(
-        fileItem.file as any,
-        urlApi,
-        ctx
-      );
+      const media = await this.saveFilePrivate(fileItem as any, urlApi, ctx);
       if (!!media) result.push(media);
     }
     return result;
