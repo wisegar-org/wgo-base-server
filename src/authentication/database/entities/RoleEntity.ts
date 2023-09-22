@@ -1,10 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToMany,
-  BaseEntity,
-} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
 import "reflect-metadata";
 import { UserEntity } from "./UserEntity";
 import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";

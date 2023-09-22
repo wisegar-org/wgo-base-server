@@ -1,7 +1,6 @@
 import { DataSource, Repository } from "typeorm";
 import { writeFileSync, existsSync, mkdirSync, unlinkSync } from "fs-extra";
 import { join, normalize, extname } from "path";
-import MediaEntity from "../database/entities/MediaEntity";
 import { v4 as uuidv4 } from "uuid";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { MediaResponse } from "../resolvers/Media/MediaResponses";
@@ -11,6 +10,7 @@ import {
   IContextBase,
   IMediaModel,
 } from "@wisegar-org/wgo-base-models";
+import MediaEntity from "../database/entities/MediaEntity";
 
 export class MediaModel {
   private ctx: IContextBase;

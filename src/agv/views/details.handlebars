@@ -1,0 +1,113 @@
+<!-- ======= Events Section ======= -->
+{{#if event.imgList.length}}
+<section id="carouselevent">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators">
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+
+            {{#each event.imgList}}
+            <div class="carousel-item heroHeight {{getActiveTab ../active id}}" style="background-image: url({{url}}); background-repeat: no-repeat;
+    background-position: 50% 50%; background-size: contain;">
+                <div class="carousel-containe heroHeightr">
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</section><!-- End Hero -->
+{{/if}}
+
+{{#if event}}
+<section id="events" class="events">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-10 d-flex align-items-stretch">
+                <div class="">
+                    <div class="">
+                        <h5 class="card-title">{{event.title}}</h5>
+                        <h5>Anno scolastico: {{event.class}}</h5>
+                        <p class="">{{{event.shortDescription}}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Events Section -->
+{{/if}}
+
+{{contentText}}
+
+{{#if (and event.visible event.enrollment)}}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+            <div class="mt-5 mt-lg-0">
+
+                <form id="detailsForm" action="/hb/details/{{event.id}}/enrollment" method="post" role="form"
+                    class="php-email-form2">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="nome" class="form-control" id="nameFDetails" placeholder="Nome"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="text" class="form-control" name="cognome" id="lastNameFDetails"
+                                placeholder="Cognome" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <select name="class" id="classFDetails" class="form-select col-md-6 form-group fullHeight"
+                                required>
+                                <option disabled selected value> Classe frequentata </option>
+                                {{#each class}}
+                                <option value="{{this}}">{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="tel" class="form-control" name="phone" id="phoneFDetails"
+                                placeholder="Telefono" required>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 mt-md-0">
+                        <input type="email" class="form-control" name="email" id="emailFDetails"
+                            placeholder="Indirizzo email" required>
+                    </div>
+                    <div class="form-group mt-3 mt-md-0">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Messaggio"
+                            id="messageFDetails" required></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button id="detailsFormButton" type="submit">Invia</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+{{/if}}
