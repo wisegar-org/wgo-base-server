@@ -16,7 +16,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wisegar-org/wgo-base-server.git"
+    "url": "git+https://github.com/wisegar-org/wgo-opengar.git"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
