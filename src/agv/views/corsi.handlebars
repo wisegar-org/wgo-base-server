@@ -1,0 +1,63 @@
+<!-- ======= Courses Section ======= -->
+<section id="course" class="courses">
+       <div class="container" data-aos="fade-up">
+              <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                     {{#each page.events}}
+                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="course-item">
+
+                                   <img src="{{imgTitle.url}}" class="event-img img-fluid" alt="...">
+                                   <div class="course-content">
+                                          {{!-- <div class="d-flex justify-content-between align-items-center mb-3">
+                                                 <h4>Web Development</h4>
+                                                 <p class="price">$169</p>
+                                          </div> --}}
+
+                                          <h3><a href="/hb/details/{{id}}">{{title}}</a></h3>
+                                          <div class="card-body">
+                                                 <h5 class="card-title"><a href="/hb/details/{{id}}">{{title}}</a>
+                                                 </h5>
+                                                 <div class="card-text">{{{shortDescription}}}</div>
+                                                 <div class="text-center"><a href="/hb/details/{{id}}"
+                                                               class="btn-get-started">Clicca qui</a>
+                                                 </div>
+                                          </div>
+
+                                   </div>
+                            </div>
+                     </div> <!-- End Course Item-->
+                     {{/each}}
+
+              </div>
+
+       </div>
+</section><!-- End Courses Section -->
+
+{{!--
+<!-- ======= Events Section ======= -->
+<section id="events" class="events section-bg">
+       <div class="container aos-init aos-animate" data-aos="fade-up">
+              <div class="row justify-content-around">
+                     {{#each page.events}}
+                     <div class="col-md-6 d-flex align-items-stretch">
+                            <div class="card section-bg">
+                                   {{#if imgTitle}}
+                                   <div class="card-img d-flex justify-content-center">
+                                          <img src="{{imgTitle.url}}" alt="..." style=" width: auto; height: 40vh">
+                                   </div>
+                                   {{/if}}
+                                   <div class="card-body">
+                                          <h5 class="card-title"><a href="/hb/details/{{id}}">{{title}}</a>
+                                          </h5>
+                                          <div class="card-text">{{{shortDescription}}}</div>
+                                          <div class="text-center"><a href="/hb/details/{{id}}"
+                                                        class="btn-get-started">Clicca qui</a>
+                                          </div>
+                                   </div>
+                            </div>
+                     </div>
+                     {{/each}}
+              </div>
+       </div>
+</section><!-- End Events Section -->
+{{pageText}} --}}

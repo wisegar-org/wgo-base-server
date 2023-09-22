@@ -1,0 +1,22 @@
+<!-- ======= Services Section ======= -->
+<section id="services" class="services services">
+       <div class="container" data-aos="fade-up">
+
+              <div class="">
+                     <h2>Indirizzi utili</h2>
+              </div>
+
+              <div class="row">
+                     {{#each address}}
+                     <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="icon">
+                                   <img class="logoIcon" src="/{{img}}" alt="img basic" />
+                                   {{!-- style="background-image: url(/{{img}});" --}}
+                            </div>
+                            <h4 class="title"><a target="_blank" href="{{url}}">{{name}}</a></h4>
+                     </div>
+                     {{/each}}
+              </div>
+
+       </div>
+</section><!-- End Services Section -->
