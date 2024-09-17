@@ -1,6 +1,6 @@
 {
   "name": "wgo-core-server",
-  "version": "0.0.1-dev.0",
+  "version": "0.0.1-dev.1",
   "description": "",
   "main": "build/index.js",
   "files": [
