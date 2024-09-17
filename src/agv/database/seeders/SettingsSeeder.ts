@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { GetConfig } from "wgo-settings";
-import { SETTINGS_POP3, SETTINGS_SMTP } from "@wisegar-org/wgo-base-models";
+import { SETTINGS_POP3, SETTINGS_SMTP } from "wgo-core-models";
 import {
   getPop3Settings,
   getSmtpSettings,

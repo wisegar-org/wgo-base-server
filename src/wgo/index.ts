@@ -1,11 +1,5 @@
 import "reflect-metadata";
 import {
-  boot,
-  ExpirationFreqEnum,
-  IServerOptions,
-  UseRestMiddleware,
-} from "wgo-server";
-import {
   GetPortKey,
   GetPrivateKey,
   GetPublicKey,
@@ -29,6 +23,12 @@ import { agvAdminUserSeeder } from "../agv/database/seeders/AdminUserSeeder";
 import { agvTemplateSeeder } from "../agv/database/seeders/TemplateSeeder";
 import { languageDefaultSeeder } from "../language";
 import { mediaPublicSeeder } from "../storage";
+import {
+  boot,
+  ExpirationFreqEnum,
+  IServerOptions,
+  UseRestMiddleware,
+} from "../core";
 
 const port = GetPortKey();
 

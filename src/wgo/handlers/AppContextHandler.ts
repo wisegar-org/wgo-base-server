@@ -1,4 +1,3 @@
-import { IContextOptions } from "wgo-server";
 import {
   GetCypherKey,
   GetEmailAppAddressKey,
@@ -9,15 +8,12 @@ import {
 } from "wgo-settings";
 import { PostgresDataSource } from "../dataSources";
 import { EventEmitter } from "events";
-import {
-  IContextBase,
-  translations,
-  SUPERADMIN,
-} from "@wisegar-org/wgo-base-models";
+import { IContextBase, translations, SUPERADMIN } from "wgo-core-models";
 import { GetWebRootKey } from "../middlewares/HostAdminMiddleware";
 import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
+import { IContextOptions } from "../../core";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,

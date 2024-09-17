@@ -6,7 +6,7 @@ import {
   SETTINGS_PATH_GET_ALL_SETTINGS,
   SETTINGS_PATH_SET_SETTING,
   IContextBase,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 
 @Resolver()
 export class SettingsResolver {

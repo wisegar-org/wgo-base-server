@@ -1,7 +1,7 @@
 import { Arg, Mutation, Query, Resolver, Authorized, Ctx } from "type-graphql";
 import AGVEventEntity from "../../database/entities/AGVEventEntity";
 import { EventModel } from "../../models/Event/EventModel";
-import { SUPERADMIN, IContextBase } from "@wisegar-org/wgo-base-models";
+import { SUPERADMIN, IContextBase } from "wgo-core-models";
 import { AGVEventInput, AGVEventPageInput } from "./AGVEventInputs";
 import {
   AGVEventGetNextsResponse,

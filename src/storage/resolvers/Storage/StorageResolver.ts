@@ -7,7 +7,7 @@ import {
   STORAGE_PATH_PUT_STORAGE,
   IContextBase,
   StorageItem,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 import { StorageModel } from "../../models/StorageModel";
 import {
   StorageAllInput,

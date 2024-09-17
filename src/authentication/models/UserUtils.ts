@@ -1,4 +1,4 @@
-import { IUser } from "@wisegar-org/wgo-base-models";
+import { IUser } from "wgo-core-models";
 import { UserEntity } from "../database/entities/UserEntity";
 
 export const UserUtils = {

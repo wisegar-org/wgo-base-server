@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
 import CollaboratorEntity from "../../database/entities/Finance/CollaboratorEntity";
 import { USER_ROLE } from "../../models/constants";
-import { IAuthRegisterParams, SUPERADMIN } from "@wisegar-org/wgo-base-models";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IAuthRegisterParams, SUPERADMIN } from "wgo-core-models";
+import { IContextBase } from "wgo-core-models";
 import { AuthModel, RoleEntity, UserRolesModel } from "../../../authentication";
 
 export class FinanceCollaboratorService {

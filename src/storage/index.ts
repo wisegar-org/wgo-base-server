@@ -1,4 +1,3 @@
-export { MediaEntity } from "./database/entities/MediaEntity";
 export { StorageEntity } from "./database/entities/StorageEntity";
 
 export * from "./database/migrations";

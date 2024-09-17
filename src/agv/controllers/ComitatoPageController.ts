@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from "wgo-server";
+import { Controller, Get, Post } from "../../core";
 import { Request, Response } from "express";
 import { getDefaultHeader } from "./utils";
 import { AGVContentModel } from "../models/Content/ContentModel";

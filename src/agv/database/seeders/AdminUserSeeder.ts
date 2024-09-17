@@ -1,6 +1,6 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import { DataSource } from "typeorm";
-import { SUPERADMIN } from "@wisegar-org/wgo-base-models";
+import { SUPERADMIN } from "wgo-core-models";
 import * as bcrypt from "bcrypt";
 import { RoleEntity, UserEntity } from "../../../authentication";
 

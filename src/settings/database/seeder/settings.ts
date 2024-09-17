@@ -5,7 +5,7 @@ import {
   IContextBase,
   ISettingValueBoolean,
   ISettingValuePassword,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 
 export const settingsAdminSeeder = async (
   ctx: IContextBase,
@@ -41,7 +41,7 @@ export const settingsAdminSeeder = async (
       )
         settingsResult.settings[key] = settingsModel.getSettingsValueParse({
           key,
-          value: settingsResult.settings[key],
+          value: settingsResult.settings[key] as any,
         });
     });
     Object.keys(settings).map((key) => {

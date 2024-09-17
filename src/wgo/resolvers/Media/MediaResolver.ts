@@ -1,10 +1,7 @@
 import { Arg, Authorized, Ctx, Mutation, Resolver } from "type-graphql";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IContextBase } from "wgo-core-models";
 
-import {
-  MEDIA_PATH_POST_FILE,
-  MEDIA_PATH_POST_FILES,
-} from "@wisegar-org/wgo-base-models";
+import { MEDIA_PATH_POST_FILE, MEDIA_PATH_POST_FILES } from "wgo-core-models";
 import { MediaInput, MediasInput } from "./MediaInput";
 import { MediaResolver, MediaResponse } from "../../../storage";
 

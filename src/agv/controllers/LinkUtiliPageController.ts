@@ -1,6 +1,6 @@
-import { Controller, Get } from "wgo-server";
 import { Request, Response } from "express";
 import { getDefaultHeader } from "./utils";
+import { Controller, Get } from "../../core";
 
 @Controller("/hb/linkutili")
 export class LinkUtiliHandlebarsController {

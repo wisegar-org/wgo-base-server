@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import LabelEntity from "../../database/entities/Finance/LabelEntity";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IContextBase } from "wgo-core-models";
 
 export class FinanceLabelService {
   private ctx: IContextBase;

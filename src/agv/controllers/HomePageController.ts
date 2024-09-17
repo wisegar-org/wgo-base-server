@@ -1,8 +1,8 @@
-import { Controller, Get } from "wgo-server";
 import { Request, Response } from "express";
 import { getDefaultHeader } from "./utils";
 import { EventModel } from "../models/Event/EventModel";
 import { ctx } from "../../wgo/handlers/AppContextHandler";
+import { Controller, Get } from "../../core";
 
 @Controller("/")
 export class HomeHandlebarsController {

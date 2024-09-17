@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { Column, Entity } from "typeorm";
-import { Actions } from "@wisegar-org/wgo-base-models";
+import { Actions } from "wgo-core-models";
 import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
 
 @Entity({ name: "journal_history" })

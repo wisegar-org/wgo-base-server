@@ -1,6 +1,6 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import { DataSource } from "typeorm";
-import { SUPERADMIN } from "@wisegar-org/wgo-base-models";
+import { SUPERADMIN } from "wgo-core-models";
 import { RoleEntity } from "../entities/RoleEntity";
 
 export const roleSuperAdminSeeder = async (dataSource: DataSource) => {

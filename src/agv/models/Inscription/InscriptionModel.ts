@@ -10,7 +10,7 @@ import {
   AGVInscriptionGetPageResponse,
   AGVInscriptionResponse,
 } from "../../resolvers/Inscription/AGVInscriptionResponses";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IContextBase } from "wgo-core-models";
 import { EventModel } from "../Event/EventModel";
 import { HistoricModel } from "../../../historic";
 

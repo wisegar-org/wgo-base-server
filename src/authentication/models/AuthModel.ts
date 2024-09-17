@@ -1,11 +1,6 @@
 import { DataSource } from "typeorm";
 import { IsNullOrUndefined } from "wgo-extensions";
 import * as bcrypt from "bcrypt";
-import {
-  ExpirationFreqEnum,
-  generateAccessToken,
-  validateAccessToken,
-} from "wgo-server";
 import { UserUtils } from "./UserUtils";
 import { UserRolesModel } from "./UserRolesModel";
 import {
@@ -34,10 +29,11 @@ import {
   WRONG_USER_DONT_EXIST,
   WRONG_USER_NAME,
   WRONG_USER_PASSWORD,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { UserEntity } from "../database/entities/UserEntity";
 import { EmailModel } from "../../email";
+import { ExpirationFreqEnum, generateAccessToken, validateAccessToken } from "../../core";
 
 export class AuthModel {
   private dataSource: DataSource;

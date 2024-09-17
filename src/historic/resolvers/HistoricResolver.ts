@@ -3,7 +3,7 @@ import {
   HISTORIC_PATH_GET_FILTERS,
   HISTORIC_PATH_GET_PAGE,
   IContextBase,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 import { HistoricEntity } from "../database/entities/HistoricEntity";
 import { HistoricModel } from "../models/HistoricModel";
 import { HistoricPageInput } from "./HistoricInputs";

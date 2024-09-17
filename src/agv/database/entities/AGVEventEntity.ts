@@ -9,8 +9,7 @@ import {
 } from "typeorm";
 import { EventStateEnum, EventTypeEnum } from "../../models/enums";
 import { AGVInscriptionEntity } from "./AGVInscriptionEntity";
-import { WGBaseEntity } from "../../../core";
-import { MediaEntity } from "../../../storage";
+import { MediaEntity, WGBaseEntity } from "../../../core";
 
 @Entity()
 export class AGVEventEntity extends WGBaseEntity {

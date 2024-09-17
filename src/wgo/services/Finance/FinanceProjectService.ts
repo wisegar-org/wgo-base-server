@@ -1,6 +1,6 @@
 import { In, Repository } from "typeorm";
 import ProjectEntity from "../../database/entities/Finance/ProjectEntity";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IContextBase } from "wgo-core-models";
 
 export class FinanceProjectService {
   private ctx: IContextBase;

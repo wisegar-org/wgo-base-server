@@ -1,4 +1,4 @@
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IContextBase } from "wgo-core-models";
 import { Ctx, Query, Resolver } from "type-graphql";
 import { FinanceCollaboratorService } from "../../services/Finance/FinanceCollaboratorService";
 import { FinanceLabelService } from "../../services/Finance/FinanceLabelService";

@@ -12,7 +12,7 @@ import {
   IContextBase,
   APP_SETTINGS,
   WRONG_TYPE,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 import SettingsEntity from "../database/entities/SettingsEntity";
 import { cypherData, decypherData } from "wgo-crypto";
 import { EventEmitter } from "events";

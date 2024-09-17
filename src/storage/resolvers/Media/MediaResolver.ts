@@ -3,7 +3,7 @@ import {
   MEDIA_PATH_DELETE_FILES,
   MEDIA_PATH_GET_FILE,
   IContextBase,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 import { MediaModel } from "../../models/MediaModel";
 import { MediaInputArg, MediasInputArg } from "./MediaInputs";
 import { MediaResponse } from "./MediaResponses";

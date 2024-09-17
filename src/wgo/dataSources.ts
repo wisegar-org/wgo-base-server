@@ -21,9 +21,10 @@ import { ContactMeEntity, getContactMigrations } from "../contact";
 import { HistoricEntity, getHistoricMigrations } from "../historic";
 import { LanguageEntity, getLanguageMigrations } from "../language";
 import { SettingsEntity, getSettingsMigrations } from "../settings";
-import { MediaEntity, StorageEntity, getStorageMigrations } from "../storage";
+import { StorageEntity, getStorageMigrations } from "../storage";
 import { TemplateEntity, getTemplateMigrations } from "../template";
 import { TranslationEntity, getTranslationMigrations } from "../translation";
+import { MediaEntity } from "../core";
 
 /** Entities */
 const entities = [

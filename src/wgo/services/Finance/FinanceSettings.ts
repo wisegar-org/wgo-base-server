@@ -1,7 +1,4 @@
-import {
-  ISettingValueNumber,
-  ISettingValuePassword,
-} from "@wisegar-org/wgo-base-models";
+import { ISettingValueNumber, ISettingValuePassword } from "wgo-core-models";
 
 export const SETTINGS_FINANCE_ORGANIZATION = "FINANCE_ORGANIZATION";
 

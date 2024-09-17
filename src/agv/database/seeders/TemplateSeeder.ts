@@ -1,9 +1,6 @@
 import { DataSource } from "typeorm";
 
-import {
-  getAuthTemplateKey,
-  AuthTemplateEnum,
-} from "@wisegar-org/wgo-base-models";
+import { getAuthTemplateKey, AuthTemplateEnum } from "wgo-core-models";
 import { LanguageModel } from "../../../language";
 import { ctx } from "../../../wgo/handlers/AppContextHandler";
 import { TemplateModel } from "../../../template";

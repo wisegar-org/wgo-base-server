@@ -8,7 +8,7 @@ import {
   IContextBase,
   ILanguageModel,
   StorageKeys,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { UtilService } from "../../core/services/UtilService";
 import { LanguageModel } from "../../language/models/LanguageModel";

@@ -5,10 +5,9 @@ import {
   PrimaryGeneratedColumn,
   Entity,
   Column,
-  BaseEntity,
 } from "typeorm";
 import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
-import MediaEntity from "./MediaEntity";
+import { MediaEntity } from "../../../core";
 
 @Entity({ name: "storage" })
 export class StorageEntity extends WGBaseEntity {

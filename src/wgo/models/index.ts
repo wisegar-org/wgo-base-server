@@ -1,4 +1,4 @@
-import { IUser } from "@wisegar-org/wgo-base-models";
+import { IUser } from "wgo-core-models";
 
 export interface IUserContext extends IUser {
   isSuperAdmin?: boolean;

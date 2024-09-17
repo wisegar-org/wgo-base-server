@@ -1,8 +1,4 @@
 import { DataSource } from "typeorm";
-import {
-  SETTINGS_POP3,
-  SETTINGS_SMTP,
-} from "@wisegar-org/wgo-base-models/build/settings";
 import { GetConfig } from "@wisegar-org/wgo-settings";
 import {
   getFinanceOrganizationSettings,
@@ -14,6 +10,7 @@ import {
   getSmtpSettings,
   settingsAdminSeeder,
 } from "../../../settings";
+import { SETTINGS_POP3, SETTINGS_SMTP } from "wgo-core-models";
 
 export const settingsSeeder = async (dataSource: DataSource) => {
   //Save keys to database settings

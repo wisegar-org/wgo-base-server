@@ -1,5 +1,5 @@
-import { Controller, Get } from "wgo-server";
 import { Request, Response } from "express";
+import { Controller, Get } from "../../core";
 
 @Controller("/api")
 export class AppController {

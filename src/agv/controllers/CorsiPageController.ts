@@ -1,4 +1,4 @@
-import { Controller, Get } from "wgo-server";
+import { Controller, Get } from "../../core";
 import { Request, Response } from "express";
 import { getDefaultHeader } from "./utils";
 import { EventModel } from "../models/Event/EventModel";

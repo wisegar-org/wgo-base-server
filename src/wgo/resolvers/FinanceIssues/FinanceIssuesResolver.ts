@@ -1,6 +1,6 @@
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { FinanceIssuesService } from "../../services/Finance/FinanceIssuesService";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
+import { IContextBase } from "wgo-core-models";
 import { FinanceIssuesPageInput } from "./FinanceIssuesInputs";
 import { FinanceIssuesPageResponse } from "./FinanceIssuesResponses";
 

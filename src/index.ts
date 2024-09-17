@@ -1,14 +1,5 @@
 import "reflect-metadata";
 import {
-  boot,
-  ExpirationFreqEnum,
-  IServerOptions,
-  UseCorsMiddleware,
-  UseGqlServer,
-  UseJwtMiddleware,
-  UseRestMiddleware,
-} from "wgo-server";
-import {
   GetPortKey,
   GetPrivateKey,
   GetPublicKey,
@@ -18,8 +9,7 @@ import { AuthenticationHandler } from "./wgo/handlers/AuthenticationHandler";
 import { AppContextHandler, ctx } from "./wgo/handlers/AppContextHandler";
 import { errorHandler } from "./wgo/handlers/ErrorHandler";
 import { getControllers } from "./wgo/controllers";
-import { UseTemplatingMiddleware } from "./wgo/middlewares/HostTemplatingMiddleware";
-import { UseHostAdminMiddleware } from "./wgo/middlewares/HostAdminMiddleware";
+
 import { createDatabase } from "typeorm-extension";
 import { agvAdminUserSeeder } from "./agv/database/seeders/AdminUserSeeder";
 import { agvTemplateSeeder } from "./agv/database/seeders/TemplateSeeder";
@@ -31,6 +21,7 @@ import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
 import express from "express";
 import { UseStaticMediaFilesMiddleware } from "./wgo/middlewares/StaticMediaFilesMiddleware";
+import { ExpirationFreqEnum, IServerOptions, UseCorsMiddleware, UseGqlServer, UseJwtMiddleware, UseRestMiddleware } from "./core";
 
 export async function run(app: any) {
   const port = GetPortKey();

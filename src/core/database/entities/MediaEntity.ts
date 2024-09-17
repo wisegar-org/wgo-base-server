@@ -1,10 +1,9 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn } from "typeorm";
-import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
+import { Entity, Column } from "typeorm";
+
+import { WGBaseEntity } from "./WGBaseEntity";
 
 @Entity({ name: "media" })
 export class MediaEntity extends WGBaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: number;
   @Column({ default: "" })
   displayName!: string;
   @Column({ default: "" })

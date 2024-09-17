@@ -10,7 +10,7 @@ import {
   WRONG_ENTITY_ID_UNDEFINED,
   Actions,
   IContextBase,
-} from "@wisegar-org/wgo-base-models";
+} from "wgo-core-models";
 
 export class HistoricModel<TEntity extends WGBaseEntity> {
   private dataSource: DataSource;
