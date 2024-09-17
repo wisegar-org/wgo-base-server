@@ -31,9 +31,13 @@ import {
   WRONG_USER_PASSWORD,
 } from "wgo-core-models";
 import { HistoricModel } from "../../historic/models/HistoricModel";
-import { UserEntity } from "../database/entities/UserEntity";
+import { UserEntity } from "../../core/database/entities/UserEntity";
 import { EmailModel } from "../../email";
-import { ExpirationFreqEnum, generateAccessToken, validateAccessToken } from "../../core";
+import {
+  ExpirationFreqEnum,
+  generateAccessToken,
+  validateAccessToken,
+} from "../../core";
 
 export class AuthModel {
   private dataSource: DataSource;

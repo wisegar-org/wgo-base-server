@@ -1,89 +1,70 @@
-import { Entity, Column, ManyToMany, JoinTable, ManyToOne } from "typeorm";
-import { RolEntity } from "./RolEntity";
-import { MediaEntity } from "./MediaEntity";
-import { OGBaseEntity } from "./OGBaseEntity";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable,
+  Unique,
+  ManyToOne,
+} from "typeorm";
+import { RoleEntity } from "./RoleEntity";
+import "reflect-metadata";
+import { WGBaseEntity } from "./WGBaseEntity";
 import { LanguageEntity } from "./LanguageEntity";
-import { IUser } from "wgo-core-models";
+import { MediaEntity } from "../..";
 @Entity({ name: "users" })
-export class UserEntity extends OGBaseEntity {
-  @Column()
+@Unique("userName-unique", ["userName", "code"])
+export class UserEntity extends WGBaseEntity {
+  @PrimaryGeneratedColumn()
+  id!: number;
+
+  @Column({ nullable: false, default: "" })
   name?: string;
 
-  @Column()
+  @Column({ nullable: false, default: "" })
   lastName?: string;
 
-  @Column()
-  userName?: string;
+  @Column({ nullable: false, default: "" })
+  userName!: string;
 
-  @Column()
+  @Column({ nullable: false, default: "" })
   email?: string;
 
-  @Column()
-  password?: string;
+  @Column({ nullable: false, default: "" })
+  password!: string;
+
+  @Column({ nullable: false, default: "" })
+  certificate!: string;
+
+  @Column({ nullable: true, default: "" })
+  code!: string;
+
+  @Column({ nullable: true, default: "" })
+  cap!: string;
+
+  @Column({ nullable: true, default: "" })
+  phone!: string;
+
+  @Column({ nullable: true, default: "" })
+  address!: string;
 
   @Column({ default: false })
-  isEmailConfirmed: boolean;
-
-  @Column({ nullable: true })
-  languageId?: number;
-  @ManyToOne(() => LanguageEntity, (lang) => lang.id)
-  language?: LanguageEntity;
-
-  @ManyToMany(() => RolEntity)
-  @JoinTable()
-  roles?: RolEntity[];
-
-  @Column({ nullable: true })
-  profileImageId?: number;
-  @ManyToOne(() => MediaEntity, (media) => media.id)
-  profileImage?: MediaEntity;
+  isEmailConfirmed?: boolean;
 
   @Column({ nullable: true })
   confirmationToken?: string;
 
-  /**
-   *
-   */
-  constructor(
-    name?: string,
-    lastName?: string,
-    userName?: string,
-    email?: string,
-    password?: string,
-    roles?: RolEntity[],
-    isEmailConfirmed?: Boolean,
-    profileImage?: MediaEntity,
-    confirmationToken?: string
-  ) {
-    super();
-    this.name = name;
-    this.lastName = lastName;
-    this.userName = userName;
-    this.email = email;
-    this.password = password;
-    this.roles = roles;
-    this.profileImage = profileImage;
-    this.isEmailConfirmed = !!isEmailConfirmed;
-    this.confirmationToken = confirmationToken;
-  }
+  @ManyToMany(() => RoleEntity)
+  @JoinTable()
+  roles?: RoleEntity[];
 
-  getJWTUser(): IUser {
-    const user: IUser = {
-      userName: this.userName ?? "",
-      name: this.name ?? "",
-      email: this.email ?? "",
-      lastName: this.lastName ?? "",
-      id: 0,
-      isEmailConfirmed: false,
-      roles: [],
-      code: "",
-      cap: "",
-      phone: "",
-      address: "",
-      certificate: "",
-    };
-    return user;
-  }
+  @Column({ nullable: true })
+  profileImageId!: number;
+  @ManyToOne(() => MediaEntity, (media: any) => media.id)
+  profileImage!: MediaEntity;
+
+  @Column({ nullable: true })
+  languageId!: number;
+  @ManyToOne(() => LanguageEntity, (lang: any) => lang.id)
+  language!: LanguageEntity;
 }
-
-export default UserEntity;

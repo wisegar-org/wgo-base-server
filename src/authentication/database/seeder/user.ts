@@ -1,7 +1,7 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import { DataSource } from "typeorm";
-import { RoleEntity } from "../entities/RoleEntity";
-import { UserEntity } from "../entities/UserEntity";
+import { RoleEntity } from "../../../core/database/entities/RoleEntity";
+import { UserEntity } from "../../../core/database/entities/UserEntity";
 import * as bcrypt from "bcrypt";
 import { SUPERADMIN } from "wgo-core-models";
 

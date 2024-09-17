@@ -1,5 +1,5 @@
 import { DataSource, ILike, In } from "typeorm";
-import { TranslationEntity } from "../database/entities/TranslationEntity";
+import { TranslationEntity } from "../../core/database/entities/TranslationEntity";
 import {
   IGetAllTranslationsByKeyArg,
   IGetAllTranslationArg,

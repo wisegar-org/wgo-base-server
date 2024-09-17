@@ -1,5 +1,5 @@
-export { RoleEntity } from "./database/entities/RoleEntity";
-export { UserEntity } from "./database/entities/UserEntity";
+export { RoleEntity } from "../core/database/entities/RoleEntity";
+export { UserEntity } from "../core/database/entities/UserEntity";
 
 export * from "./database/migrations";
 export * from "./database/seeder/roles";

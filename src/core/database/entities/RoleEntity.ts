@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
 import "reflect-metadata";
 import { UserEntity } from "./UserEntity";
-import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
+import { WGBaseEntity } from "./WGBaseEntity";
 
 @Entity({ name: "roles" })
 export class RoleEntity extends WGBaseEntity {

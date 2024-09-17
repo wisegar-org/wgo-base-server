@@ -1,5 +1,5 @@
 import { DataSource, ObjectType, Repository } from "typeorm";
-import { UserEntity } from "../../authentication/database/entities/UserEntity";
+import { UserEntity } from "../../core/database/entities/UserEntity";
 import { WGBaseEntity } from "../../core/database/entities/WGBaseEntity";
 import { HistoricEntity } from "../database/entities/HistoricEntity";
 import {

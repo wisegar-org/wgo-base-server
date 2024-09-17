@@ -21,7 +21,27 @@ import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
 import express from "express";
 import { UseStaticMediaFilesMiddleware } from "./wgo/middlewares/StaticMediaFilesMiddleware";
-import { ExpirationFreqEnum, IServerOptions, UseCorsMiddleware, UseGqlServer, UseJwtMiddleware, UseRestMiddleware } from "./core";
+import {
+  ExpirationFreqEnum,
+  IServerOptions,
+  UseCorsMiddleware,
+  UseGqlServer,
+  UseJwtMiddleware,
+  UseRestMiddleware,
+} from "./core";
+
+export * from "./agv";
+export * from "./authentication";
+export * from "./contact";
+export * from "./core";
+export * from "./email";
+export * from "./historic";
+export * from "./language";
+export * from "./settings";
+export * from "./storage";
+export * from "./template";
+export * from "./translation";
+export * from "./wgo";
 
 export async function run(app: any) {
   const port = GetPortKey();

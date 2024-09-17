@@ -37,7 +37,7 @@ import {
   GetPrivateKey,
   GetPublicKey,
 } from "wgo-settings";
-import { UserEntity } from "../database/entities/UserEntity";
+import { UserEntity } from "../../core/database/entities/UserEntity";
 import { AuthModel } from "../models/AuthModel";
 import { SettingsModel } from "../../settings/models/SettingsModel";
 import { IdInput } from "../../core/resolvers/CoreInputs";

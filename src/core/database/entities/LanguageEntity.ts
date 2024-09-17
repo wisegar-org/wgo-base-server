@@ -1,9 +1,9 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import MediaEntity from "./MediaEntity";
-import { OGBaseEntity } from "./OGBaseEntity";
+import { WGBaseEntity } from "./WGBaseEntity";
+import { MediaEntity } from "../..";
 
 @Entity({ name: "languages" })
-export class LanguageEntity extends OGBaseEntity {
+export class LanguageEntity extends WGBaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
   @Column({ default: "" })

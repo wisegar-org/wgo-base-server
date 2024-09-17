@@ -9,8 +9,8 @@ import {
   IUser,
 } from "wgo-core-models";
 import { UserUtils } from "./UserUtils";
-import { UserEntity } from "../database/entities/UserEntity";
-import { RoleEntity } from "../database/entities/RoleEntity";
+import { UserEntity } from "../../core/database/entities/UserEntity";
+import { RoleEntity } from "../../core/database/entities/RoleEntity";
 
 export class UserRolesModel {
   private dataSource: DataSource;
