@@ -2,7 +2,7 @@ import { GraphQLUpload } from "graphql-upload";
 import { Arg, Ctx, Field, InputType, Mutation, Resolver } from "type-graphql";
 import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { TRANSLATION_PATH_IMPORT_TRANSLATION } from "@wisegar-org/wgo-base-models";
-import { TranslationResolver } from "../../../translation";
+import { TranslationsResolver } from "../../../translation";
 
 @InputType()
 export class ImportTranslationsInput {
@@ -11,7 +11,7 @@ export class ImportTranslationsInput {
 }
 
 @Resolver()
-export class PublicTranslationResolver extends TranslationResolver {
+export class PublicTranslationResolver extends TranslationsResolver {
   @Mutation(() => Boolean, { name: TRANSLATION_PATH_IMPORT_TRANSLATION })
   async importTranslations(
     @Arg("data") data: ImportTranslationsInput,

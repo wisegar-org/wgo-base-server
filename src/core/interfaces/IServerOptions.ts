@@ -3,8 +3,8 @@ import { AuthMode, NonEmptyArray } from "type-graphql";
 import { IContextOptions } from "./IContextOptions";
 import { ExpirationFreqEnum } from "../services/JwtAuthService";
 import { CorsOptions } from "cors";
-import { ValidateSettings } from "type-graphql/dist/schema/build-context";
 import { Context } from "../models/Models";
+import { ValidateSettings } from "type-graphql/build/typings/schema/build-context";
 
 export interface IServerOptions {
   /**
@@ -12,7 +12,7 @@ export interface IServerOptions {
    */
   app?: any;
   controllers: any[];
-  resolvers: NonEmptyArray<Function> | NonEmptyArray<string>;
+  resolvers: any;
   authenticator: (userContext: Context, roles: any) => Promise<boolean>;
   formatError: (err: any) => Error;
   context: (contextOptions: IContextOptions) => Promise<Context>;

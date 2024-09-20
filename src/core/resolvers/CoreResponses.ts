@@ -1,7 +1,6 @@
 import { ClassType, Field, ObjectType } from "type-graphql";
 
-export function GenericResponse<T>(TItemClass: ClassType<T>) {
-  @ObjectType({ isAbstract: true })
+export function GenericResponse<T extends object>(TItemClass: ClassType<T>) {
   abstract class Response {
     @Field()
     isSuccess!: boolean;
@@ -15,8 +14,9 @@ export function GenericResponse<T>(TItemClass: ClassType<T>) {
   return Response;
 }
 
-export function GenericArrayResponse<T>(TItemClass: ClassType<T>) {
-  @ObjectType({ isAbstract: true })
+export function GenericArrayResponse<T extends object>(
+  TItemClass: ClassType<T>
+) {
   abstract class ArrayResponse {
     @Field()
     isSuccess!: boolean;

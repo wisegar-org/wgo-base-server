@@ -84,6 +84,7 @@ export * from "./resolvers/CoreResolver";
  */
 export { Express } from "express";
 export * from "type-graphql";
+export * from "graphql-upload";
 export { UseJwtMiddleware } from "./middlewares/JwtMiddleware";
 export { UseCorsMiddleware } from "./middlewares/CorsMiddleware";
 export { UseGqlServer } from "./middlewares/GqlServerMiddleware";

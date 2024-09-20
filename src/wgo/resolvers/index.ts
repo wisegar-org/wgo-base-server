@@ -12,7 +12,7 @@ import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { ContactMeResolver } from "../../contact";
 import { TemplateResolver } from "../../template";
-import { TranslationResolver } from "../../translation";
+import { TranslationsResolver } from "../../translation";
 import { HistoricResolver } from "../../historic";
 import { MediaResolver, StorageResolver } from "../../storage";
 import { EmailResolver } from "../../email";
@@ -32,7 +32,7 @@ export const getResolvers = () => {
     PublicMediaResolver,
     ContactMeResolver,
     TemplateResolver,
-    TranslationResolver,
+    TranslationsResolver,
     HistoricResolver,
     MediaResolver,
     EmailResolver,

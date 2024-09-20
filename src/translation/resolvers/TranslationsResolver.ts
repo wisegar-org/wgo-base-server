@@ -1,14 +1,14 @@
 import { Arg, Mutation, Query, Resolver, Ctx } from "type-graphql";
-import { TranslationResponse } from "./TranslationResponses";
+import { TranslationResponse as TranslationsResponse } from "./TranslationsResponses";
 import { TranslationModel } from "../models/TranslationModel";
 
 import {
   DeleteTranslationInput,
   ExportTranslationInput,
-  GetAllTranslationInput,
+  GetAllTranslationInput as GetAllTranslationsInput,
   GetTranslationByKeysInput,
   SetTranslationInput,
-} from "./TranslationInputs";
+} from "./TranslationsInputs";
 import { GraphQLUpload } from "graphql-upload";
 import {
   TRANSLATION_PATH_DELETE_TRANSLATION,
@@ -20,12 +20,12 @@ import {
 } from "@wisegar-org/wgo-base-models";
 
 @Resolver()
-export class TranslationResolver {
-  @Query(() => [TranslationResponse], {
+export class TranslationsResolver {
+  @Query(() => [TranslationsResponse], {
     name: TRANSLATION_PATH_GET_ALL_TRANSLATION,
   })
   async getAllTranslations(
-    @Arg("data") data: GetAllTranslationInput,
+    @Arg("data") data: GetAllTranslationsInput,
     @Ctx() ctx: IContextBase
   ) {
     const translationModel = new TranslationModel(ctx);
@@ -33,7 +33,7 @@ export class TranslationResolver {
     return translations;
   }
 
-  @Query(() => [TranslationResponse], {
+  @Query(() => [TranslationsResponse], {
     name: TRANSLATION_PATH_GET_ALL_BY_KEYS,
   })
   async getAllTranslationsByKey(
@@ -45,7 +45,7 @@ export class TranslationResolver {
     return translations;
   }
 
-  @Mutation(() => [TranslationResponse], {
+  @Mutation(() => [TranslationsResponse], {
     name: TRANSLATION_PATH_SET_TRANSLATION,
   })
   async setTranslation(
@@ -61,7 +61,7 @@ export class TranslationResolver {
       );
       return [translation];
     } else if (data.translations) {
-      const result: TranslationResponse[] = [];
+      const result: TranslationsResponse[] = [];
       for (const translation of data.translations) {
         const translationResult = await translationModel.setTranslation(
           translation.languageId,
