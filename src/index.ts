@@ -30,6 +30,10 @@ import {
   UseRestMiddleware,
 } from "./core";
 
+export { Express } from "express";
+export * from "type-graphql";
+export * from "graphql-upload";
+
 export * from "./agv";
 export * from "./authentication";
 export * from "./contact";

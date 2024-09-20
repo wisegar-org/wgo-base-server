@@ -55,6 +55,7 @@
     "@wisegar-org/wgo-github": "^0.0.1-build.17",
     "@wisegar-org/wgo-templating": "^0.0.1-build.3",
     "bcrypt": "5.1.0",
+    "class-validator": "^0.14.1",
     "cors": "^2.8.5",
     "currency.js": "2.0.4",
     "dayjs": "^1.11.7",

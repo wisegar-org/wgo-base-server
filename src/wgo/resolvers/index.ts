@@ -1,8 +1,6 @@
 import { NonEmptyArray } from "type-graphql";
 import { AppResolver } from "./AppResolver";
 import { PublicMediaResolver } from "./Media/MediaResolver";
-import { PublicTranslationResolver } from "./Translation/TranslationResolver";
-
 import { IndexContentResolver } from "./IndexContent/IndexContentResolver";
 import { FinanceIssuesResolver } from "./FinanceIssues/FinanceIssuesResolver";
 import { FinanceIssuesOptionsResolver } from "./FinanceIssuesOptions/FinanceIssuesOptionsResolver";
@@ -27,7 +25,7 @@ export const getResolvers = () => {
     CoreResolver,
     AuthResolver,
     LanguageResolver,
-    PublicTranslationResolver,
+    // PublicTranslationResolver,
     SettingsResolver,
     PublicMediaResolver,
     ContactMeResolver,
