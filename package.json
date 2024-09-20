@@ -1,11 +1,19 @@
 {
-  "name": "wgo-core-server",
+  "name": "@wisegar-org/wgo-base-server",
   "version": "0.0.1-dev.2",
   "description": "",
   "main": "build/index.js",
   "files": [
     "build"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisegar-org/wgo-base-server.git"
+  },
   "scripts": {
     "start": "nodemon",
     "build": "npx rimraf ./build && tsc",
@@ -14,10 +22,6 @@
   },
   "author": "Wisegar Development Group <info@wisegar.org>",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wisegar-org/wgo-opengar.git"
-  },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
     "@types/fs-extra": "9.0.13",
