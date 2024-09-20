@@ -8,8 +8,8 @@ export const GetStaticFilesPublic = () => {
 };
 
 export const GetWebRootKey = () => {
-  if (process.env.WEB_ROOT) return process.env.WEB_ROOT;
-  throw "Impossible to get value from WEB_ROOT environment key";
+  if (process.env.APP_WEB_ROOT) return process.env.APP_WEB_ROOT;
+  throw "Impossible to get value from APP_WEB_ROOT environment key";
 };
 
 export const UseStaticMediaFilesMiddleware = (app: Express) => {

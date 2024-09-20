@@ -4,14 +4,12 @@ import path from "path";
 import { GetWebRootKey } from "./HostAdminMiddleware";
 
 export const GetHandlebarStaticsKey = () => {
-  if (process.env.WEB_ROOT) return path.join(process.env.WEB_ROOT, "public");
-
-  throw "Impossible to get value from WEB_ROOT environment key";
+  const app_web_root = GetWebRootKey();
+  return path.join(app_web_root, "public");
 };
 export const GetHandlebarRootKey = () => {
-  if (process.env.WEB_ROOT) return path.join(process.env.WEB_ROOT, "views");
-
-  throw "Impossible to get value from WEB_ROOT environment key";
+  const app_web_root = GetWebRootKey();
+  return path.join(app_web_root, "views");
 };
 
 export const UseTemplatingMiddleware = (app: Express) => {
