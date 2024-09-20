@@ -13,7 +13,7 @@ import { TemplateResolver } from "../../template";
 import { TranslationsResolver } from "../../translation";
 import { HistoricResolver } from "../../historic";
 import { MediaResolver, StorageResolver } from "../../storage";
-import { EmailResolver } from "../../email";
+import { WGEmailResolver } from "../../email";
 
 export const getResolvers = () => {
   return [
@@ -29,7 +29,7 @@ export const getResolvers = () => {
     TranslationsResolver,
     HistoricResolver,
     MediaResolver,
-    EmailResolver,
+    WGEmailResolver,
     StorageResolver,
     IndexContentResolver,
     FinanceIssuesResolver,

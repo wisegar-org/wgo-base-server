@@ -16,7 +16,7 @@ import {
 import { WGEmailResponse } from "./WGEmailResponses";
 
 @Resolver()
-export class EmailResolver {
+export class WGEmailResolver {
   @Query(() => WGEmailResponse, { name: EMAIL_PATH_SEND_EMAIL })
   async sendEmail(
     @Arg("data") data: WGEmailInput,
