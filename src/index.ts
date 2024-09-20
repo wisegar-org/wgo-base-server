@@ -120,7 +120,7 @@ export async function run(app: any) {
   await roleSuperAdminSeeder(dataSource); //create superadmin rol
   await userAdminSeeder(dataSource); //create admin user with superadmin rol
   await languageDefaultSeeder(dataSource); //create default language
-  mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
+  await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
 
   //App seeders
   await agvTemplateSeeder(dataSource);
