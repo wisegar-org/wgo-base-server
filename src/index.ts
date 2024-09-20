@@ -11,8 +11,6 @@ import { errorHandler } from "./wgo/handlers/ErrorHandler";
 import { getControllers } from "./wgo/controllers";
 
 import { createDatabase } from "typeorm-extension";
-import { agvAdminUserSeeder } from "./agv/database/seeders/AdminUserSeeder";
-import { agvTemplateSeeder } from "./agv/database/seeders/TemplateSeeder";
 import { roleSuperAdminSeeder, userAdminSeeder } from "./authentication";
 import { languageDefaultSeeder } from "./language";
 import { mediaPublicSeeder } from "./storage";
@@ -34,7 +32,6 @@ export { Express } from "express";
 export * from "type-graphql";
 export * from "graphql-upload";
 
-export * from "./agv";
 export * from "./authentication";
 export * from "./contact";
 export * from "./core";
@@ -125,10 +122,6 @@ export async function run(app: any) {
   await userAdminSeeder(dataSource); //create admin user with superadmin rol
   await languageDefaultSeeder(dataSource); //create default language
   await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
-
-  //App seeders
-  await agvTemplateSeeder(dataSource);
-  await agvAdminUserSeeder(dataSource);
 
   // Loop function
   setTimeout(async () => {

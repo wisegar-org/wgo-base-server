@@ -6,12 +6,6 @@ import {
   GetDBPortKey,
   GetDBUserNameKey,
 } from "wgo-settings";
-import AGVEventEntity from "../agv/database/entities/AGVEventEntity";
-import { AGVInscriptionEntity } from "../agv/database/entities/AGVInscriptionEntity";
-import { AGVNewsletterInscriptionEntity } from "../agv/database/entities/AGVNewsletterInscriptionEntity";
-import { AGVNewsletterMessageEntity } from "../agv/database/entities/AGVNewsletterMessageEntity";
-import AGVPollEntity from "../agv/database/entities/AGVPollEntity";
-import { getAgvMigrations } from "../agv/database/migrations";
 import {
   RoleEntity,
   UserEntity,
@@ -38,11 +32,6 @@ const entities = [
   TemplateEntity,
   MediaEntity,
   StorageEntity,
-  AGVEventEntity,
-  AGVInscriptionEntity,
-  AGVPollEntity,
-  AGVNewsletterInscriptionEntity,
-  AGVNewsletterMessageEntity,
 ];
 
 /** Migrations */
@@ -53,8 +42,7 @@ const migrations = getAuthenticationMigrations()
   .concat(getSettingsMigrations())
   .concat(getStorageMigrations())
   .concat(getTemplateMigrations())
-  .concat(getTranslationMigrations())
-  .concat(getAgvMigrations());
+  .concat(getTranslationMigrations());
 
 export const dataSourceOptions: DataSourceOptions = {
   type: "postgres",
