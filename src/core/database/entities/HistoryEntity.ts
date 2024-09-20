@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { Column, Entity } from "typeorm";
 import { OGBaseEntity } from "./OGBaseEntity";
-import { Actions } from "wgo-core-models";
+import { Actions } from "@wisegar-org/wgo-base-models";
 
 @Entity({ name: "journal_history" })
 export class HistoryEntity extends OGBaseEntity {

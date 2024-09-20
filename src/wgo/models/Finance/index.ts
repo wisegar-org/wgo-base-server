@@ -1,4 +1,4 @@
-import { IHandlerSettings } from "wgo-core-models";
+import { IHandlerSettings } from "@wisegar-org/wgo-base-models";
 
 export interface IFinanceCollaboratorModel {
   id: number;

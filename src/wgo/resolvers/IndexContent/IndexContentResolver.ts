@@ -1,7 +1,7 @@
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { IIndexContentInput } from "../../models/IndexContent";
 import { IndexContentService } from "../../services/IndexContentService";
-import { IContextBase } from "wgo-core-models";
+import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { IndexContentInputs } from "./IndexContentInputs";
 import { IndexContentResponse } from "./IndexContentResponses";
 

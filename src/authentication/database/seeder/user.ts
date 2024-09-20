@@ -3,7 +3,7 @@ import { DataSource } from "typeorm";
 import { RoleEntity } from "../../../core/database/entities/RoleEntity";
 import { UserEntity } from "../../../core/database/entities/UserEntity";
 import * as bcrypt from "bcrypt";
-import { SUPERADMIN } from "wgo-core-models";
+import { SUPERADMIN } from "@wisegar-org/wgo-base-models";
 
 export const userAdminSeeder = async (dataSource: DataSource) => {
   const adminUserEmail = "admin@wisegar.org";

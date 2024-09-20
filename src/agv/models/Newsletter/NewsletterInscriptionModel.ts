@@ -5,7 +5,7 @@ import {
 } from "wgo-settings";
 import { Repository, ILike, Not, In } from "typeorm";
 import { AGVNewsletterInscriptionEntity } from "../../database/entities/AGVNewsletterInscriptionEntity";
-import { IContextBase } from "wgo-core-models";
+import { IContextBase } from "@wisegar-org/wgo-base-models";
 
 import { AGVNewsletterInscriptionStatusEnum } from "../enums";
 import { AGVInscriptionModel } from "../Inscription/InscriptionModel";

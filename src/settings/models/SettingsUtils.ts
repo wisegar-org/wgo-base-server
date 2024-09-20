@@ -5,7 +5,7 @@ import {
   POP3_EVENT_LOOP_KEYS,
   IHandlerSettings,
   ISettingValueBoolean,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 
 export const getPop3Settings = (config: any) => {
   const settings: { [key: string]: any } = {};

@@ -9,7 +9,7 @@ import {
   LANGUAGE_PATH_POST_LANGUAGE,
   LANGUAGE_PATH_PUT_LANGUAGE,
   IContextBase,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 
 @Resolver()
 export class LanguageResolver {

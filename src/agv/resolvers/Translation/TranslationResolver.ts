@@ -4,7 +4,7 @@ import { TranslationResolver } from "../../../translation";
 import {
   IContextBase,
   TRANSLATION_PATH_IMPORT_TRANSLATION,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 
 @InputType()
 export class ImportTranslationsInput {

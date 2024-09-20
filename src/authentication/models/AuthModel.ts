@@ -29,7 +29,7 @@ import {
   WRONG_USER_DONT_EXIST,
   WRONG_USER_NAME,
   WRONG_USER_PASSWORD,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { UserEntity } from "../../core/database/entities/UserEntity";
 import { EmailModel } from "../../email";

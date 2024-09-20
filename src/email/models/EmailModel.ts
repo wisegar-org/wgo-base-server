@@ -6,7 +6,11 @@ import {
   GetEmailSenderNameKey,
 } from "wgo-settings";
 import { DataSource } from "typeorm";
-import { IContextBase, SmtpSettings, SETTINGS_SMTP } from "wgo-core-models";
+import {
+  IContextBase,
+  SmtpSettings,
+  SETTINGS_SMTP,
+} from "@wisegar-org/wgo-base-models";
 import { SettingsModel } from "../../settings/models/SettingsModel";
 import { HandlebarsTemplateModel } from "../../template/models/HandlenarsTemplateModel";
 import { TemplateModel } from "../../template/models/TemplateModel";

@@ -8,7 +8,11 @@ import {
 } from "wgo-settings";
 import { PostgresDataSource } from "../dataSources";
 import { EventEmitter } from "events";
-import { IContextBase, translations, SUPERADMIN } from "wgo-core-models";
+import {
+  IContextBase,
+  translations,
+  SUPERADMIN,
+} from "@wisegar-org/wgo-base-models";
 import { GetWebRootKey } from "../middlewares/HostAdminMiddleware";
 import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";

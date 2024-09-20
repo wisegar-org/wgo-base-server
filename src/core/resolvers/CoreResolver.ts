@@ -3,7 +3,7 @@ import {
   AUTH_PATH_GET_LOCAL_STORAGE,
   AUTH_PATH_SET_KEY_LOCAL_STORAGE,
   IContextBase,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { CoreService } from "../services/CoreService";
 import { LocalStorageResponse } from "./CoreResponses";

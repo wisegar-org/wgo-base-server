@@ -10,7 +10,7 @@ import {
   getSmtpSettings,
   settingsAdminSeeder,
 } from "../../../settings";
-import { SETTINGS_POP3, SETTINGS_SMTP } from "wgo-core-models";
+import { SETTINGS_POP3, SETTINGS_SMTP } from "@wisegar-org/wgo-base-models";
 
 export const settingsSeeder = async (dataSource: DataSource) => {
   //Save keys to database settings

@@ -3,7 +3,7 @@ import {
   TEMPLATE_PATH_GET_BY_TYPE,
   TEMPLATE_PATH_POST,
   IContextBase,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import { TemplateModel } from "../models/TemplateModel";
 import { TemplateInput } from "./TemplateInputs";
 import { TemplateResponse } from "./TemplateResponses";

@@ -5,7 +5,7 @@ import {
   EMAIL_PATH_SEND_EMAIL_FROM_TO_APP,
   EMAIL_PATH_SEND_EMAIL_TO_APP,
   IContextBase,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import { EmailModel } from "../models/EmailModel";
 import {
   EmailFromToAppInput,

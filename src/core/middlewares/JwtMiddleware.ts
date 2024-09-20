@@ -7,7 +7,7 @@ import {
   jwtValidator,
   validateAccessToken,
 } from "../services/JwtAuthService";
-import { AuthError } from "wgo-core-models";
+import { AuthError } from "@wisegar-org/wgo-base-models";
 
 const isGraphql = (req: express.Request) => {
   return req.originalUrl.toLocaleLowerCase().includes("graphql");

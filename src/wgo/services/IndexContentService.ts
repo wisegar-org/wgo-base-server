@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { IIndexContentInput } from "../models/IndexContent";
 import IndexContentEntity from "../database/entities/IndexContentEntity";
-import { IContextBase } from "wgo-core-models";
+import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { MediaModel } from "../../storage";
 import { TranslationModel } from "../../translation";
 

@@ -7,7 +7,7 @@ import {
   IAuthModelArg,
   IIdInput,
   IUser,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import { UserUtils } from "./UserUtils";
 import { UserEntity } from "../../core/database/entities/UserEntity";
 import { RoleEntity } from "../../core/database/entities/RoleEntity";

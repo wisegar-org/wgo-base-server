@@ -30,7 +30,7 @@ import {
   IContextBase,
   SETTINGS_SMTP,
   SmtpSettings,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import {
   GetExpiresInKey,
   GetHostBaseKey,

@@ -5,7 +5,7 @@ import {
   IContextBase,
   ISettingValueBoolean,
   ISettingValuePassword,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 
 export const settingsAdminSeeder = async (
   ctx: IContextBase,

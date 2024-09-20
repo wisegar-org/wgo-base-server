@@ -10,7 +10,7 @@ import {
   ILanguageModel,
   IContextBase,
   IIdInput,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 
 export class LanguageModel {
   private dataSoure: DataSource;

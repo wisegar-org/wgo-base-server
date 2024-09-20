@@ -10,7 +10,7 @@ import {
   StringDictionary,
   StorageKeys,
   StorageItem,
-} from "wgo-core-models";
+} from "@wisegar-org/wgo-base-models";
 import { TranslationModel } from "../../translation/models/TranslationModel";
 
 export class StorageModel {

@@ -1,6 +1,6 @@
 import { normalize, join } from "path";
 import { readJsonSync, existsSync, writeJsonSync } from "fs-extra";
-import { IContextBase } from "wgo-core-models";
+import { IContextBase } from "@wisegar-org/wgo-base-models";
 
 export class CoreService {
   webRoot: string;

@@ -2,7 +2,7 @@ import { GetEmailSenderKey, GetEmailSenderNameKey } from "wgo-settings";
 import { ILike, Repository } from "typeorm";
 import { AGVNewsletterInscriptionEntity } from "../../database/entities/AGVNewsletterInscriptionEntity";
 import { AGVNewsletterMessageEntity } from "../../database/entities/AGVNewsletterMessageEntity";
-import { IContextBase } from "wgo-core-models";
+import { IContextBase } from "@wisegar-org/wgo-base-models";
 import {
   AGVNewsletterInscriptionStatusEnum,
   AGVNewsletterMessageStatusEnum,

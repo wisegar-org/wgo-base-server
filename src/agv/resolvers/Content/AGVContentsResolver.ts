@@ -1,6 +1,6 @@
 import { Arg, Mutation, Query, Resolver, Authorized, Ctx } from "type-graphql";
 import { AGVContentModel } from "../../models/Content/ContentModel";
-import { SUPERADMIN, IContextBase } from "wgo-core-models";
+import { SUPERADMIN, IContextBase } from "@wisegar-org/wgo-base-models";
 import { AGVContentsInput } from "./AGVContentsInputs";
 import { AGVContentsResponse } from "./AGVContentsResponses";
 import { HistoricModel, HistoricResponse } from "../../../historic";

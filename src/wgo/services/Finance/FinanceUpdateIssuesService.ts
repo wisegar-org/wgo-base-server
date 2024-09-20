@@ -14,7 +14,7 @@ import {
   FinanceOrganizationSettings,
   WRONG_TOKEN,
 } from "../../models/Finance";
-import { IContextBase } from "wgo-core-models";
+import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { FinanceCollaboratorService } from "./FinanceCollaboratorService";
 import { FinanceIssuesService } from "./FinanceIssuesService";
 import { FinanceLabelService } from "./FinanceLabelService";
