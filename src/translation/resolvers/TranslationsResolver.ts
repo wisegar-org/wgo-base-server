@@ -7,6 +7,7 @@ import {
   ExportTranslationInput,
   GetAllTranslationInput as GetAllTranslationsInput,
   GetTranslationByKeysInput,
+  ImportTranslationsInput,
   SetTranslationInput,
 } from "./TranslationsInputs";
 import { GraphQLUpload } from "graphql-upload";
@@ -17,6 +18,7 @@ import {
   TRANSLATION_PATH_GET_ALL_TRANSLATION,
   TRANSLATION_PATH_SET_TRANSLATION,
   IContextBase,
+  TRANSLATION_PATH_IMPORT_TRANSLATION,
 } from "@wisegar-org/wgo-base-models";
 
 @Resolver()
@@ -94,6 +96,15 @@ export class TranslationsResolver {
     const result = await translationModel.exportTranslations(
       data.languagesId || []
     );
+    return result;
+  }
+
+  @Mutation(() => Boolean, { name: TRANSLATION_PATH_IMPORT_TRANSLATION })
+  async importTranslations(
+    @Arg("data") data: ImportTranslationsInput,
+    @Ctx() ctx: IContextBase
+  ) {
+    const result = await this.importTranslationsPrivate(data, ctx);
     return result;
   }
 

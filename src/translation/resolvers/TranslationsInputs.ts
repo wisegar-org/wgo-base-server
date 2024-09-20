@@ -1,3 +1,4 @@
+import { GraphQLUpload } from "graphql-upload";
 import { Field, InputType } from "type-graphql";
 
 @InputType()
@@ -35,4 +36,10 @@ export class ExportTranslationInput {
 @InputType()
 export class DeleteTranslationInput {
   @Field() key!: string;
+}
+
+@InputType()
+export class ImportTranslationsInput {
+  @Field(() => GraphQLUpload, { description: "File uploaded", nullable: true })
+  file!: typeof GraphQLUpload;
 }
