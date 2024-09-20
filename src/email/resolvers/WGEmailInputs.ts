@@ -1,35 +1,35 @@
 import { Field, InputType, ObjectType } from "type-graphql";
 
 @InputType()
-export class EmailFromToAppInput {
+export class WGEmailFromToAppInput {
   @Field(() => String) subject!: string;
   @Field(() => String) body!: string;
   @Field(() => String, { nullable: true }) data!: string;
 }
 @InputType()
-export class EmailToAppInput extends EmailFromToAppInput {
+export class WGEmailToAppInput extends WGEmailFromToAppInput {
   @Field(() => String) from!: string;
 }
 @InputType()
-export class EmailInput extends EmailToAppInput {
+export class WGEmailInput extends WGEmailToAppInput {
   @Field(() => String) to!: string;
 }
 
 @InputType()
-export class EmailToAddressAndAppInput extends EmailFromToAppInput {
+export class WGEmailToAddressAndAppInput extends WGEmailFromToAppInput {
   @Field(() => String) to!: string;
 }
 
 @ObjectType()
-export class EmailFromToApp {
+export class WGEmailFromToApp {
   @Field(() => String) subject!: string;
   @Field(() => String) body!: string;
 }
 @ObjectType()
-export class EmailToApp extends EmailFromToApp {
+export class WGEmailToApp extends WGEmailFromToApp {
   @Field(() => String) from!: string;
 }
 @ObjectType()
-export class Email extends EmailToApp {
+export class WGEmail extends WGEmailToApp {
   @Field(() => String) to!: string;
 }

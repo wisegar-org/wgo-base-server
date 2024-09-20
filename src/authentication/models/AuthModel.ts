@@ -32,7 +32,7 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { UserEntity } from "../../core/database/entities/UserEntity";
-import { EmailModel } from "../../email";
+import { WGEmailModel } from "../../email";
 import {
   ExpirationFreqEnum,
   generateAccessToken,
@@ -41,7 +41,7 @@ import {
 
 export class AuthModel {
   private dataSource: DataSource;
-  private emailModel: EmailModel;
+  private emailModel: WGEmailModel;
   private options: IAuthModelArg;
   private userRolesModel: UserRolesModel;
   private historicModel: HistoricModel<UserEntity>;
@@ -57,7 +57,7 @@ export class AuthModel {
       tokenRegisterExpiresIn:
         options.tokenRegisterExpiresIn || TOKEN_REGISTER_EXP,
     };
-    this.emailModel = new EmailModel(options.ctx);
+    this.emailModel = new WGEmailModel(options.ctx);
     this.userRolesModel = new UserRolesModel(options);
     this.historicModel = new HistoricModel(UserEntity, options.ctx);
     this.ctx = options.ctx;

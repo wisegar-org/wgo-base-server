@@ -1,6 +1,6 @@
 import { ObjectType } from "type-graphql";
-import { Email } from "./EmailInputs";
+import { WGEmail } from "./WGEmailInputs";
 import { GenericResponse } from "../../core/resolvers/CoreResponses";
 
 @ObjectType()
-export class EmailResponse extends GenericResponse(Email) {}
+export class WGEmailResponse extends GenericResponse(WGEmail) {}

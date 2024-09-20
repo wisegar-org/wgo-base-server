@@ -6,77 +6,77 @@ import {
   EMAIL_PATH_SEND_EMAIL_TO_APP,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { EmailModel } from "../models/EmailModel";
+import { WGEmailModel } from "../models/WGEmailModel";
 import {
-  EmailFromToAppInput,
-  EmailInput,
-  EmailToAppInput,
-  EmailToAddressAndAppInput,
-} from "./EmailInputs";
-import { EmailResponse } from "./EmailResponses";
+  WGEmailFromToAppInput,
+  WGEmailInput,
+  WGEmailToAppInput,
+  WGEmailToAddressAndAppInput,
+} from "./WGEmailInputs";
+import { WGEmailResponse } from "./WGEmailResponses";
 
 @Resolver()
 export class EmailResolver {
-  @Query(() => EmailResponse, { name: EMAIL_PATH_SEND_EMAIL })
+  @Query(() => WGEmailResponse, { name: EMAIL_PATH_SEND_EMAIL })
   async sendEmail(
-    @Arg("data") data: EmailInput,
+    @Arg("data") data: WGEmailInput,
     @Ctx() ctx: IContextBase
-  ): Promise<EmailResponse> {
+  ): Promise<WGEmailResponse> {
     try {
-      const emailModel = new EmailModel(ctx);
+      const emailModel = new WGEmailModel(ctx);
       return await emailModel.sendEmail(data);
     } catch (error: any) {
-      const emailResponse = new EmailResponse();
+      const emailResponse = new WGEmailResponse();
       emailResponse.error = error.message;
       emailResponse.isSuccess = false;
       return emailResponse;
     }
   }
 
-  @Query(() => EmailResponse, { name: EMAIL_PATH_SEND_EMAIL_TO_APP })
+  @Query(() => WGEmailResponse, { name: EMAIL_PATH_SEND_EMAIL_TO_APP })
   async sendEmailToApp(
-    @Arg("data") data: EmailToAppInput,
+    @Arg("data") data: WGEmailToAppInput,
     @Ctx() ctx: IContextBase
-  ): Promise<EmailResponse> {
+  ): Promise<WGEmailResponse> {
     try {
-      const emailModel = new EmailModel(ctx);
+      const emailModel = new WGEmailModel(ctx);
       return await emailModel.sendEmailToApp(data);
     } catch (error: any) {
-      const emailResponse = new EmailResponse();
+      const emailResponse = new WGEmailResponse();
       emailResponse.error = error.message;
       emailResponse.isSuccess = false;
       return emailResponse;
     }
   }
 
-  @Query(() => EmailResponse, { name: EMAIL_PATH_SEND_EMAIL_FROM_TO_APP })
+  @Query(() => WGEmailResponse, { name: EMAIL_PATH_SEND_EMAIL_FROM_TO_APP })
   async sendEmailFromToApp(
-    @Arg("data") data: EmailFromToAppInput,
+    @Arg("data") data: WGEmailFromToAppInput,
     @Ctx() ctx: IContextBase
-  ): Promise<EmailResponse> {
+  ): Promise<WGEmailResponse> {
     try {
-      const emailModel = new EmailModel(ctx);
+      const emailModel = new WGEmailModel(ctx);
       return await emailModel.sendEmailFromToApp(data);
     } catch (error: any) {
-      const emailResponse = new EmailResponse();
+      const emailResponse = new WGEmailResponse();
       emailResponse.error = error.message;
       emailResponse.isSuccess = false;
       return emailResponse;
     }
   }
 
-  @Query(() => EmailResponse, {
+  @Query(() => WGEmailResponse, {
     name: EMAIL_PATH_SEND_EMAIL_FROM_TO_ADDRESS_AND_APP,
   })
   async sendEmailFromToAddressAndApp(
-    @Arg("data") data: EmailToAddressAndAppInput,
+    @Arg("data") data: WGEmailToAddressAndAppInput,
     @Ctx() ctx: IContextBase
-  ): Promise<EmailResponse> {
+  ): Promise<WGEmailResponse> {
     try {
-      const emailModel = new EmailModel(ctx);
+      const emailModel = new WGEmailModel(ctx);
       return await emailModel.sendEmailFromToAddressAndApp(data);
     } catch (error: any) {
-      const emailResponse = new EmailResponse();
+      const emailResponse = new WGEmailResponse();
       emailResponse.error = error.message;
       emailResponse.isSuccess = false;
       return emailResponse;

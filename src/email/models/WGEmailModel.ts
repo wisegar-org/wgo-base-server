@@ -15,14 +15,14 @@ import { SettingsModel } from "../../settings/models/SettingsModel";
 import { HandlebarsTemplateModel } from "../../template/models/HandlenarsTemplateModel";
 import { TemplateModel } from "../../template/models/TemplateModel";
 import {
-  EmailFromToAppInput,
-  EmailToAddressAndAppInput,
-  EmailToAppInput,
-} from "../resolvers/EmailInputs";
-import { EmailResponse } from "../resolvers/EmailResponses";
+  WGEmailFromToAppInput,
+  WGEmailToAddressAndAppInput,
+  WGEmailToAppInput,
+} from "../resolvers/WGEmailInputs";
+import { WGEmailResponse } from "../resolvers/WGEmailResponses";
 import { getInlineStyle } from "./StyleModel";
 
-export class EmailModel {
+export class WGEmailModel {
   emailServer: EmailServer;
   dataSource: DataSource;
   ctx: IContextBase;
@@ -37,13 +37,13 @@ export class EmailModel {
     this.handlebardModel = new HandlebarsTemplateModel();
   }
 
-  async sendEmail(data: EmailOptions): Promise<EmailResponse> {
+  async sendEmail(data: EmailOptions): Promise<WGEmailResponse> {
     try {
       const configSmtp = await this.getTransportEmailOptions();
       const result = await this.emailServer.sendByConfig(data, configSmtp);
-      return <EmailResponse>result;
+      return <WGEmailResponse>result;
     } catch (error) {
-      return <EmailResponse>{
+      return <WGEmailResponse>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -51,7 +51,7 @@ export class EmailModel {
     }
   }
 
-  async sendEmailFromApp(data: EmailToAddressAndAppInput) {
+  async sendEmailFromApp(data: WGEmailToAddressAndAppInput) {
     try {
       let body = data.body;
       if (data.data) {
@@ -81,9 +81,9 @@ export class EmailModel {
         },
         configSmtp
       );
-      return <EmailResponse>result;
+      return <WGEmailResponse>result;
     } catch (error) {
-      return <EmailResponse>{
+      return <WGEmailResponse>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -91,7 +91,7 @@ export class EmailModel {
     }
   }
 
-  async sendEmailToApp(data: EmailToAppInput): Promise<EmailResponse> {
+  async sendEmailToApp(data: WGEmailToAppInput): Promise<WGEmailResponse> {
     try {
       let body = data.body;
       if (data.data) {
@@ -122,9 +122,9 @@ export class EmailModel {
         },
         configSmtp
       );
-      return <EmailResponse>result;
+      return <WGEmailResponse>result;
     } catch (error) {
-      return <EmailResponse>{
+      return <WGEmailResponse>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -132,7 +132,9 @@ export class EmailModel {
     }
   }
 
-  async sendEmailFromToApp(data: EmailFromToAppInput): Promise<EmailResponse> {
+  async sendEmailFromToApp(
+    data: WGEmailFromToAppInput
+  ): Promise<WGEmailResponse> {
     try {
       let body = data.body;
       if (data.data) {
@@ -163,9 +165,9 @@ export class EmailModel {
         },
         configSmtp
       );
-      return <EmailResponse>result;
+      return <WGEmailResponse>result;
     } catch (error) {
-      return <EmailResponse>{
+      return <WGEmailResponse>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -174,8 +176,8 @@ export class EmailModel {
   }
 
   async sendEmailFromToAddressAndApp(
-    data: EmailToAddressAndAppInput
-  ): Promise<EmailResponse> {
+    data: WGEmailToAddressAndAppInput
+  ): Promise<WGEmailResponse> {
     try {
       let body = data.body;
       if (data.data) {
@@ -206,9 +208,9 @@ export class EmailModel {
         },
         configSmtp
       );
-      return <EmailResponse>result;
+      return <WGEmailResponse>result;
     } catch (error) {
-      return <EmailResponse>{
+      return <WGEmailResponse>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -229,7 +231,7 @@ export class EmailModel {
     });
     const to = toSend.splice(0, 1)[0];
     const bcc = toSend.join(",");
-    const from = EmailModel.getFromAppConfig();
+    const from = WGEmailModel.getFromAppConfig();
     return {
       to,
       bcc,

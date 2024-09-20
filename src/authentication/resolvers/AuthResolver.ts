@@ -44,7 +44,7 @@ import { IdInput } from "../../core/resolvers/CoreInputs";
 import { UserRolesModel } from "../models/UserRolesModel";
 import { HistoricResponse } from "../../historic/resolvers/HistoricResponses";
 import { HistoricModel } from "../../historic/models/HistoricModel";
-import { EmailModel } from "../../email";
+import { WGEmailModel } from "../../email";
 
 @Resolver()
 export class AuthResolver {
@@ -61,7 +61,7 @@ export class AuthResolver {
       tokenExpiresIn: GetExpiresInKey(),
       tokenRegisterExpiresIn: "24h",
       emailOptions: {
-        from: EmailModel.getFromAppConfig(),
+        from: WGEmailModel.getFromAppConfig(),
       } as any,
       transportEmailOptions: {} as any,
       ctx: {} as any,
