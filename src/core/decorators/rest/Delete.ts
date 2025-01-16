@@ -1,8 +1,21 @@
-import { RouteDefinition } from "../../interfaces/IRouteDefinition";
+import {
+  IRouteAuthPermission,
+  RouteDefinition,
+} from "../../interfaces/IRouteDefinition";
 import { FormConstructor, ResponseConstructor } from "./Export";
 
+/**
+ * Use to set this method as a delete rest call. Authorize is true by default
+ * @param path
+ * @param authorization
+ * @param formParams
+ * @param formBody
+ * @param response
+ * @returns
+ */
 export const Delete = (
   path: string,
+  authorization?: IRouteAuthPermission,
   formParams?: FormConstructor,
   formBody?: FormConstructor,
   response?: ResponseConstructor
@@ -26,6 +39,7 @@ export const Delete = (
       formParams: formParams ? new formParams() : null,
       formBody: formBody ? new formBody() : null,
       response: response ? new response() : null,
+      authorization: authorization ? authorization : { authorize: true },
     });
     Reflect.defineMetadata("routes", routes, target.constructor);
   };

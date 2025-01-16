@@ -6,7 +6,15 @@ import { UseCorsMiddleware } from "../middlewares/CorsMiddleware";
 import { UseGqlServer } from "../middlewares/GqlServerMiddleware";
 import { ExpirationFreqEnum } from "../services/JwtAuthService";
 import { UseRestMiddleware } from "../middlewares/RestMiddleware";
-import { IsNullOrUndefined } from "wgo-extensions";
+import {
+  IsNullOrUndefined,
+  IsStringEmptyNullOrUndefined,
+} from "wgo-extensions";
+import { join } from "path";
+import { UseFileUploadMiddleware } from "../middlewares/FileUploadMiddleware";
+import { PublicDirectoryMiddleware } from "../middlewares/PublicDirectoryMiddleware";
+import { ITranslationModel } from "@wisegar-org/wgo-base-models";
+import { GetOpenCRMPathRoot } from "../services/EnvService";
 
 export type BootFunc = (options: IServerOptions) => void;
 
@@ -19,16 +27,42 @@ export const boot = async (options: IServerOptions, onStart?: BootFunc) => {
     ? options.expirationFreq
     : ExpirationFreqEnum.Normal;
 
+  process.env.OPENCRM_PATH_ROOT = join(__dirname, "../../..");
+
+  const rootPath = GetOpenCRMPathRoot();
+  console.debug("wgo-opencrm root path: ", rootPath);
+  
   console.debug("Registering Cors middleware");
   UseCorsMiddleware(options);
 
   console.debug("Registering Jwt middleware");
   UseJwtMiddleware(options);
 
+  console.debug("Registering FileUpload middleware");
+  UseFileUploadMiddleware(options);
+
+  console.debug("Registering Public Directory Middleware");
+  PublicDirectoryMiddleware(options);
+
+  options.app.locals.getTranslation = (
+    key: string,
+    translations: ITranslationModel[]
+  ) => {
+    if (IsStringEmptyNullOrUndefined(key)) return "Undefined translation";
+    if (!translations || translations.length === 0)
+      return "Undefined translations";
+    const translationModel = translations.find((t) => t.key === key);
+    return translationModel?.value ? translationModel.value : "";
+  };
+
+  console.debug("Registering backoffice spa application");
+  options.app.use("/backoffice", express.static(join(rootPath, "backoffice")));
+
   if (options.controllers && options.controllers.length > 0) {
     console.debug("Registering Rest middleware");
     UseRestMiddleware(options);
   }
+
 
   if (options.resolvers && options.resolvers.length > 0) {
     console.debug("Registering Graphql middleware");

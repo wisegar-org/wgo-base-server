@@ -1,9 +1,21 @@
 import "reflect-metadata";
-import { RouteDefinition } from "../../interfaces/IRouteDefinition";
+import {
+  IRouteAuthPermission,
+  RouteDefinition,
+} from "../../interfaces/IRouteDefinition";
 import { FormConstructor, ResponseConstructor } from "./Export";
-
+/**
+ * Use to set this method as a put rest call. Authorize is true by default
+ * @param path
+ * @param authorization
+ * @param formParams
+ * @param formBody
+ * @param response
+ * @returns
+ */
 export const Put = (
   path: string,
+  authorization?: IRouteAuthPermission,
   formParams?: FormConstructor,
   formBody?: FormConstructor,
   response?: ResponseConstructor
@@ -29,6 +41,7 @@ export const Put = (
       formParams: formParams ? new formParams() : null,
       formBody: formBody ? new formBody() : null,
       response: response ? new response() : null,
+      authorization: authorization ? authorization : { authorize: true },
     });
     Reflect.defineMetadata("routes", routes, target.constructor);
   };

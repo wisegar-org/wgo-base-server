@@ -16,9 +16,21 @@
   },
   "scripts": {
     "start": "nodemon",
-    "build": "npx rimraf ./build && tsc",
+    "build": "npx rimraf ./build && npx tsc && cd src-client && npm run build",
     "promote": "npm version prerelease && npm run build && npm publish",
-    "upgrade": "rimraf node_modules/wgo-core-models && npm install wgo-core-models@latest -E -D"
+    "upgrade": "rimraf node_modules/wgo-core-models && npm install wgo-core-models@latest -E -D",
+    "dev": "concurrently -n dev:server,dev:backoffice -c green,yellow \"npm run dev:server\" \"npm run dev:backoffice\"  ",
+    "dev:server": "nodemon",
+    "dev:backoffice": "cd src-client && npm run dev",
+    "build:server:win": "npm run build && build.cmd",
+    "build:server:mac": "npm run build && sh build.sh",
+    "build:server": "npm install --force && npx rimraf build && tsc && npx cpx ./package.json ./build --verbose && npx cpx ./package-lock.json ./build --verbose && npx cpx ./.npmrc ./build --verbose && npx cpx ./.env.base ./build --verbose && npx cpx './modules/identity/views/**/*' ./build --verbose",
+    "build:backoffice": "cd backoffice && npm run build",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "migration:run": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:run",
+    "migration:generate": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:generate",
+    "migration:revert": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:revert",
+    "migration:create": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:create"
   },
   "author": "Wisegar Development Group <info@wisegar.org>",
   "license": "ISC",
@@ -78,5 +90,18 @@
     "wgo-extensions": "^0.0.1",
     "wgo-mailer": "^0.0.4",
     "wgo-settings": "^0.0.1"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "exec": "tsc && ts-node ./src/index.ts"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false
   }
 }
