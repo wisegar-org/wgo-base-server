@@ -26,6 +26,7 @@
     "build:server:mac": "npm run build && sh build.sh",
     "build:server": "npm install --force && npx rimraf build && tsc && npx cpx ./package.json ./build --verbose && npx cpx ./package-lock.json ./build --verbose && npx cpx ./.npmrc ./build --verbose && npx cpx ./.env.base ./build --verbose && npx cpx './modules/identity/views/**/*' ./build --verbose",
     "build:backoffice": "cd backoffice && npm run build",
+    "dev:run": "ts-node ./src/run.ts ",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "migration:run": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:run",
     "migration:generate": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:generate",
