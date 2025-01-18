@@ -56,7 +56,7 @@ export const boot = async (options: IServerOptions, onStart?: BootFunc) => {
   };
 
   console.debug("Registering backoffice spa application");
-  options.app.use("/backoffice", express.static(join(rootPath, "backoffice")));
+  options.app.use("/backoffice", express.static(join(rootPath, "build", "backoffice")));
 
   if (options.controllers && options.controllers.length > 0) {
     console.debug("Registering Rest middleware");
