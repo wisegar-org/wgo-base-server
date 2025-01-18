@@ -1,4 +1,7 @@
-import { IsNullOrUndefined } from "wgo-extensions";
+import {
+  IsNullOrUndefined,
+  IsStringEmptyNullOrUndefined,
+} from "wgo-extensions";
 import { DataSource } from "typeorm";
 import {
   IGetSettingsParam,
@@ -119,7 +122,7 @@ export class SettingsModel {
   public getSettingsValueParse(data: ISetSettingsParam) {
     if (typeof data.value === "string") {
       const value = this.getSettingPasswordValue(data.value);
-      if (data.key.toLowerCase().indexOf("password") !== -1) {
+      if (data?.key?.toLowerCase().indexOf("password") !== -1) {
         return <ISettingValuePassword>{
           type: "password",
           value: this.getSettingPassword(data.key, value),
@@ -203,6 +206,8 @@ export class SettingsModel {
   }
 
   getSettingPassword(key: string, value: string) {
+    if (IsStringEmptyNullOrUndefined(key)) return "";
+    if (IsStringEmptyNullOrUndefined(value)) return "";
     return cypherData(value, this.ctx.cypherKey);
   }
 
