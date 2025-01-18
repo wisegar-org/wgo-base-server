@@ -1,6 +1,9 @@
 import currency from "currency.js";
 
 export const UtilService = {
+  getRequestData<TData>(req: Request): TData {
+    return (req as any).body as TData;
+  },
   roundNumber(value: number, decimal?: number) {
     if (!value) return value;
     const roundValue = currency(value, {

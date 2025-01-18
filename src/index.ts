@@ -42,6 +42,11 @@ export * from "./settings";
 export * from "./storage";
 export * from "./template";
 export * from "./translation";
+
+//Core modules
+export * from "./core/services/CypherService";
+export * from "./core/services/UtilService";
+
 // export * from "./wgo";
 
 // export async function run(app: any) {
