@@ -19,12 +19,24 @@ export const settingsAdminSeeder = async (
     const settingsEntity = new SettingsEntity();
     settingsEntity.type_settings = type;
     settingsEntity.settings = {};
-    Object.keys(settings).map((key) => {
-      settingsEntity.settings[key] = settingsModel.getSettingsValueParse({
-        key,
-        value: settings[key],
-      });
-    });
+    for (let index = 0; index < Object.keys(settings).length; index++) {
+      const key = Object.keys(settings)[index];
+      let keyValue = undefined;
+      try {
+        keyValue = settingsModel.getSettingsValueParse({
+          key,
+          value: settings[key],
+        });
+      } catch (error) {
+        console.error(`Error on settingsAdminSeeder: ${error}`);
+      }
+    }
+    // Object.keys(settings).map((key) => {
+    //   settingsEntity.settings[key] = settingsModel.getSettingsValueParse({
+    //     key,
+    //     value: settings[key],
+    //   });
+    // });
     const settingsEntityResult = await settingsModel.saveSettingsEntity(
       settingsEntity
     );
