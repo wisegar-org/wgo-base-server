@@ -19,6 +19,10 @@ import { AGVNewslettersPathRouter } from "./paths/adminAgv/newslettersPaths";
 
 const routes: RouteRecordRaw[] = [
   // mainLayoutContainerRoute,
+  {
+    path: "/",
+    redirect: "/admin",
+  },
   emptyLayoutContainerRoute,
   AuthPathRouter,
   {
