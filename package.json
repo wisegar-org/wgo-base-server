@@ -97,7 +97,7 @@
       "src"
     ],
     "ext": "ts",
-    "exec": "tsc && ts-node ./src/index.ts"
+    "exec": "tsc && ts-node ./src/run.ts"
   },
   "prettier": {
     "trailingComma": "es5",

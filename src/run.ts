@@ -17,72 +17,37 @@ import { mediaPublicSeeder } from "./storage";
 import { dataSourceOptions, PostgresDataSource } from "./wgo/dataSources";
 import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
-import express from "express";
-import { UseStaticMediaFilesMiddleware } from "./wgo/middlewares/StaticMediaFilesMiddleware";
-import {
-  ExpirationFreqEnum,
-  IServerOptions,
-  UseCorsMiddleware,
-  UseGqlServer,
-  UseJwtMiddleware,
-  UseRestMiddleware,
-} from "./core";
+import { boot, ExpirationFreqEnum, IServerOptions } from "./core";
 
-async function run(app?: any) {
-  const port = GetPortKey();
+const port = GetPortKey();
 
-  const options: IServerOptions = {
-    app: app,
-    authenticator: AuthenticationHandler,
-    context: AppContextHandler,
-    formatError: errorHandler,
-    controllers: getControllers(),
-    port: parseInt(port),
-    maxFileSize: 5000000000,
-    maxFiles: 10,
-    useCors: true,
-    middlewares: (app: any) => {
-      // UseHostAdminMiddleware(app);
-      // UseTemplatingMiddleware(app);
-      // UseStaticMediaFilesMiddleware(app);
-      // UseRestMiddleware(options);
-    },
-    resolvers: getResolvers(),
-    privateKey: GetPrivateKey(),
-    publicKey: GetPublicKey(),
-    expiresIn: GetExpiresInKey(),
-    expirationFreq: ExpirationFreqEnum.Low,
-    gqlValidateSettings: {
-      forbidUnknownValues: false,
-    },
-  };
+const serverOptions: IServerOptions = {
+  authenticator: AuthenticationHandler,
+  context: AppContextHandler,
+  formatError: errorHandler,
+  controllers: getControllers(),
+  port: parseInt(port),
+  maxFileSize: 5000000000,
+  maxFiles: 10,
+  useCors: true,
+  middlewares: (app: any) => {
+    // UseHostAdminMiddleware(app);
+    // UseTemplatingMiddleware(app);
+    // UseStaticMediaFilesMiddleware(app);
+    // UseRestMiddleware(options);
+  },
+  resolvers: getResolvers(),
+  privateKey: GetPrivateKey(),
+  publicKey: GetPublicKey(),
+  expiresIn: GetExpiresInKey(),
+  expirationFreq: ExpirationFreqEnum.Low,
+  gqlValidateSettings: {
+    forbidUnknownValues: false,
+  },
+};
 
-  options.app.use(express.json());
-
-  options.expirationFreq = options.expirationFreq
-    ? options.expirationFreq
-    : ExpirationFreqEnum.Normal;
-
-  console.debug("Registering Cors middleware");
-  UseCorsMiddleware(options);
-
-  console.debug("Registering Jwt middleware");
-  UseJwtMiddleware(options);
-
-  if (options.controllers && options.controllers.length > 0) {
-    console.debug("Registering Rest middleware");
-    UseRestMiddleware(options);
-  }
-
-  if (options.resolvers && options.resolvers.length > 0) {
-    console.debug("Registering Graphql middleware");
-    UseGqlServer(options);
-  }
-
-  if (options.middlewares) {
-    console.debug("Registering Extras middleware");
-    options.middlewares(options.app);
-  }
+boot(serverOptions, async () => {
+  console.log("Start other services here. ex. database connections");
 
   await createDatabase({
     ifNotExist: true,
@@ -108,10 +73,5 @@ async function run(app?: any) {
   await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
 
   // Loop function
-  setTimeout(async () => {
-    // loopUpdateIssues();
-  }, 0);
-}
-
-const app = express();
-run(app);
+  setTimeout(async () => {}, 0);
+});
