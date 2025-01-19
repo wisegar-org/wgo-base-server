@@ -7,6 +7,10 @@ export const AuthAdminPathRouter: RouteRecordRaw = {
   component: () => import("layouts/MainLayout.vue"),
   children: [
     {
+      path: "/",
+      component: () => import("pages/Admin/AuthUser/AuthUserPage.vue"),
+    },
+    {
       path: AuthPaths.authUsers.path,
       component: () => import("pages/Admin/AuthUser/AuthUserPage.vue"),
       meta: {

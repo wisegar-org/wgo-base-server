@@ -6,20 +6,19 @@ import { HistoricPathRouter } from "./paths/admin/historicPaths";
 import { LanguagePathRouter } from "./paths/admin/languagePaths";
 import { SettingsPathRouter } from "./paths/admin/settingsPaths";
 import { TranslationPathRouter } from "./paths/admin/translationPaths";
-import { AGVContentPathRouter } from "./paths/adminAgv/contentPaths";
 import {
   AGVEventsAdminPaths,
   AGVEventsPathRouter,
 } from "./paths/adminAgv/eventsPaths";
-import { AGVInscriptionsPathRouter } from "./paths/adminAgv/inscriptionsPaths";
-import { AGVNewslettersPathRouter } from "./paths/adminAgv/newslettersPaths";
 import { AGVTemplatePathRouter } from "./paths/adminAgv/templatePaths";
 import { AuthPathRouter } from "./paths/authPaths";
-import { mainLayoutContainerRoute } from "src/modules/agv/routes/mainLayoutContainerRoute";
 import { emptyLayoutContainerRoute } from "src/modules/agv/routes/emptyLayoutContainerRoute";
+import { AGVContentPathRouter } from "./paths/adminAgv/contentPaths";
+import { AGVInscriptionsPathRouter } from "./paths/adminAgv/inscriptionsPaths";
+import { AGVNewslettersPathRouter } from "./paths/adminAgv/newslettersPaths";
 
 const routes: RouteRecordRaw[] = [
-  mainLayoutContainerRoute,
+  // mainLayoutContainerRoute,
   emptyLayoutContainerRoute,
   AuthPathRouter,
   {
