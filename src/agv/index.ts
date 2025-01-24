@@ -9,7 +9,7 @@ import { AuthenticationHandler } from "./handlers/AuthenticationHandler";
 import { AppContextHandler, ctx } from "./handlers/AppContextHandler";
 import { errorHandler } from "./handlers/ErrorHandler";
 import { Express } from "express";
-import { dataSourceOptions, PostgresDataSource } from "./dataSources";
+import { dataSourceOptions, PostgresDataSource } from "../data-source";
 import { createDatabase } from "typeorm-extension";
 import {
   UseAssetsHBHostMiddleware,

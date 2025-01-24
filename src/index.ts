@@ -14,9 +14,11 @@ export * from "./settings";
 export * from "./storage";
 export * from "./template";
 export * from "./translation";
+export * from "./agv";
+// export * from "./wgo";
 
 //Core modules
 export * from "./core/services/CypherService";
 export * from "./core/services/UtilService";
 
-// export * from "./wgo";
+export * from "./data-source";
