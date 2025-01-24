@@ -22,3 +22,6 @@ export * from "./core/services/CypherService";
 export * from "./core/services/UtilService";
 
 export * from "./data-source";
+
+// Externals
+export * from "typeorm-extension";
