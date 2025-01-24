@@ -5,14 +5,14 @@ import {
 } from "wgo-settings";
 import { Repository, ILike, Not, In } from "typeorm";
 import { AGVNewsletterInscriptionEntity } from "../../database/entities/AGVNewsletterInscriptionEntity";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
-import { AGVNewsletterInscriptionStatusEnum } from "../enums";
-import { AGVInscriptionModel } from "../Inscription/InscriptionModel";
 import {
+  AGVNewsletterInscriptionStatusEnum,
+  IContextBase,
   INewsletterInscriptionInput,
   INewsletterInscriptionModel,
   INewsletterInscriptionPageInput,
-} from "../newsletterModels";
+} from "@wisegar-org/wgo-base-models";
+import { AGVInscriptionModel } from "../Inscription/InscriptionModel";
 import { getInlineStyle, EmailModel } from "../../../email";
 import { HistoricModel } from "../../../historic";
 import { HandlebarsTemplateModel, TemplateModel } from "../../../template";

@@ -18,7 +18,7 @@
     "start": "nodemon",
     "build": "npx rimraf ./build && npx tsc && cd src-client && npm run build",
     "promote": "npm version prerelease && npm run build && npm publish",
-    "upgrade": "rimraf node_modules/wgo-core-models && npm install wgo-core-models@latest -E -D",
+    "update-models": "npx rimraf node_modules/@wisegar-org/wgo-base-models && npm install @wisegar-org/wgo-base-models@latest -E",
     "dev": "concurrently -n dev:server,dev:backoffice -c green,yellow \"npm run dev:server\" \"npm run dev:backoffice\"  ",
     "dev:server": "nodemon",
     "dev:backoffice": "cd src-client && npm run dev",
@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@apollo/server": "^4.4.0",
-    "@wisegar-org/wgo-base-models": "^0.0.3",
+    "@wisegar-org/wgo-base-models": "0.0.4-0",
     "@wisegar-org/wgo-github": "^0.0.1-build.17",
     "@wisegar-org/wgo-templating": "^0.0.1-build.3",
     "bcrypt": "5.1.0",

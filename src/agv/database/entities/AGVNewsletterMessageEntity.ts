@@ -1,6 +1,6 @@
 import { PrimaryGeneratedColumn, Entity, Column } from "typeorm";
-import { AGVNewsletterMessageStatusEnum } from "../../models/enums";
 import { WGBaseEntity } from "../../../core";
+import { AGVNewsletterMessageStatusEnum } from "@wisegar-org/wgo-base-models";
 
 @Entity()
 export class AGVNewsletterMessageEntity extends WGBaseEntity {

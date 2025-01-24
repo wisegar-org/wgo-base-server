@@ -2,16 +2,14 @@ import { GetEmailSenderKey, GetEmailSenderNameKey } from "wgo-settings";
 import { ILike, Repository } from "typeorm";
 import { AGVNewsletterInscriptionEntity } from "../../database/entities/AGVNewsletterInscriptionEntity";
 import { AGVNewsletterMessageEntity } from "../../database/entities/AGVNewsletterMessageEntity";
-import { IContextBase } from "@wisegar-org/wgo-base-models";
 import {
   AGVNewsletterInscriptionStatusEnum,
   AGVNewsletterMessageStatusEnum,
-} from "../enums";
-import {
+  IContextBase,
   INewsletterMessageInput,
   INewsletterMessageModel,
   INewsletterMessagePageInput,
-} from "../newsletterModels";
+} from "@wisegar-org/wgo-base-models";
 import { AGVNewsletterInscriptionModel } from "./NewsletterInscriptionModel";
 import { HandlebarsTemplateService } from "@wisegar-org/wgo-templating";
 import { HistoricModel } from "../../../historic";

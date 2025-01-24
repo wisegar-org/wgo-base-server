@@ -32,7 +32,3 @@ export * from "./models/Event/EventModel";
 export * from "./models/Inscription/InscriptionModel";
 export * from "./models/Newsletter/NewsletterInscriptionModel";
 export * from "./models/Newsletter/NewsletterMessageModel";
-export * from "./models/constants";
-export * from "./models/enums";
-export * from "./models/newsletterModels";
-export * from "./models/context";
