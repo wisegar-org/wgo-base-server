@@ -6,7 +6,7 @@ import {
   GetPrivateKey,
   GetPublicKey,
 } from "wgo-settings";
-import { PostgresDataSource } from "../../data-source";
+import { PostgresDataSource } from "../../dataSources";
 import { GetWebRootKey } from "../middlewares/HostClientMiddleware";
 import { EventEmitter } from "events";
 

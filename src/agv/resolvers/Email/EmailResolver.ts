@@ -8,12 +8,12 @@ import {
 import { EmailResponse } from "./EmailResponses";
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
 import {
-  WGEmailFromToAppInput,
   WGEmailInput,
   WGEmailModel,
-  WGEmailToAddressAndAppInput,
   WGEmailToAppInput,
-} from "../../../../email";
+  WGEmailFromToAppInput,
+  WGEmailToAddressAndAppInput,
+} from "../../../email";
 
 @Resolver()
 export class EmailResolver {

@@ -14,11 +14,11 @@ import { TranslationsResolver } from "../../translation";
 import { HistoricResolver } from "../../historic";
 import { MediaResolver, StorageResolver } from "../../storage";
 import { WGEmailResolver } from "../../email";
-import { EmailResolver } from "../../agv/models/email";
 import { AGVEventResolver } from "../../agv/resolvers/Event/AGVEventResolver";
 import { AGVContentsResolver } from "../../agv/resolvers/Content/AGVContentsResolver";
 import { AGVNewsletterResolver } from "../../agv/resolvers/Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "../../agv/resolvers/Inscription/AGVInscriptionResolver";
+import { EmailResolver } from "../../agv/resolvers/Email/EmailResolver";
 
 export const getResolvers = () => {
   return [

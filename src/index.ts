@@ -1,9 +1,5 @@
 import "reflect-metadata";
 
-export { Express } from "express";
-export * from "type-graphql";
-export * from "graphql-upload";
-
 export * from "./authentication";
 export * from "./contact";
 export * from "./core";
@@ -21,7 +17,10 @@ export * from "./agv";
 export * from "./core/services/CypherService";
 export * from "./core/services/UtilService";
 
-export * from "./data-source";
+export * from "./dataSources";
 
 // Externals
 export * from "typeorm-extension";
+export { Express } from "express";
+export * from "type-graphql";
+export * from "graphql-upload";

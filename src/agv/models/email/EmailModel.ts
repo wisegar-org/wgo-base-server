@@ -11,15 +11,15 @@ import {
   SmtpSettings,
   SETTINGS_SMTP,
 } from "@wisegar-org/wgo-base-models";
-import { EmailResponse } from "../resolvers/EmailResponses";
+import { EmailResponse } from "../../resolvers/Email/EmailResponses";
 import { getInlineStyle } from "./StyleModel";
-import { HandlebarsTemplateModel, TemplateModel } from "../../../../template";
+import { HandlebarsTemplateModel, TemplateModel } from "../../../template";
 import {
   WGEmailFromToAppInput,
   WGEmailToAddressAndAppInput,
   WGEmailToAppInput,
-} from "../../../../email";
-import { SettingsModel } from "../../../../settings";
+} from "../../../email";
+import { SettingsModel } from "../../../settings";
 
 export class WGEmailModel {
   emailServer: EmailServer;

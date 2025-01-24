@@ -14,3 +14,4 @@ export * from "./resolvers/Event/AGVEventResolver";
 export * from "./resolvers/Content/AGVContentsResolver";
 export * from "./resolvers/Newsletter/AGVNewsletterResolver";
 export * from "./resolvers/Inscription/AGVInscriptionResolver";
+export * from "./resolvers/Email/EmailResolver";

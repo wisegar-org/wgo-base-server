@@ -3,7 +3,6 @@ import { AGVEventResolver } from "./Event/AGVEventResolver";
 import { AGVContentsResolver } from "./Content/AGVContentsResolver";
 import { AGVNewsletterResolver } from "./Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "./Inscription/AGVInscriptionResolver";
-import { EmailResolver } from "../models/email";
 import { AppResolver } from "./AppResolver";
 import { AuthResolver } from "../../authentication";
 import { ContactMeResolver } from "../../contact";
@@ -12,6 +11,7 @@ import { HistoricResolver } from "../../historic";
 import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { TemplateResolver } from "../../template";
+import { EmailResolver } from "./Email/EmailResolver";
 
 export const getResolverList = () => {
   return [
