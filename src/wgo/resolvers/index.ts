@@ -14,6 +14,11 @@ import { TranslationsResolver } from "../../translation";
 import { HistoricResolver } from "../../historic";
 import { MediaResolver, StorageResolver } from "../../storage";
 import { WGEmailResolver } from "../../email";
+import { EmailResolver } from "../../agv/models/email";
+import { AGVEventResolver } from "../../agv/resolvers/Event/AGVEventResolver";
+import { AGVContentsResolver } from "../../agv/resolvers/Content/AGVContentsResolver";
+import { AGVNewsletterResolver } from "../../agv/resolvers/Newsletter/AGVNewsletterResolver";
+import { AGVInscriptionResolver } from "../../agv/resolvers/Inscription/AGVInscriptionResolver";
 
 export const getResolvers = () => {
   return [
@@ -34,5 +39,19 @@ export const getResolvers = () => {
     IndexContentResolver,
     FinanceIssuesResolver,
     FinanceIssuesOptionsResolver,
+    CoreResolver,
+    AuthResolver,
+    TranslationsResolver,
+    LanguageResolver,
+    SettingsResolver,
+    PublicMediaResolver,
+    ContactMeResolver,
+    TemplateResolver,
+    HistoricResolver,
+    EmailResolver,
+    AGVEventResolver,
+    AGVContentsResolver,
+    AGVNewsletterResolver,
+    AGVInscriptionResolver,
   ] as unknown as NonEmptyArray<Function>;
 };

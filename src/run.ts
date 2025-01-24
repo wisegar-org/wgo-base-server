@@ -17,7 +17,18 @@ import { mediaPublicSeeder } from "./storage";
 import { dataSourceOptions, PostgresDataSource } from "./wgo/dataSources";
 import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
-import { boot, ExpirationFreqEnum, IServerOptions } from "./core";
+import {
+  boot,
+  ExpirationFreqEnum,
+  IServerOptions,
+  UseRestMiddleware,
+} from "./core";
+import { UseHandlebarsRenderMiddleware } from "./agv/middlewares/HandlebarsRenderMiddleware";
+import {
+  UseAssetsHBHostMiddleware,
+  UseClientSPAHostMiddleware,
+  UsePublicMediaHostMiddleware,
+} from "./agv/middlewares/HostClientMiddleware";
 
 const port = GetPortKey();
 
@@ -31,10 +42,11 @@ const serverOptions: IServerOptions = {
   maxFiles: 10,
   useCors: true,
   middlewares: (app: any) => {
-    // UseHostAdminMiddleware(app);
-    // UseTemplatingMiddleware(app);
-    // UseStaticMediaFilesMiddleware(app);
-    // UseRestMiddleware(options);
+    UseHandlebarsRenderMiddleware(app);
+    UseClientSPAHostMiddleware(app);
+    UsePublicMediaHostMiddleware(app);
+    UseAssetsHBHostMiddleware(app);
+    UseRestMiddleware(serverOptions);
   },
   resolvers: getResolvers(),
   privateKey: GetPrivateKey(),
