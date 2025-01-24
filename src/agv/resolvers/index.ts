@@ -11,7 +11,7 @@ import { HistoricResolver } from "../../historic";
 import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { TemplateResolver } from "../../template";
-import { EmailResolver } from "./Email/EmailResolver";
+import { EmailResolver } from "../../email";
 
 export const getResolverList = () => {
   return [

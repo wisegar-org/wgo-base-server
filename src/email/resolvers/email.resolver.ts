@@ -5,15 +5,17 @@ import {
   EMAIL_PATH_SEND_EMAIL_TO_APP,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { EmailResponse } from "./EmailResponses";
+
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
+
+import { EmailResponse } from "./email.responses";
+import { EmailModel } from "../models/email.model";
 import {
-  WGEmailInput,
-  WGEmailModel,
-  WGEmailToAppInput,
   WGEmailFromToAppInput,
+  WGEmailInput,
   WGEmailToAddressAndAppInput,
-} from "../../../email";
+  WGEmailToAppInput,
+} from "./email.inputs";
 
 @Resolver()
 export class EmailResolver {
@@ -23,7 +25,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new WGEmailModel(ctx);
+      const wgEmailModel = new EmailModel(ctx);
       const result = await wgEmailModel.sendEmail(data);
       return <EmailResponse>{
         error: "",
@@ -44,7 +46,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new WGEmailModel(ctx);
+      const wgEmailModel = new EmailModel(ctx);
       const result = await wgEmailModel.sendEmailToApp(data);
       return <EmailResponse>{
         error: "",
@@ -65,7 +67,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new WGEmailModel(ctx);
+      const wgEmailModel = new EmailModel(ctx);
       const result = await wgEmailModel.sendEmailFromToApp(data);
       return <EmailResponse>{
         error: "",
@@ -88,7 +90,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new WGEmailModel(ctx);
+      const wgEmailModel = new EmailModel(ctx);
       const result = await wgEmailModel.sendEmailFromToAddressAndApp(data);
       return <EmailResponse>{
         error: "",

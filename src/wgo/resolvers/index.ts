@@ -13,12 +13,12 @@ import { TemplateResolver } from "../../template";
 import { TranslationsResolver } from "../../translation";
 import { HistoricResolver } from "../../historic";
 import { MediaResolver, StorageResolver } from "../../storage";
-import { WGEmailResolver } from "../../email";
+
 import { AGVEventResolver } from "../../agv/resolvers/Event/AGVEventResolver";
 import { AGVContentsResolver } from "../../agv/resolvers/Content/AGVContentsResolver";
 import { AGVNewsletterResolver } from "../../agv/resolvers/Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "../../agv/resolvers/Inscription/AGVInscriptionResolver";
-import { EmailResolver } from "../../agv/resolvers/Email/EmailResolver";
+import { EmailResolver } from "../../email";
 
 export const getResolvers = () => {
   return [
@@ -34,7 +34,7 @@ export const getResolvers = () => {
     TranslationsResolver,
     HistoricResolver,
     MediaResolver,
-    WGEmailResolver,
+    EmailResolver,
     StorageResolver,
     IndexContentResolver,
     FinanceIssuesResolver,

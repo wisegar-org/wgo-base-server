@@ -11,18 +11,17 @@ import {
   SmtpSettings,
   SETTINGS_SMTP,
 } from "@wisegar-org/wgo-base-models";
-import { SettingsModel } from "../../settings/models/SettingsModel";
-import { HandlebarsTemplateModel } from "../../template/models/HandlenarsTemplateModel";
-import { TemplateModel } from "../../template/models/TemplateModel";
+import { HandlebarsTemplateModel, TemplateModel } from "../../template";
 import {
   WGEmailFromToAppInput,
   WGEmailToAddressAndAppInput,
   WGEmailToAppInput,
-} from "../resolvers/WGEmailInputs";
-import { WGEmailResponse } from "../resolvers/WGEmailResponses";
-import { getInlineStyle } from "./StyleModel";
+} from "../resolvers/email.inputs";
+import { getInlineStyle } from "./style.model";
+import { SettingsModel } from "../../settings";
+import { EmailResponse } from "../resolvers/email.responses";
 
-export class WGEmailModel {
+export class EmailModel {
   emailServer: EmailServer;
   dataSource: DataSource;
   ctx: IContextBase;
@@ -37,13 +36,13 @@ export class WGEmailModel {
     this.handlebardModel = new HandlebarsTemplateModel();
   }
 
-  async sendEmail(data: EmailOptions): Promise<WGEmailResponse> {
+  async sendEmail(data: EmailOptions): Promise<EmailResponse> {
     try {
       const configSmtp = await this.getTransportEmailOptions();
       const result = await this.emailServer.sendByConfig(data, configSmtp);
-      return <WGEmailResponse>result;
+      return <EmailResponse>result;
     } catch (error) {
-      return <WGEmailResponse>{
+      return <any>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -81,9 +80,9 @@ export class WGEmailModel {
         },
         configSmtp
       );
-      return <WGEmailResponse>result;
+      return <EmailResponse>result;
     } catch (error) {
-      return <WGEmailResponse>{
+      return <any>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -91,7 +90,7 @@ export class WGEmailModel {
     }
   }
 
-  async sendEmailToApp(data: WGEmailToAppInput): Promise<WGEmailResponse> {
+  async sendEmailToApp(data: WGEmailToAppInput): Promise<EmailResponse> {
     try {
       let body = data.body;
       if (data.data) {
@@ -122,9 +121,9 @@ export class WGEmailModel {
         },
         configSmtp
       );
-      return <WGEmailResponse>result;
+      return <EmailResponse>result;
     } catch (error) {
-      return <WGEmailResponse>{
+      return <any>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -134,7 +133,7 @@ export class WGEmailModel {
 
   async sendEmailFromToApp(
     data: WGEmailFromToAppInput
-  ): Promise<WGEmailResponse> {
+  ): Promise<EmailResponse> {
     try {
       let body = data.body;
       if (data.data) {
@@ -165,9 +164,9 @@ export class WGEmailModel {
         },
         configSmtp
       );
-      return <WGEmailResponse>result;
+      return <EmailResponse>result;
     } catch (error) {
-      return <WGEmailResponse>{
+      return <any>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -177,7 +176,7 @@ export class WGEmailModel {
 
   async sendEmailFromToAddressAndApp(
     data: WGEmailToAddressAndAppInput
-  ): Promise<WGEmailResponse> {
+  ): Promise<EmailResponse> {
     try {
       let body = data.body;
       if (data.data) {
@@ -208,9 +207,9 @@ export class WGEmailModel {
         },
         configSmtp
       );
-      return <WGEmailResponse>result;
+      return <EmailResponse>result;
     } catch (error) {
-      return <WGEmailResponse>{
+      return <any>{
         isSuccess: false,
         message: "Error",
         error: error,
@@ -231,7 +230,7 @@ export class WGEmailModel {
     });
     const to = toSend.splice(0, 1)[0];
     const bcc = toSend.join(",");
-    const from = WGEmailModel.getFromAppConfig();
+    const from = EmailModel.getFromAppConfig();
     return {
       to,
       bcc,

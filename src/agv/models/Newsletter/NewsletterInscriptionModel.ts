@@ -13,14 +13,14 @@ import {
   INewsletterInscriptionModel,
   INewsletterInscriptionPageInput,
 } from "../newsletterModels";
-import { getInlineStyle, WGEmailModel } from "../../../email";
+import { getInlineStyle, EmailModel } from "../../../email";
 import { HistoricModel } from "../../../historic";
 import { HandlebarsTemplateModel, TemplateModel } from "../../../template";
 
 export class AGVNewsletterInscriptionModel {
   private repository: Repository<AGVNewsletterInscriptionEntity>;
   private historicModel: HistoricModel<AGVNewsletterInscriptionEntity>;
-  private WGEmailModel: WGEmailModel;
+  private WGEmailModel: EmailModel;
   private inscriptionModel: AGVInscriptionModel;
   private templateModel: TemplateModel;
   private handlebardModel: HandlebarsTemplateModel;
@@ -32,7 +32,7 @@ export class AGVNewsletterInscriptionModel {
       AGVNewsletterInscriptionEntity
     );
     this.historicModel = new HistoricModel(AGVNewsletterInscriptionEntity, ctx);
-    this.WGEmailModel = new WGEmailModel(ctx);
+    this.WGEmailModel = new EmailModel(ctx);
     this.inscriptionModel = new AGVInscriptionModel(ctx);
     this.templateModel = new TemplateModel(ctx);
     this.handlebardModel = new HandlebarsTemplateModel();
