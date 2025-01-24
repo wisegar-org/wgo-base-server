@@ -21,6 +21,6 @@ export * from "./dataSources";
 
 // Externals
 export * from "typeorm-extension";
-export { Express } from "express";
+export { Express, Request, Response } from "express";
 export * from "type-graphql";
 export * from "graphql-upload";
