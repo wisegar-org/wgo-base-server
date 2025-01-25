@@ -1,22 +1,18 @@
-{
-  
+{  
   "extends": "@quasar/app-webpack/tsconfig-preset",
   "compilerOptions": {
     "baseUrl": ".",
     "experimentalDecorators": true,
-    "noImplicitAny": true,
     "typeRoots": [
-      "src/**/*.d.ts",
-      "src/graphql.d.ts",
-      "src-ssr/**/*.d.ts",
-      "src-ssr/graphql.d.ts",
-      "node_modules/@types",
-      "./dist",
-      "./.quasar",
-      "./node_modules",
+      "./node_modules/@types",
+      "./src/**/*.d.ts",
+      "./src/graphql.d.ts",
+      "./src-ssr/**/*.d.ts",
+      "./src-ssr/graphql.d.ts",
       "./src-capacitor",
       "./src-cordova",
       "./quasar.config.*.temporary.compiled*"
     ],
+    "noImplicitAny": true,
   }
 }

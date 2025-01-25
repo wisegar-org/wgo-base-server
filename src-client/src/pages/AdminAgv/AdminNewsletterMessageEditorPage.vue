@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <template>
   <q-page class="row justify-evenly">
     <div class="col-12">
@@ -14,8 +13,9 @@ import { NewsletterMessageService } from "../../services/Newsletter/NwLtMessenge
 import { AGVNewslettersAdminPaths } from "../../router/paths/adminAgv/newslettersPaths";
 import { useAppStatusStore } from "../../stores/appStatusStore";
 import { Router } from "vue-router";
-import { AGVNewsletterMessageStatusEnum } from "src/models/Newsletter";
 import { RouteService } from "src/modules/core/services/RouteService";
+import { AgvNewsletterMessageResponse } from "../../graphql-types";
+import { AGVNewsletterMessageStatusEnum } from "@wisegar-org/wgo-base-models";
 
 export default defineComponent({
   name: "AdminNewsletterMessageEditorPage",
@@ -27,8 +27,7 @@ export default defineComponent({
     NsLtMessageAdminEditor,
   },
   data() {
-    const emptyMessage: any = {
-      //AGVNewsletterMessageResponse
+    const emptyMessage: AgvNewsletterMessageResponse = {
       id: 0,
       title: "",
       message: "",
@@ -53,8 +52,9 @@ export default defineComponent({
     async loadData() {
       this.appStatusStore.setLoading(true);
       if (this.id) {
-        const result: any =
-          await this.newsletterService.getNewsletterMessageById(this.id);
+        const result = await this.newsletterService.getNewsletterMessageById(
+          this.id
+        );
         if (result)
           this.message = {
             id: result.id || 0,

@@ -8,6 +8,11 @@ import {
 } from "./NwLtMessengerServiceQueries";
 
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
+import {
+  AgvNewsletterMessageInput,
+  AgvNewsletterMessagePageInput,
+  AgvNewsletterMessageResponse,
+} from "src/graphql-types";
 import { ApiService } from "src/modules/core/services/ApiService";
 
 export class NewsletterMessageService {
@@ -27,7 +32,7 @@ export class NewsletterMessageService {
       })) as {
         data: {
           agvGetNewsletterMessageById: {
-            message: unknown; //AgvNewsletterMessageResponse;
+            message: AgvNewsletterMessageResponse;
           };
         };
       };
@@ -44,8 +49,7 @@ export class NewsletterMessageService {
     }
   }
 
-  async getNewsletterMessagesPage(params: unknown) {
-    // AgvNewsletterMessagePageInput
+  async getNewsletterMessagesPage(params: AgvNewsletterMessagePageInput) {
     try {
       const response = (await this.apiInstance.query({
         query: Q_AGV_NEWSLETTER_GET_PAGE_MESSAGE,
@@ -69,8 +73,7 @@ export class NewsletterMessageService {
     }
   }
 
-  async addNewsletterMessage(params: unknown) {
-    // AgvNewsletterMessageInput
+  async addNewsletterMessage(params: AgvNewsletterMessageInput) {
     try {
       const response = (await this.apiInstance.mutate({
         mutation: M_AGV_NEWSLETTER_ADD_MESSAGE,
@@ -94,8 +97,7 @@ export class NewsletterMessageService {
     }
   }
 
-  async editNewsletterMessage(params: unknown) {
-    //AgvNewsletterMessageInput
+  async editNewsletterMessage(params: AgvNewsletterMessageInput) {
     try {
       const response = (await this.apiInstance.mutate({
         mutation: M_AGV_NEWSLETTER_EDIT_MESSAGE,

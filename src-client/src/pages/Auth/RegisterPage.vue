@@ -15,13 +15,12 @@ import RegisterComponent from "src/modules/authentication/components/RegisterCom
 import { Paths } from "../../router/paths";
 import { useTranslationStore } from "../../stores/translationStore";
 import { useMeta } from "quasar";
-import { IUser } from "@wisegar-org/wgo-base-models/build/core";
-import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
-import { ISeoModel } from "@wisegar-org/wgo-base-models/build/core";
-import { USER_ROLE } from "../../../../src/wgo/models/constants";
 import { BaseSeoDataComponent } from "src/modules/core/components/BaseComponents";
 import { RouteService } from "src/modules/core/services/RouteService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
+import { IUser } from "@wisegar-org/wgo-base-models/build/core";
+import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
+import { ISeoModel } from "@wisegar-org/wgo-base-models/build/core";
 
 export default defineComponent({
   name: "RegisterPage",
@@ -30,7 +29,7 @@ export default defineComponent({
   },
   data() {
     const router = useRouter();
-    const roles = [USER_ROLE];
+    const roles = ["USER"];
     const seoComponent = new BaseSeoDataComponent();
     useMeta(seoComponent.seoData);
     return {

@@ -24,6 +24,7 @@ import {
   ITableRowButton,
 } from "@wisegar-org/wgo-base-models/build/core/Table";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
+import { AgvNewsletterInscriptionResponse } from "src/graphql-types";
 
 export default defineComponent({
   name: "NsLtInscriptionAdminComponent",
@@ -36,12 +37,13 @@ export default defineComponent({
     const resizeComponent = new BaseResizeComponent();
     const { componentHeight, addResize, removeResize, resizeTable } =
       resizeComponent;
-    //AgvNewsletterInscriptionResponse
-    const inscriptionSelected: any = {};
-    const fnAction = (row?: any) => {
+
+    const inscriptionSelected: AgvNewsletterInscriptionResponse =
+      {} as AgvNewsletterInscriptionResponse;
+    const fnAction = (row?: AgvNewsletterInscriptionResponse) => {
       this.showInscriptionDetails(
         row ||
-          <any>{
+          <AgvNewsletterInscriptionResponse>{
             email: "",
             id: 0,
             status: AGVNewsletterInscriptionStatusEnum.Waiting,
@@ -57,8 +59,9 @@ export default defineComponent({
       },
       {
         icon: "send",
-        tooltip: transBase.SEND, //AgvNewsletterInscriptionResponse
-        fnAction: (row: any) => this.sendMessage(row),
+        tooltip: transBase.SEND,
+        fnAction: (row: AgvNewsletterInscriptionResponse) =>
+          this.sendMessage(row),
       },
     ];
 
@@ -96,7 +99,7 @@ export default defineComponent({
       rowsPerPage: schema.rowsPerPageDefault,
       sortBy: "",
     } as ITablePagination;
-    const inscriptions: any[] = []; //AgvNewsletterInscriptionResponse
+    const inscriptions: AgvNewsletterInscriptionResponse[] = [];
 
     const filterObj = reactive({
       email: "",
@@ -228,8 +231,7 @@ export default defineComponent({
       this.pagination = pagination;
       await this.loadData();
     },
-    showInscriptionDetails(inscription: any) {
-      //AgvNewsletterInscriptionResponse
+    showInscriptionDetails(inscription: AgvNewsletterInscriptionResponse) {
       this.inscriptionSelected = { ...inscription };
       this.openDialog = true;
     },

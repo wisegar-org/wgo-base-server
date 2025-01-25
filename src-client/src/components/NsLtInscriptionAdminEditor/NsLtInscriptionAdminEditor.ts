@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, PropType } from "vue";
 import DialogVue from "src/modules/core/components/Dialog/Dialog.vue";
 import { useTranslationStore } from "src/stores/translationStore";
@@ -10,13 +9,14 @@ import { translations as transBase } from "@wisegar-org/wgo-base-models/build/co
 import { NewsletterInscriptionService } from "src/services/Newsletter/NwLtInscriptionService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 import { UtilService } from "src/modules/core/services/UtilService";
+import { AgvNewsletterInscriptionResponse } from "src/graphql-types";
 
 export default defineComponent({
   name: "NsLtInscriptionAdminEditor",
   props: {
     open: { type: Boolean, default: false },
     inscription: {
-      type: Object as PropType<any>,
+      type: Object as PropType<AgvNewsletterInscriptionResponse>,
       required: true,
     },
   },
@@ -48,8 +48,8 @@ export default defineComponent({
     };
   },
   methods: {
-    isValid(): boolean {
-      return UtilService.isValidEmail(this.inscription.email) as boolean;
+    isValid() {
+      return UtilService.isValidEmail(this.inscription.email);
     },
     async saveInscription() {
       this.appStatusStore.setLoading(true);

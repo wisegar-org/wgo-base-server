@@ -24,6 +24,7 @@ import {
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 import { RouteService } from "src/modules/core/services/RouteService";
 import { Router } from "vue-router";
+import { AgvNewsletterMessageResponse } from "src/graphql-types";
 
 export default defineComponent({
   name: "NsLtMessageAdminComponent",
@@ -40,12 +41,10 @@ export default defineComponent({
     const { componentHeight, addResize, removeResize, resizeTable } =
       resizeComponent;
 
-    const fnAction = (row?: any) => {
-      //AgvNewsletterMessageResponse
+    const fnAction = (row?: AgvNewsletterMessageResponse) => {
       this.createMessage(
         row ||
-          <any>{
-            //AgvNewsletterMessageResponse
+          <AgvNewsletterMessageResponse>{
             title: "",
             id: 0,
             status: AGVNewsletterMessageStatusEnum.Waiting,
@@ -62,7 +61,7 @@ export default defineComponent({
       {
         icon: "send",
         tooltip: transBase.SEND,
-        fnAction: (row: any) => this.sendMessage(row), //AgvNewsletterMessageResponse
+        fnAction: (row: AgvNewsletterMessageResponse) => this.sendMessage(row),
       },
     ];
 
@@ -91,7 +90,7 @@ export default defineComponent({
       rowsPerPage: schema.rowsPerPageDefault,
       sortBy: "",
     } as ITablePagination;
-    const messages: any[] = []; // AgvNewsletterMessageResponse
+    const messages: AgvNewsletterMessageResponse[] = [];
 
     const filterObj = reactive({
       title: "",
@@ -161,9 +160,8 @@ export default defineComponent({
       this.pagination = pagination;
       await this.loadData();
     },
-    createMessage(message: any) {
-      //AgvNewsletterMessageResponse
-      const routerService = new RouteService(this.$router as any);
+    createMessage(message: AgvNewsletterMessageResponse) {
+      const routerService = new RouteService(this.$router as unknown as Router);
       routerService.goTo(
         AGVNewslettersAdminPaths.newsletterMessagesEditor.path,
         {
@@ -172,9 +170,9 @@ export default defineComponent({
         }
       );
     },
-    sendMessage(message: any) {
-      //AgvNewsletterMessageResponse
+    sendMessage(message: AgvNewsletterMessageResponse) {
       const quasar = (this as any).$q;
+      const messageId = message.id ? message.id : 0;
       quasar
         .dialog({
           title: this.getLabel(this.transBase.CONFIRM),
@@ -194,7 +192,7 @@ export default defineComponent({
           },
         })
         .onOk(async () => {
-          if (await this.newsletterService.sendNewsletterMessage(message.id)) {
+          if (await this.newsletterService.sendNewsletterMessage(messageId)) {
             await this.loadData();
             this.notifyStore.setNotify({
               message: this.getLabel(

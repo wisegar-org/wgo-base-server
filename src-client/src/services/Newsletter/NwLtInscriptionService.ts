@@ -8,6 +8,11 @@ import {
   Q_AGV_NEWSLETTER_GET_PAGE_INSCRIPTION,
 } from "./NwLtInscriptionServiceQueries";
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
+import {
+  AgvNewsletterInscriptionResponse,
+  AgvNewsletterInscriptionPageInput,
+  AgvNewsletterInscriptionInput,
+} from "src/graphql-types";
 
 export class NewsletterInscriptionService {
   apiInstance: ApiService;
@@ -26,7 +31,7 @@ export class NewsletterInscriptionService {
       })) as {
         data: {
           agvGetNewsletterInscriptionByEmail: {
-            inscription: unknown; //AgvNewsletterInscriptionResponse;
+            inscription: AgvNewsletterInscriptionResponse;
           };
         };
       };
@@ -44,7 +49,7 @@ export class NewsletterInscriptionService {
   }
 
   async getNewsletterInscriptionsPage(
-    params: unknown //AgvNewsletterInscriptionPageInput
+    params: AgvNewsletterInscriptionPageInput
   ) {
     try {
       const response = (await this.apiInstance.query({
@@ -69,8 +74,7 @@ export class NewsletterInscriptionService {
     }
   }
 
-  async addNewsletterInscription(params: unknown) {
-    //AgvNewsletterInscriptionInput
+  async addNewsletterInscription(params: AgvNewsletterInscriptionInput) {
     try {
       const response = (await this.apiInstance.mutate({
         mutation: M_AGV_NEWSLETTER_ADD_INSCRIPTION,
@@ -94,8 +98,7 @@ export class NewsletterInscriptionService {
     }
   }
 
-  async editNewsletterInscription(params: unknown) {
-    //AgvNewsletterInscriptionInput
+  async editNewsletterInscription(params: AgvNewsletterInscriptionInput) {
     try {
       const response = (await this.apiInstance.mutate({
         mutation: M_AGV_NEWSLETTER_EDIT_INSCRIPTION,

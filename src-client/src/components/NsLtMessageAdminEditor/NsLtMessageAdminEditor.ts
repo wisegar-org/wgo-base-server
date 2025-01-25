@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { defineComponent, PropType } from "vue";
 import { apiSettings } from "src/api/ApiOptions";
+import { defineComponent, PropType } from "vue";
 import QCKEditor from "src/modules/core/components/CKEditor/QCKEditor.vue";
 import { translations } from "src/models/translations/newsletter";
 import { useNotifyStore } from "src/stores/notifyStore";
@@ -19,12 +17,13 @@ import {
 } from "src/modules/core/components/BaseComponents";
 import { EmailService } from "src/modules/email/services/EmailService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
+import { AgvNewsletterMessageResponse } from "src/graphql-types";
 
 export default defineComponent({
   name: "NsLtMessageAdminEditor",
   props: {
     message: {
-      type: Object as PropType<any>, //
+      type: Object as PropType<AgvNewsletterMessageResponse>,
       required: true,
     },
   },
@@ -61,9 +60,9 @@ export default defineComponent({
   },
   setup() {
     const notifyStore = useNotifyStore();
-    const translationStore: any = useTranslationStore();
-    const appStatusStore: any = useAppStatusStore();
-    const authStore: any = useAuthStore();
+    const translationStore = useTranslationStore();
+    const appStatusStore = useAppStatusStore();
+    const authStore = useAuthStore();
 
     return {
       notifyStore,
@@ -75,19 +74,17 @@ export default defineComponent({
   methods: {
     async saveMessage() {
       this.appStatusStore.setLoading(true);
-      const message: unknown = {
+      const message = {
         id: this.message.id,
         message: this.message.message,
         title: this.message.title,
         status: this.message.status || "",
       };
-
       const result = this.message.id
         ? await this.newsletterService.editNewsletterMessage(message)
         : await this.newsletterService.addNewsletterMessage(message);
 
       this.appStatusStore.setLoading(false);
-
       if (result) {
         this.notifyStore.setNotify({
           message: this.getLabel(this.translations.MSG_EDITOR_SAVE_SUCCESS),
