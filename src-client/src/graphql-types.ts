@@ -273,6 +273,119 @@ export type ExportTranslationInput = {
   languagesId?: InputMaybe<Array<Scalars['Float']['input']>>;
 };
 
+export type FinanceAccountResponse = {
+  __typename?: 'FinanceAccountResponse';
+  id: Scalars['Float']['output'];
+};
+
+export type FinanceAssignedToOption = {
+  __typename?: 'FinanceAssignedToOption';
+  address?: Maybe<Scalars['String']['output']>;
+  avatar_url?: Maybe<Scalars['String']['output']>;
+  bio?: Maybe<Scalars['String']['output']>;
+  cap?: Maybe<Scalars['String']['output']>;
+  card_number?: Maybe<Scalars['Float']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['Float']['output']>;
+  id_github?: Maybe<Scalars['Float']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  login?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  node_id?: Maybe<Scalars['String']['output']>;
+  pay_by_hours?: Maybe<Scalars['Float']['output']>;
+  place?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+export type FinanceCollaboratorResponse = {
+  __typename?: 'FinanceCollaboratorResponse';
+  email: Scalars['String']['output'];
+  id: Scalars['Float']['output'];
+  lastName?: Maybe<Scalars['String']['output']>;
+  login: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+export type FinanceIssuesFilterInput = {
+  assignedTo?: Scalars['String']['input'];
+  labels?: Scalars['String']['input'];
+  maxDate?: Scalars['String']['input'];
+  minDate?: Scalars['String']['input'];
+  project?: Scalars['Float']['input'];
+  repository?: Scalars['String']['input'];
+  status?: Scalars['Float']['input'];
+};
+
+export type FinanceIssuesPageInput = {
+  descending?: Scalars['Boolean']['input'];
+  filter: FinanceIssuesFilterInput;
+  skip?: Scalars['Float']['input'];
+  sortBy?: Scalars['String']['input'];
+  take?: Scalars['Float']['input'];
+};
+
+export type FinanceIssuesPageResponse = {
+  __typename?: 'FinanceIssuesPageResponse';
+  issues: Array<FinanceIssuesResponse>;
+  issuesCount: Scalars['Float']['output'];
+};
+
+export type FinanceIssuesResponse = {
+  __typename?: 'FinanceIssuesResponse';
+  account?: Maybe<FinanceAccountResponse>;
+  accountId?: Maybe<Scalars['Float']['output']>;
+  assignedTo?: Maybe<FinanceCollaboratorResponse>;
+  assignedToId?: Maybe<Scalars['Float']['output']>;
+  closed_at: Scalars['DateTimeISO']['output'];
+  created_at: Scalars['DateTimeISO']['output'];
+  description: Scalars['String']['output'];
+  hours: Scalars['Float']['output'];
+  id: Scalars['Float']['output'];
+  labels: Scalars['String']['output'];
+  last_comment?: Maybe<Scalars['String']['output']>;
+  milestones: Scalars['String']['output'];
+  number: Scalars['Float']['output'];
+  owner: Scalars['String']['output'];
+  project?: Maybe<FinanceProjectResponse>;
+  projectId?: Maybe<Scalars['Float']['output']>;
+  repo: Scalars['String']['output'];
+  repository: FinanceRepositoryResponse;
+  repositoryId: Scalars['Float']['output'];
+  status: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  updated_at: Scalars['DateTimeISO']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type FinanceLabelOption = {
+  __typename?: 'FinanceLabelOption';
+  id: Scalars['Float']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type FinanceProjectOption = {
+  __typename?: 'FinanceProjectOption';
+  id: Scalars['Float']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type FinanceProjectResponse = {
+  __typename?: 'FinanceProjectResponse';
+  id: Scalars['Float']['output'];
+};
+
+export type FinanceRepositoryOption = {
+  __typename?: 'FinanceRepositoryOption';
+  id: Scalars['Float']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type FinanceRepositoryResponse = {
+  __typename?: 'FinanceRepositoryResponse';
+  id: Scalars['Float']['output'];
+};
+
 export type GetAllTranslationInput = {
   languageId: Scalars['Float']['input'];
   search?: InputMaybe<Scalars['String']['input']>;
@@ -330,6 +443,16 @@ export type IdInput = {
 export type ImportTranslationsInput = {
   /** File uploaded */
   file?: InputMaybe<Scalars['Upload']['input']>;
+};
+
+export type IndexContentInputs = {
+  imageId: Scalars['Float']['input'];
+  translations: Array<TranslationInput>;
+};
+
+export type IndexContentResponse = {
+  __typename?: 'IndexContentResponse';
+  image?: Maybe<MediaResponse>;
 };
 
 export type LanguageInput = {
@@ -413,6 +536,7 @@ export type Mutation = {
   changeResetPassword: Scalars['Boolean']['output'];
   clearLocalStorage: Scalars['Boolean']['output'];
   confirmRegist: Scalars['Boolean']['output'];
+  deleteStorageItem: Scalars['Boolean']['output'];
   deleteTranslation: Scalars['Boolean']['output'];
   deleteUser: Scalars['Boolean']['output'];
   editUser: UserResponse;
@@ -421,12 +545,15 @@ export type Mutation = {
   postLanguage: LanguageResponse;
   postMediaFile: MediaResponse;
   postMediaFiles: Array<MediaResponse>;
+  postStorageItem: Scalars['Boolean']['output'];
   postTemplate: Scalars['Boolean']['output'];
   putLanguage: LanguageResponse;
+  putStorageItem: Scalars['Boolean']['output'];
   register: UserResponse;
   resendConfirmation: Scalars['Boolean']['output'];
   resetPassword: Scalars['Boolean']['output'];
   setContactData: Scalars['Boolean']['output'];
+  setIndexContent: Scalars['Boolean']['output'];
   setKeyLocalStorage: Scalars['Boolean']['output'];
   setSetting: Scalars['Boolean']['output'];
   setTranslation: Array<TranslationResponse>;
@@ -493,6 +620,11 @@ export type MutationConfirmRegistArgs = {
 };
 
 
+export type MutationDeleteStorageItemArgs = {
+  id: Scalars['Float']['input'];
+};
+
+
 export type MutationDeleteTranslationArgs = {
   data: DeleteTranslationInput;
 };
@@ -535,6 +667,11 @@ export type MutationPostMediaFilesArgs = {
 };
 
 
+export type MutationPostStorageItemArgs = {
+  data: StorageInput;
+};
+
+
 export type MutationPostTemplateArgs = {
   data: TemplateInput;
 };
@@ -542,6 +679,11 @@ export type MutationPostTemplateArgs = {
 
 export type MutationPutLanguageArgs = {
   data: LanguageInput;
+};
+
+
+export type MutationPutStorageItemArgs = {
+  data: StorageInput;
 };
 
 
@@ -562,6 +704,11 @@ export type MutationResetPasswordArgs = {
 
 export type MutationSetContactDataArgs = {
   data: ContactMeInput;
+};
+
+
+export type MutationSetIndexContentArgs = {
+  data: IndexContentInputs;
 };
 
 
@@ -619,15 +766,24 @@ export type Query = {
   getAllUsers: Array<UserResponse>;
   getContactData: ContactMeResponse;
   getEventHistory: HistoricResponse;
+  getFinanceIssues: FinanceIssuesPageResponse;
+  getFinanceIssuesAssignedToOptions: Array<FinanceAssignedToOption>;
+  getFinanceIssuesLabelOptions: Array<FinanceLabelOption>;
+  getFinanceIssuesProjectOptions: Array<FinanceProjectOption>;
+  getFinanceIssuesRepositoryOptions: Array<FinanceRepositoryOption>;
   getHistoricFilters: HistoricFiltersResponse;
   getHistoricPage: HistoricPageResponse;
+  getIndexContent: IndexContentResponse;
   getLanguage: LanguageResponse;
   getLocalStorage: LocalStorageResponse;
   getMediaFile: MediaResponse;
+  getStorageByPagination: StoragePageResponse;
+  getStorageByType: Array<StorageResponse>;
   getTemplateByType: TemplateResponse;
   getUser: UserResponse;
   getUserAllHistoricByUser: Array<HistoricResponse>;
   getUserHistoric: HistoricResponse;
+  getVersion: Scalars['String']['output'];
   me: UserResponse;
   sendEmail: EmailResponse;
   sendEmailFromToAddressAndApp: EmailResponse;
@@ -730,8 +886,18 @@ export type QueryGetEventHistoryArgs = {
 };
 
 
+export type QueryGetFinanceIssuesArgs = {
+  data: FinanceIssuesPageInput;
+};
+
+
 export type QueryGetHistoricPageArgs = {
   data: HistoricPageInput;
+};
+
+
+export type QueryGetIndexContentArgs = {
+  urlApi: Scalars['String']['input'];
 };
 
 
@@ -742,6 +908,16 @@ export type QueryGetLanguageArgs = {
 
 export type QueryGetMediaFileArgs = {
   id: Scalars['Float']['input'];
+};
+
+
+export type QueryGetStorageByPaginationArgs = {
+  data: StoragePageInput;
+};
+
+
+export type QueryGetStorageByTypeArgs = {
+  data: StorageAllInput;
 };
 
 
@@ -834,6 +1010,49 @@ export type SettingsValueResponse = {
   __typename?: 'SettingsValueResponse';
   type: Scalars['String']['output'];
   value?: Maybe<Scalars['String']['output']>;
+};
+
+export type StorageAllInput = {
+  lang: Scalars['Float']['input'];
+  loadTranslations?: Scalars['Boolean']['input'];
+  search?: Scalars['String']['input'];
+  type: Scalars['String']['input'];
+  urlApi: Scalars['String']['input'];
+};
+
+export type StorageInput = {
+  content: Scalars['String']['input'];
+  id: Scalars['Float']['input'];
+  image?: InputMaybe<Scalars['Float']['input']>;
+  imageList?: InputMaybe<Array<Scalars['Float']['input']>>;
+  type: Scalars['String']['input'];
+};
+
+export type StoragePageInput = {
+  descending?: Scalars['Boolean']['input'];
+  lang: Scalars['Float']['input'];
+  loadTranslations?: Scalars['Boolean']['input'];
+  search?: Scalars['String']['input'];
+  skip?: Scalars['Float']['input'];
+  sortBy?: Scalars['String']['input'];
+  take?: Scalars['Float']['input'];
+  type: Scalars['String']['input'];
+  urlApi: Scalars['String']['input'];
+};
+
+export type StoragePageResponse = {
+  __typename?: 'StoragePageResponse';
+  storageItems: Array<StorageResponse>;
+  storageItemsCount: Scalars['Float']['output'];
+};
+
+export type StorageResponse = {
+  __typename?: 'StorageResponse';
+  content: Scalars['String']['output'];
+  id: Scalars['Float']['output'];
+  image?: Maybe<MediaResponse>;
+  imageList?: Maybe<Array<MediaResponse>>;
+  type: Scalars['String']['output'];
 };
 
 export type TemplateInput = {

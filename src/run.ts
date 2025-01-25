@@ -14,7 +14,6 @@ import { createDatabase } from "typeorm-extension";
 import { roleSuperAdminSeeder, userAdminSeeder } from "./authentication";
 import { languageDefaultSeeder } from "./language";
 import { mediaPublicSeeder } from "./storage";
-import { dataSourceOptions, PostgresDataSource } from "./wgo/dataSources";
 import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
 import {
@@ -29,6 +28,7 @@ import {
   UseClientSPAHostMiddleware,
   UsePublicMediaHostMiddleware,
 } from "./agv/middlewares/HostClientMiddleware";
+import { dataSourceOptions, PostgresDataSource } from "./dataSources";
 
 const port = GetPortKey();
 

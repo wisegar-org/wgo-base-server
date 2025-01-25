@@ -6,7 +6,6 @@ import {
   GetPrivateKey,
   GetPublicKey,
 } from "wgo-settings";
-import { PostgresDataSource } from "../dataSources";
 import { EventEmitter } from "events";
 import {
   IContextBase,
@@ -18,6 +17,7 @@ import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
 import { IContextOptions } from "../../core";
+import { PostgresDataSource } from "../../dataSources";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,

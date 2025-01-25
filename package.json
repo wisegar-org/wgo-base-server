@@ -72,7 +72,7 @@
     "cors": "^2.8.5",
     "currency.js": "2.0.4",
     "dayjs": "^1.11.7",
-    "express-fileupload": "1.4.0",
+    "express-fileupload": "^1.5.1",
     "express-handlebars": "^7.1.2",
     "fs-extra": "11.1.0",
     "graphql": "^16.6.0",

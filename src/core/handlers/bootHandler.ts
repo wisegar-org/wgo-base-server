@@ -11,7 +11,6 @@ import {
   IsStringEmptyNullOrUndefined,
 } from "wgo-extensions";
 import { join } from "path";
-import { UseFileUploadMiddleware } from "../middlewares/FileUploadMiddleware";
 import { PublicDirectoryMiddleware } from "../middlewares/PublicDirectoryMiddleware";
 import { ITranslationModel } from "@wisegar-org/wgo-base-models";
 import { GetOpenCRMPathRoot } from "../services/EnvService";
@@ -31,15 +30,16 @@ export const boot = async (options: IServerOptions, onStart?: BootFunc) => {
 
   const rootPath = GetOpenCRMPathRoot();
   console.debug("wgo-opencrm root path: ", rootPath);
-  
+
   console.debug("Registering Cors middleware");
   UseCorsMiddleware(options);
 
   console.debug("Registering Jwt middleware");
   UseJwtMiddleware(options);
 
-  console.debug("Registering FileUpload middleware");
-  UseFileUploadMiddleware(options);
+  //NOTE: Do not use if using graphql
+  // console.debug("Registering FileUpload middleware");
+  // UseFileUploadMiddleware(options);
 
   console.debug("Registering Public Directory Middleware");
   PublicDirectoryMiddleware(options);
@@ -56,13 +56,15 @@ export const boot = async (options: IServerOptions, onStart?: BootFunc) => {
   };
 
   console.debug("Registering backoffice spa application");
-  options.app.use("/backoffice", express.static(join(rootPath, "build", "backoffice")));
+  options.app.use(
+    "/backoffice",
+    express.static(join(rootPath, "build", "backoffice"))
+  );
 
   if (options.controllers && options.controllers.length > 0) {
     console.debug("Registering Rest middleware");
     UseRestMiddleware(options);
   }
-
 
   if (options.resolvers && options.resolvers.length > 0) {
     console.debug("Registering Graphql middleware");
