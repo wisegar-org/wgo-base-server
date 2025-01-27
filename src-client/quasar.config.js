@@ -118,14 +118,18 @@ const quasarConfig = configure(function (ctx) {
     framework: {
       config: {
         brand: {
-          primary: "#ACCF5A",
-          secondary: "#26A69A",
-          accent: "#9C27B0",
+          primary: "#D5573B",
+          secondary: "#885053",
+          accent: "#D5573B",
           dark: "#1D1D1D",
           positive: "#80a32c",
-          negative: "#C10015",
-          info: "#31CCEC",
-          warning: "#F2C037",
+          negative: "##94C9A9",
+          info: "#D5573B",
+          warning: "#C6ECAE",
+        },
+        notify: {
+          type: "positive",
+          color: "#D5573B",
         },
       },
 
@@ -179,8 +183,8 @@ const quasarConfig = configure(function (ctx) {
       // chainWebpackCustomSW (/* chain */) {},
 
       manifest: {
-        name: "Assemblea Genitori Vezia",
-        short_name: "Assemblea Genitori Vezia",
+        name: "WG Manager Tool",
+        short_name: "WG Manager Tool",
         description: "",
         display: "standalone",
         orientation: "portrait",

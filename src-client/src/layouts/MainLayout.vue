@@ -60,12 +60,11 @@ export default defineComponent({
   },
   mounted() {
     this.seoComponent.setSeoData({
-      title: "Manager",
-      webSite: "Assemblea Genitori di Vezia",
+      title: "WGO",
+      webSite: "Management Tool",
       description: {
         name: "description",
-        content:
-          "Assemblea Genitori Vezia - Lavoriamo per i nostri bimbi. Pagina di amministrazione.",
+        content: "Wisegar Development Management Tool ",
       },
     } as unknown as ISeoModel);
   },
