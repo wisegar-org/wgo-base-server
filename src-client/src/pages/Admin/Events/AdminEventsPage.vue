@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import EventAdminComponent from "../../components/EventAdminComponent/EventAdminComponent.vue";
+import EventAdminComponent from "../../../components/EventAdminComponent/EventAdminComponent.vue";
 
 export default defineComponent({
   name: "AdminEventsPage",

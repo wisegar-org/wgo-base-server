@@ -25,7 +25,7 @@ export const AGVEventsPathRouter: RouteRecordRaw = {
   children: [
     {
       path: AGVEventsAdminPaths.events.path,
-      component: () => import("pages/AdminAgv/AdminEventsPage.vue"),
+      component: () => import("pages/Admin/Events/AdminEventsPage.vue"),
       props: (route) => {
         return {
           page: parseInt(`${route.query.page || 0}`),
@@ -38,13 +38,37 @@ export const AGVEventsPathRouter: RouteRecordRaw = {
     },
     {
       path: AGVEventsAdminPaths.eventEditor.path,
-      component: () => import("pages/AdminAgv/AdminEventEditorPage.vue"),
+      component: () => import("pages/Admin/Events/AdminEventEditorPage.vue"),
       props: (route) => {
         return {
           event: parseInt(`${route.query.event || 0}`),
           page: parseInt(`${route.query.page || 0}`),
         };
       },
+      meta: {
+        auth: true,
+        role: [SUPERADMIN, AGV_ADMIN_ROLE],
+      },
+    },
+  ],
+};
+
+export const AGVInscriptionsAdminPaths: IRouteObject = {
+  inscriptions: {
+    path: `${AdminBasePath}/inscriptions`,
+    name: "agv_admin_inscriptions",
+    label: "WGO_INSCRIPTION_ADMIN",
+  },
+};
+
+export const AGVInscriptionsPathRouter: RouteRecordRaw = {
+  path: AGVInscriptionsAdminPaths.inscriptions.path,
+  component: () => import("layouts/MainLayout.vue"),
+  children: [
+    {
+      path: AGVInscriptionsAdminPaths.inscriptions.path,
+      component: () =>
+        import("pages/Admin/Events/AdminEventInscriptionsPage.vue"),
       meta: {
         auth: true,
         role: [SUPERADMIN, AGV_ADMIN_ROLE],

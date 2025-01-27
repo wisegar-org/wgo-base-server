@@ -9,12 +9,12 @@ import { TranslationPathRouter } from "./paths/admin/translationPaths";
 import {
   AGVEventsAdminPaths,
   AGVEventsPathRouter,
-} from "./paths/adminAgv/eventsPaths";
+  AGVInscriptionsPathRouter,
+} from "./paths/admin/eventsPaths";
 import { AGVTemplatePathRouter } from "./paths/adminAgv/templatePaths";
 import { AuthPathRouter } from "./paths/authPaths";
 import { emptyLayoutContainerRoute } from "src/modules/agv/routes/emptyLayoutContainerRoute";
 import { AGVContentPathRouter } from "./paths/adminAgv/contentPaths";
-import { AGVInscriptionsPathRouter } from "./paths/adminAgv/inscriptionsPaths";
 import { AGVNewslettersPathRouter } from "./paths/adminAgv/newslettersPaths";
 
 const routes: RouteRecordRaw[] = [

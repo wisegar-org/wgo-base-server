@@ -11,15 +11,14 @@
 </template>
 
 <script lang="ts">
-import { AgvEventResponseModel } from "../../models/models";
+import { AgvEventResponseModel } from "../../../models/models";
 import { defineComponent } from "vue";
-import EventAdminEditor from "../../components/EventAdminEditor/EventAdminEditor.vue";
-import { UtilService } from "../../services/UtilService";
-import { AGVEventsAdminPaths } from "../../router/paths/adminAgv/eventsPaths";
-import { useAppStatusStore } from "../../stores/appStatusStore";
-import { RouteService } from "../../modules/core/services/RouteService";
+import EventAdminEditor from "../../../components/EventAdminEditor/EventAdminEditor.vue";
+import { UtilService } from "../../../services/UtilService";
+import { useAppStatusStore } from "../../../stores/appStatusStore";
+import { RouteService } from "../../../modules/core/services/RouteService";
 import { Router } from "vue-router";
-import { EventService } from "../../modules/agv/services/EventService/EventService";
+import { EventService } from "../../../modules/agv/services/EventService/EventService";
 
 export default defineComponent({
   name: "AdminEventEditorPage",

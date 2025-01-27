@@ -28,7 +28,6 @@ import {
 } from "@wisegar-org/wgo-base-models/build/core";
 import { AuthStore } from "src/modules/authentication/store/AuthStore";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
-// import { LanguageStore } from "src/modules/language/store/LanguageStore";
 
 export default defineComponent({
   components: {
@@ -61,7 +60,7 @@ export default defineComponent({
   },
   mounted() {
     this.seoComponent.setSeoData({
-      title: "Amministrazione",
+      title: "Manager",
       webSite: "Assemblea Genitori di Vezia",
       description: {
         name: "description",

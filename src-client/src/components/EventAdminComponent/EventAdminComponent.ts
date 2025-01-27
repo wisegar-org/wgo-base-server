@@ -15,7 +15,7 @@ import {
 } from "src/models/Events";
 import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
 import { AgvEventResponseModel } from "src/models/models";
-import { AGVEventsAdminPaths } from "src/router/paths/adminAgv/eventsPaths";
+import { AGVEventsAdminPaths } from "src/router/paths/admin/eventsPaths";
 import { useAppStatusStore } from "src/stores/appStatusStore";
 import {
   BaseResizeComponent,

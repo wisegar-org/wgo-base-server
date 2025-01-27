@@ -24,5 +24,5 @@
     </q-banner>
   </div>
 </template>
-    
-    <script lang="ts" src="./BannerComponent.ts" />
+
+<script lang="ts" src="./BannerComponent.ts" />
