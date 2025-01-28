@@ -13,11 +13,22 @@ import {
   IContextBase,
   translations,
   SUPERADMIN,
+  IAuthModelArg,
 } from "@wisegar-org/wgo-base-models";
 import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
 import { GetWebRootKey, IContextOptions } from "..";
+
+export const getContext = () => {
+  return <IContextBase>{
+    dataSource: PostgresDataSource,
+    web_root: GetWebRootKey(),
+    emiter: new EventEmitter(),
+    listenersEvents: listenersEvents,
+    cypherKey: GetCypherKey(),
+  };
+};
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
@@ -38,10 +49,25 @@ export const authArg = {
   transportEmailOptions: {},
 };
 
-const authModel = new UserRolesModel(authArg);
-const langModel = new LanguageModel(ctx);
+export const getAuthArguments = (): IAuthModelArg => {
+  return <IAuthModelArg>{
+    privateKey: GetPrivateKey(),
+    publicKey: GetPublicKey(),
+    hostBase: GetHostBaseKey(),
+    ctx,
+    tokenExpiresIn: GetExpiresInKey(),
+    tokenRegisterExpiresIn: "24h",
+    emailOptions: { from: GetEmailAppAddressKey() } as any,
+    transportEmailOptions: {},
+  };
+};
 
 export const GqlContextHandler = async (options: IContextOptions) => {
+  const args = getAuthArguments();
+  const authModel = new UserRolesModel(args);
+  const context = getContext();
+  const langModel = new LanguageModel(context);
+
   if (!options) {
     throw new Error(translations.INVALID_PARAMS);
   }
