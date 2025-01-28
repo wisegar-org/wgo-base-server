@@ -23,13 +23,18 @@ export * from "./interfaces/IUserRole";
  * Middlewares Exports
  */
 export * from "./middlewares/cors-middleware";
-export * from "./middlewares/gql-server-middleware";
+export * from "./middlewares/fileupload-middleware";
 export * from "./middlewares/gql-fileupload-middleware";
+export * from "./middlewares/gql-server-middleware";
+export * from "./middlewares/handlebars-middleware";
 export * from "./middlewares/jwt-middleware";
+export * from "./middlewares/public-directory-middleware";
 export * from "./middlewares/rest-middleware";
 
+export * from "./handlers/authentication-handler";
 export * from "./handlers/boot-handler";
-export * from "./handlers/authorizationHandler";
+export * from "./handlers/gql-context-handler";
+export * from "./handlers/gql-error-handler";
 export * from "./handlers/rest-context-handler";
 /**
  * Models Exports

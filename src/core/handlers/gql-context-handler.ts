@@ -7,7 +7,6 @@ import {
   GetPublicKey,
 } from "wgo-settings";
 import { PostgresDataSource } from "../../database/data-source";
-import { GetWebRootKey } from "../middlewares/hostClientMiddleware";
 import { EventEmitter } from "events";
 
 import {
@@ -18,7 +17,7 @@ import {
 import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
-import { IContextOptions } from "..";
+import { GetWebRootKey, IContextOptions } from "..";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
