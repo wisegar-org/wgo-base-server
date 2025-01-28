@@ -18,3 +18,9 @@ export * from "./models/Event/EventModel";
 export * from "./models/Inscription/InscriptionModel";
 export * from "./models/Newsletter/NewsletterInscriptionModel";
 export * from "./models/Newsletter/NewsletterMessageModel";
+/**
+ * Export Seeders
+ */
+export * from "./seeders/AdminUserSeeder";
+export * from "./seeders/SettingsSeeder";
+export * from "./seeders/TemplateSeeder";
