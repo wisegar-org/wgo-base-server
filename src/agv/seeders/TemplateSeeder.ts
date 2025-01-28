@@ -4,7 +4,7 @@ import {
   AuthTemplateEnum,
 } from "@wisegar-org/wgo-base-models";
 import { LanguageModel } from "../../language";
-import { ctx } from "../handlers/AppContextHandler";
+import { ctx } from "../../core/handlers/gql-context-handler";
 import { TemplateModel } from "../../template";
 
 export const agvTemplateSeeder = async (dataSource: DataSource) => {

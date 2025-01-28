@@ -7,7 +7,7 @@ import {
   GetPublicKey,
 } from "wgo-settings";
 import { PostgresDataSource } from "../../database/data-source";
-import { GetWebRootKey } from "../middlewares/HostClientMiddleware";
+import { GetWebRootKey } from "../middlewares/hostClientMiddleware";
 import { EventEmitter } from "events";
 
 import {
@@ -18,7 +18,7 @@ import {
 import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
-import { IContextOptions } from "../../core";
+import { IContextOptions } from "..";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
@@ -42,7 +42,7 @@ export const authArg = {
 const authModel = new UserRolesModel(authArg);
 const langModel = new LanguageModel(ctx);
 
-export const AppContextHandler = async (options: IContextOptions) => {
+export const GqlContextHandler = async (options: IContextOptions) => {
   if (!options) {
     throw new Error(translations.INVALID_PARAMS);
   }
@@ -52,8 +52,11 @@ export const AppContextHandler = async (options: IContextOptions) => {
     ...ctx,
     language: parseInt(requestHeaders.language) || 0,
   };
+
   if (!tokenPayload) return ctxApp;
+
   const user = await authModel.getUser(parseInt(tokenPayload.userId));
+
   if (user) {
     ctxApp.user = {
       ...user,

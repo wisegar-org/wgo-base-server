@@ -1,17 +1,17 @@
 import "reflect-metadata";
 import express from "express";
 import { IServerOptions } from "../interfaces/IServerOptions";
-import { UseJwtMiddleware } from "../middlewares/JwtMiddleware";
-import { UseCorsMiddleware } from "../middlewares/CorsMiddleware";
-import { UseGqlServer } from "../middlewares/GqlServerMiddleware";
+import { UseJwtMiddleware } from "../middlewares/jwt-middleware";
+import { UseCorsMiddleware } from "../middlewares/cors-middleware";
+import { UseGqlServer } from "../middlewares/gql-server-middleware";
 import { ExpirationFreqEnum } from "../services/JwtAuthService";
-import { UseRestMiddleware } from "../middlewares/RestMiddleware";
+import { UseRestMiddleware } from "../middlewares/rest-middleware";
 import {
   IsNullOrUndefined,
   IsStringEmptyNullOrUndefined,
 } from "wgo-extensions";
 import { join } from "path";
-import { PublicDirectoryMiddleware } from "../middlewares/PublicDirectoryMiddleware";
+import { PublicDirectoryMiddleware } from "../middlewares/public-directory-middleware";
 import { ITranslationModel } from "@wisegar-org/wgo-base-models";
 import { GetOpenCRMPathRoot } from "../services/EnvService";
 

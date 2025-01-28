@@ -22,15 +22,15 @@ export * from "./interfaces/IUserRole";
 /**
  * Middlewares Exports
  */
-export * from "./middlewares/CorsMiddleware";
-export * from "./middlewares/GqlServerMiddleware";
-export * from "./middlewares/GqlUploadMiddleware";
-export * from "./middlewares/JwtMiddleware";
-export * from "./middlewares/RestMiddleware";
+export * from "./middlewares/cors-middleware";
+export * from "./middlewares/gql-server-middleware";
+export * from "./middlewares/gql-fileupload-middleware";
+export * from "./middlewares/jwt-middleware";
+export * from "./middlewares/rest-middleware";
 
-export * from "./handlers/bootHandler";
+export * from "./handlers/boot-handler";
 export * from "./handlers/authorizationHandler";
-export * from "./handlers/contextHandler";
+export * from "./handlers/rest-context-handler";
 /**
  * Models Exports
  */
@@ -73,7 +73,7 @@ export * from "./resolvers/CoreResolver";
 export { Express } from "express";
 export * from "type-graphql";
 export * from "graphql-upload";
-export { UseJwtMiddleware } from "./middlewares/JwtMiddleware";
-export { UseCorsMiddleware } from "./middlewares/CorsMiddleware";
-export { UseGqlServer } from "./middlewares/GqlServerMiddleware";
-export { UseGQLUploadExpress } from "./middlewares/GqlUploadMiddleware";
+export { UseJwtMiddleware } from "./middlewares/jwt-middleware";
+export { UseCorsMiddleware } from "./middlewares/cors-middleware";
+export { UseGqlServer } from "./middlewares/gql-server-middleware";
+export { UseGQLUploadExpress } from "./middlewares/gql-fileupload-middleware";

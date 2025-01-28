@@ -6,7 +6,7 @@ import {
   getSmtpSettings,
   settingsAdminSeeder,
 } from "../../settings";
-import { ctx } from "../handlers/AppContextHandler";
+import { ctx } from "../../core/handlers/gql-context-handler";
 
 export const settingsSeeder = async (dataSource: DataSource) => {
   //Save keys to database settings

@@ -3,8 +3,8 @@ import { getApolloServer } from "../graphql/server";
 import { IServerOptions } from "../interfaces/IServerOptions";
 import { expressMiddleware } from "@apollo/server/express4";
 import { json } from "body-parser";
-import { UseGQLUploadExpress } from "./GqlUploadMiddleware";
-import { contextHandler } from "../handlers/contextHandler";
+import { UseGQLUploadExpress } from "./gql-fileupload-middleware";
+import { contextHandler } from "../handlers/rest-context-handler";
 
 export const UseGqlServer = (options: IServerOptions) => {
   if (IsNullOrUndefined(options)) throw new Error("Invalid options parameter");

@@ -20,16 +20,18 @@ import {
   IServerOptions,
   UseRestMiddleware,
 } from "./core";
-import { UseHandlebarsRenderMiddleware } from "./agv/middlewares/HandlebarsRenderMiddleware";
-import {
-  UseAssetsHBHostMiddleware,
-  UseClientSPAHostMiddleware,
-  UsePublicMediaHostMiddleware,
-} from "./agv/middlewares/HostClientMiddleware";
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
 import { roleSuperAdminSeeder } from "./authentication/seeder/roles";
 import { userAdminSeeder } from "./authentication/seeder/user";
 import { mediaPublicSeeder } from "./storage/seeder/media";
+import {
+  UseAssetsHBHostMiddleware,
+  UseHandlebars,
+} from "./core/middlewares/handlebars-middleware";
+import {
+  UseClientSPAHostMiddleware,
+  UsePublicMediaHostMiddleware,
+} from "./core/middlewares/public-directory-middleware";
 
 const port = GetPortKey();
 
@@ -43,7 +45,7 @@ const serverOptions: IServerOptions = {
   maxFiles: 10,
   useCors: true,
   middlewares: (app: any) => {
-    UseHandlebarsRenderMiddleware(app);
+    UseHandlebars(app);
     UseClientSPAHostMiddleware(app);
     UsePublicMediaHostMiddleware(app);
     UseAssetsHBHostMiddleware(app);
