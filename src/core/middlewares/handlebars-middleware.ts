@@ -8,7 +8,7 @@ import { GetWebRootKey } from "./public-directory-middleware";
 export const UseHandlebars = (app: any) => {
   app.engine(
     ".hbs",
-    engine({ extname: ".hbs", helpers: require("./handlebarsHelpers") })
+    engine({ extname: ".hbs", helpers: require("./handlebars-helpers") })
   );
   app.set("view engine", ".hbs");
   app.set("views", join(GetWebRootKey(), "handlebars/views"));

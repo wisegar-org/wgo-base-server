@@ -29,13 +29,11 @@ module.exports = {
   eq: function (a: any, b: any) {
     return a === b;
   },
-
   // Helper para recortar espacios en blanco
   trim: function (str: string) {
     if (typeof str !== "string") return "";
     return str.trim();
   },
-
   // Helper para obtener valores únicos de un array de objetos basados en una propiedad
   uniqueValues: function (array: any[], key: string) {
     if (!Array.isArray(array)) {

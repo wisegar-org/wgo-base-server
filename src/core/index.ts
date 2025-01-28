@@ -30,7 +30,9 @@ export * from "./middlewares/handlebars-middleware";
 export * from "./middlewares/jwt-middleware";
 export * from "./middlewares/public-directory-middleware";
 export * from "./middlewares/rest-middleware";
-
+/**
+ * Handlers Exports
+ */
 export * from "./handlers/authentication-handler";
 export * from "./handlers/boot-handler";
 export * from "./handlers/gql-context-handler";
