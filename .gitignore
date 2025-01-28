@@ -108,3 +108,4 @@ build
 settings/settings.json
 settings/settings.*.json
 public/media
+localStorage.json
