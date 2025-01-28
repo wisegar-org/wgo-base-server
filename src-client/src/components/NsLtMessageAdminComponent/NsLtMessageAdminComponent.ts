@@ -11,7 +11,7 @@ import { useAppStatusStore } from "src/stores/appStatusStore";
 import { useAppContentStore } from "src/modules/agv/stores/appContentStore";
 import TableVue from "src/modules/core/components/Table/Table.vue";
 import { AGVNewsletterMessageStatusEnum } from "src/models/Newsletter";
-import { AGVNewslettersAdminPaths } from "src/router/paths/adminAgv/newslettersPaths";
+import { AGVNewslettersAdminPaths } from "src/router/paths/admin/newslettersPaths";
 import {
   BaseResizeComponent,
   BaseTranslateComponent,

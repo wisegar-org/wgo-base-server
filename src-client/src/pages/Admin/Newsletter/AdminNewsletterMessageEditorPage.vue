@@ -10,7 +10,7 @@
 import { defineComponent } from "vue";
 import NsLtMessageAdminEditor from "../../../components/NsLtMessageAdminEditor/NsLtMessageAdminEditor.vue";
 import { NewsletterMessageService } from "../../../services/Newsletter/NwLtMessengerService";
-import { AGVNewslettersAdminPaths } from "../../../router/paths/adminAgv/newslettersPaths";
+import { AGVNewslettersAdminPaths } from "../../../router/paths/admin/newslettersPaths";
 import { useAppStatusStore } from "../../../stores/appStatusStore";
 import { Router } from "vue-router";
 import { RouteService } from "../../../modules/core/services/RouteService";

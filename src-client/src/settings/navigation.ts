@@ -1,10 +1,10 @@
-import { AGVContentAdminPaths } from "src/router/paths/adminAgv/contentPaths";
+import { AGVContentAdminPaths } from "src/router/paths/admin/contentPaths";
 import {
   AGVEventsAdminPaths,
   AGVInscriptionsAdminPaths,
 } from "src/router/paths/admin/eventsPaths";
-import { AGVNewslettersAdminPaths } from "src/router/paths/adminAgv/newslettersPaths";
-import { AGVTemplateAdminPaths } from "src/router/paths/adminAgv/templatePaths";
+import { AGVNewslettersAdminPaths } from "src/router/paths/admin/newslettersPaths";
+import { AGVTemplateAdminPaths } from "src/router/paths/admin/templatePaths";
 import { SUPERADMIN } from "@wisegar-org/wgo-base-models/build/authentication";
 import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
 import { AdminContactPaths } from "@wisegar-org/wgo-base-models/build/contact/router";

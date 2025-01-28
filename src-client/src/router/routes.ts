@@ -11,11 +11,11 @@ import {
   AGVEventsPathRouter,
   AGVInscriptionsPathRouter,
 } from "./paths/admin/eventsPaths";
-import { AGVTemplatePathRouter } from "./paths/adminAgv/templatePaths";
+import { AGVTemplatePathRouter } from "./paths/admin/templatePaths";
 import { AuthPathRouter } from "./paths/authPaths";
 import { emptyLayoutContainerRoute } from "src/modules/agv/routes/emptyLayoutContainerRoute";
-import { AGVContentPathRouter } from "./paths/adminAgv/contentPaths";
-import { AGVNewslettersPathRouter } from "./paths/adminAgv/newslettersPaths";
+import { AGVContentPathRouter } from "./paths/admin/contentPaths";
+import { AGVNewslettersPathRouter } from "./paths/admin/newslettersPaths";
 
 const routes: RouteRecordRaw[] = [
   // mainLayoutContainerRoute,
