@@ -42,7 +42,8 @@ export const AGVContentPathRouter: RouteRecordRaw = {
     },
     {
       path: AGVContentAdminPaths.contentSocialMedia.path,
-      component: () => import("pages/AdminAgv/AdminSocialMediaContentPage.vue"),
+      component: () =>
+        import("pages/Admin/SocialMedia/AdminSocialMediaContentPage.vue"),
       meta: {
         auth: true,
         role: [SUPERADMIN, AGV_ADMIN_ROLE],

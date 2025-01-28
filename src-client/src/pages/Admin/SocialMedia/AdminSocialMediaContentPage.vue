@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SocialMediaAdminContent from "../../components/SocialMediaAdminContent/SocialMediaAdminContent.vue";
+import SocialMediaAdminContent from "../../../components/SocialMediaAdminContent/SocialMediaAdminContent.vue";
 export default defineComponent({
   name: "AdminSocialMediaContentPage",
   components: {
