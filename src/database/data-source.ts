@@ -9,7 +9,7 @@ import {
 
 /** Migrations */
 import { RoleEntity } from "../authentication";
-import { getContactMigrations, ContactMeEntity } from "../contact";
+
 import {
   UserEntity,
   LanguageEntity,
@@ -27,7 +27,12 @@ import { AGVInscriptionEntity } from "./entities/AGVInscriptionEntity";
 import AGVPollEntity from "./entities/AGVPollEntity";
 import { AGVNewsletterInscriptionEntity } from "./entities/AGVNewsletterInscriptionEntity";
 import { AGVNewsletterMessageEntity } from "./entities/AGVNewsletterMessageEntity";
-import { getAgvMigrations, getAuthenticationMigrations } from "./migrations";
+import {
+  getAgvMigrations,
+  getAuthenticationMigrations,
+  getContactMigrations,
+} from "./migrations";
+import { ContactMeEntity } from "../contact";
 
 const migrations = getAuthenticationMigrations()
   .concat(getContactMigrations())

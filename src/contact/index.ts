@@ -1,5 +1,5 @@
-export { ContactMeEntity } from "./database/entities/ContactMeEntity";
-export * from "./database/migrations";
+export { ContactMeEntity } from "../database/entities/ContactMeEntity";
+
 export * from "./models/ContactMeModel";
 export * from "./resolvers/ContactMeInputs";
 export * from "./resolvers/ContactMeResponses";
