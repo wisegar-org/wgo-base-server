@@ -8,8 +8,6 @@ import {
 } from "wgo-settings";
 
 /** Migrations */
-
-import { getLanguageMigrations } from "../language";
 import { getSettingsMigrations, SettingsEntity } from "../settings";
 import { getStorageMigrations, StorageEntity } from "../storage";
 import { getTemplateMigrations, TemplateEntity } from "../template";
@@ -24,6 +22,7 @@ import {
   getAuthenticationMigrations,
   getContactMigrations,
   getHistoricMigrations,
+  getLanguageMigrations,
 } from "./migrations";
 import { ContactMeEntity } from "../contact";
 import { UserEntity } from "./entities/UserEntity";
