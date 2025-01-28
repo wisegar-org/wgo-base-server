@@ -12,6 +12,7 @@ import { addContactMeEntity1658932057343 } from "./1658932057343-addContactMeEnt
 import { addUniqueUserProps1661872515554 } from "./1661872515554-addUniqueUserProps";
 import { addUniqueCodeProp1662052264312 } from "./1662052264312-addUniqueCodeProp";
 import { createHistoricTable1668532176196 } from "./1668532176196-createHistoricTable";
+import { createTemplateTable1668532715433 } from "./1668532715433-createTemplateTable";
 import { createEventTable1668534412569 } from "./1668534412569-createEventTable";
 import { createInscriptionTable1668535321834 } from "./1668535321834-createInscriptionTable";
 import { createPollTable1668539264505 } from "./1668539264505-createPollTable";
@@ -24,6 +25,7 @@ import { addContactMeHistoric1668549723950 } from "./1668549723950-addContactMeH
 import { changeDateType1668550334970 } from "./1668550334970-changeDateType";
 import { addLanguageHistoric1668550415911 } from "./1668550415911-addLanguageHistoric";
 import { addSettingHistoric1668553325149 } from "./1668553325149-addSettingHistoric";
+import { addTemplateHistoric1668553582516 } from "./1668553582516-addTemplateHistoric";
 import { addLanguageAndProfile1668893995656 } from "./1668893995656-addLanguageAndProfile";
 import { addNewFieldsOnMedia1668894746262 } from "./1668894746262-addNewFieldsOnMedia";
 import { addLanguageLogo1668895775452 } from "./1668895775452-addLanguageLogo";
@@ -91,4 +93,8 @@ export const getStorageMigrations = () => {
     addMediaHistory1668545019180,
     addNewFieldsOnMedia1668894746262,
   ];
+};
+
+export const getTemplateMigrations = () => {
+  return [createTemplateTable1668532715433, addTemplateHistoric1668553582516];
 };
