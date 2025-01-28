@@ -1,6 +1,6 @@
 import { Entity, Column } from "typeorm";
 import { OGBaseEntity } from "./OGBaseEntity";
-import { ISessionLicenze } from "../../models/Models";
+import { ISessionLicenze } from "../../core";
 
 @Entity({ name: "session" })
 export class SessionEntity extends OGBaseEntity {

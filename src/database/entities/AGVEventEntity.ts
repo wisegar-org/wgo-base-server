@@ -9,7 +9,8 @@ import {
 } from "typeorm";
 import { AGVInscriptionEntity } from "./AGVInscriptionEntity";
 import { EventStateEnum, EventTypeEnum } from "@wisegar-org/wgo-base-models";
-import { MediaEntity, WGBaseEntity } from "../../core";
+import { WGBaseEntity } from "./WGBaseEntity";
+import MediaEntity from "./MediaEntity";
 
 @Entity()
 export class AGVEventEntity extends WGBaseEntity {

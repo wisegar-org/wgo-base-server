@@ -31,13 +31,13 @@ import {
   WRONG_USER_PASSWORD,
 } from "@wisegar-org/wgo-base-models";
 import { HistoricModel } from "../../historic/models/HistoricModel";
-import { UserEntity } from "../../core/database/entities/UserEntity";
 import { EmailModel } from "../../email";
 import {
   ExpirationFreqEnum,
   generateAccessToken,
   validateAccessToken,
 } from "../../core";
+import { UserEntity } from "../../database/entities/UserEntity";
 
 export class AuthModel {
   private dataSource: DataSource;

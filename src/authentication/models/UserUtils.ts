@@ -1,5 +1,5 @@
 import { IUser } from "@wisegar-org/wgo-base-models";
-import { UserEntity } from "../../core/database/entities/UserEntity";
+import { UserEntity } from "../..";
 
 export const UserUtils = {
   mapUserEntity(user: UserEntity): IUser {

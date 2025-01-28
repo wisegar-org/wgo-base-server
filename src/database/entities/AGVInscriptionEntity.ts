@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
 } from "typeorm";
 import AGVEventEntity from "./AGVEventEntity";
-import { WGBaseEntity } from "../../core";
+import { WGBaseEntity } from "./WGBaseEntity";
 
 @Entity()
 export class AGVInscriptionEntity extends WGBaseEntity {

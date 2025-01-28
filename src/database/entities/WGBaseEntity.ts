@@ -8,7 +8,7 @@ import {
   Generated,
   Index,
 } from "typeorm";
-import { HistoricEntity } from "../../../historic/database/entities/HistoricEntity";
+import { HistoricEntity } from "../../historic/database/entities/HistoricEntity";
 
 export class WGBaseEntity extends BaseEntity {
   @Index()

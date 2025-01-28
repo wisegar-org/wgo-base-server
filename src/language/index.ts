@@ -1,4 +1,3 @@
-export { LanguageEntity } from "../core/database/entities/LanguageEntity";
 export * from "./database/migrations";
 export * from "./database/seeder/language";
 export * from "./models/LanguageModel";

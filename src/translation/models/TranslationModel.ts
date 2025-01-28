@@ -1,5 +1,4 @@
 import { DataSource, ILike, In } from "typeorm";
-import { TranslationEntity } from "../../core/database/entities/TranslationEntity";
 import {
   IGetAllTranslationsByKeyArg,
   IGetAllTranslationArg,
@@ -12,6 +11,7 @@ import {
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { UtilService } from "../../core/services/UtilService";
 import { LanguageModel } from "../../language/models/LanguageModel";
+import { TranslationEntity } from "../../database/entities/TranslationEntity";
 
 export class TranslationModel {
   private ctx: IContextBase;

@@ -10,7 +10,7 @@ import {
   IContextBase,
   IMediaModel,
 } from "@wisegar-org/wgo-base-models";
-import { MediaEntity } from "../../core";
+import MediaEntity from "../../database/entities/MediaEntity";
 
 export class MediaModel {
   private ctx: IContextBase;

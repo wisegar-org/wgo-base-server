@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { LANGUAGE_EN } from "@wisegar-org/wgo-base-models";
-import { LanguageEntity } from "../../../core/database/entities/LanguageEntity";
+import { LanguageEntity } from "../../../database/entities/LanguageEntity";
 
 export const languageDefaultSeeder = async (dataSource: DataSource) => {
   const languageRepository = dataSource.getRepository(LanguageEntity);

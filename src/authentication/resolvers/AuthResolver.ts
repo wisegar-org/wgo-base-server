@@ -37,7 +37,6 @@ import {
   GetPrivateKey,
   GetPublicKey,
 } from "wgo-settings";
-import { UserEntity } from "../../core/database/entities/UserEntity";
 import { AuthModel } from "../models/AuthModel";
 import { SettingsModel } from "../../settings/models/SettingsModel";
 import { IdInput } from "../../core/resolvers/CoreInputs";
@@ -45,6 +44,7 @@ import { UserRolesModel } from "../models/UserRolesModel";
 import { HistoricResponse } from "../../historic/resolvers/HistoricResponses";
 import { HistoricModel } from "../../historic/models/HistoricModel";
 import { EmailModel } from "../../email";
+import { UserEntity } from "../../database/entities/UserEntity";
 
 @Resolver()
 export class AuthResolver {

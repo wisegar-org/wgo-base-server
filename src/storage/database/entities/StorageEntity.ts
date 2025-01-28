@@ -6,8 +6,8 @@ import {
   Entity,
   Column,
 } from "typeorm";
-import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
-import { MediaEntity } from "../../../core";
+import { WGBaseEntity } from "../../../database/entities/WGBaseEntity";
+import MediaEntity from "../../../database/entities/MediaEntity";
 
 @Entity({ name: "storage" })
 export class StorageEntity extends WGBaseEntity {
