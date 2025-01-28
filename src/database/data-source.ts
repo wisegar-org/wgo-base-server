@@ -8,7 +8,7 @@ import {
 } from "wgo-settings";
 
 /** Migrations */
-import { getAuthenticationMigrations, RoleEntity } from "../authentication";
+import { RoleEntity } from "../authentication";
 import { getContactMigrations, ContactMeEntity } from "../contact";
 import {
   UserEntity,
@@ -27,7 +27,7 @@ import { AGVInscriptionEntity } from "./entities/AGVInscriptionEntity";
 import AGVPollEntity from "./entities/AGVPollEntity";
 import { AGVNewsletterInscriptionEntity } from "./entities/AGVNewsletterInscriptionEntity";
 import { AGVNewsletterMessageEntity } from "./entities/AGVNewsletterMessageEntity";
-import { getAgvMigrations } from "./migrations";
+import { getAgvMigrations, getAuthenticationMigrations } from "./migrations";
 
 const migrations = getAuthenticationMigrations()
   .concat(getContactMigrations())

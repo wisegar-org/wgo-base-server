@@ -1,9 +1,9 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import { DataSource } from "typeorm";
-import { RoleEntity } from "../../../core/database/entities/RoleEntity";
-import { UserEntity } from "../../../core/database/entities/UserEntity";
 import * as bcrypt from "bcrypt";
 import { SUPERADMIN } from "@wisegar-org/wgo-base-models";
+import { UserEntity } from "../../core";
+import { RoleEntity } from "../../core/database/entities/RoleEntity";
 
 export const userAdminSeeder = async (dataSource: DataSource) => {
   const adminUserEmail = "admin@wisegar.org";

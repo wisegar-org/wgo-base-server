@@ -11,7 +11,6 @@ import { errorHandler } from "./wgo/handlers/ErrorHandler";
 import { getControllers } from "./wgo/controllers";
 
 import { createDatabase } from "typeorm-extension";
-import { roleSuperAdminSeeder, userAdminSeeder } from "./authentication";
 import { languageDefaultSeeder } from "./language";
 import { mediaPublicSeeder } from "./storage";
 import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
@@ -29,6 +28,8 @@ import {
   UsePublicMediaHostMiddleware,
 } from "./agv/middlewares/HostClientMiddleware";
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
+import { roleSuperAdminSeeder } from "./authentication/seeder/roles";
+import { userAdminSeeder } from "./authentication/seeder/user";
 
 const port = GetPortKey();
 
