@@ -1,10 +1,10 @@
 import "reflect-metadata";
 import { Column, Entity } from "typeorm";
-import { OGBaseEntity } from "./OGBaseEntity";
 import { Actions } from "@wisegar-org/wgo-base-models";
+import { WGBaseEntity } from "./WGBaseEntity";
 
 @Entity({ name: "journal_history" })
-export class HistoryEntity extends OGBaseEntity {
+export class HistoryEntity extends WGBaseEntity {
   @Column()
   entity!: string;
   @Column()
@@ -19,5 +19,5 @@ export class HistoryEntity extends OGBaseEntity {
   action!: Actions;
 
   @Column({ type: "jsonb", nullable: true })
-  snapshot?: { [key: string]: unknown };
+  snapshot?: Array<{ id: string }>;
 }

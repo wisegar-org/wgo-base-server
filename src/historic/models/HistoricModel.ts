@@ -1,5 +1,5 @@
 import { DataSource, ObjectType, Repository } from "typeorm";
-import { HistoricEntity } from "../database/entities/HistoricEntity";
+import { HistoryEntity } from "../../database/entities/HistoryEntity";
 import {
   DEFAULT_EDIT_MESSAGE,
   WRONG_CONTEXT_USER,
@@ -14,7 +14,7 @@ import { UserEntity } from "../../database/entities/UserEntity";
 
 export class HistoricModel<TEntity extends WGBaseEntity> {
   private dataSource: DataSource;
-  private repository: Repository<HistoricEntity>;
+  private repository: Repository<HistoryEntity>;
   private readonly type: ObjectType<TEntity>;
   private context?: IContextBase;
   /**
@@ -23,11 +23,11 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
   constructor(type: ObjectType<TEntity>, context: IContextBase) {
     this.context = context;
     this.dataSource = this.context.dataSource;
-    this.repository = this.dataSource.getRepository(HistoricEntity);
+    this.repository = this.dataSource.getRepository(HistoryEntity);
     this.type = type;
   }
 
-  public async getHistoric(entityRecordId: number): Promise<HistoricEntity[]> {
+  public async getHistoric(entityRecordId: number): Promise<HistoryEntity[]> {
     const historic = await this.repository.find({
       where: { entity: this.type.name, recordId: entityRecordId },
     });
@@ -96,7 +96,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
     return historic;
   }
 
-  public async create(entity: HistoricEntity): Promise<HistoricEntity> {
+  public async create(entity: HistoryEntity): Promise<HistoryEntity> {
     if (!!entity.id)
       throw `Impossibile creare una nuova entity con un id valido`;
     const result = await this.repository.insert(entity);
@@ -107,8 +107,8 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
   }
 
   public async createMany(
-    historicEntities: HistoricEntity[]
-  ): Promise<HistoricEntity[]> {
+    historicEntities: HistoryEntity[]
+  ): Promise<HistoryEntity[]> {
     if (!this.context) return [];
     const inserResult = await this.repository.insert(historicEntities);
     if (!inserResult.identifiers || inserResult.identifiers.length === 0)
@@ -130,7 +130,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
       username: entity.email,
       snapshot: "{}",
     };
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async createAccessHistoric(
@@ -146,7 +146,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
       username: entity.email,
       snapshot: "{}",
     };
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async createPostHistoric(entity: TEntity, customMessage?: string) {
@@ -155,7 +155,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
 
     historicModel.message = !customMessage ? `Creato` : customMessage;
     historicModel.action = Actions.Add;
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async createPutHistoric(entity: TEntity, customMessage?: string) {
@@ -163,7 +163,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
     const historicModel = this.getHistoricModel(entity);
     historicModel.action = Actions.Update;
     historicModel.message = !customMessage ? `Modificato` : customMessage;
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async createPutManyHistoric(
@@ -181,7 +181,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
         : customMessage;
     }
     const historicEntities = historicModels.map((historicModel) =>
-      Object.assign(new HistoricEntity(), historicModel)
+      Object.assign(new HistoryEntity(), historicModel)
     );
     return await this.createMany(historicEntities);
   }
@@ -192,7 +192,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
     historicModel.action = Actions.SoftDelete;
     historicModel.message = !customMessage ? `Cancellato soft` : customMessage;
     historicModel.snapshot = JSON.stringify(entity);
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async createDeleteHardHistoric(
@@ -204,7 +204,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
     historicModel.action = Actions.Delete;
     historicModel.message = !customMessage ? `Cancellato` : customMessage;
     historicModel.snapshot = JSON.stringify(entity);
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async createRestoreHistoric(entity: TEntity, customMessage?: string) {
@@ -213,7 +213,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
     historicModel.action = Actions.Restore;
     historicModel.message = !customMessage ? `Restore` : customMessage;
     historicModel.snapshot = JSON.stringify(entity);
-    return this.create(Object.assign(new HistoricEntity(), historicModel));
+    return this.create(Object.assign(new HistoryEntity(), historicModel));
   }
 
   public async getHistoricFilters() {
@@ -240,7 +240,7 @@ export class HistoricModel<TEntity extends WGBaseEntity> {
     };
   }
 
-  public static ParseHistoricResponse(historicEntity: HistoricEntity) {
+  public static ParseHistoricResponse(historicEntity: HistoryEntity) {
     return {
       action: historicEntity.action,
       creatoIl: historicEntity.creatoIl,

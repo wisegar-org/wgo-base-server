@@ -1,5 +1,5 @@
-export { HistoricEntity } from "./database/entities/HistoricEntity";
-export * from "./database/migrations";
+export { HistoryEntity as HistoricEntity } from "../database/entities/HistoryEntity";
+
 export * from "./models/HistoricModel";
 export * from "./resolvers/HistoricInputs";
 export * from "./resolvers/HistoricResponses";

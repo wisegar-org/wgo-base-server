@@ -9,7 +9,6 @@ import {
 
 /** Migrations */
 
-import { getHistoricMigrations, HistoricEntity } from "../historic";
 import { getLanguageMigrations } from "../language";
 import { getSettingsMigrations, SettingsEntity } from "../settings";
 import { getStorageMigrations, StorageEntity } from "../storage";
@@ -24,6 +23,7 @@ import {
   getAgvMigrations,
   getAuthenticationMigrations,
   getContactMigrations,
+  getHistoricMigrations,
 } from "./migrations";
 import { ContactMeEntity } from "../contact";
 import { UserEntity } from "./entities/UserEntity";
@@ -31,6 +31,7 @@ import { RoleEntity } from "./entities/RoleEntity";
 import { TranslationEntity } from "./entities/TranslationEntity";
 import { LanguageEntity } from "./entities/LanguageEntity";
 import MediaEntity from "./entities/MediaEntity";
+import { HistoryEntity } from "./entities/HistoryEntity";
 
 const migrations = getAuthenticationMigrations()
   .concat(getContactMigrations())
@@ -59,7 +60,7 @@ export const dataSourceOptions: DataSourceOptions = {
     TranslationEntity,
     SettingsEntity,
     ContactMeEntity,
-    HistoricEntity,
+    HistoryEntity,
     TemplateEntity,
     MediaEntity,
     StorageEntity,

@@ -8,7 +8,7 @@ import {
   Generated,
   Index,
 } from "typeorm";
-import { HistoricEntity } from "../../historic/database/entities/HistoricEntity";
+import { HistoryEntity } from "./HistoryEntity";
 
 export class WGBaseEntity extends BaseEntity {
   @Index()
@@ -36,5 +36,5 @@ export class WGBaseEntity extends BaseEntity {
   @DeleteDateColumn({ nullable: true })
   cancellatoIl!: Date;
 
-  history?: HistoricEntity[];
+  history?: HistoryEntity[];
 }

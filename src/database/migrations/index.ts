@@ -5,6 +5,7 @@ import { fixAdminPassword1658417129112 } from "./1658417129112-fixAdminPassword"
 import { addContactMeEntity1658932057343 } from "./1658932057343-addContactMeEntity";
 import { addUniqueUserProps1661872515554 } from "./1661872515554-addUniqueUserProps";
 import { addUniqueCodeProp1662052264312 } from "./1662052264312-addUniqueCodeProp";
+import { createHistoricTable1668532176196 } from "./1668532176196-createHistoricTable";
 import { createEventTable1668534412569 } from "./1668534412569-createEventTable";
 import { createInscriptionTable1668535321834 } from "./1668535321834-createInscriptionTable";
 import { createPollTable1668539264505 } from "./1668539264505-createPollTable";
@@ -47,4 +48,8 @@ export const getAuthenticationMigrations = () => {
 
 export const getContactMigrations = () => {
   return [addContactMeEntity1658932057343, addContactMeHistoric1668549723950];
+};
+
+export const getHistoricMigrations = () => {
+  return [createHistoricTable1668532176196];
 };

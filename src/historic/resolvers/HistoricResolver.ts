@@ -4,7 +4,7 @@ import {
   HISTORIC_PATH_GET_PAGE,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { HistoricEntity } from "../database/entities/HistoricEntity";
+import { HistoryEntity } from "../../database/entities/HistoryEntity";
 import { HistoricModel } from "../models/HistoricModel";
 import { HistoricPageInput } from "./HistoricInputs";
 import {
@@ -20,7 +20,7 @@ export class HistoricResolver {
     @Arg("data") data: HistoricPageInput,
     @Ctx() ctx: IContextBase
   ) {
-    const historyService = new HistoricModel(HistoricEntity, ctx);
+    const historyService = new HistoricModel(HistoryEntity, ctx);
     const filter: { [key: string]: string } = {};
     if (data.filter?.action) filter.action = data.filter.action;
     if (data.filter?.entity) filter.entity = data.filter.entity;
@@ -47,7 +47,7 @@ export class HistoricResolver {
   @Authorized()
   @Query(() => HistoricFiltersResponse, { name: HISTORIC_PATH_GET_FILTERS })
   async getHistoricFilters(@Ctx() ctx: IContextBase) {
-    const historyService = new HistoricModel(HistoricEntity, ctx);
+    const historyService = new HistoricModel(HistoryEntity, ctx);
     const filters = await historyService.getHistoricFilters();
     return filters;
   }
