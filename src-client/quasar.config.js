@@ -118,8 +118,8 @@ const quasarConfig = configure(function (ctx) {
     framework: {
       config: {
         brand: {
-          primary: "#D5573B",
-          secondary: "#885053",
+          primary: "#221D23",
+          secondary: "#4F3824",
           accent: "#D5573B",
           dark: "#1D1D1D",
           positive: "#80a32c",
