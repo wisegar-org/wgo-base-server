@@ -1,4 +1,3 @@
-export * from "./database/migrations";
 export * from "./models/TranslationModel";
 export * from "./resolvers/TranslationsInputs";
 export * from "./resolvers/TranslationsResponses";

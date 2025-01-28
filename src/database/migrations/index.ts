@@ -2,6 +2,7 @@ import { migrations1651766519693 } from "./1651766519693-migrations";
 import { addRoleEntity1656005738186 } from "./1656005738186-addRoleEntity";
 import { addLanguageEntity1656012423678 } from "./1656012423678-addLanguageEntity";
 import { addCertificateFields1656434163078 } from "./1656434163078-addCertificateFields";
+import { createTranslationEntity1656439638048 } from "./1656439638048-createTranslationEntity";
 import { addSettingsEntity1658164004212 } from "./1658164004212-addSettingsEntity";
 import { renameTypeSettings1658240270133 } from "./1658240270133-renameTypeSettings";
 import { removeAppSettings1658240565587 } from "./1658240565587-removeAppSettings";
@@ -26,6 +27,7 @@ import { changeDateType1668550334970 } from "./1668550334970-changeDateType";
 import { addLanguageHistoric1668550415911 } from "./1668550415911-addLanguageHistoric";
 import { addSettingHistoric1668553325149 } from "./1668553325149-addSettingHistoric";
 import { addTemplateHistoric1668553582516 } from "./1668553582516-addTemplateHistoric";
+import { addTranslationHistoric1668554264770 } from "./1668554264770-addTranslationHistoric";
 import { addLanguageAndProfile1668893995656 } from "./1668893995656-addLanguageAndProfile";
 import { addNewFieldsOnMedia1668894746262 } from "./1668894746262-addNewFieldsOnMedia";
 import { addLanguageLogo1668895775452 } from "./1668895775452-addLanguageLogo";
@@ -97,4 +99,11 @@ export const getStorageMigrations = () => {
 
 export const getTemplateMigrations = () => {
   return [createTemplateTable1668532715433, addTemplateHistoric1668553582516];
+};
+
+export const getTranslationMigrations = () => {
+  return [
+    createTranslationEntity1656439638048,
+    addTranslationHistoric1668554264770,
+  ];
 };

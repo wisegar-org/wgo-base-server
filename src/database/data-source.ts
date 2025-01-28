@@ -9,7 +9,6 @@ import {
 
 /** Migrations */
 import { StorageEntity } from "../storage";
-import { getTranslationMigrations } from "../translation";
 import AGVEventEntity from "./entities/AGVEventEntity";
 import { AGVInscriptionEntity } from "./entities/AGVInscriptionEntity";
 import AGVPollEntity from "./entities/AGVPollEntity";
@@ -24,6 +23,7 @@ import {
   getSettingsMigrations,
   getStorageMigrations,
   getTemplateMigrations,
+  getTranslationMigrations,
 } from "./migrations";
 import { ContactMeEntity } from "../contact";
 import { UserEntity } from "./entities/UserEntity";
