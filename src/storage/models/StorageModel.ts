@@ -1,7 +1,7 @@
 import { IsString } from "wgo-extensions";
 import { DataSource, Like, Repository } from "typeorm";
 import { HistoricModel } from "../../historic/models/HistoricModel";
-import StorageEntity from "../database/entities/StorageEntity";
+import StorageEntity from "../../database/entities/StorageEntity";
 import { MediaModel } from "./MediaModel";
 import {
   IMediaModel,

@@ -12,7 +12,6 @@ import { getControllers } from "./wgo/controllers";
 
 import { createDatabase } from "typeorm-extension";
 import { languageDefaultSeeder } from "./language";
-import { mediaPublicSeeder } from "./storage";
 import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
 import {
@@ -30,6 +29,7 @@ import {
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
 import { roleSuperAdminSeeder } from "./authentication/seeder/roles";
 import { userAdminSeeder } from "./authentication/seeder/user";
+import { mediaPublicSeeder } from "./storage/seeder/media";
 
 const port = GetPortKey();
 
