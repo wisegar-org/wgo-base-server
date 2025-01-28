@@ -80,7 +80,7 @@ const getAdminTemplatePage = (url: string, type: string) => ({
     auth: true,
     role: [SUPERADMIN, AGV_ADMIN_ROLE],
   },
-  component: () => import("pages/AdminAgv/AdminTemplatePage.vue"),
+  component: () => import("pages/Admin/Template/AdminTemplatePage.vue"),
   props: () => ({ type }),
 });
 

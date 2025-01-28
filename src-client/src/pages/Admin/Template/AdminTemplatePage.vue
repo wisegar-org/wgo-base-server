@@ -18,19 +18,19 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { AGVTemplateEnum, getAgvTemplateKey } from "../../models/Templates";
-import { useAuthStore } from "../../stores/authStore";
-import { apiSettings } from "../../api/ApiOptions";
-import { EventTypeOptions, EventClassOption } from "../../models/Events";
-import { AGVNewsletterInscriptionStatusEnum } from "../../models/Newsletter";
+import { AGVTemplateEnum, getAgvTemplateKey } from "../../../models/Templates";
+import { useAuthStore } from "../../../stores/authStore";
+import { apiSettings } from "../../../api/ApiOptions";
+import { EventTypeOptions, EventClassOption } from "../../../models/Events";
+import { AGVNewsletterInscriptionStatusEnum } from "../../../models/Newsletter";
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
-import TemplateEditor from "src/modules/template/components/TemplateEditor/TemplateEditor.vue";
-import { useTranslationStore } from "../../stores/translationStore";
-import { useNotifyStore } from "../../stores/notifyStore";
+import TemplateEditor from "../../../modules/template/components/TemplateEditor/TemplateEditor.vue";
+import { useTranslationStore } from "../../../stores/translationStore";
+import { useNotifyStore } from "../../../stores/notifyStore";
 import { AuthTemplateEnum } from "@wisegar-org/wgo-base-models/build/authentication/constants";
 
 export default defineComponent({
-  name: "AdminSocialMediaContentPage",
+  name: "AdminTemplatePage",
   props: {
     type: { type: String, defualt: "" },
   },
