@@ -1,6 +1,4 @@
 import { ILike, In, MoreThanOrEqual, Not, Repository } from "typeorm";
-import AGVEventEntity from "../../database/entities/AGVEventEntity";
-import { AGVInscriptionEntity } from "../../database/entities/AGVInscriptionEntity";
 import {
   AGVEventInput,
   AGVEventPageInput,
@@ -17,6 +15,8 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { MediaModel, MediaResponse } from "../../../storage";
 import { HistoricModel } from "../../../historic";
+import AGVEventEntity from "../../../database/entities/AGVEventEntity";
+import { AGVInscriptionEntity } from "../../../database/entities/AGVInscriptionEntity";
 
 export class AGVEventModel {
   private eventRepository: Repository<AGVEventEntity>;

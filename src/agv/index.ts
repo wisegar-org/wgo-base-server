@@ -1,17 +1,11 @@
 export * from "./handlers/AuthenticationHandler";
 export * from "./handlers/AppContextHandler";
 export * from "./handlers/ErrorHandler";
-
 export * from "./middlewares/HostClientMiddleware";
-export * from "./database/seeders/SettingsSeeder";
-export * from "./database/seeders/TemplateSeeder";
-export * from "./database/seeders/AdminUserSeeder";
-
 /**
  * Export Middlewares
  */
 export * from "./middlewares/HandlebarsRenderMiddleware";
-
 /**
  * Export Resolvers
  */

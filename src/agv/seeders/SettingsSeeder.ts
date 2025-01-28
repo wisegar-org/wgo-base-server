@@ -1,12 +1,12 @@
 import { DataSource } from "typeorm";
 import { GetConfig } from "wgo-settings";
 import { SETTINGS_POP3, SETTINGS_SMTP } from "@wisegar-org/wgo-base-models";
-import { ctx } from "../../handlers/AppContextHandler";
 import {
   getPop3Settings,
   getSmtpSettings,
   settingsAdminSeeder,
-} from "../../../settings";
+} from "../../settings";
+import { ctx } from "../handlers/AppContextHandler";
 
 export const settingsSeeder = async (dataSource: DataSource) => {
   //Save keys to database settings

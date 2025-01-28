@@ -1,4 +1,3 @@
-import AGVEventEntity from "../../database/entities/AGVEventEntity";
 import { AGVEventModel } from "../../models/Event/EventModel";
 import { SUPERADMIN, IContextBase } from "@wisegar-org/wgo-base-models";
 import { AGVEventInput, AGVEventPageInput } from "./AGVEventInputs";
@@ -9,6 +8,7 @@ import {
 } from "./AGVEventResponses";
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { HistoricResponse, HistoricModel } from "../../../historic";
+import AGVEventEntity from "../../../database/entities/AGVEventEntity";
 
 @Resolver()
 export class AGVEventResolver {

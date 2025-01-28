@@ -4,7 +4,6 @@ import {
   GetEmailSenderNameKey,
 } from "wgo-settings";
 import { Repository, ILike, Not, In } from "typeorm";
-import { AGVNewsletterInscriptionEntity } from "../../database/entities/AGVNewsletterInscriptionEntity";
 import {
   AGVNewsletterInscriptionStatusEnum,
   IContextBase,
@@ -16,6 +15,7 @@ import { AGVInscriptionModel } from "../Inscription/InscriptionModel";
 import { getInlineStyle, EmailModel } from "../../../email";
 import { HistoricModel } from "../../../historic";
 import { HandlebarsTemplateModel, TemplateModel } from "../../../template";
+import { AGVNewsletterInscriptionEntity } from "../../../database/entities/AGVNewsletterInscriptionEntity";
 
 export class AGVNewsletterInscriptionModel {
   private repository: Repository<AGVNewsletterInscriptionEntity>;

@@ -1,7 +1,5 @@
 import { GetEmailSenderKey, GetEmailSenderNameKey } from "wgo-settings";
 import { ILike, Repository } from "typeorm";
-import { AGVNewsletterInscriptionEntity } from "../../database/entities/AGVNewsletterInscriptionEntity";
-import { AGVNewsletterMessageEntity } from "../../database/entities/AGVNewsletterMessageEntity";
 import {
   AGVNewsletterInscriptionStatusEnum,
   AGVNewsletterMessageStatusEnum,
@@ -14,6 +12,8 @@ import { AGVNewsletterInscriptionModel } from "./NewsletterInscriptionModel";
 import { HandlebarsTemplateService } from "@wisegar-org/wgo-templating";
 import { HistoricModel } from "../../../historic";
 import { getInlineStyle, EmailModel } from "../../../email";
+import { AGVNewsletterMessageEntity } from "../../../database/entities/AGVNewsletterMessageEntity";
+import { AGVNewsletterInscriptionEntity } from "../../../database/entities/AGVNewsletterInscriptionEntity";
 
 export class AGVNewsletterMessageModel {
   private repository: Repository<AGVNewsletterMessageEntity>;

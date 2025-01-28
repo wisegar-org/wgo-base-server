@@ -8,8 +8,8 @@ import {
   OneToMany,
 } from "typeorm";
 import { AGVInscriptionEntity } from "./AGVInscriptionEntity";
-import { MediaEntity, WGBaseEntity } from "../../../core";
 import { EventStateEnum, EventTypeEnum } from "@wisegar-org/wgo-base-models";
+import { MediaEntity, WGBaseEntity } from "../../core";
 
 @Entity()
 export class AGVEventEntity extends WGBaseEntity {

@@ -1,6 +1,4 @@
 import { ILike, Repository } from "typeorm";
-import AGVEventEntity from "../../database/entities/AGVEventEntity";
-import { AGVInscriptionEntity } from "../../database/entities/AGVInscriptionEntity";
 import {
   AGVInscriptionInput,
   AGVInscriptionPageInput,
@@ -13,6 +11,8 @@ import {
 import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { AGVEventModel } from "../Event/EventModel";
 import { HistoricModel } from "../../../historic";
+import { AGVInscriptionEntity } from "../../../database/entities/AGVInscriptionEntity";
+import AGVEventEntity from "../../../database/entities/AGVEventEntity";
 
 export class AGVInscriptionModel {
   private inscriptionRepository: Repository<AGVInscriptionEntity>;

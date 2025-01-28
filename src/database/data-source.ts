@@ -7,15 +7,7 @@ import {
   GetDBUserNameKey,
 } from "wgo-settings";
 
-/** Entities */
-import { AGVEventEntity } from "../agv/database/entities/AGVEventEntity";
-import { AGVInscriptionEntity } from "../agv/database/entities/AGVInscriptionEntity";
-import { AGVPollEntity } from "../agv/database/entities/AGVPollEntity";
-import { AGVNewsletterInscriptionEntity } from "../agv/database/entities/AGVNewsletterInscriptionEntity";
-import { AGVNewsletterMessageEntity } from "../agv/database/entities/AGVNewsletterMessageEntity";
-
 /** Migrations */
-import { getAgvMigrations } from "../agv/database/migrations";
 import { getAuthenticationMigrations, RoleEntity } from "../authentication";
 import { getContactMigrations, ContactMeEntity } from "../contact";
 import {
@@ -30,6 +22,12 @@ import { getSettingsMigrations, SettingsEntity } from "../settings";
 import { getStorageMigrations, StorageEntity } from "../storage";
 import { getTemplateMigrations, TemplateEntity } from "../template";
 import { getTranslationMigrations } from "../translation";
+import AGVEventEntity from "./entities/AGVEventEntity";
+import { AGVInscriptionEntity } from "./entities/AGVInscriptionEntity";
+import AGVPollEntity from "./entities/AGVPollEntity";
+import { AGVNewsletterInscriptionEntity } from "./entities/AGVNewsletterInscriptionEntity";
+import { AGVNewsletterMessageEntity } from "./entities/AGVNewsletterMessageEntity";
+import { getAgvMigrations } from "./migrations";
 
 const migrations = getAuthenticationMigrations()
   .concat(getContactMigrations())
@@ -69,7 +67,7 @@ export const dataSourceOptions: DataSourceOptions = {
     AGVNewsletterMessageEntity,
   ],
   migrations: migrations,
-  subscribers: [],
+  subscribers: ["src/database/subscriber/**/*.ts"],
   dropSchema: false,
   logging: false,
   logger: "file",

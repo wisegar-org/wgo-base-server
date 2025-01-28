@@ -1,11 +1,11 @@
 import { DataSource } from "typeorm";
-import { ctx } from "../../handlers/AppContextHandler";
 import {
   getAuthTemplateKey,
   AuthTemplateEnum,
 } from "@wisegar-org/wgo-base-models";
-import { LanguageModel } from "../../../language";
-import { TemplateModel } from "../../../template";
+import { LanguageModel } from "../../language";
+import { ctx } from "../handlers/AppContextHandler";
+import { TemplateModel } from "../../template";
 
 export const agvTemplateSeeder = async (dataSource: DataSource) => {
   const languageModel = new LanguageModel({ ...ctx, dataSource });
