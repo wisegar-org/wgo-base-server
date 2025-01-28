@@ -1,5 +1,5 @@
 import { PrimaryGeneratedColumn, Entity, Column, BaseEntity } from "typeorm";
-import { WGBaseEntity } from "../../../database/entities/WGBaseEntity";
+import { WGBaseEntity } from "./WGBaseEntity";
 
 @Entity({ name: "settings" })
 export class SettingsEntity extends WGBaseEntity {

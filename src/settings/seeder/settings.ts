@@ -1,6 +1,6 @@
-import SettingsEntity from "../entities/SettingsEntity";
+import SettingsEntity from "../../database/entities/SettingsEntity";
 import { IsNullOrUndefined } from "wgo-extensions";
-import { SettingsModel } from "../../models/SettingsModel";
+import { SettingsModel } from "../models/SettingsModel";
 import {
   IContextBase,
   ISettingValueBoolean,

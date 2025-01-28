@@ -8,7 +8,6 @@ import {
 } from "wgo-settings";
 
 /** Migrations */
-import { getSettingsMigrations, SettingsEntity } from "../settings";
 import { getStorageMigrations, StorageEntity } from "../storage";
 import { getTemplateMigrations, TemplateEntity } from "../template";
 import { getTranslationMigrations } from "../translation";
@@ -23,6 +22,7 @@ import {
   getContactMigrations,
   getHistoricMigrations,
   getLanguageMigrations,
+  getSettingsMigrations,
 } from "./migrations";
 import { ContactMeEntity } from "../contact";
 import { UserEntity } from "./entities/UserEntity";
@@ -31,6 +31,7 @@ import { TranslationEntity } from "./entities/TranslationEntity";
 import { LanguageEntity } from "./entities/LanguageEntity";
 import MediaEntity from "./entities/MediaEntity";
 import { HistoryEntity } from "./entities/HistoryEntity";
+import { SettingsEntity } from "../settings";
 
 const migrations = getAuthenticationMigrations()
   .concat(getContactMigrations())
