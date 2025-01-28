@@ -28,7 +28,7 @@ import {
   UseClientSPAHostMiddleware,
   UsePublicMediaHostMiddleware,
 } from "./agv/middlewares/HostClientMiddleware";
-import { dataSourceOptions, PostgresDataSource } from "./dataSources";
+import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
 
 const port = GetPortKey();
 

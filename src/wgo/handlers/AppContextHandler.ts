@@ -17,7 +17,7 @@ import { listenersEvents } from "../../settings";
 import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
 import { IContextOptions } from "../../core";
-import { PostgresDataSource } from "../../dataSources";
+import { PostgresDataSource } from "../../database/data-source";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,

@@ -17,7 +17,7 @@ export * from "./agv";
 export * from "./core/services/CypherService";
 export * from "./core/services/UtilService";
 
-export * from "./dataSources";
+export * from "./database/data-source";
 
 // Externals
 export * from "typeorm-extension";
