@@ -12,11 +12,6 @@ export const AGVContentAdminPaths: IRouteObject = {
     name: "agv_admin_content",
     label: "WGO_SITE_CONTENT_ADMIN",
   },
-  contentComitato: {
-    path: `${AdminBasePath}/content/comitato`,
-    name: "agv_admin_content_comitato",
-    label: "WGO_SITE_CONTENT_COMITATO_ADMIN",
-  },
   contentSocialMedia: {
     path: `${AdminBasePath}/content/retiSociali`,
     name: "agv_admin_content_retiSociali",
@@ -28,18 +23,6 @@ export const AGVContentPathRouter: RouteRecordRaw = {
   path: AGVContentAdminPaths.content.path,
   component: () => import("layouts/MainLayout.vue"),
   children: [
-    {
-      path: AGVContentAdminPaths.content.path,
-      redirect: AGVContentAdminPaths.contentComitato.path,
-    },
-    {
-      path: AGVContentAdminPaths.contentComitato.path,
-      component: () => import("pages/AdminAgv/AdminComitatoContentPage.vue"),
-      meta: {
-        auth: true,
-        role: [SUPERADMIN, AGV_ADMIN_ROLE],
-      },
-    },
     {
       path: AGVContentAdminPaths.contentSocialMedia.path,
       component: () =>

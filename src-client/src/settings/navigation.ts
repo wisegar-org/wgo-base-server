@@ -58,16 +58,6 @@ export const menuItems: MenuListItem[] = [
     status: false,
     items: [
       {
-        link: AGVContentAdminPaths.contentComitato.path,
-        color: "",
-        icon: "notes",
-        id: AGVContentAdminPaths.contentComitato.name,
-        type: "item",
-        label: AGVContentAdminPaths.contentComitato.label,
-        auth: true,
-        role: [SUPERADMIN, AGV_ADMIN_ROLE],
-      },
-      {
         link: AGVContentAdminPaths.contentSocialMedia.path,
         color: "",
         icon: "notes",
