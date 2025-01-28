@@ -54,7 +54,7 @@ export class UserEntity extends WGBaseEntity {
   @Column({ nullable: true })
   confirmationToken?: string;
 
-  @ManyToMany(() => RoleEntity)
+  @ManyToMany(() => RoleEntity, (role: RoleEntity) => role.users)
   @JoinTable()
   roles?: RoleEntity[];
 

@@ -7,8 +7,6 @@ export * from "./database/entities/HistoryEntity";
 export * from "./database/entities/WGBaseEntity";
 export * from "./database/entities/LanguageEntity";
 export * from "./database/entities/MediaEntity";
-export * from "./database/entities/OGBaseEntity";
-export * from "./database/entities/RolEntity";
 export * from "./database/entities/SessionEntity";
 export * from "./database/entities/TranslationEntity";
 export * from "./database/entities/UserEntity";

@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToMany,
+  JoinTable,
+} from "typeorm";
 import "reflect-metadata";
 import { UserEntity } from "./UserEntity";
 import { WGBaseEntity } from "./WGBaseEntity";
@@ -11,6 +17,7 @@ export class RoleEntity extends WGBaseEntity {
   @Column({ unique: true })
   name!: string;
 
-  @ManyToMany(() => UserEntity, (user: any) => user.roles)
+  @ManyToMany(() => UserEntity, (user: UserEntity) => user.roles)
+  @JoinTable()
   users?: UserEntity[];
 }
