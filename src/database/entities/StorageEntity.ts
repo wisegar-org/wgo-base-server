@@ -10,7 +10,7 @@ import { WGBaseEntity } from "./WGBaseEntity";
 import MediaEntity from "./MediaEntity";
 
 @Entity({ name: "storage" })
-export class StorageEntity extends WGBaseEntity {
+export default class StorageEntity extends WGBaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -29,5 +29,3 @@ export class StorageEntity extends WGBaseEntity {
   @JoinTable()
   imageList!: MediaEntity[];
 }
-
-export default StorageEntity;

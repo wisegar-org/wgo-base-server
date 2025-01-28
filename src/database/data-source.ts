@@ -7,8 +7,6 @@ import {
   GetDBUserNameKey,
 } from "wgo-settings";
 
-/** Migrations */
-import { StorageEntity } from "../storage";
 import AGVEventEntity from "./entities/AGVEventEntity";
 import { AGVInscriptionEntity } from "./entities/AGVInscriptionEntity";
 import AGVPollEntity from "./entities/AGVPollEntity";
@@ -32,8 +30,9 @@ import { TranslationEntity } from "./entities/TranslationEntity";
 import { LanguageEntity } from "./entities/LanguageEntity";
 import MediaEntity from "./entities/MediaEntity";
 import { HistoryEntity } from "./entities/HistoryEntity";
-import { SettingsEntity } from "../settings";
 import TemplateEntity from "./entities/TemplateEntity";
+import SettingsEntity from "./entities/SettingsEntity";
+import StorageEntity from "./entities/StorageEntity";
 
 const migrations = getAuthenticationMigrations()
   .concat(getContactMigrations())
