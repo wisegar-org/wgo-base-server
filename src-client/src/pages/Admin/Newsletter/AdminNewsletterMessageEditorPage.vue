@@ -8,13 +8,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import NsLtMessageAdminEditor from "../../components/NsLtMessageAdminEditor/NsLtMessageAdminEditor.vue";
-import { NewsletterMessageService } from "../../services/Newsletter/NwLtMessengerService";
-import { AGVNewslettersAdminPaths } from "../../router/paths/adminAgv/newslettersPaths";
-import { useAppStatusStore } from "../../stores/appStatusStore";
+import NsLtMessageAdminEditor from "../../../components/NsLtMessageAdminEditor/NsLtMessageAdminEditor.vue";
+import { NewsletterMessageService } from "../../../services/Newsletter/NwLtMessengerService";
+import { AGVNewslettersAdminPaths } from "../../../router/paths/adminAgv/newslettersPaths";
+import { useAppStatusStore } from "../../../stores/appStatusStore";
 import { Router } from "vue-router";
-import { RouteService } from "src/modules/core/services/RouteService";
-import { AgvNewsletterMessageResponse } from "../../graphql-types";
+import { RouteService } from "../../../modules/core/services/RouteService";
+import { AgvNewsletterMessageResponse } from "../../../graphql-types";
 import { AGVNewsletterMessageStatusEnum } from "@wisegar-org/wgo-base-models";
 
 export default defineComponent({

@@ -40,7 +40,7 @@ export const AGVNewslettersPathRouter: RouteRecordRaw = {
     {
       path: AGVNewslettersAdminPaths.newsletterInscriptions.path,
       component: () =>
-        import("pages/AdminAgv/AdminNewsletterInscriptionsPage.vue"),
+        import("pages/Admin/Newsletter/AdminNewsletterInscriptionsPage.vue"),
       meta: {
         auth: true,
         role: [SUPERADMIN, AGV_ADMIN_ROLE],
@@ -48,7 +48,8 @@ export const AGVNewslettersPathRouter: RouteRecordRaw = {
     },
     {
       path: AGVNewslettersAdminPaths.newsletterMessages.path,
-      component: () => import("pages/AdminAgv/AdminNewsletterMessagesPage.vue"),
+      component: () =>
+        import("pages/Admin/Newsletter/AdminNewsletterMessagesPage.vue"),
       props: (route) => ({
         page: parseInt((route.query.page as string) || "0"),
       }),
@@ -64,7 +65,7 @@ export const AGVNewslettersPathRouter: RouteRecordRaw = {
         page: parseInt((route.query.page as string) || "0"),
       }),
       component: () =>
-        import("pages/AdminAgv/AdminNewsletterMessageEditorPage.vue"),
+        import("pages/Admin/Newsletter/AdminNewsletterMessageEditorPage.vue"),
       meta: {
         auth: true,
         role: [SUPERADMIN, AGV_ADMIN_ROLE],
