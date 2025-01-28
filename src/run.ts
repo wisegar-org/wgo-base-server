@@ -21,9 +21,9 @@ import {
   UseRestMiddleware,
 } from "./core";
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
-import { roleSuperAdminSeeder } from "./authentication/seeder/roles";
-import { userAdminSeeder } from "./authentication/seeder/user";
-import { mediaPublicSeeder } from "./storage/seeder/media";
+import { roleSuperAdminSeeder } from "./authentication/seeders/roles";
+import { userAdminSeeder } from "./authentication/seeders/user";
+import { mediaPublicSeeder } from "./storage/seeders/media";
 import {
   UseAssetsHBHostMiddleware,
   UseHandlebars,
