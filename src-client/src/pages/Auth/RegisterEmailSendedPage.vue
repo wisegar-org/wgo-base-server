@@ -13,7 +13,7 @@
 import { defineComponent } from "vue";
 import { Router, useRoute, useRouter } from "vue-router";
 import EmailSendedComponent from "src/modules/authentication/components/EmailSendedComponent.vue";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import { Paths } from "../../router/paths";
 import { useTranslationStore } from "../../stores/translationStore";
 import { useMeta } from "quasar";

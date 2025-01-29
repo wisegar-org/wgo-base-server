@@ -5,7 +5,7 @@ import {
 import { apiSettings } from "src/api/ApiOptions";
 import { AgvEventResponseModel } from "src/models/models";
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 
 export class ContentService {
   apiInstance: ApiService;

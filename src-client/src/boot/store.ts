@@ -1,4 +1,4 @@
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 import { boot } from "quasar/wrappers";
 import { getApiServiceOptions } from "src/api/ApiOptions";
 import { useAuthStore } from "src/stores/authStore";
@@ -6,8 +6,8 @@ import { useLanguageStore } from "src/stores/languageStore";
 import { useTranslationStore } from "src/stores/translationStore";
 import { Translations } from "../settings/translations";
 import { LanguageStore } from "src/modules/language/store/LanguageStore";
-import { LocalStorageService } from "src/modules/core/services/LocalStorageService";
-import { LocalStorage } from "src/modules/core/services/LocalStorage";
+import { LocalStorageService } from "src/services/LocalStorageService";
+import { LocalStorage } from "src/services/LocalStorage";
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
 import fetch from "cross-fetch";
 globalThis.fetch = fetch;

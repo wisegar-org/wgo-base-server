@@ -12,7 +12,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useRoute, useRouter, Router } from "vue-router";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import ConfirmEmailComponent from "src/modules/authentication/components/ConfirmEmailComponent.vue";
 import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
 import { useTranslationStore } from "../../stores/translationStore";

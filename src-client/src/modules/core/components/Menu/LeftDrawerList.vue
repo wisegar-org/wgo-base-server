@@ -60,8 +60,8 @@ import { AuthStore } from "../../../authentication/store/AuthStore";
 import { NumberDictionaryG } from "@wisegar-org/wgo-base-models/build/core";
 import { MenuListItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
 import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { RouteService } from "../../services/RouteService";
-import { UtilService } from "../../services/UtilService";
+import { RouteService } from "../../../../services/RouteService";
+import { UtilService } from "../../../../services/UtilService";
 import { BaseTranslateComponent } from "../BaseComponents";
 import LeftDrawerItem from "./LeftDrawerItem.vue";
 

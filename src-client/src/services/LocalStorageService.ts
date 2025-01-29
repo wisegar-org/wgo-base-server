@@ -1,4 +1,6 @@
-import { ApiService } from "../../core/services/ApiService";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { ApiService } from "./ApiService";
 import {
   M_AUTH_CLEAR_LOCAL_STORAGE,
   M_AUTH_SET_KEY_LOCAL_STORAGE,

@@ -11,7 +11,7 @@ import { pollDataPageRoute } from "../../routes/pollDataPageRoute";
 import { pollRulesPageRoute } from "../../routes/pollRulesPageRoute";
 import { eventiItemDetailsPageRoute } from "../../routes/eventiItemDetailsPageRoute";
 import { corsiItemDetailsPageRoute } from "../../routes/corsiItemDetailsPageRoute";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 
 export default defineComponent({
   name: "HomeComponent",

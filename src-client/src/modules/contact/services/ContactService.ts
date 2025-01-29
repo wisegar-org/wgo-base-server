@@ -1,5 +1,5 @@
 import { Q_CONTACT_DATA, M_CONTACT_DATA } from "./ContactServiceQueries";
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   CONTACT_ME_PATH_GET_CONTACT_ME,
   CONTACT_ME_PATH_SET_CONTACT_ME,

@@ -1,4 +1,4 @@
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   Q_TRANSLATION_GETALL,
   Q_TRANSLATION_GETALLBYKEYS,

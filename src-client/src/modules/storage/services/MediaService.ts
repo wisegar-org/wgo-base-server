@@ -1,4 +1,4 @@
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   IMediaInputArg,
   IMediasInputArg,

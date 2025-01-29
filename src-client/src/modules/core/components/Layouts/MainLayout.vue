@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { RouteService } from "../../services/RouteService";
+import { RouteService } from "../../../../services/RouteService";
 import LeftDrawer from "../Menu/LeftDrawer.vue";
 import { translations as tranBase } from "@wisegar-org/wgo-base-models/build/core";
 import { BaseTranslateComponent } from "../BaseComponents";

@@ -10,7 +10,7 @@ import {
   Q_EMAIL_SENDEMAILTOADDRESSANDAPP,
   Q_EMAIL_SENDEMAILTOAPP,
 } from "./EmailServiceQueries";
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   IEmailFromToAppInput,
   IEmailInput,

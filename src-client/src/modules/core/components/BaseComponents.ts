@@ -1,7 +1,7 @@
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
 import { ISeoModel } from "@wisegar-org/wgo-base-models/build/core/seo";
 import { TranslationStore } from "../../translation/store/TranslationStore";
-import { UtilService } from "../services/UtilService";
+import { UtilService } from "../../../services/UtilService";
 
 export class BaseResizeComponent {
   public componentHeight = 300;

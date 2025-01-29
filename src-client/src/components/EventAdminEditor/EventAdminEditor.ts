@@ -21,7 +21,7 @@ import {
 import { QPopupProxy } from "quasar";
 import { apiSettings } from "src/api/ApiOptions";
 import { IMediaResponse } from "@wisegar-org/wgo-base-models/build/storage";
-import { UtilService } from "src/modules/core/services/UtilService";
+import { UtilService } from "src/services/UtilService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 
 export default defineComponent({

@@ -10,7 +10,7 @@ import {
   Q_AGV_ALL_INSCRIPTIONS_BY_PAGE,
 } from "./InscriptionServiceQueries";
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 
 export class InscriptionService {
   apiInstance: ApiService;

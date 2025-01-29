@@ -1,4 +1,4 @@
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   M_USER_ROLES_DELETE_USER,
   Q_AUTH_GET_ALL_ROLES,

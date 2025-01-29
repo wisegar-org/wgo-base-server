@@ -15,7 +15,7 @@ import {
   Q_AGV_GET_EVENTS_CLASS,
 } from "./EventServiceQueries";
 import { ObjectDictionary } from "@wisegar-org/wgo-base-models/build/core";
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 
 export class EventService {
   apiInstance: ApiService;

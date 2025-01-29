@@ -8,7 +8,7 @@ import { AGVNewsletterInscriptionStatusEnum } from "src/models/Newsletter";
 import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
 import { NewsletterInscriptionService } from "src/services/Newsletter/NwLtInscriptionService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
-import { UtilService } from "src/modules/core/services/UtilService";
+import { UtilService } from "src/services/UtilService";
 import { AgvNewsletterInscriptionResponse } from "src/graphql-types";
 
 export default defineComponent({

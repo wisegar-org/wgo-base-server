@@ -1,4 +1,4 @@
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 import {
   M_AGV_NEWSLETTER_ADD_INSCRIPTION,
   M_AGV_NEWSLETTER_EDIT_INSCRIPTION,

@@ -48,7 +48,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { IMediaModel } from "@wisegar-org/wgo-base-models/build/core";
-import { UtilService } from "../../services/UtilService";
+import { UtilService } from "../../../../services/UtilService";
 import MediaDiv from "../MediaDiv/MediaDiv.vue";
 import { minText } from "./Utils";
 

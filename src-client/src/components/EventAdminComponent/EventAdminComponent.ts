@@ -26,7 +26,7 @@ import {
   ITablePagination,
   ITableRowButton,
 } from "@wisegar-org/wgo-base-models/build/core/Table";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 import { Router } from "vue-router";
 

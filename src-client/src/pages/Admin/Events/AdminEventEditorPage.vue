@@ -16,7 +16,7 @@ import { defineComponent } from "vue";
 import EventAdminEditor from "../../../components/EventAdminEditor/EventAdminEditor.vue";
 import { UtilService } from "../../../services/UtilService";
 import { useAppStatusStore } from "../../../stores/appStatusStore";
-import { RouteService } from "../../../modules/core/services/RouteService";
+import { RouteService } from "../../../services/RouteService";
 import { Router } from "vue-router";
 import { EventService } from "../../../modules/agv/services/EventService/EventService";
 

@@ -5,7 +5,7 @@ import {
 import { TranslationStore } from "../../translation/store/TranslationStore";
 import { LANGUAGE_ID } from "@wisegar-org/wgo-base-models/build/language/constants";
 import { LanguageService } from "../service/LanguageService";
-import { LocalStorage } from "../../core/services/LocalStorage";
+import { LocalStorage } from "../../../services/LocalStorage";
 
 export class LanguageStore {
   allLangs: ILanguageModel[];

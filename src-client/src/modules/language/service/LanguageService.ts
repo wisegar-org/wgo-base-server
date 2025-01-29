@@ -1,4 +1,4 @@
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   M_LANGUAGE_POST,
   M_LANGUAGE_PUT,

@@ -21,7 +21,7 @@ import { useLanguageStore } from "../stores/languageStore";
 import { Paths } from "../router/paths";
 import { useMeta } from "quasar";
 import { BaseSeoDataComponent } from "src/modules/core/components/BaseComponents";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import {
   ISeoModel,
   translations as tranBase,

@@ -14,7 +14,7 @@ import { Paths } from "../../router/paths";
 import { useTranslationStore } from "../../stores/translationStore";
 import { useMeta } from "quasar";
 import { BaseSeoDataComponent } from "src/modules/core/components/BaseComponents";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
 import { ISeoModel } from "@wisegar-org/wgo-base-models/build/core";

@@ -44,7 +44,7 @@
 import { defineComponent, PropType } from "vue";
 import { IMediaModel } from "@wisegar-org/wgo-base-models/build/core";
 import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { UtilService } from "../../services/UtilService";
+import { UtilService } from "../../../../services/UtilService";
 import { BaseTranslateComponent } from "../BaseComponents";
 import MediaDiv from "../MediaDiv/MediaDiv.vue";
 import { minText } from "./Utils";

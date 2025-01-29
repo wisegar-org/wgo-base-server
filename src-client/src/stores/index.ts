@@ -1,7 +1,7 @@
 import { store } from "quasar/wrappers";
 import { createPinia } from "pinia";
 import { getApiServiceOptions } from "../api/ApiOptions";
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 
 /*
  * If not building with SSR mode, you can

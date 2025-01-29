@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ApolloClient } from "apollo-client";
 import { createUploadLink } from "apollo-upload-client";
 import { InMemoryCache, NormalizedCacheObject } from "apollo-cache-inmemory";
@@ -33,6 +34,7 @@ export class ApiService {
     );
   }
   GetInstance(options?: IApiServiceOptions): ApiService {
+    console.debug(options);
     throw new Error("Method not implemented.");
   }
 

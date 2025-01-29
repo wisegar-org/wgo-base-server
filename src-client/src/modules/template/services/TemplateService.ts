@@ -2,7 +2,7 @@ import {
   TEMPLATE_PATH_GET_BY_TYPE,
   TEMPLATE_PATH_POST,
 } from "@wisegar-org/wgo-base-models/build/template/server";
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   M_TEMPLATE_SET,
   Q_TEMPLATE_GET_BY_TYPE,

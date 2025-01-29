@@ -13,7 +13,7 @@ import { NewsletterMessageService } from "../../../services/Newsletter/NwLtMesse
 import { AGVNewslettersAdminPaths } from "../../../router/paths/admin/newslettersPaths";
 import { useAppStatusStore } from "../../../stores/appStatusStore";
 import { Router } from "vue-router";
-import { RouteService } from "../../../modules/core/services/RouteService";
+import { RouteService } from "../../../services/RouteService";
 import { AgvNewsletterMessageResponse } from "../../../graphql-types";
 import { AGVNewsletterMessageStatusEnum } from "@wisegar-org/wgo-base-models";
 

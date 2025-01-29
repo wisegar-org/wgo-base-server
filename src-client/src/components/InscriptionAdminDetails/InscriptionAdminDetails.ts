@@ -6,7 +6,7 @@ import DialogVue from "src/modules/core/components/Dialog/Dialog.vue";
 import { AgvInscriptionResponseModel } from "src/models/models";
 import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
-import { UtilService } from "src/modules/core/services/UtilService";
+import { UtilService } from "src/services/UtilService";
 
 export default defineComponent({
   name: "InscriptionAdminDetails",

@@ -13,7 +13,7 @@ import {
   AgvNewsletterMessagePageInput,
   AgvNewsletterMessageResponse,
 } from "src/graphql-types";
-import { ApiService } from "src/modules/core/services/ApiService";
+import { ApiService } from "src/services/ApiService";
 
 export class NewsletterMessageService {
   apiInstance: ApiService;

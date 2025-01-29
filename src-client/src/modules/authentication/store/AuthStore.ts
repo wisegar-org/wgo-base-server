@@ -4,7 +4,7 @@ import {
   USER_AUTH_TOKEN,
 } from "@wisegar-org/wgo-base-models/build/authentication";
 import { IIdInput, IUser } from "@wisegar-org/wgo-base-models/build/core";
-import { LocalStorage } from "../../core/services/LocalStorage";
+import { LocalStorage } from "../../../services/LocalStorage";
 import { AuthService } from "../services/AuthService";
 import { UserRolesService } from "../services/UserRolesService";
 

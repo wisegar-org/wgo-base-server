@@ -1,4 +1,4 @@
-import { ApiService } from "../../core/services/ApiService";
+import { ApiService } from "../../../services/ApiService";
 import {
   HISTORIC_PATH_GET_FILTERS,
   HISTORIC_PATH_GET_PAGE,

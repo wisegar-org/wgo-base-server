@@ -1,5 +1,5 @@
 import { Pinia } from "pinia";
-import { IApiServiceOptions } from "src/modules/core/services/ApiService";
+import { IApiServiceOptions } from "src/services/ApiService";
 import { getSettings } from "./ApiSettings";
 import { translations } from "@wisegar-org/wgo-base-models/build/core";
 
@@ -7,7 +7,7 @@ import { useNotifyStore } from "src/stores/notifyStore";
 import { useAuthStore } from "src/stores/authStore";
 import { useTranslationStore } from "src/stores/translationStore";
 import { USER_AUTH_TOKEN } from "@wisegar-org/wgo-base-models/build/authentication";
-import { LocalStorage } from "src/modules/core/services/LocalStorage";
+import { LocalStorage } from "src/services/LocalStorage";
 import { LANGUAGE_ID } from "@wisegar-org/wgo-base-models/build/language";
 
 export const apiSettings = getSettings();

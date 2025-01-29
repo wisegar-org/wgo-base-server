@@ -13,7 +13,7 @@
 import { defineComponent } from "vue";
 import { useRoute, useRouter, Router } from "vue-router";
 import ChangePasswordComponent from "src/modules/authentication/components/ChangePasswordComponent.vue";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import { useTranslationStore } from "../../stores/translationStore";
 import { useMeta } from "quasar";
 import { BaseSeoDataComponent } from "src/modules/core/components/BaseComponents";

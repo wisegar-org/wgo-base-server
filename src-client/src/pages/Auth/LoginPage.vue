@@ -13,7 +13,7 @@
 import { defineComponent } from "vue";
 import LoginComponent from "src/modules/authentication/components/LoginComponent.vue";
 import { ISuccesLogin } from "@wisegar-org/wgo-base-models/build/authentication";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import { useRouter, Router } from "vue-router";
 import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
 import { useAuthStore } from "../../stores/authStore";

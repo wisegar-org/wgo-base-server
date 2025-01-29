@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { minText } from "./Utils";
-import { UtilService } from "../../services/UtilService";
+import { UtilService } from "../../../../services/UtilService";
 
 export default defineComponent({
   name: "SimpleCard",

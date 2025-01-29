@@ -7,7 +7,7 @@ import SimpleDrawer from "src/modules/core/components/Menu/SimpleDrawer.vue";
 import { UtilService } from "src/services/UtilService";
 import { AdminBasePath, IRoute } from "@wisegar-org/wgo-base-models/build/core";
 import { IMenuItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
-import { RouteService } from "src/modules/core/services/RouteService";
+import { RouteService } from "src/services/RouteService";
 import { AuthStore } from "src/modules/authentication/store/AuthStore";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 import { LanguageStore } from "src/modules/language/store/LanguageStore";

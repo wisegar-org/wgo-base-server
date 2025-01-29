@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { UtilService } from "../../../services/UtilService";
+import { UtilService } from "../../../../../services/UtilService";
 import { saveAs } from "file-saver";
 import ExcelJS from "exceljs";
 import { translations } from "@wisegar-org/wgo-base-models/build/core";
