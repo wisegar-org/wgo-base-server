@@ -5,17 +5,17 @@
       class="col-12 col-md-6 col-lg-5 col-xl-4 col-sm-10"
     >
       <q-card flat square bordered class="q-ma-lg">
-        <q-item class="bg-primary text-white">
+        <q-item class="bg-primary text-black">
           <q-item-section avatar top>
-            <q-icon
+            <!-- <q-icon
               name="img:favicon.ico"
               class="login_icon cursor-pointer"
               size="3.4em"
               @click="goToHome"
-            />
+            /> -->
           </q-item-section>
           <q-item-section top class="self-center">
-            <div class="text-h6 text-left">
+            <div class="text-h6 text-center">
               {{ getLabel(translations.LOGIN_TITLE) }}
             </div>
           </q-item-section>
@@ -52,40 +52,35 @@
           </q-card-section>
           <q-card-actions align="center" vertical class="row q-pa-sm">
             <q-btn
-              unelevated
               v-if="!hideReset && !!showReset"
-              flat
-              dense
-              color="primary"
+              outline
+              color="black"
+              text-color="primary"
               align="around"
-              class="btn_width_fix q-mb-md col-12 col-sm-4"
               :label="getLabel(translations.GO_TO_RESET)"
               @click="goToResetPassword"
             />
             <q-btn
-              unelevated
-              v-if="!hideReister"
-              flat
-              dense
-              color="primary"
+              outline
+              color="black"
+              text-color="primary"
               align="around"
-              class="btn_width_fix q-mb-md col-12 col-sm-4"
+              v-if="!hideReister"
               :label="getLabel(translations.GO_TO_REGISTER)"
               @click="goToRegisterUser"
             />
             <q-btn
-              unelevated
-              dense
-              color="primary"
+              outline
+              color="black"
+              text-color="primary"
               align="around"
-              class="btn_width_fix col-12 col-sm-4"
               :label="getLabel(tranBase.LOGIN)"
               type="submit"
             /> </q-card-actions
         ></q-form>
-        <!-- <div class="full-width row justify-center text-grey text-caption">
-          Version: {{ version }} - API Version: {{ apiVersion }}
-        </div> -->
+        <div class="full-width row justify-center text-grey text-caption">
+          Version: {{ version }}
+        </div>
       </q-card>
     </div>
     <Loader :loading="innerLoading || showLoading" />
