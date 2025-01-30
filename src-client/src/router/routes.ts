@@ -12,7 +12,7 @@ import {
   AGVInscriptionsPathRouter,
 } from "./paths/admin/eventsPaths";
 import { AGVTemplatePathRouter } from "./paths/admin/templatePaths";
-import { AuthPathRouter } from "./paths/authPaths";
+import { AuthPathRouter } from "./paths/auth.paths";
 import { emptyLayoutContainerRoute } from "src/modules/agv/routes/emptyLayoutContainerRoute";
 import { AGVContentPathRouter } from "./paths/admin/contentPaths";
 import { AGVNewslettersPathRouter } from "./paths/admin/newslettersPaths";

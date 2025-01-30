@@ -9,7 +9,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authLoginParam.path,
       name: AuthPaths.authLoginParam.name,
-      component: () => import("src/pages/Auth/login.page.vue"),
+      component: () => import("src/pages/auth/login.page.vue"),
       props: (route) => {
         return {
           path: route.query.path,
@@ -22,7 +22,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authLogin.path,
       name: AuthPaths.authLogin.name,
-      component: () => import("src/pages/Auth/login.page.vue"),
+      component: () => import("src/pages/auth/login.page.vue"),
       props: (route) => {
         return {
           path: route.query.path,
@@ -35,7 +35,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authRegister.path,
       name: AuthPaths.authRegister.name,
-      component: () => import("src/pages/Auth/RegisterPage.vue"),
+      component: () => import("src/pages/auth/RegisterPage.vue"),
       meta: {
         auth: AuthPaths.authRegister.auth,
       },
@@ -43,7 +43,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authEmailSended.path,
       name: AuthPaths.authEmailSended.name,
-      component: () => import("src/pages/Auth/RegisterEmailSendedPage.vue"),
+      component: () => import("src/pages/auth/RegisterEmailSendedPage.vue"),
       props: (route) => {
         return {
           email: route.params.email,
@@ -56,7 +56,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authConfirmEmail.path,
       name: AuthPaths.authConfirmEmail.name,
-      component: () => import("src/pages/Auth/RegisterConfirmEmailPage.vue"),
+      component: () => import("src/pages/auth/RegisterConfirmEmailPage.vue"),
       props: (route) => {
         return {
           token: route.params.token,
@@ -69,7 +69,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authChangePassword.path,
       name: AuthPaths.authChangePassword.name,
-      component: () => import("src/pages/Auth/RegisterChangePasswordPage.vue"),
+      component: () => import("src/pages/auth/RegisterChangePasswordPage.vue"),
       props: (route) => {
         return {
           token: route.params.token,
@@ -82,7 +82,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authResendConfirmation.path,
       name: AuthPaths.authResendConfirmation.name,
-      component: () => import("src/pages/Auth/RegisterResendConfirmPage.vue"),
+      component: () => import("src/pages/auth/RegisterResendConfirmPage.vue"),
       meta: {
         auth: AuthPaths.authResendConfirmation.auth,
       },
@@ -90,7 +90,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authResetPassword.path,
       name: AuthPaths.authResetPassword.name,
-      component: () => import("src/pages/Auth/RegisterResetPasswordPage.vue"),
+      component: () => import("src/pages/auth/RegisterResetPasswordPage.vue"),
       meta: {
         auth: AuthPaths.authResetPassword.auth,
       },
