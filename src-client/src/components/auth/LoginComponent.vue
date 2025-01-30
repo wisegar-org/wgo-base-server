@@ -88,14 +88,14 @@
 </template>
 
 <script lang="ts">
-import { AuthService } from "../services/AuthService";
-import Loader from "../../core/components/Loader/Loader.vue";
+import { AuthService } from "../../modules/authentication/services/AuthService";
+import Loader from "../../modules/core/components/Loader/Loader.vue";
 import { defineComponent, PropType } from "vue";
-import InputSecret from "../../core/components/InputSecret/InputSecret.vue";
+import InputSecret from "../../modules/core/components/InputSecret/InputSecret.vue";
 import { authTranslations as translations } from "@wisegar-org/wgo-base-models/build/authentication/translations";
-import { BaseTranslateComponent } from "../../core/components/BaseComponents";
+import { BaseTranslateComponent } from "../../modules/core/components/BaseComponents";
 import { translations as tranBase } from "@wisegar-org/wgo-base-models/build/core";
-import { TranslationStore } from "../../translation/store/TranslationStore";
+import { TranslationStore } from "../../modules/translation/store/TranslationStore";
 import { ISuccesLogin } from "@wisegar-org/wgo-base-models/build/authentication";
 
 export default defineComponent({
