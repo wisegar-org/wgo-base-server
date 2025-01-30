@@ -117,20 +117,21 @@ const quasarConfig = configure(function (ctx) {
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
     framework: {
       config: {
-        // brand: {
-        //   primary: "#221D23",
-        //   secondary: "#FFFFF",
-        //   accent: "#D5573B",
-        //   dark: "#FFFFF",
-        //   positive: "#80a32c",
-        //   negative: "##94C9A9",
-        //   info: "#D5573B",
-        //   warning: "#C6ECAE",
-        // },
-        notify: {
-          type: "positive",
-          color: "#D5573B",
+        brand: {
+          primary: "#00000",
+          secondary: "#FFFFF",
+          accent: "#D5573B",
+          dark: "#FFFFF",
+          positive: "#FFFFF",
+          negative: "##94C9A9",
+          info: "#D5573B",
+          warning: "#C6ECAE",
         },
+        // notify: {
+        //   type: "positive",
+        //   color: "#00000",
+        //   textColor: "#FFFFF",
+        // },
       },
 
       // iconSet: 'material-icons', // Quasar icon set
