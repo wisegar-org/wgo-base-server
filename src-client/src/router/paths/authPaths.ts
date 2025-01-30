@@ -9,7 +9,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authLoginParam.path,
       name: AuthPaths.authLoginParam.name,
-      component: () => import("src/pages/Auth/LoginPage.vue"),
+      component: () => import("src/pages/Auth/login.page.vue"),
       props: (route) => {
         return {
           path: route.query.path,
@@ -22,7 +22,7 @@ export const AuthPathRouter: RouteRecordRaw = {
     {
       path: AuthPaths.authLogin.path,
       name: AuthPaths.authLogin.name,
-      component: () => import("src/pages/Auth/LoginPage.vue"),
+      component: () => import("src/pages/Auth/login.page.vue"),
       props: (route) => {
         return {
           path: route.query.path,
