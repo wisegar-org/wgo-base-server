@@ -15,8 +15,9 @@
       <template v-slot:action>
         <q-btn
           v-if="button"
-          unelevated
+          outline
           color="primary"
+          text-color="secondary"
           :label="getLabel(button)"
           @click="openPage"
         />

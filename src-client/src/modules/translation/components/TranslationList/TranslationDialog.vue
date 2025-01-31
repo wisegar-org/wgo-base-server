@@ -21,7 +21,6 @@
           </div>
           <div class="col-12">
             <q-input
-              square
               outlined
               :autofocus="!translation.key"
               class="q-my-sm q-mx-sm"
@@ -33,7 +32,6 @@
           </div>
           <div class="col-12">
             <q-input
-              square
               outlined
               autofocus
               class="q-my-sm q-mx-sm"
@@ -45,9 +43,9 @@
         </q-card-section>
         <q-card-actions align="center" vertical class="row q-pa-sm q-py-md">
           <q-btn
-            unelevated
-            dense
+            outline
             color="primary"
+            text-color="secondary"
             align="around"
             class="btn_width_fix col-12 col-sm-4"
             :label="getLabel(transBase.SAVE)"

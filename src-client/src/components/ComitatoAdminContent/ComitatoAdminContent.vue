@@ -9,8 +9,9 @@
         </div>
         <div class="flex justify-end col-12 col-sm-auto row">
           <q-btn
-            unelevated
+            outline
             color="primary"
+            text-color="secondary"
             icon="save"
             :label="getLabel(transBase.SAVE)"
             @click="() => onSaveData()"

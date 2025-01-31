@@ -21,7 +21,7 @@
           </q-item-section>
           <q-item-section top side class="self-center">
             <q-btn
-              class="gt-xs text-white"
+              class="gt-xs text-black"
               flat
               dense
               :label="getLabel(tranBase.HOME)"
@@ -32,7 +32,6 @@
         <q-form @submit="loginUser" class="q-pa-sm">
           <q-card-section class="q-ma-sm">
             <q-input
-              square
               outlined
               required
               class="q-my-sm"
@@ -54,16 +53,16 @@
             <q-btn
               v-if="!hideReset && !!showReset"
               outline
-              color="black"
-              text-color="primary"
+              color="primary"
+              text-color="secondary"
               align="around"
               :label="getLabel(translations.GO_TO_RESET)"
               @click="goToResetPassword"
             />
             <q-btn
               outline
-              color="black"
-              text-color="primary"
+              color="primary"
+              text-color="secondary"
               align="around"
               v-if="!hideReister"
               :label="getLabel(translations.GO_TO_REGISTER)"
@@ -71,8 +70,8 @@
             />
             <q-btn
               outline
-              color="black"
-              text-color="primary"
+              color="primary"
+              text-color="secondary"
               align="around"
               :label="getLabel(tranBase.LOGIN)"
               type="submit"

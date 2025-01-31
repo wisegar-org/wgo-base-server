@@ -1,6 +1,5 @@
 <template>
   <q-input
-    square
     outlined
     v-model="secret"
     :type="isSecret ? 'password' : 'text'"
@@ -23,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "InputSecret",
   props: {

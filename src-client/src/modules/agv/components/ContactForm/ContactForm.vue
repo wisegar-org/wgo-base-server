@@ -62,7 +62,13 @@
       />
 
       <div class="row display-flex justify-center q-my-sm">
-        <q-btn unelevated label="Invia" type="submit" color="primary" />
+        <q-btn
+          outline
+          color="primary"
+          text-color="secondary"
+          label="Invia"
+          type="submit"
+        />
       </div>
     </q-form>
     <div v-if="showLoader" class="row justify-center q-pt-xl q-pb-md">

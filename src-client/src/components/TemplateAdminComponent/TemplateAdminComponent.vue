@@ -11,8 +11,9 @@
         <div class="flex justify-end col-12 col-sm-auto row">
           <div class="col-12 col-sm-auto q-ml-sm row">
             <q-btn
-              unelevated
+              outline
               color="primary"
+              text-color="secondary"
               icon="send"
               :label="getLabel(translations.SEND_TEST)"
               class="col-12 q-my-sm"
@@ -22,8 +23,9 @@
           </div>
           <div v-if="objectToken.length" class="col-12 col-sm-auto q-ml-sm row">
             <q-btn-dropdown
-              unelevated
+              outline
               color="primary"
+              text-color="secondary"
               label="Tokens"
               class="col-12 q-my-sm"
             >
@@ -44,8 +46,9 @@
           </div>
           <div class="col-12 col-sm-auto q-ml-sm row">
             <q-btn
-              unelevated
+              outline
               color="primary"
+              text-color="secondary"
               icon="save"
               :label="getLabel(transBase.SAVE)"
               class="col-12 q-my-sm"

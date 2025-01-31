@@ -11,8 +11,9 @@
           <div class="flex justify-end col-12 col-sm-auto row">
             <div class="col-12 col-sm-auto q-ml-sm q-mb-sm">
               <q-btn
-                unelevated
+                outline
                 color="primary"
+                text-color="secondary"
                 :label="getLabel(transBase.GO_BACK)"
                 class="fit"
                 no-caps
@@ -33,15 +34,12 @@
       />
     </div>
     <q-input
-      square
       outlined
       class="q-ma-sm"
       v-model="event.title"
       lazy-rules="ondemand"
       :autofocus="true"
       :label="getLabel(translations.COLUMN_TITLE)"
-      standout="bg-primary text-white"
-      dense
       :rules="[(val) => !!val || 'Il campo è obbligatiorio']"
     />
     <div class="q-ma-sm q-mb-lg">
@@ -64,12 +62,10 @@
       <div class="col-12 col-sm-6">
         <q-select
           class="q-ma-sm"
-          dense
-          filled
+          outlined
           v-model="event.class"
           :label="getLabel(translations.COLUMN_CLASS)"
           :options="classOptions"
-          standout="bg-primary text-white"
           lazy-rules="ondemand"
           autocomplete="new-password"
           :rules="[(val) => !!val || 'Il campo è obbligatiorio']"
@@ -78,12 +74,10 @@
       <div class="col-12 col-sm-6">
         <q-select
           class="q-ma-sm"
-          filled
-          dense
+          outlined
           v-model="event.type"
           :label="getLabel(translations.COLUMN_TYPE)"
           :options="typeOptions"
-          standout="bg-primary text-white"
           lazy-rules="ondemand"
           autocomplete="new-password"
           :rules="[(val) => !!val || 'Il campo è obbligatiorio']"
@@ -92,12 +86,10 @@
       <div class="col-12 col-sm-6">
         <q-select
           class="q-ma-sm"
-          dense
-          filled
+          outlined
           v-model="event.state"
           :label="getLabel(translations.COLUMN_STATE)"
           :options="stateOptions"
-          standout="bg-primary text-white"
           lazy-rules="ondemand"
           autocomplete="new-password"
           :rules="[(val) => !!val || 'Il campo è obbligatiorio']"
@@ -106,13 +98,10 @@
       <div class="col-12 col-sm-6">
         <q-input
           clearable
-          dense
-          filled
           outlined
           :modelValue="getDateStringValue()"
           readonly
           :label="getLabel(translations.COLUMN_DATES)"
-          standout="bg-primary text-white"
           class="q-pa-sm"
         >
           <template v-slot:append>
@@ -162,9 +151,10 @@
     </div>
     <q-card-section class="justify-center text-primary row">
       <q-btn
-        unelevated
-        @click="() => updateProps()"
+        outline
         color="primary"
+        text-color="secondary"
+        @click="() => updateProps()"
         align="center"
         :disable="!isValid()"
         class="col-12 col-sm-auto q-mt-sm q-mx-xl"

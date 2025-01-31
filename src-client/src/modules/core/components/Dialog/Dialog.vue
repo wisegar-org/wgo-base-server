@@ -12,14 +12,17 @@
         !!width ? width : '100%'
       }`"
     >
-      <q-toolbar class="bg-primary text-white">
+      <q-toolbar>
         <q-avatar :icon="icon" />
         <q-toolbar-title v-if="title">{{ title }}</q-toolbar-title>
         <q-btn
           v-if="showClose"
-          flat
-          round
           dense
+          round
+          unelevated
+          outline
+          color="secondary"
+          text-color="primary"
           icon="close"
           @click="close"
           v-close-popup

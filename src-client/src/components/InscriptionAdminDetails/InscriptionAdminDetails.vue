@@ -88,8 +88,9 @@
 
       <q-card-actions class="text-primary justify-center">
         <q-btn
-          unelevated
+          outline
           color="primary"
+          text-color="secondary"
           align="center"
           class="col-12 col-sm-auto"
           @click="() => $emit('close')"

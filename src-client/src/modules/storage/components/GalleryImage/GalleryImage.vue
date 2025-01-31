@@ -8,8 +8,9 @@
           </div>
           <div>
             <q-btn
-              unelevated
+              outline
               color="primary"
+              text-color="secondary"
               icon="add"
               :label="btnLabel"
               class="q-ml-sm"

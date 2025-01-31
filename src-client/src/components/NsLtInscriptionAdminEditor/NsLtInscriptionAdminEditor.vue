@@ -44,18 +44,20 @@
           </div>
           <q-card-section class="justify-center text-primary row">
             <q-btn
-              unelevated
-              @click="() => $emit('close', false)"
+              outline
               color="primary"
+              text-color="secondary"
+              @click="() => $emit('close', false)"
               align="center"
               class="col-12 col-sm-auto q-mt-sm q-mx-xl"
               :label="getLabel(transBase.CLOSE)"
               style="min-width: 150px"
             />
             <q-btn
-              unelevated
-              type="submit"
+              outline
               color="primary"
+              text-color="secondary"
+              type="submit"
               align="center"
               class="col-12 col-sm-auto q-mt-sm q-mx-xl"
               :label="getLabel(transBase.SAVE)"

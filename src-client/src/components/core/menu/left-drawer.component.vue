@@ -1,10 +1,9 @@
 <template>
   <div>
     <q-btn
-      flat
-      dense
-      round
       unelevated
+      color="primary"
+      text-color="secondary"
       icon="menu"
       aria-label="Menu"
       @click="openMenu"
@@ -56,7 +55,9 @@
           dense
           round
           unelevated
-          color="accent"
+          outline
+          color="secondary"
+          text-color="primary"
           icon="chevron_left"
           @click="
             () => {
