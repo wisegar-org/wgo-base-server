@@ -127,11 +127,10 @@ const quasarConfig = configure(function (ctx) {
           info: "#D5573B",
           warning: "#C6ECAE",
         },
-        // notify: {
-        //   type: "positive",
-        //   color: "#00000",
-        //   textColor: "#FFFFF",
-        // },
+        notify: {
+          color: "white",
+          textColor: "black",
+          iconSize: "24px"
       },
 
       // iconSet: 'material-icons', // Quasar icon set
