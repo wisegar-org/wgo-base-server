@@ -1,7 +1,15 @@
 <template>
   <div style="align-self: center">
     <div v-if="isLogged" class="row">
-      <q-btn-dropdown flat :label="userEmail" :icon="iconBtn" no-caps>
+      <q-btn-dropdown
+        flat
+        :label="userEmail"
+        :icon="iconBtn"
+        no-caps
+        color="white"
+        text-color="black"
+        unelevated
+      >
         <q-list style="min-width: 150px">
           <q-item clickable v-close-popup @click="() => showUserProfile(true)">
             <q-item-section>{{

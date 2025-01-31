@@ -14,7 +14,7 @@
 import { defineComponent } from "vue";
 import { useAuthStore } from "../stores/authStore";
 import { useTranslationStore } from "../stores/translationStore";
-import AdminMainLayout from "src/modules/core/components/Layouts/AdminMainLayout.vue";
+import AdminMainLayout from "src/layouts/AdminMainLayout.vue";
 import { menuItems } from "../settings/navigation";
 import { Router, useRouter } from "vue-router";
 import { useLanguageStore } from "../stores/languageStore";

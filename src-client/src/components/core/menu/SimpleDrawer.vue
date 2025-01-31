@@ -45,15 +45,14 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { RouteService } from "../../../../services/RouteService";
-import { BaseTranslateComponent } from "../BaseComponents";
-import LeftDrawerList from "./LeftDrawerList.vue";
 import { translations } from "@wisegar-org/wgo-base-models/build/core";
 import { IMenuItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { AuthStore } from "../../../authentication/store/AuthStore";
 import { AdminBasePath } from "@wisegar-org/wgo-base-models/build/core/router";
 import { SUPERADMIN } from "@wisegar-org/wgo-base-models/build/authentication";
+import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
+import { AuthStore } from "../../../modules/authentication/store/AuthStore";
+import { RouteService } from "../../../services/RouteService";
+import { BaseTranslateComponent } from "../../../modules/core/components/BaseComponents";
 
 export default defineComponent({
   name: "SimpleDrawer",
@@ -67,9 +66,7 @@ export default defineComponent({
     routeService: { type: Object as PropType<RouteService>, required: true },
     side: { type: String as PropType<"left" | "right">, default: "left" },
   },
-  components: {
-    LeftDrawerList,
-  },
+  components: {},
   data() {
     return {
       show: false,

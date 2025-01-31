@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh Lpr lff">
     <q-header>
-      <q-toolbar>
+      <q-toolbar class="text-black">
         <LeftDrawer
           :items="menuItems"
           :authStore="authStore"
@@ -34,16 +34,16 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { RouteService } from "../../../../services/RouteService";
-import LeftDrawer from "../Menu/LeftDrawer.vue";
+import { RouteService } from "../services/RouteService";
+import LeftDrawer from "../components/core/menu/left-drawer.component.vue";
 import { translations as tranBase } from "@wisegar-org/wgo-base-models/build/core";
-import { BaseTranslateComponent } from "../BaseComponents";
-import LoginBtn from "../LoginBtn/LoginBtn.vue";
-import LanguageSelector from "../../../language/components/LanguageSelector/LanguageSelector.vue";
+import { BaseTranslateComponent } from "../modules/core/components/BaseComponents";
+import LoginBtn from "../modules/core/components/LoginBtn/LoginBtn.vue";
+import LanguageSelector from "../modules/language/components/LanguageSelector/LanguageSelector.vue";
 import { MenuListItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { LanguageStore } from "../../../language/store/LanguageStore";
-import { AuthStore } from "../../../authentication/store/AuthStore";
+import { TranslationStore } from "../modules/translation/store/TranslationStore";
+import { LanguageStore } from "../modules/language/store/LanguageStore";
+import { AuthStore } from "../modules/authentication/store/AuthStore";
 import { AuthPaths } from "@wisegar-org/wgo-base-models/build/authentication/router";
 
 export default defineComponent({

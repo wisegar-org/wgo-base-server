@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import LoginComponent from "src/components/auth/login.component.vue";
+import LoginComponent from "../../components/auth/login.component.vue";
 import { ISuccesLogin } from "@wisegar-org/wgo-base-models/build/authentication";
 import { RouteService } from "src/services/RouteService";
 import { useRouter, Router } from "vue-router";

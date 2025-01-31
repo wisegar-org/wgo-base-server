@@ -71,11 +71,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { AuthStore } from "../../../authentication/store/AuthStore";
 import { MenuListItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { RouteService } from "../../../../services/RouteService";
 import LeftDrawerList from "./LeftDrawerList.vue";
+import { RouteService } from "../../../services/RouteService";
+import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
+import { AuthStore } from "../../../modules/authentication/store/AuthStore";
 
 export default defineComponent({
   name: "LeftDrawer",

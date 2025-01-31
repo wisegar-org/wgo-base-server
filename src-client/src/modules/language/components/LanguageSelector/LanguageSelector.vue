@@ -2,9 +2,8 @@
   <div>
     <q-btn-dropdown
       v-if="!$q.platform.is.mobile"
-      no-caps
-      flat
-      outline
+      color="white"
+      text-color="black"
       unelevated
       :icon="iconBtn"
       :label="langStore.selectedLang.code"
@@ -26,8 +25,8 @@
     <q-btn-dropdown
       v-else
       no-caps
-      flat
-      outline
+      color="white"
+      text-color="black"
       unelevated
       :label="langStore.selectedLang.code"
     >
