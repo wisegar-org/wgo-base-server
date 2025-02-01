@@ -1,22 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { AgvInscriptionResponseModel } from "src/models/models";
 import { defineComponent, reactive, watch } from "vue";
-import { translations } from "../../models/translations/events";
-import TableVue from "src/modules/core/components/Table/Table.vue";
-import Loader from "src/modules/core/components/Loader/Loader.vue";
+import { translations } from "../../../models/translations/inscriptions";
+import { getInscriptionListSchema } from "./InscriptionAdminComponentSchema";
+import { InscriptionService } from "src/services/Inscription/InscriptionService";
 import { useTranslationStore } from "src/stores/translationStore";
-import { EventService } from "src/modules/agv/services/EventService/EventService";
-import { getEventListSchema } from "./EventAdminComponentSchema";
-import {
-  EventClassOption,
-  EventEnrollmentOptions,
-  EventStateOptions,
-  EventTypeOptions,
-  EventVisibleOptions,
-} from "src/models/Events";
-import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
-import { AgvEventResponseModel } from "src/models/models";
-import { AGVEventsAdminPaths } from "src/router/paths/admin/eventsPaths";
 import { useAppStatusStore } from "src/stores/appStatusStore";
+import TableVue from "src/modules/core/components/Table/Table.vue";
+import { EventClassOption } from "src/models/Events";
+import { useAppContentStore } from "src/modules/agv/stores/appContentStore";
+import InscriptionAdminDetails from "../InscriptionAdminDetails/InscriptionAdminDetails.vue";
 import {
   BaseResizeComponent,
   BaseTranslateComponent,
@@ -26,47 +19,40 @@ import {
   ITablePagination,
   ITableRowButton,
 } from "@wisegar-org/wgo-base-models/build/core/Table";
-import { RouteService } from "src/services/RouteService";
+import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
 import { TranslationStore } from "src/modules/translation/store/TranslationStore";
-import { Router } from "vue-router";
 
 export default defineComponent({
-  name: "EventAdminComponent",
-  components: {
-    TableVue,
-    Loader,
-  },
-  props: {
-    page: { type: Number, default: 0 },
-  },
+  name: "InscriptionAdminComponent",
+  components: { TableVue, InscriptionAdminDetails },
   data() {
     const resizeComponent = new BaseResizeComponent();
     const { componentHeight, addResize, removeResize, resizeTable } =
       resizeComponent;
 
-    const fnAction = (row?: AgvEventResponseModel) => {
-      this.editEvent(row?.id || 0);
+    const fnAction = (row: AgvInscriptionResponseModel) => {
+      this.showInscriptionDetails(row);
     };
 
     const rowBtns: ITableRowButton[] = [
       {
-        icon: "edit",
-        tooltip: transBase.EDIT,
+        icon: "info",
+        tooltip: transBase.DETAILS,
+        fnAction,
+        fnShow: (row: AgvInscriptionResponseModel) => {
+          return !!row.message;
+        },
+      },
+      {
+        icon: "assignment",
+        tooltip: transBase.DETAILS,
         fnAction,
       },
     ];
 
-    const leftBtns: ITableLeftButton[] = [
-      {
-        label: "",
-        icon: "add",
-        color: "primary",
-        tooltip: transBase.ADD,
-        fnAction: () => fnAction(),
-      },
-    ];
+    const leftBtns: ITableLeftButton[] = [];
     const { getLabel } = new BaseTranslateComponent();
-    const schema = getEventListSchema(
+    const schema = getInscriptionListSchema(
       this.tranStore as unknown as TranslationStore,
       leftBtns,
       rowBtns
@@ -78,28 +64,25 @@ export default defineComponent({
     schema.rowsPerPageDefault = schema.rowsPerPage[1];
     const pagination: ITablePagination = {
       descending: false,
-      page: this.page || 1,
+      page: 1,
       rowsPerPage: schema.rowsPerPageDefault,
       sortBy: "",
     } as ITablePagination;
-    const events: AgvEventResponseModel[] = [];
-
-    const typeOptions = EventTypeOptions;
-    const stateOptions = EventStateOptions;
-    const classOptions = EventClassOption;
-    const enrollmentOptions = EventEnrollmentOptions;
-    const visibleOptions = EventVisibleOptions;
-
-    const routeService = new RouteService(this.$router as unknown as Router);
+    const inscriptions: AgvInscriptionResponseModel[] = [];
 
     const filterObj = reactive({
+      email: "",
+      eventTitle: "",
+      eventClass: "",
+      nome: "",
+      phone: "",
       class: "",
-      state: "",
-      title: "",
-      type: "",
-      enrollment: "",
-      visible: "",
     });
+    const inscriptionSelected: AgvInscriptionResponseModel =
+      {} as AgvInscriptionResponseModel;
+
+    const eventClassOptions = EventClassOption;
+    const classOptions: string[] = [];
 
     watch(
       () => [filterObj],
@@ -113,17 +96,11 @@ export default defineComponent({
 
     return {
       filterObj: filterObj,
-      eventsCount: 0,
-      events,
+      inscriptionsCount: 0,
+      inscriptions,
       pagination,
       loading: false,
       componentHeight,
-      typeOptions,
-      stateOptions,
-      classOptions,
-      enrollmentOptions,
-      visibleOptions,
-      routeService,
       fnAction,
       addResize,
       removeResize,
@@ -131,6 +108,9 @@ export default defineComponent({
       schema: schema,
       translations: translations,
       openDialog: false,
+      classOptions,
+      eventClassOptions,
+      inscriptionSelected,
       id_input: "upload-button-" + Math.random().toString(36).substring(2, 10),
       getLabel: (name: string) =>
         getLabel(this.tranStore as unknown as TranslationStore, name),
@@ -139,9 +119,11 @@ export default defineComponent({
   setup() {
     const translationStore = useTranslationStore();
     const appStatusStore = useAppStatusStore();
+    const appContentStore = useAppContentStore();
 
     return {
       appStatusStore,
+      appContentStore,
       tranStore: translationStore.translationStore as TranslationStore,
     };
   },
@@ -150,39 +132,36 @@ export default defineComponent({
       this.resizeTable(this.$refs.placeholder as HTMLElement);
     },
     async loadData() {
-      const eventService = new EventService();
-      const result = await eventService.allEventsByPage({
+      const inscriptionService = new InscriptionService();
+      const result = await inscriptionService.allInscriptionsByPage({
         skip: this.pagination.rowsPerPage * (this.pagination.page - 1),
         take: this.pagination.rowsPerPage,
         descending: this.pagination.descending,
         sortBy: this.pagination.sortBy || "",
         filter: this.filterObj,
       });
-      if (result && result.events) {
-        this.eventsCount = result.count;
-        this.events = result.events || [];
+      if (result && result.inscriptions) {
+        this.inscriptionsCount = result.count;
+        this.inscriptions = result.inscriptions || [];
       }
     },
     async getDataByConfig(pagination: ITablePagination) {
       this.pagination = pagination;
       await this.loadData();
     },
-    editEvent(idEvent: number) {
-      this.appStatusStore.setLoading(true);
-      this.routeService.goTo(AGVEventsAdminPaths.eventEditor.path, {
-        event: idEvent,
-        page: this.pagination.page,
-      });
+    showInscriptionDetails(inscription: AgvInscriptionResponseModel) {
+      this.inscriptionSelected = { ...inscription };
+      this.openDialog = true;
     },
-    onClose(success: boolean) {
+    onClose() {
       this.openDialog = false;
-      if (success) this.loadData();
     },
   },
   async created() {
     this.$nextTick(() => {
       this.addResize(this.onResize);
     });
+    await this.appContentStore.loadPollData();
   },
   async unmounted() {
     this.removeResize(this.onResize);

@@ -13,7 +13,7 @@
 <script lang="ts">
 import { AgvEventResponseModel } from "../../../models/models";
 import { defineComponent } from "vue";
-import EventAdminEditor from "../../../components/EventAdminEditor/EventAdminEditor.vue";
+import EventAdminEditor from "../../../components/events/EventAdminEditor/EventAdminEditor.vue";
 import { UtilService } from "../../../services/UtilService";
 import { useAppStatusStore } from "../../../stores/appStatusStore";
 import { RouteService } from "../../../services/RouteService";
