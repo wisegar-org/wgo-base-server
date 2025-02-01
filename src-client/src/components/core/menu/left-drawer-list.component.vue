@@ -58,7 +58,7 @@
 import { defineComponent, PropType } from "vue";
 import { NumberDictionaryG } from "@wisegar-org/wgo-base-models/build/core";
 import { MenuListItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
-import LeftDrawerItem from "./LeftDrawerItem.vue";
+import LeftDrawerItem from "./left-drawer-item.component.vue";
 import { AuthStore } from "../../../modules/authentication/store/AuthStore";
 import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
 import { RouteService } from "../../../services/RouteService";

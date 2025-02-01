@@ -39,7 +39,7 @@
               </div>
             </div>
           </q-item>
-          <q-separator v-if="authStore.user" />
+
           <LeftDrawerList
             :items="items"
             :tranStore="tranStore"
@@ -73,7 +73,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { MenuListItem } from "@wisegar-org/wgo-base-models/build/core/Menu";
-import LeftDrawerList from "./LeftDrawerList.vue";
+import LeftDrawerList from "./left-drawer-list.component.vue";
 import { RouteService } from "../../../services/RouteService";
 import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
 import { AuthStore } from "../../../modules/authentication/store/AuthStore";
