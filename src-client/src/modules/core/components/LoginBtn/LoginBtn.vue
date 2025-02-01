@@ -53,7 +53,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import EditUserDialog from "../../../authentication/components/EditUser/EditUserDialog.vue";
+import EditUserDialog from "../../../../components/users/EditUser/EditUserDialog.vue";
 import { BaseTranslateComponent } from "../BaseComponents";
 import { IUser, translations } from "@wisegar-org/wgo-base-models/build/core";
 import { TranslationStore } from "../../../translation/store/TranslationStore";

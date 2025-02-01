@@ -21,16 +21,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import {
-  BaseResizeComponent,
-  BaseTranslateComponent,
-} from "../../../core/components/BaseComponents";
 import { getAuthUserListSchema } from "./UsersListSchema";
-import Table from "../../../core/components/Table/Table.vue";
+import Table from "../../../modules/core/components/Table/Table.vue";
 import EditUserDialog from "../EditUser/EditUserDialog.vue";
-import Loader from "../../../core/components/Loader/Loader.vue";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { AuthStore } from "../../store/AuthStore";
+import Loader from "../../../modules/core/components/Loader/Loader.vue";
+
 import {
   ITableLeftButton,
   ITableRowButton,
@@ -38,6 +33,12 @@ import {
 import { IUser } from "@wisegar-org/wgo-base-models/build/core";
 import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
 import { authTranslations as translations } from "@wisegar-org/wgo-base-models/build/authentication/translations";
+import {
+  BaseResizeComponent,
+  BaseTranslateComponent,
+} from "../../../modules/core/components/BaseComponents";
+import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
+import { AuthStore } from "../../../modules/authentication/store/AuthStore";
 
 export default defineComponent({
   name: "UsersList",

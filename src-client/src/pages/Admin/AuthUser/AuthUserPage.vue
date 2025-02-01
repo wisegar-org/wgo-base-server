@@ -10,10 +10,9 @@
 import { useTranslationStore } from "../../../stores/translationStore";
 import { defineComponent } from "vue";
 import { useNotifyStore } from "../../../stores/notifyStore";
-import UsersList from "src/modules/authentication/components/UsersList/UsersList.vue";
+import UsersList from "../../../components/users/UsersList/UsersList.vue";
 import { useAuthStore } from "../../../stores/authStore";
-import { TranslationStore } from "src/modules/translation/store/TranslationStore";
-
+import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
 export default defineComponent({
   name: "AuthUserPage",
   components: {

@@ -4,7 +4,6 @@
       <div class="col-12 col-md-6">
         <q-input
           v-if="emailList.length <= 1"
-          square
           outlined
           :readonly="!!userInput.id"
           class="q-my-sm q-mx-sm"
@@ -23,7 +22,6 @@
 
       <div class="col-12 col-md-6">
         <q-input
-          square
           outlined
           required
           hide-bottom-space
@@ -47,7 +45,6 @@
 
       <div class="col-12 col-md-6">
         <q-input
-          square
           outlined
           required
           class="q-my-sm q-mx-sm"
@@ -57,7 +54,6 @@
       </div>
       <div v-if="isEdition" class="col-12 col-md-6">
         <q-input
-          square
           outlined
           class="q-my-sm q-mx-sm"
           v-model="userInput.code"
@@ -94,7 +90,6 @@
       </div>
       <div v-if="isAdminRol" class="col-12 col-md-6">
         <q-select
-          square
           outlined
           v-model="userInput.roles"
           multiple
@@ -127,9 +122,9 @@
       <div class="row col-12 justify-around fit">
         <div class="col-12 col-sm-4 q-pt-xs">
           <q-btn
-            unelevated
-            dense
+            outline
             color="primary"
+            text-color="secondary"
             align="around"
             class="btn_width_fix"
             @click="close"
@@ -138,9 +133,9 @@
         </div>
         <div class="col-12 col-sm-4 q-pt-xs">
           <q-btn
-            unelevated
-            dense
+            outline
             color="primary"
+            text-color="secondary"
             align="around"
             class="btn_width_fix"
             :label="getLabel(labelBtn)"
@@ -154,21 +149,22 @@
 </template>
 
 <script lang="ts">
-import { AuthService } from "../../services/AuthService";
-import Loader from "../../../core/components/Loader/Loader.vue";
+import { AuthService } from "../../../modules/authentication/services/AuthService";
+import Loader from "../../../modules/core/components/Loader/Loader.vue";
 import { defineComponent, PropType } from "vue";
-import InputSecret from "../../../core/components/InputSecret/InputSecret.vue";
-import InputCopy from "../../../core/components/InputCopy/InputCopy.vue";
-import { BaseTranslateComponent } from "../../../core/components/BaseComponents";
+import InputSecret from "../../../modules/core/components/InputSecret/InputSecret.vue";
+import InputCopy from "../../../modules/core/components/InputCopy/InputCopy.vue";
+import { BaseTranslateComponent } from "../../../modules/core/components/BaseComponents";
 import { IUser } from "@wisegar-org/wgo-base-models/build/core";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { AuthStore } from "../../store/AuthStore";
+
 import {
   IAuthRegisterParams,
   SUPERADMIN,
 } from "@wisegar-org/wgo-base-models/build/authentication";
 import { translations as tranBase } from "@wisegar-org/wgo-base-models/build/core";
 import { authTranslations as translations } from "@wisegar-org/wgo-base-models/build/authentication/translations";
+import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
+import { AuthStore } from "../../../modules/authentication/store/AuthStore";
 
 export default defineComponent({
   name: "EditUserComponent",

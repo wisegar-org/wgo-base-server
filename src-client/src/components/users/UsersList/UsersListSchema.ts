@@ -5,7 +5,7 @@ import {
   ITableRowButton,
   ITableSchema,
 } from "@wisegar-org/wgo-base-models/build/core/Table";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
+import { TranslationStore } from "src/modules/translation/store/TranslationStore";
 
 export const getAuthUserListSchema = (
   transStore: TranslationStore,
@@ -84,7 +84,7 @@ export const getAuthUserListSchema = (
         width: 200,
         type: "badges",
         extra: {
-          SUPERADMIN: "red",
+          SUPERADMIN: "black",
         },
       },
       isEmailConfirmed: {

@@ -130,7 +130,8 @@ const quasarConfig = configure(function (ctx) {
         notify: {
           color: "white",
           textColor: "black",
-          iconSize: "24px"
+          iconSize: "24px",
+        },
       },
 
       // iconSet: 'material-icons', // Quasar icon set

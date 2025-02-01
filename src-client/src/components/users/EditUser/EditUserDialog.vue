@@ -21,13 +21,13 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { AuthStore } from "../../store/AuthStore";
 import { IUser } from "@wisegar-org/wgo-base-models/build/core";
-import { TranslationStore } from "../../../translation/store/TranslationStore";
-import { BaseTranslateComponent } from "../../../core/components/BaseComponents";
-import Dialog from "../../../core/components/Dialog/Dialog.vue";
+import { BaseTranslateComponent } from "../../../modules/core/components/BaseComponents";
+import Dialog from "../../../modules/core/components/Dialog/Dialog.vue";
 import EditUserComponentVue from "./EditUserComponent.vue";
 import { authTranslations as translations } from "@wisegar-org/wgo-base-models/build/authentication/translations";
+import { TranslationStore } from "../../../modules/translation/store/TranslationStore";
+import { AuthStore } from "../../../modules/authentication/store/AuthStore";
 
 export default defineComponent({
   name: "EditUserDialog",
