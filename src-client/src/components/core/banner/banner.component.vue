@@ -5,11 +5,12 @@
         <q-intersection
           transition="rotate"
           :threshold="0.1"
-          style="heigth: 150px"
+          style="height: 150px"
         >
           <q-icon name="info" color="primary" size="60px" />
         </q-intersection>
       </template>
+      <h4>Banner</h4>
       <div v-html="getLabel(text)" />
 
       <template v-slot:action>
@@ -26,4 +27,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./BannerComponent.ts" />
+<script lang="ts" src="./banner.component.ts" />
