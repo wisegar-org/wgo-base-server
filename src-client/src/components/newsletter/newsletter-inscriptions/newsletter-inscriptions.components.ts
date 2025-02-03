@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, reactive, watch } from "vue";
-import NsLtInscriptionAdminEditor from "../NsLtInscriptionAdminEditor/NsLtInscriptionAdminEditor.vue";
+import NsLtInscriptionAdminEditor from "../newsletter-inscription-editor/newsletter-inscription-editor.component.vue";
 import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
-import { getNewsletterInscriptionListSchema } from "./NsLtInscriptionAdminComponentSchema";
+import { getNewsletterInscriptionListSchema } from "./newsletter-inscriptions.schema";
 import { translations } from "src/models/translations/newsletter";
 import { NewsletterInscriptionService } from "src/services/Newsletter/NwLtInscriptionService";
 import { useNotifyStore } from "src/stores/notifyStore";
 import { useTranslationStore } from "src/stores/translationStore";
 import { useAppStatusStore } from "src/stores/appStatusStore";
 import { useAppContentStore } from "src/modules/agv/stores/appContentStore";
-import TableVue from "src/modules/core/components/Table/Table.vue";
+import WGTable from "src/modules/core/components/Table/Table.vue";
 import {
   AGVNewsletterInscriptionModel,
   AGVNewsletterInscriptionStatusEnum,
@@ -29,7 +29,7 @@ import { AgvNewsletterInscriptionResponse } from "src/graphql-types";
 export default defineComponent({
   name: "NsLtInscriptionAdminComponent",
   components: {
-    TableVue,
+    WGTable,
     NsLtInscriptionAdminEditor,
   },
   data() {

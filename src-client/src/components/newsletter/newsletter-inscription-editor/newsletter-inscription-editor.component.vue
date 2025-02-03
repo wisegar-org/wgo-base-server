@@ -13,7 +13,6 @@
         <q-form @submit="saveInscription">
           <div class="col-12 col-md-6 q-px-md q-pt-md">
             <q-input
-              square
               outlined
               class="q-ma-sm"
               dense
@@ -70,4 +69,4 @@
   </DialogVue>
 </template>
 
-<script lang="ts" src="./NsLtInscriptionAdminEditor.ts" />
+<script lang="ts" src="./newsletter-inscription-editor.component.ts" />

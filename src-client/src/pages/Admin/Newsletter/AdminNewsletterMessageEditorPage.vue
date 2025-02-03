@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import NsLtMessageAdminEditor from "../../../components/NsLtMessageAdminEditor/NsLtMessageAdminEditor.vue";
+import NsLtMessageAdminEditor from "../../../components/newsletter/newsletter-inscription-editor/newsletter-inscription-editor.component.vue";
 import { NewsletterMessageService } from "../../../services/Newsletter/NwLtMessengerService";
 import { AGVNewslettersAdminPaths } from "../../../router/paths/admin/newslettersPaths";
 import { useAppStatusStore } from "../../../stores/appStatusStore";

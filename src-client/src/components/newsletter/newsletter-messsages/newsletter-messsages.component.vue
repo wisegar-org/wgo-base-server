@@ -2,11 +2,11 @@
   <div>
     <div ref="placeholder" style="height: 1px"></div>
     <TableVue
-      :title="translations.INSC_TITLE"
-      :data="inscriptions"
+      :title="translations.MSG_TITLE"
+      :data="messages"
       :schema="schema"
       :height="componentHeight"
-      :countData="inscriptionsCount"
+      :countData="messagesCount"
       @getPagination="getDataByConfig"
     >
       <template v-slot:subtitle>
@@ -17,11 +17,11 @@
               filled
               clearable
               class="q-ma-sm"
-              v-model="filterObj.email"
+              v-model="filterObj.title"
               type="email"
               lazy-rules="ondemand"
               debounce="500"
-              :label="getLabel(translations.INSC_COLUMN_EMAIL)"
+              :label="getLabel(translations.MSG_COLUMN_TITLE)"
             />
           </div>
           <div class="col-12 col-md-3">
@@ -31,7 +31,7 @@
               filled
               clearable
               v-model="filterObj.status"
-              :label="getLabel(translations.INSC_COLUMN_STATUS)"
+              :label="getLabel(translations.MSG_COLUMN_STATUS)"
               :options="statusOptions"
               standout="bg-primary text-white"
               lazy-rules="ondemand"
@@ -41,12 +41,7 @@
         </div>
       </template>
     </TableVue>
-    <NsLtInscriptionAdminEditor
-      :open="openDialog"
-      :inscription="inscriptionSelected"
-      @close="onClose"
-    />
   </div>
 </template>
 
-<script lang="ts" src="./NsLtInscriptionAdminComponent.ts" />
+<script lang="ts" src="./newsletter-messsages.component.ts" />

@@ -114,7 +114,7 @@ import {
 } from "@wisegar-org/wgo-base-models/build/core/Table";
 
 export default defineComponent({
-  name: "Table",
+  name: "WGTable",
   props: {
     title: {
       type: String,

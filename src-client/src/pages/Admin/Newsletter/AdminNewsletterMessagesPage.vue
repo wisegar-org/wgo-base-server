@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import NsLtMessageAdminComponent from "../../../components/NsLtMessageAdminComponent/NsLtMessageAdminComponent.vue";
+import NsLtMessageAdminComponent from "../../../components/newsletter/newsletter-messsages/newsletter-messsages.component.vue";
 
 export default defineComponent({
   name: "AdminNewsletterMessagesPage",

@@ -87,4 +87,4 @@
   </q-form>
 </template>
 
-<script lang="ts" src="./NsLtMessageAdminEditor.ts" />
+<script lang="ts" src="./newsletter-messsage-editor.component.ts" />

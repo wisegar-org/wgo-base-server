@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import NsLtInscriptionAdminComponent from "../../../components/NsLtInscriptionAdminComponent/NsLtInscriptionAdminComponent.vue";
+import NsLtInscriptionAdminComponent from "../../../components/newsletter/newsletter-inscriptions/newsletter-inscriptions.components.vue";
 
 export default defineComponent({
   name: "AdminNewsletterInscriptionsPage",

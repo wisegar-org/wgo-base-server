@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, reactive, watch } from "vue";
-import NsLtMessageAdminEditor from "../NsLtMessageAdminEditor/NsLtMessageAdminEditor.vue";
+import NsLtMessageAdminEditor from "../newsletter-messsage-editor/newsletter-messsage-editor.component.vue";
 import { translations as transBase } from "@wisegar-org/wgo-base-models/build/core";
-import { getNewsletterMessageListSchema } from "./NsLtMessageAdminComponentSchema";
+import { getNewsletterMessageListSchema } from "./newsletter-messsages.schema";
 import { translations } from "src/models/translations/newsletter";
 import { NewsletterMessageService } from "src/services/Newsletter/NwLtMessengerService";
 import { useNotifyStore } from "src/stores/notifyStore";
