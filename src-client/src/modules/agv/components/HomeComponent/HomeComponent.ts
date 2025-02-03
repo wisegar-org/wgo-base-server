@@ -6,7 +6,7 @@ import { defineComponent } from "vue";
 import TextVue from "src/modules/core/components/Text/Text.vue";
 import { Router } from "vue-router";
 import BannerComponent from "src/components/core/banner/banner.component.vue";
-import ItemCard from "src/components/ItemCard/ItemCard.vue";
+import ItemCard from "src/components/core/item-card/item-card.component.vue";
 import { pollDataPageRoute } from "../../routes/pollDataPageRoute";
 import { pollRulesPageRoute } from "../../routes/pollRulesPageRoute";
 import { eventiItemDetailsPageRoute } from "../../routes/eventiItemDetailsPageRoute";

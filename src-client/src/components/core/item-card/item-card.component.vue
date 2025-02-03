@@ -46,7 +46,7 @@
   </q-card>
 </template>
 
-<script lang="ts" src="./ItemCard.ts" />
+<script lang="ts" src="./item-card.component.ts" />
 
 <style lang="sass" scoped>
 h4
