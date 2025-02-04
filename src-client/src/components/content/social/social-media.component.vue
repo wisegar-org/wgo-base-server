@@ -69,4 +69,4 @@
   </q-card>
 </template>
 
-<script lang="ts" src="./SocialMediaAdminContent.ts" />
+<script lang="ts" src="./social-media.component.ts" />
