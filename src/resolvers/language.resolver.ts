@@ -2,7 +2,7 @@ import { Arg, Mutation, Query, Resolver, Authorized, Ctx } from "type-graphql";
 import { LanguageResponse } from "./language.responses";
 import { LanguageInput, LanguagePostInput } from "./language.inputs";
 import { LanguageService } from "../services/language.service";
-import { IdInput } from "../core/resolvers/CoreInputs";
+import { IdInput } from "./core.inputs";
 import {
   LANGUAGE_PATH_GET_ALL_LANGUAGE,
   LANGUAGE_PATH_GET_LANGUAGE,

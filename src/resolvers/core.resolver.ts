@@ -5,8 +5,8 @@ import {
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
-import { CoreService } from "../services/CoreService";
-import { LocalStorageResponse } from "./CoreResponses";
+import { CoreService } from "../core/services/CoreService";
+import { LocalStorageResponse } from "./core.responses";
 
 @Resolver()
 export class CoreResolver {

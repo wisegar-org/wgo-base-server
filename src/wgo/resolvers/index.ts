@@ -10,7 +10,7 @@ import { AGVNewsletterResolver } from "../../agv/resolvers/Newsletter/AGVNewslet
 import { AGVInscriptionResolver } from "../../agv/resolvers/Inscription/AGVInscriptionResolver";
 import { AuthResolver } from "../../resolvers/authentication.resolver";
 import { EmailResolver } from "../../resolvers/email.resolver";
-import { CoreResolver } from "../../core/resolvers/CoreResolver";
+import { CoreResolver } from "../../resolvers/core.resolver";
 import { HistoricResolver } from "../../resolvers/history.resolver";
 import { LanguageResolver } from "../../resolvers/language.resolver";
 import { SettingsResolver } from "../../resolvers/settings.resolver";
