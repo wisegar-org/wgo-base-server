@@ -21,7 +21,7 @@ import {
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
 import { rolesDataSeeder } from "./database/seeders/roles.seeder";
 import { usersDataSeeder } from "./database/seeders/users.seeder";
-import { IServerOptions } from "./core/interfaces/IServerOptions";
+import { IServerOptions } from "./interfaces/server-options.interface";
 import { UseRestMiddleware } from "./middlewares/rest.middleware";
 import { ExpirationFreqEnum } from "./core/services/JwtAuthService";
 import { boot } from "./handlers/boot.handler";

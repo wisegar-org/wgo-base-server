@@ -15,7 +15,7 @@ import {
 import { GetWebRootKey } from "../middlewares/HostAdminMiddleware";
 import { PostgresDataSource } from "../../database/data-source";
 import { UserRolesService } from "../../services/users-roles.service";
-import { IContextOptions } from "../../core/interfaces/IContextOptions";
+import { IContextOptions } from "../../interfaces/context-options.interface";
 import { LanguageService } from "../../services/language.service";
 import { listenersEvents } from "../../utils/settings.utils";
 

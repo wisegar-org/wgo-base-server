@@ -1,4 +1,4 @@
-import { RouteDefinition } from "../interfaces/IRouteDefinition";
+import { RouteDefinition } from "../../interfaces/route-definition.interface";
 import { ExportData } from "./dataExport";
 import { parseForms } from "./parser";
 import { Request, Response } from "express";

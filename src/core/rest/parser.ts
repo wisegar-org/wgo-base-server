@@ -2,7 +2,7 @@ import {
   ExportableForm,
   SimpleValidationError,
 } from "../../decorators/export.decorator";
-import { RouteDefinition } from "../interfaces/IRouteDefinition";
+import { RouteDefinition } from "../../interfaces/route-definition.interface";
 import { ExportData } from "./dataExport";
 import { Request, Response } from "express";
 

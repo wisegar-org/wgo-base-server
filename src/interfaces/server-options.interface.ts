@@ -1,9 +1,9 @@
 import { DocumentNode } from "graphql";
 import { AuthMode, NonEmptyArray } from "type-graphql";
-import { IContextOptions } from "./IContextOptions";
-import { ExpirationFreqEnum } from "../services/JwtAuthService";
+import { IContextOptions } from "./context-options.interface";
+import { ExpirationFreqEnum } from "../core/services/JwtAuthService";
 import { CorsOptions } from "cors";
-import { Context } from "../models/Models";
+import { Context } from "../core/models/Models";
 import { ValidateSettings } from "type-graphql/build/typings/schema/build-context";
 
 export interface IServerOptions {

@@ -2,7 +2,7 @@ import "reflect-metadata";
 import {
   IRouteAuthPermission,
   RouteDefinition,
-} from "../core/interfaces/IRouteDefinition";
+} from "../interfaces/route-definition.interface";
 import { FormConstructor, ResponseConstructor } from "./export.decorator";
 /**
  * Use to set this method as a put rest call. Authorize is true by default

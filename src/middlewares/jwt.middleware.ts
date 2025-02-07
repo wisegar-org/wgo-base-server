@@ -1,7 +1,7 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import express from "express";
-import { IContextOptions } from "../core/interfaces/IContextOptions";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { IContextOptions } from "../interfaces/context-options.interface";
+import { IServerOptions } from "../interfaces/server-options.interface";
 import {
   AccessTokenData,
   jwtValidator,

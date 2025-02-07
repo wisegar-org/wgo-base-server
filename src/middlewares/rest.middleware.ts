@@ -1,5 +1,5 @@
 import { IsNullOrUndefined } from "wgo-extensions";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { IServerOptions } from "../interfaces/server-options.interface";
 import { configRouter } from "../core/rest/router";
 
 export const UseRestMiddleware = (options: IServerOptions) => {

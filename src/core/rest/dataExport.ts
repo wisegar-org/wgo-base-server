@@ -1,4 +1,4 @@
-import { RouteDefinition } from "../interfaces/IRouteDefinition";
+import { RouteDefinition } from "../../interfaces/route-definition.interface";
 
 export class ExportData {
   static instance: ExportData;

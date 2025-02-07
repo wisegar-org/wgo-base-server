@@ -1,4 +1,4 @@
-import { IUser } from "../interfaces/IUser";
+import { IUser } from "../../interfaces/user.interface";
 
 export class TokenResult {
   username?: string;

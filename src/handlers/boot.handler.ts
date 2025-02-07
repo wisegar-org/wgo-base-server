@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import express from "express";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { IServerOptions } from "../interfaces/server-options.interface";
 import { UseJwtMiddleware } from "../middlewares/jwt.middleware";
 import { UseCorsMiddleware } from "../middlewares/cors.middleware";
 import { UseGqlServer } from "../middlewares/gql-server.middleware";

@@ -1,4 +1,4 @@
-import { IUserRole } from "./IUserRole";
+import { IUserRole } from "./user-role.interface";
 
 export interface IUser {
   name: string;

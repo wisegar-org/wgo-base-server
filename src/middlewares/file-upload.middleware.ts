@@ -1,5 +1,5 @@
 import { IsNullOrUndefined } from "wgo-extensions";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { IServerOptions } from "../interfaces/server-options.interface";
 import fileUpload from "express-fileupload";
 
 export const UseFileUploadMiddleware = (options: IServerOptions) => {

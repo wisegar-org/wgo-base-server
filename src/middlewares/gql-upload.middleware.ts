@@ -1,6 +1,6 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import { graphqlUploadExpress } from "graphql-upload";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { IServerOptions } from "../interfaces/server-options.interface";
 
 export const UseGQLUploadExpress = (options: IServerOptions) => {
   if (IsNullOrUndefined(options)) throw new Error("Invalid options parameter");

@@ -2,7 +2,7 @@ import "reflect-metadata";
 import {
   IRouteAuthPermission,
   RouteDefinition,
-} from "../core/interfaces/IRouteDefinition";
+} from "../interfaces/route-definition.interface";
 import { FormConstructor, ResponseConstructor } from "./export.decorator";
 
 /**

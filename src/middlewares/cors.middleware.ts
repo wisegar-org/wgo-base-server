@@ -1,6 +1,6 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import cors from "cors";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { IServerOptions } from "../interfaces/server-options.interface";
 
 export const UseCorsMiddleware = (options: IServerOptions) => {
   if (IsNullOrUndefined(options)) throw new Error("Invalid options parameter");

@@ -1,6 +1,6 @@
 import { IsNull, IsNullOrUndefined } from "wgo-extensions";
-import { getApolloServer } from "../core/graphql/server";
-import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { getApolloServer } from "../graphql/graphql-server";
+import { IServerOptions } from "../interfaces/server-options.interface";
 import { expressMiddleware } from "@apollo/server/express4";
 import { json } from "body-parser";
 import { UseGQLUploadExpress } from "./gql-upload.middleware";
