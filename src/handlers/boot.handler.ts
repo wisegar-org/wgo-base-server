@@ -1,19 +1,19 @@
 import "reflect-metadata";
 import express from "express";
-import { IServerOptions } from "../interfaces/IServerOptions";
-import { UseJwtMiddleware } from "../../middlewares/jwt.middleware";
-import { UseCorsMiddleware } from "../../middlewares/cors.middleware";
-import { UseGqlServer } from "../../middlewares/gql-server.middleware";
-import { ExpirationFreqEnum } from "../services/JwtAuthService";
-import { UseRestMiddleware } from "../../middlewares/rest.middleware";
+import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { UseJwtMiddleware } from "../middlewares/jwt.middleware";
+import { UseCorsMiddleware } from "../middlewares/cors.middleware";
+import { UseGqlServer } from "../middlewares/gql-server.middleware";
+import { ExpirationFreqEnum } from "../core/services/JwtAuthService";
+import { UseRestMiddleware } from "../middlewares/rest.middleware";
 import {
   IsNullOrUndefined,
   IsStringEmptyNullOrUndefined,
 } from "wgo-extensions";
 import { join } from "path";
-import { PublicDirectoryMiddleware } from "../../middlewares/public-directory.middleware";
+import { PublicDirectoryMiddleware } from "../middlewares/public-directory.middleware";
 import { ITranslationModel } from "@wisegar-org/wgo-base-models";
-import { GetOpenCRMPathRoot } from "../services/EnvService";
+import { GetOpenCRMPathRoot } from "../core/services/EnvService";
 
 export type BootFunc = (options: IServerOptions) => void;
 

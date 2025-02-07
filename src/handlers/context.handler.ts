@@ -1,5 +1,5 @@
-import { IContextOptions } from "../interfaces/IContextOptions";
-import { IServerOptions } from "../interfaces/IServerOptions";
+import { IContextOptions } from "../core/interfaces/IContextOptions";
+import { IServerOptions } from "../core/interfaces/IServerOptions";
 
 export const contextBaseHandler = async (
   options: IContextOptions

@@ -24,7 +24,7 @@ import { usersDataSeeder } from "./database/seeders/users.seeder";
 import { IServerOptions } from "./core/interfaces/IServerOptions";
 import { UseRestMiddleware } from "./middlewares/rest.middleware";
 import { ExpirationFreqEnum } from "./core/services/JwtAuthService";
-import { boot } from "./core/handlers/bootHandler";
+import { boot } from "./handlers/boot.handler";
 
 const port = GetPortKey();
 

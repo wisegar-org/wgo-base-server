@@ -4,7 +4,7 @@ import { IServerOptions } from "../core/interfaces/IServerOptions";
 import { expressMiddleware } from "@apollo/server/express4";
 import { json } from "body-parser";
 import { UseGQLUploadExpress } from "./gql-upload.middleware";
-import { contextHandler } from "../core/handlers/contextHandler";
+import { contextHandler } from "../handlers/context.handler";
 
 export const UseGqlServer = (options: IServerOptions) => {
   if (IsNullOrUndefined(options)) throw new Error("Invalid options parameter");
