@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class SchemaUpdate1738944200272 implements MigrationInterface {
-    name = 'SchemaUpdate1738944200272'
+export class SchemaUpdate1738946546572 implements MigrationInterface {
+    name = 'SchemaUpdate1738946546572'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TYPE "public"."histories_action_enum" AS ENUM('SoftDelete', 'Delete', 'Add', 'Update', 'Restore', 'Access', 'Unknown')`);

@@ -11,10 +11,6 @@ import { errorHandler } from "./wgo/handlers/ErrorHandler";
 import { getControllers } from "./wgo/controllers";
 
 import { createDatabase, dropDatabase } from "typeorm-extension";
-import { roleSuperAdminSeeder, userAdminSeeder } from "./authentication";
-import { languageDefaultSeeder } from "./language";
-import { mediaPublicSeeder } from "./storage";
-import { settingsSeeder } from "./wgo/database/seeders/SettingsSeeder";
 import { getResolvers } from "./wgo/resolvers";
 import {
   boot,
@@ -29,6 +25,7 @@ import {
   UsePublicMediaHostMiddleware,
 } from "./agv/middlewares/HostClientMiddleware";
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
+import { rolesDataSeeder } from "./database/seeders/roles.seeder";
 
 const port = GetPortKey();
 
@@ -61,15 +58,15 @@ const serverOptions: IServerOptions = {
 boot(serverOptions, async () => {
   console.log("Start other services here. ex. database connections");
 
-  await dropDatabase({
-    ifExist: true,
-    options: {
-      ...dataSourceOptions,
-      migrationsRun: false,
-      entities: [],
-      migrations: [],
-    },
-  });
+  // await dropDatabase({
+  //   ifExist: true,
+  //   options: {
+  //     ...dataSourceOptions,
+  //     migrationsRun: false,
+  //     entities: [],
+  //     migrations: [],
+  //   },
+  // });
 
   await createDatabase({
     ifNotExist: true,
@@ -90,8 +87,8 @@ boot(serverOptions, async () => {
   // await settingsSeeder(dataSource);
 
   //Core Seeders
-  await roleSuperAdminSeeder(dataSource); //create superadmin rol
-  await userAdminSeeder(dataSource); //create admin user with superadmin rol
+  await rolesDataSeeder(dataSource);
+  // await userAdminSeeder(dataSource); //create admin user with superadmin rol
   // await languageDefaultSeeder(dataSource); //create default language
   // await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
 

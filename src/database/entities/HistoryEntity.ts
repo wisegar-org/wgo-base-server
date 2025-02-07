@@ -19,5 +19,5 @@ export class HistoryEntity extends WGBaseEntity {
   action!: Actions;
 
   @Column({ type: "jsonb", nullable: true })
-  snapshot?: { [key: string]: unknown };
+  snapshot?: object;
 }

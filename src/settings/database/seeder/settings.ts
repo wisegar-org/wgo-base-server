@@ -1,4 +1,3 @@
-import SettingsEntity from "../entities/SettingsEntity";
 import { IsNullOrUndefined } from "wgo-extensions";
 import { SettingsModel } from "../../models/SettingsModel";
 import {
@@ -6,6 +5,7 @@ import {
   ISettingValueBoolean,
   ISettingValuePassword,
 } from "@wisegar-org/wgo-base-models";
+import SettingsEntity from "../../../database/entities/SettingsEntity";
 
 export const settingsAdminSeeder = async (
   ctx: IContextBase,

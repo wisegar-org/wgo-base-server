@@ -1,5 +1,3 @@
-export { StorageEntity } from "./database/entities/StorageEntity";
-
 export * from "./database/migrations";
 export * from "./database/seeder/media";
 export * from "./models/MediaModel";

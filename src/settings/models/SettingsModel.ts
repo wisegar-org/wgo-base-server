@@ -16,10 +16,10 @@ import {
   APP_SETTINGS,
   WRONG_TYPE,
 } from "@wisegar-org/wgo-base-models";
-import SettingsEntity from "../database/entities/SettingsEntity";
 import { cypherData, decypherData } from "wgo-crypto";
 import { EventEmitter } from "events";
 import { HistoricModel } from "../../historic/models/HistoricModel";
+import SettingsEntity from "../../database/entities/SettingsEntity";
 
 export class SettingsModel {
   private dataSource: DataSource;

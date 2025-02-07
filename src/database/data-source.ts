@@ -19,7 +19,7 @@ import {
 import { RoleEntity } from "./entities/RoleEntity";
 import SettingsEntity from "./entities/SettingsEntity";
 import StorageEntity from "./entities/StorageEntity";
-import { SchemaUpdate1738944200272 } from "./migrations/1738944200272-schema-update";
+import { SchemaUpdate1738946546572 } from "./migrations/1738946546572-schema-update";
 
 export const dataSourceOptions: DataSourceOptions = {
   type: "postgres",
@@ -41,7 +41,7 @@ export const dataSourceOptions: DataSourceOptions = {
     MediaEntity,
     StorageEntity,
   ],
-  migrations: [SchemaUpdate1738944200272],
+  migrations: [SchemaUpdate1738946546572],
   subscribers: [],
   dropSchema: false,
   logging: false,
