@@ -1,6 +1,6 @@
 import { IsNullOrUndefined } from "wgo-extensions";
-import { IServerOptions } from "../interfaces/IServerOptions";
-import { configRouter } from "../rest/router";
+import { IServerOptions } from "../core/interfaces/IServerOptions";
+import { configRouter } from "../core/rest/router";
 
 export const UseRestMiddleware = (options: IServerOptions) => {
   if (IsNullOrUndefined(options)) throw new Error("Invalid options parameter");

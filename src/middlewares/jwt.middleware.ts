@@ -1,12 +1,12 @@
 import { IsNullOrUndefined } from "wgo-extensions";
 import express from "express";
-import { IContextOptions } from "../interfaces/IContextOptions";
-import { IServerOptions } from "../interfaces/IServerOptions";
+import { IContextOptions } from "../core/interfaces/IContextOptions";
+import { IServerOptions } from "../core/interfaces/IServerOptions";
 import {
   AccessTokenData,
   jwtValidator,
   validateAccessToken,
-} from "../services/JwtAuthService";
+} from "../core/services/JwtAuthService";
 import { AuthError } from "@wisegar-org/wgo-base-models";
 
 const isGraphql = (req: express.Request) => {

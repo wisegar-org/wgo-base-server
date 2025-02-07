@@ -1,7 +1,10 @@
 import { IsNullOrUndefined } from "wgo-extensions";
-import { IServerOptions } from "../interfaces/IServerOptions";
+import { IServerOptions } from "../core/interfaces/IServerOptions";
 import express from "express";
-import { GetOpenCRMPathRoot, GetWebRootPath } from "../services/EnvService";
+import {
+  GetOpenCRMPathRoot,
+  GetWebRootPath,
+} from "../core/services/EnvService";
 import { join } from "path";
 import { existsSync } from "fs-extra";
 import { mkdirSync } from "fs";
