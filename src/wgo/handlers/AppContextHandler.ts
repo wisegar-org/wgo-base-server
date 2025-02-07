@@ -14,10 +14,10 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { GetWebRootKey } from "../middlewares/HostAdminMiddleware";
 import { listenersEvents } from "../../settings";
-import { LanguageModel } from "../../language";
 import { PostgresDataSource } from "../../database/data-source";
 import { UserRolesService } from "../../services/users-roles.service";
 import { IContextOptions } from "../../core/interfaces/IContextOptions";
+import { LanguageService } from "../../services/language.service";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
@@ -39,7 +39,7 @@ export const authArg = {
 };
 
 const authModel = new UserRolesService(authArg);
-const langModel = new LanguageModel(ctx);
+const langModel = new LanguageService(ctx);
 
 export const AppContextHandler = async (options: IContextOptions) => {
   if (!options) {

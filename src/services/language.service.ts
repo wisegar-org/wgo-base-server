@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { LanguageEntity } from "../../database/entities/LanguageEntity";
+import { LanguageEntity } from "../database/entities/LanguageEntity";
 import {
   WRONG_LANGUAGE_CODE,
   WRONG_LANGUAGE_DONT_EXIST,
@@ -10,9 +10,9 @@ import {
   IContextBase,
   IIdInput,
 } from "@wisegar-org/wgo-base-models";
-import { HistoryService } from "../../services/historic.service";
+import { HistoryService } from "./historic.service";
 
-export class LanguageModel {
+export class LanguageService {
   private dataSoure: DataSource;
   private ctx: IContextBase;
   private historicModel: HistoryService<LanguageEntity>;

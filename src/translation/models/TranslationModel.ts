@@ -10,7 +10,7 @@ import {
   StorageKeys,
 } from "@wisegar-org/wgo-base-models";
 import { UtilService } from "../../core/services/UtilService";
-import { LanguageModel } from "../../language/models/LanguageModel";
+import { LanguageService } from "../../services/language.service";
 import { HistoryService } from "../../services/historic.service";
 
 export class TranslationModel {
@@ -173,7 +173,7 @@ export class TranslationModel {
   async getTranslationsByFilter(lang: number, search: string = "") {
     const searchTranslationskeys: { [key: string]: boolean } = {};
     const translationsFile: ITransaltionsType = {};
-    const languageService = new LanguageModel(this.ctx);
+    const languageService = new LanguageService(this.ctx);
     const langs: ILanguageModel[] = await languageService.getAllLanguage();
     for (const language of langs) {
       await this.getKeysByFilterInDB(
@@ -201,7 +201,7 @@ export class TranslationModel {
   }
 
   async inportTranslations(buffer: any) {
-    const languageService = new LanguageModel(this.ctx);
+    const languageService = new LanguageService(this.ctx);
     const { createReadStream } = buffer;
     const stream: any = createReadStream();
     const fileContent = await UtilService.readStreamData(stream);
@@ -234,7 +234,7 @@ export class TranslationModel {
   async exportTranslations(langIds: number[]) {
     const searchTranslationskeys: { [key: string]: boolean } = {};
     const translationsFile: { [key: number]: ITransaltionsType } = {};
-    const languageService = new LanguageModel(this.ctx);
+    const languageService = new LanguageService(this.ctx);
     const langs: ILanguageModel[] = await languageService.getAllLanguage();
     const validLanguages = langs.filter(
       (lang) => langIds.length === 0 || langIds.indexOf(lang.id) !== -1

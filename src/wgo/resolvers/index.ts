@@ -4,7 +4,6 @@ import { PublicMediaResolver } from "./Media/MediaResolver";
 import { IndexContentResolver } from "./IndexContent/IndexContentResolver";
 import { FinanceIssuesResolver } from "./FinanceIssues/FinanceIssuesResolver";
 import { FinanceIssuesOptionsResolver } from "./FinanceIssuesOptions/FinanceIssuesOptionsResolver";
-import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { TemplateResolver } from "../../template";
 import { TranslationsResolver } from "../../translation";
@@ -18,6 +17,7 @@ import { AuthResolver } from "../../resolvers/authentication.resolver";
 import { EmailResolver } from "../../resolvers/email.resolver";
 import { CoreResolver } from "../../core/resolvers/CoreResolver";
 import { HistoricResolver } from "../../resolvers/history.resolver";
+import { LanguageResolver } from "../../resolvers/language.resolver";
 
 export const getResolvers = () => {
   return [
