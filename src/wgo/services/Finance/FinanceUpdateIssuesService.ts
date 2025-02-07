@@ -23,7 +23,7 @@ import { FinanceRepositoryService } from "./FinanceRepositoryService";
 import { SETTINGS_FINANCE_ORGANIZATION } from "./FinanceSettings";
 import { ctx } from "../../handlers/AppContextHandler";
 import { READ_ISSUES_INTERVAL } from "../../models/constants";
-import { SettingsModel } from "../../../settings";
+import { SettingsService } from "../../../services/settings.service";
 
 export class FinanceUpdateIssuesService {
   async Update(ctx: IContextBase) {
@@ -33,7 +33,7 @@ export class FinanceUpdateIssuesService {
     const labelController = new FinanceLabelService(ctx);
     const issueController = new FinanceIssuesService(ctx);
 
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_FINANCE_ORGANIZATION,
     })) as any as FinanceOrganizationSettings;
@@ -176,7 +176,7 @@ export class FinanceUpdateIssuesService {
     // const milestoneController = new MilestoneService();
     const issueController = new FinanceIssuesService(ctx);
 
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_FINANCE_ORGANIZATION,
     })) as any as FinanceOrganizationSettings;
@@ -370,7 +370,7 @@ export const loopUpdateIssues = async (currentTime: number = 0) => {
   const updateIssuesService = new FinanceUpdateIssuesService();
   if (time === 0) {
     loadEvent();
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_FINANCE_ORGANIZATION,
     })) as any as FinanceOrganizationSettings;

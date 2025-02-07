@@ -18,10 +18,10 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { cypherData, decypherData } from "wgo-crypto";
 import { EventEmitter } from "events";
-import SettingsEntity from "../../database/entities/SettingsEntity";
-import { HistoryService } from "../../services/historic.service";
+import SettingsEntity from "../database/entities/SettingsEntity";
+import { HistoryService } from "./historic.service";
 
-export class SettingsModel {
+export class SettingsService {
   private dataSource: DataSource;
   private ctx: IContextBase;
   private emiter: EventEmitter;

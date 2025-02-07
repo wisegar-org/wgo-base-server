@@ -1,18 +1,18 @@
 import { IsNullOrUndefined } from "wgo-extensions";
-import { SettingsModel } from "../../models/SettingsModel";
+import { SettingsService } from "../../services/settings.service";
 import {
   IContextBase,
   ISettingValueBoolean,
   ISettingValuePassword,
 } from "@wisegar-org/wgo-base-models";
-import SettingsEntity from "../../../database/entities/SettingsEntity";
+import SettingsEntity from "../entities/SettingsEntity";
 
-export const settingsAdminSeeder = async (
+export const settingsDataSeeder = async (
   ctx: IContextBase,
   type: string,
   settings: any = {}
 ) => {
-  const settingsModel = new SettingsModel(ctx);
+  const settingsModel = new SettingsService(ctx);
   const settingsResult = await settingsModel.getSettingsEntity(type);
 
   if (IsNullOrUndefined(settingsResult)) {

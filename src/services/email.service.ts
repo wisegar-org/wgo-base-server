@@ -18,8 +18,8 @@ import {
   WGEmailToAppInput,
 } from "../resolvers/email.inputs";
 import { getInlineStyle } from "../utils/email-style.utils";
-import { SettingsModel } from "../settings";
 import { EmailResponse } from "../resolvers/email.responses";
+import { SettingsService } from "./settings.service";
 
 export class EmailService {
   emailServer: EmailServer;
@@ -239,7 +239,7 @@ export class EmailService {
   }
 
   async getTransportEmailOptions() {
-    const settingsModel = new SettingsModel(this.ctx);
+    const settingsModel = new SettingsService(this.ctx);
     const configSmtp = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_SMTP,
     })) as any as SmtpSettings;

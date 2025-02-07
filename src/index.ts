@@ -1,16 +1,19 @@
 import "reflect-metadata";
 
-export * from "./settings";
 export * from "./storage";
 export * from "./template";
 export * from "./translation";
 export * from "./agv";
 // export * from "./wgo";
 
-//Database
+/**
+ * Database
+ */
 export * from "./database/data-source";
 
-//Models
+/**
+ * Models
+ */
 export * from "./models/Content";
 export * from "./models/Events";
 export * from "./models/Item";
@@ -24,7 +27,6 @@ export * from "./models/translations/content";
 // export * from "./models/translations/inscriptions";
 // export * from "./models/translations/newsletter";
 // export * from "./models/translations/template";
-
 /**
  * Resolvers
  */
@@ -32,7 +34,7 @@ export * from "./resolvers/authentication.resolver";
 export * from "./resolvers/email.resolver";
 export * from "./resolvers/history.resolver";
 export * from "./resolvers/language.resolver";
-
+export * from "./resolvers/settings.resolver";
 /**
  * Services
  */
@@ -41,9 +43,13 @@ export * from "./services/email.service";
 export * from "./services/historic.service";
 export * from "./services/language.service";
 export * from "./services/users-roles.service";
+export * from "./services/settings.service";
 export * from "./core/services/CypherService";
 export * from "./core/services/UtilService";
-
+/**
+ * Utils
+ */
+export * from "./utils/settings.utils";
 // Externals
 export * from "typeorm-extension";
 export { Express, Request, Response } from "express";

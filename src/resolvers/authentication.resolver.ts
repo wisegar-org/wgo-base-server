@@ -39,7 +39,7 @@ import {
 } from "wgo-settings";
 import { UserEntity } from "../database/entities/UserEntity";
 import { AuthenticationService } from "../services/authentication.service";
-import { SettingsModel } from "../settings/models/SettingsModel";
+import { SettingsService } from "../services/settings.service";
 import { IdInput } from "../core/resolvers/CoreInputs";
 import { UserRolesService } from "../services/users-roles.service";
 import { HistoricResponse } from "./history.responses";
@@ -90,7 +90,7 @@ export class AuthResolver {
 
   @Mutation(() => UserResponse, { name: AUTH_PATH_REGISTER })
   async register(@Arg("data") data: RegisterInput, @Ctx() ctx: IContextBase) {
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_SMTP,
     })) as any as SmtpSettings;
@@ -113,7 +113,7 @@ export class AuthResolver {
 
   @Mutation(() => UserResponse, { name: AUTH_PATH_EDIT_USER })
   async editUser(@Arg("data") data: EditUserInput, @Ctx() ctx: IContextBase) {
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_SMTP,
     })) as any as SmtpSettings;
@@ -139,7 +139,7 @@ export class AuthResolver {
     @Arg("data") data: ResendConfirmationInput,
     @Ctx() ctx: IContextBase
   ) {
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_SMTP,
     })) as any as SmtpSettings;
@@ -165,7 +165,7 @@ export class AuthResolver {
     @Arg("data") data: ResendConfirmationInput,
     @Ctx() ctx: IContextBase
   ) {
-    const settingsModel = new SettingsModel(ctx);
+    const settingsModel = new SettingsService(ctx);
     const config = (await settingsModel.getSettingsObject({
       type_settings: SETTINGS_SMTP,
     })) as any as SmtpSettings;
