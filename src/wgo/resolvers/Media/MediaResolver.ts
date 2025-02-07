@@ -6,7 +6,8 @@ import {
   MEDIA_PATH_POST_FILES,
 } from "@wisegar-org/wgo-base-models";
 import { MediaInput, MediasInput } from "./MediaInput";
-import { MediaResolver, MediaResponse } from "../../../storage";
+import { MediaResolver } from "../../../resolvers/media.resolver";
+import { MediaResponse } from "../../../resolvers/media.responses";
 
 @Resolver()
 export class PublicMediaResolver extends MediaResolver {

@@ -15,8 +15,9 @@ import {
   EventTypeEnum,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { MediaService, MediaResponse } from "../../../storage";
 import { HistoryService } from "../../../services/historic.service";
+import { MediaService } from "../../../services/media.service";
+import { MediaResponse } from "../../../resolvers/media.responses";
 
 export class AGVEventModel {
   private eventRepository: Repository<AGVEventEntity>;

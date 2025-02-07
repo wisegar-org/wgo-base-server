@@ -2,8 +2,8 @@ import { Repository } from "typeorm";
 import { IIndexContentInput } from "../models/IndexContent";
 import IndexContentEntity from "../database/entities/IndexContentEntity";
 import { IContextBase } from "@wisegar-org/wgo-base-models";
-import { MediaService } from "../../storage";
 import { TranslationModel } from "../../translation";
+import { MediaService } from "../../services/media.service";
 
 export class IndexContentService {
   financeModuleRepository: Repository<IndexContentEntity>;

@@ -13,18 +13,19 @@ import {
   INewsletterInscriptionPageInput,
 } from "@wisegar-org/wgo-base-models";
 import { AGVInscriptionModel } from "../Inscription/InscriptionModel";
-import { HandlebarsTemplateModel, TemplateModel } from "../../../template";
 import { getInlineStyle } from "../../../utils/email-style.utils";
 import { EmailService } from "../../../services/email.service";
 import { HistoryService } from "../../../services/historic.service";
+import { TemplateService } from "../../../services/template.service";
+import { TemplateHandlebarsService } from "../../../services/template-handlebars.service";
 
 export class AGVNewsletterInscriptionModel {
   private repository: Repository<AGVNewsletterInscriptionEntity>;
   private historicModel: HistoryService<AGVNewsletterInscriptionEntity>;
   private WGEmailModel: EmailService;
   private inscriptionModel: AGVInscriptionModel;
-  private templateModel: TemplateModel;
-  private handlebardModel: HandlebarsTemplateModel;
+  private templateModel: TemplateService;
+  private handlebardModel: TemplateHandlebarsService;
   /**
    *
    */
@@ -38,8 +39,8 @@ export class AGVNewsletterInscriptionModel {
     );
     this.WGEmailModel = new EmailService(ctx);
     this.inscriptionModel = new AGVInscriptionModel(ctx);
-    this.templateModel = new TemplateModel(ctx);
-    this.handlebardModel = new HandlebarsTemplateModel();
+    this.templateModel = new TemplateService(ctx);
+    this.handlebardModel = new TemplateHandlebarsService();
   }
 
   async getInscriptionPage(data: INewsletterInscriptionPageInput) {

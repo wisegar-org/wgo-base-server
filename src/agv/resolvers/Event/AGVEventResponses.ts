@@ -1,5 +1,5 @@
 import { ObjectType, Field } from "type-graphql";
-import { MediaResponse } from "../../../storage";
+import { MediaResponse } from "../../../resolvers/media.responses";
 
 @ObjectType()
 export class AGVEventResponse {

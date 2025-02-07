@@ -2,7 +2,7 @@ import { existsSync, unlinkSync, writeFileSync } from "fs-extra";
 import { join, normalize } from "path";
 import { ITemplateTokens, ITemplateArg } from "@wisegar-org/wgo-base-models";
 
-export class ParseTemplateModel {
+export class TemplateParseService {
   replaceTokens(body: string, tokens: ITemplateTokens) {
     let result = body;
     Object.keys(tokens).forEach((token: string) => {
@@ -14,7 +14,7 @@ export class ParseTemplateModel {
   replaceTableTokens(
     templateHTML: string,
     tokens: ITemplateTokens[],
-    templateService: ParseTemplateModel
+    templateService: TemplateParseService
   ) {
     let result = "";
     tokens.forEach((token) => {

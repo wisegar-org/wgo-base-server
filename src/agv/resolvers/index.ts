@@ -4,7 +4,6 @@ import { AGVContentsResolver } from "./Content/AGVContentsResolver";
 import { AGVNewsletterResolver } from "./Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "./Inscription/AGVInscriptionResolver";
 import { AppResolver } from "./AppResolver";
-import { TemplateResolver } from "../../template";
 import { AuthResolver } from "../../resolvers/authentication.resolver";
 import { EmailResolver } from "../../resolvers/email.resolver";
 import { CoreResolver } from "../../core/resolvers/CoreResolver";
@@ -12,6 +11,7 @@ import { NonEmptyArray } from "type-graphql";
 import { HistoricResolver } from "../../resolvers/history.resolver";
 import { LanguageResolver } from "../../resolvers/language.resolver";
 import { SettingsResolver } from "../../resolvers/settings.resolver";
+import { TemplateResolver } from "../../resolvers/template.resolver";
 
 export const getResolverList = () => {
   return [

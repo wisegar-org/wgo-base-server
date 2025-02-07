@@ -11,7 +11,6 @@ import {
   SmtpSettings,
   SETTINGS_SMTP,
 } from "@wisegar-org/wgo-base-models";
-import { HandlebarsTemplateModel, TemplateModel } from "../template";
 import {
   WGEmailFromToAppInput,
   WGEmailToAddressAndAppInput,
@@ -20,20 +19,22 @@ import {
 import { getInlineStyle } from "../utils/email-style.utils";
 import { EmailResponse } from "../resolvers/email.responses";
 import { SettingsService } from "./settings.service";
+import { TemplateService } from "./template.service";
+import { TemplateHandlebarsService } from "./template-handlebars.service";
 
 export class EmailService {
   emailServer: EmailServer;
   dataSource: DataSource;
   ctx: IContextBase;
-  templateModel: TemplateModel;
-  handlebardModel: HandlebarsTemplateModel;
+  templateModel: TemplateService;
+  handlebardModel: TemplateHandlebarsService;
 
   constructor(ctx: IContextBase) {
     this.ctx = ctx;
     this.emailServer = new EmailServer();
     this.dataSource = ctx.dataSource;
-    this.templateModel = new TemplateModel(ctx);
-    this.handlebardModel = new HandlebarsTemplateModel();
+    this.templateModel = new TemplateService(ctx);
+    this.handlebardModel = new TemplateHandlebarsService();
   }
 
   async sendEmail(data: EmailOptions): Promise<EmailResponse> {

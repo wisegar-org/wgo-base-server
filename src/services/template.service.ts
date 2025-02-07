@@ -1,10 +1,10 @@
 import { DataSource, Repository } from "typeorm";
 import { IContextBase } from "@wisegar-org/wgo-base-models";
-import { TemplateInput } from "../resolvers/TemplateInputs";
-import { TranslationModel } from "../../translation";
-import { TemplateEntity } from "../../database/entities/TemplateEntity";
+import { TemplateInput } from "../resolvers/template.inputs";
+import { TranslationModel } from "../translation";
+import { TemplateEntity } from "../database/entities/TemplateEntity";
 
-export class TemplateModel {
+export class TemplateService {
   private ctx: IContextBase;
   private dataSource: DataSource;
   private templateRepository: Repository<TemplateEntity>;

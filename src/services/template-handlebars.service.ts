@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 
-export class HandlebarsTemplateModel {
+export class TemplateHandlebarsService {
   /**
    *
    */
