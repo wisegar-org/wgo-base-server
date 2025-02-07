@@ -1,6 +1,5 @@
 import "reflect-metadata";
 
-export * from "./contact";
 export * from "./core";
 export * from "./email";
 export * from "./historic";

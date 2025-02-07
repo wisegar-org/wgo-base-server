@@ -4,14 +4,13 @@ import { AGVContentsResolver } from "./Content/AGVContentsResolver";
 import { AGVNewsletterResolver } from "./Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "./Inscription/AGVInscriptionResolver";
 import { AppResolver } from "./AppResolver";
-import { AuthResolver } from "../../authentication";
-import { ContactMeResolver } from "../../contact";
 import { CoreResolver, NonEmptyArray } from "../../core";
 import { HistoricResolver } from "../../historic";
 import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { TemplateResolver } from "../../template";
 import { EmailResolver } from "../../email";
+import { AuthResolver } from "../../resolvers/authentication.resolver";
 
 export const getResolverList = () => {
   return [
@@ -21,7 +20,6 @@ export const getResolverList = () => {
     LanguageResolver,
     SettingsResolver,
     PublicMediaResolver,
-    ContactMeResolver,
     TemplateResolver,
     HistoricResolver,
     EmailResolver,

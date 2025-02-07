@@ -7,7 +7,6 @@ import { FinanceIssuesOptionsResolver } from "./FinanceIssuesOptions/FinanceIssu
 import { CoreResolver } from "../../core";
 import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
-import { ContactMeResolver } from "../../contact";
 import { TemplateResolver } from "../../template";
 import { TranslationsResolver } from "../../translation";
 import { HistoricResolver } from "../../historic";
@@ -29,7 +28,6 @@ export const getResolvers = () => {
     TranslationsResolver,
     SettingsResolver,
     PublicMediaResolver,
-    ContactMeResolver,
     TemplateResolver,
     TranslationsResolver,
     HistoricResolver,
@@ -45,7 +43,6 @@ export const getResolvers = () => {
     LanguageResolver,
     SettingsResolver,
     PublicMediaResolver,
-    ContactMeResolver,
     TemplateResolver,
     HistoricResolver,
     EmailResolver,
