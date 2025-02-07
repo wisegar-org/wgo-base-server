@@ -1,11 +1,11 @@
-import "reflect-metadata";
 import {
   IRouteAuthPermission,
   RouteDefinition,
-} from "../../interfaces/IRouteDefinition";
-import { FormConstructor, ResponseConstructor } from "./Export";
+} from "../core/interfaces/IRouteDefinition";
+import { FormConstructor, ResponseConstructor } from "./export.decorator";
+
 /**
- * Use to set this method as a put rest call. Authorize is true by default
+ * Use to set this method as a delete rest call. Authorize is true by default
  * @param path
  * @param authorization
  * @param formParams
@@ -13,7 +13,7 @@ import { FormConstructor, ResponseConstructor } from "./Export";
  * @param response
  * @returns
  */
-export const Put = (
+export const Delete = (
   path: string,
   authorization?: IRouteAuthPermission,
   formParams?: FormConstructor,
@@ -26,15 +26,13 @@ export const Put = (
     if (!Reflect.hasMetadata("routes", target.constructor)) {
       Reflect.defineMetadata("routes", [], target.constructor);
     }
-
     // Get the routes stored so far, extend it by the new route and re-set the metadata.
     const routes = Reflect.getMetadata(
       "routes",
       target.constructor
     ) as Array<RouteDefinition>;
-
     routes.push({
-      requestMethod: "put",
+      requestMethod: "delete",
       path,
       methodName: propertyKey as string,
       controller: target.constructor.name,

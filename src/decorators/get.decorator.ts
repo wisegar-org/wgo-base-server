@@ -1,11 +1,11 @@
 import {
   IRouteAuthPermission,
   RouteDefinition,
-} from "../../interfaces/IRouteDefinition";
-import { FormConstructor, ResponseConstructor } from "./Export";
+} from "../core/interfaces/IRouteDefinition";
+import { FormConstructor, ResponseConstructor } from "./export.decorator";
 
 /**
- * Use to set this method as a delete rest call. Authorize is true by default
+ * Use to set this method as a get rest call. Authorize is true by default
  * @param path
  * @param authorization
  * @param formParams
@@ -13,7 +13,7 @@ import { FormConstructor, ResponseConstructor } from "./Export";
  * @param response
  * @returns
  */
-export const Delete = (
+export const Get = (
   path: string,
   authorization?: IRouteAuthPermission,
   formParams?: FormConstructor,
@@ -31,8 +31,9 @@ export const Delete = (
       "routes",
       target.constructor
     ) as Array<RouteDefinition>;
+
     routes.push({
-      requestMethod: "delete",
+      requestMethod: "get",
       path,
       methodName: propertyKey as string,
       controller: target.constructor.name,

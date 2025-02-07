@@ -1,6 +1,9 @@
 import "reflect-metadata";
-import { IRouteAuthPermission, RouteDefinition } from "../../interfaces/IRouteDefinition";
-import { FormConstructor, ResponseConstructor } from "./Export";
+import {
+  IRouteAuthPermission,
+  RouteDefinition,
+} from "../core/interfaces/IRouteDefinition";
+import { FormConstructor, ResponseConstructor } from "./export.decorator";
 
 /**
  *  * Use to set this method as a post rest call. Authorize is true by default
