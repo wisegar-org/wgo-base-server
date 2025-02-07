@@ -8,13 +8,13 @@ import {
   IContextBase,
   StorageItem,
 } from "@wisegar-org/wgo-base-models";
-import { StorageModel } from "../../models/StorageModel";
+import { StorageService } from "../services/storage.service";
 import {
   StorageAllInput,
   StorageInput,
   StoragePageInput,
-} from "./StorageInputs";
-import { StoragePageResponse, StorageResponse } from "./StorageResponses";
+} from "./storage.inputs";
+import { StoragePageResponse, StorageResponse } from "./storage.responses";
 
 @Resolver()
 export class StorageResolver {
@@ -23,7 +23,7 @@ export class StorageResolver {
     @Arg("data") data: StorageAllInput,
     @Ctx() ctx: IContextBase
   ) {
-    const storageModel = new StorageModel(ctx);
+    const storageModel = new StorageService(ctx);
     const result = await storageModel.allByType(
       data.type,
       ["image", "imageList"],
@@ -45,7 +45,7 @@ export class StorageResolver {
     @Arg("data") data: StoragePageInput,
     @Ctx() ctx: IContextBase
   ) {
-    const storageModel = new StorageModel(ctx);
+    const storageModel = new StorageService(ctx);
     const result = await storageModel.allByTypePage(
       data.type,
       ["image", "imageList"],
@@ -74,7 +74,7 @@ export class StorageResolver {
     @Arg("data") data: StorageInput,
     @Ctx() ctx: IContextBase
   ) {
-    const storageModel = new StorageModel(ctx);
+    const storageModel = new StorageService(ctx);
     const result = await storageModel.create(<StorageItem<any>>{
       content: JSON.parse(data.content as string),
       imageId: data.image,
@@ -90,7 +90,7 @@ export class StorageResolver {
     @Arg("data") data: StorageInput,
     @Ctx() ctx: IContextBase
   ) {
-    const storageModel = new StorageModel(ctx);
+    const storageModel = new StorageService(ctx);
     const result = await storageModel.modify(<StorageItem<any>>{
       id: data.id,
       content: JSON.parse(data.content as string),
@@ -104,7 +104,7 @@ export class StorageResolver {
   @Authorized()
   @Mutation(() => Boolean, { name: STORAGE_PATH_DELETE_STORAGE })
   async deleteStorageItem(@Arg("id") id: number, @Ctx() ctx: IContextBase) {
-    const storageModel = new StorageModel(ctx);
+    const storageModel = new StorageService(ctx);
     const result = await storageModel.delete(id);
     return result;
   }

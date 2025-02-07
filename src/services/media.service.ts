@@ -2,17 +2,17 @@ import { DataSource, Repository } from "typeorm";
 import { writeFileSync, existsSync, mkdirSync, unlinkSync } from "fs-extra";
 import { join, normalize, extname } from "path";
 import { v4 as uuidv4 } from "uuid";
-import { MediaResponse } from "../resolvers/Media/MediaResponses";
-import { UtilService } from "../../core/services/UtilService";
+import { MediaResponse } from "../resolvers/media.responses";
+import { UtilService } from "../core/services/UtilService";
 import {
   MEDIA_FILES_PATH,
   IContextBase,
   IMediaModel,
 } from "@wisegar-org/wgo-base-models";
-import MediaEntity from "../../database/entities/MediaEntity";
-import { HistoryService } from "../../services/historic.service";
+import MediaEntity from "../database/entities/MediaEntity";
+import { HistoryService } from "./historic.service";
 
-export class MediaModel {
+export class MediaService {
   private ctx: IContextBase;
   private dataSource: DataSource;
   private web_root: string;

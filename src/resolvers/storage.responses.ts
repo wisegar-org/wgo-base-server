@@ -1,5 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
-import { MediaResponse } from "../Media/MediaResponses";
+import { MediaResponse } from "./media.responses";
 
 @ObjectType()
 export class StorageResponse {

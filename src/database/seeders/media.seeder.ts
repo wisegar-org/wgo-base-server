@@ -1,7 +1,7 @@
 import { IContextBase } from "@wisegar-org/wgo-base-models";
-import { MediaModel } from "../../models/MediaModel";
+import { MediaService } from "../../services/media.service";
 
 export const mediaPublicSeeder = async (ctx: IContextBase) => {
-  const mediaModel = new MediaModel(ctx);
+  const mediaModel = new MediaService(ctx);
   await mediaModel.saveAllPublicMediaOnFiles();
 };

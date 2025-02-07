@@ -4,9 +4,9 @@ import {
   MEDIA_PATH_GET_FILE,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { MediaModel } from "../../models/MediaModel";
-import { MediaInputArg, MediasInputArg } from "./MediaInputs";
-import { MediaResponse } from "./MediaResponses";
+import { MediaService } from "../services/media.service";
+import { MediaInputArg, MediasInputArg } from "./media.inputs";
+import { MediaResponse } from "./media.responses";
 
 @Resolver()
 export class MediaResolver {
@@ -15,7 +15,7 @@ export class MediaResolver {
     urlApi: string,
     ctx: IContextBase
   ) {
-    const mediaModel = new MediaModel(ctx);
+    const mediaModel = new MediaService(ctx);
     return await mediaModel.saveMedia(data.file, {
       isPublic: data.isPublic,
       urlApi: urlApi,
@@ -37,14 +37,14 @@ export class MediaResolver {
 
   @Query(() => MediaResponse, { name: MEDIA_PATH_GET_FILE })
   async getFile(@Arg("id") id: number, @Ctx() ctx: IContextBase) {
-    const mediaModel = new MediaModel(ctx);
+    const mediaModel = new MediaService(ctx);
     return await mediaModel.getMediaById(id);
   }
 
   @Authorized()
   @Query(() => Boolean, { name: MEDIA_PATH_DELETE_FILES })
   async deleteFile(@Arg("id") id: number, @Ctx() ctx: IContextBase) {
-    const mediaModel = new MediaModel(ctx);
+    const mediaModel = new MediaService(ctx);
     return await mediaModel.deleteMedia(id);
   }
 }

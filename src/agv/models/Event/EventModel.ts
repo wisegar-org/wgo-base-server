@@ -15,13 +15,13 @@ import {
   EventTypeEnum,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { MediaModel, MediaResponse } from "../../../storage";
+import { MediaService, MediaResponse } from "../../../storage";
 import { HistoryService } from "../../../services/historic.service";
 
 export class AGVEventModel {
   private eventRepository: Repository<AGVEventEntity>;
   private inscriptionRepository: Repository<AGVInscriptionEntity>;
-  private mediaModel: MediaModel;
+  private mediaModel: MediaService;
   private historicModels: HistoryService<AGVEventEntity>;
 
   /**
@@ -31,7 +31,7 @@ export class AGVEventModel {
     this.eventRepository = ctx.dataSource.getRepository(AGVEventEntity);
     this.inscriptionRepository =
       ctx.dataSource.getRepository(AGVInscriptionEntity);
-    this.mediaModel = new MediaModel(ctx);
+    this.mediaModel = new MediaService(ctx);
     this.historicModels = new HistoryService(AGVEventEntity, ctx);
   }
 
