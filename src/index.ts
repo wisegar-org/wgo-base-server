@@ -1,6 +1,5 @@
 import "reflect-metadata";
 
-export * from "./authentication";
 export * from "./contact";
 export * from "./core";
 export * from "./email";

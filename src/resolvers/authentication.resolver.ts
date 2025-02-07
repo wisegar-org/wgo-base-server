@@ -38,10 +38,10 @@ import {
   GetPublicKey,
 } from "wgo-settings";
 import { UserEntity } from "../database/entities/UserEntity";
-import { AuthenticationModel } from "../models/authentication.model";
+import { AuthenticationService } from "../services/authentication.service";
 import { SettingsModel } from "../settings/models/SettingsModel";
 import { IdInput } from "../core/resolvers/CoreInputs";
-import { UserRolesModel } from "../models/users-roles.model";
+import { UserRolesService } from "../services/users-roles.service";
 import { HistoricResponse } from "../historic/resolvers/HistoricResponses";
 import { HistoricModel } from "../historic/models/HistoricModel";
 import { EmailModel } from "../email";
@@ -70,7 +70,7 @@ export class AuthResolver {
 
   @Mutation(() => LoginResponse, { name: AUTH_PATH_LOGIN })
   async login(@Arg("data") data: LoginInput, @Ctx() ctx: IContextBase) {
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
     });
@@ -80,7 +80,7 @@ export class AuthResolver {
 
   @Query(() => UserResponse, { name: AUTH_PATH_ME })
   async me(@Arg("data") data: MeInput, @Ctx() ctx: IContextBase) {
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
     });
@@ -102,7 +102,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -125,7 +125,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -151,7 +151,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -177,7 +177,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -191,7 +191,7 @@ export class AuthResolver {
     @Arg("data") data: ResetPasswordInput,
     @Ctx() ctx: IContextBase
   ) {
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
     });
@@ -201,7 +201,7 @@ export class AuthResolver {
 
   @Mutation(() => Boolean, { name: AUTH_PATH_CONFIRM_REGIST })
   async confirmRegist(@Arg("data") data: MeInput, @Ctx() ctx: IContextBase) {
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
     });
@@ -211,7 +211,7 @@ export class AuthResolver {
 
   @Query(() => UserResponse, { name: AUTH_PATH_GET_USER })
   async getUser(@Arg("data") data: IdInput, @Ctx() ctx: IContextBase) {
-    const userRolesModel = new UserRolesModel({
+    const userRolesModel = new UserRolesService({
       ...this.options,
       ctx,
     });
@@ -221,7 +221,7 @@ export class AuthResolver {
 
   @Query(() => [UserResponse], { name: AUTH_PATH_GET_ALL_USERS })
   async getAllUsers(@Ctx() ctx: IContextBase) {
-    const userRolesModel = new UserRolesModel({
+    const userRolesModel = new UserRolesService({
       ...this.options,
       ctx,
     });
@@ -231,7 +231,7 @@ export class AuthResolver {
 
   @Query(() => [String], { name: AUTH_PATH_GET_ALL_ROLES })
   async getAllRoles(@Ctx() ctx: IContextBase) {
-    const userRolesModel = new UserRolesModel({
+    const userRolesModel = new UserRolesService({
       ...this.options,
       ctx,
     });
@@ -241,7 +241,7 @@ export class AuthResolver {
 
   @Mutation(() => Boolean, { name: AUTH_PATH_DELETE_USER })
   async deleteUser(@Arg("data") data: IdInput, @Ctx() ctx: IContextBase) {
-    const userRolesModel = new UserRolesModel({
+    const userRolesModel = new UserRolesService({
       ...this.options,
       ctx,
     });
@@ -254,7 +254,7 @@ export class AuthResolver {
     @Arg("data") data: ValidUserNameInput,
     @Ctx() ctx: IContextBase
   ) {
-    const authModel = new AuthenticationModel({
+    const authModel = new AuthenticationService({
       ...this.options,
       ctx,
     });

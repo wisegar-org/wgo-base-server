@@ -36,14 +36,14 @@ import {
   generateAccessToken,
   validateAccessToken,
 } from "../core";
-import { UserRolesModel } from "./users-roles.model";
-import { UserUtils } from "./user-utils.model";
+import { UserRolesService } from "./users-roles.service";
+import { UserUtils } from "../utils/user-utils.model";
 
-export class AuthenticationModel {
+export class AuthenticationService {
   private dataSource: DataSource;
   private emailModel: EmailModel;
   private options: IAuthModelArg;
-  private userRolesModel: UserRolesModel;
+  private userRolesModel: UserRolesService;
   private historicModel: HistoricModel<UserEntity>;
   private ctx: IContextBase;
   /**
@@ -58,7 +58,7 @@ export class AuthenticationModel {
         options.tokenRegisterExpiresIn || TOKEN_REGISTER_EXP,
     };
     this.emailModel = new EmailModel(options.ctx);
-    this.userRolesModel = new UserRolesModel(options);
+    this.userRolesModel = new UserRolesService(options);
     this.historicModel = new HistoricModel(UserEntity, options.ctx);
     this.ctx = options.ctx;
   }

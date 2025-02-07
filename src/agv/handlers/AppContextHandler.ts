@@ -16,9 +16,9 @@ import {
   SUPERADMIN,
 } from "@wisegar-org/wgo-base-models";
 import { listenersEvents } from "../../settings";
-import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
 import { IContextOptions } from "../../core";
+import { UserRolesService } from "../../services/users-roles.service";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
@@ -39,7 +39,7 @@ export const authArg = {
   transportEmailOptions: {},
 };
 
-const authModel = new UserRolesModel(authArg);
+const authModel = new UserRolesService(authArg);
 const langModel = new LanguageModel(ctx);
 
 export const AppContextHandler = async (options: IContextOptions) => {

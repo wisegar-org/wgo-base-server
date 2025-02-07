@@ -8,11 +8,11 @@ import {
   IIdInput,
   IUser,
 } from "@wisegar-org/wgo-base-models";
-import { UserUtils } from "./user-utils.model";
+import { UserUtils } from "../utils/user-utils.model";
 import { UserEntity } from "../database/entities/UserEntity";
 import { RoleEntity } from "../database/entities/RoleEntity";
 
-export class UserRolesModel {
+export class UserRolesService {
   private dataSource: DataSource;
   private emailService: EmailServer;
   private options: IAuthModelArg;

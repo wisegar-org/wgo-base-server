@@ -5,7 +5,6 @@ import { IndexContentResolver } from "./IndexContent/IndexContentResolver";
 import { FinanceIssuesResolver } from "./FinanceIssues/FinanceIssuesResolver";
 import { FinanceIssuesOptionsResolver } from "./FinanceIssuesOptions/FinanceIssuesOptionsResolver";
 import { CoreResolver } from "../../core";
-import { AuthResolver } from "../../authentication";
 import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { ContactMeResolver } from "../../contact";
@@ -19,6 +18,7 @@ import { AGVContentsResolver } from "../../agv/resolvers/Content/AGVContentsReso
 import { AGVNewsletterResolver } from "../../agv/resolvers/Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "../../agv/resolvers/Inscription/AGVInscriptionResolver";
 import { EmailResolver } from "../../email";
+import { AuthResolver } from "../../resolvers/authentication.resolver";
 
 export const getResolvers = () => {
   return [

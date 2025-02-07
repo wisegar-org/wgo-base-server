@@ -17,7 +17,7 @@ import { listenersEvents } from "../../settings";
 import { LanguageModel } from "../../language";
 import { IContextOptions } from "../../core";
 import { PostgresDataSource } from "../../database/data-source";
-import { UserRolesModel } from "../../models/users-roles.model";
+import { UserRolesService } from "../../services/users-roles.service";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
@@ -38,7 +38,7 @@ export const authArg = {
   transportEmailOptions: {},
 };
 
-const authModel = new UserRolesModel(authArg);
+const authModel = new UserRolesService(authArg);
 const langModel = new LanguageModel(ctx);
 
 export const AppContextHandler = async (options: IContextOptions) => {
