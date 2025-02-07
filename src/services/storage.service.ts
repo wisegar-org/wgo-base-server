@@ -9,7 +9,7 @@ import {
   StorageKeys,
   StorageItem,
 } from "@wisegar-org/wgo-base-models";
-import { TranslationModel } from "../translation/models/TranslationModel";
+import { TranslationService } from "./translation.service";
 import StorageEntity from "../database/entities/StorageEntity";
 import { HistoryService } from "./historic.service";
 
@@ -18,7 +18,7 @@ export class StorageService {
   storageRepository: Repository<StorageEntity>;
   ctx: IContextBase;
   private mediaModel: MediaService;
-  private translationModel: TranslationModel;
+  private translationModel: TranslationService;
   private historicModel: HistoryService<StorageEntity>;
 
   /**
@@ -29,7 +29,7 @@ export class StorageService {
     this.dataSource = ctx.dataSource;
     this.storageRepository = this.dataSource.getRepository(StorageEntity);
     this.mediaModel = new MediaService(ctx);
-    this.translationModel = new TranslationModel(ctx);
+    this.translationModel = new TranslationService(ctx);
     this.historicModel = new HistoryService<StorageEntity>(StorageEntity, ctx);
   }
 

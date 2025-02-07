@@ -1,5 +1,5 @@
 import { Field, InputType } from "type-graphql";
-import { TranslationInput } from "../../../translation";
+import { TranslationInput } from "../../../resolvers/translation.inputs";
 
 @InputType()
 export class IndexContentInputs {

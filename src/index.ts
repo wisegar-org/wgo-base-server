@@ -1,6 +1,5 @@
 import "reflect-metadata";
 
-export * from "./translation";
 export * from "./agv";
 // export * from "./wgo";
 
@@ -35,6 +34,7 @@ export * from "./resolvers/language.resolver";
 export * from "./resolvers/settings.resolver";
 export * from "./resolvers/storage.resolver";
 export * from "./resolvers/template.resolver";
+export * from "./resolvers/translation.resolver";
 /**
  * Services
  */
@@ -50,6 +50,7 @@ export * from "./services/storage.service";
 export * from "./services/template-handlebars.service";
 export * from "./services/template-parse.service";
 export * from "./services/template.service";
+export * from "./services/translation.service";
 /**
  * Utils
  */

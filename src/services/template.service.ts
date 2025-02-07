@@ -1,14 +1,14 @@
 import { DataSource, Repository } from "typeorm";
 import { IContextBase } from "@wisegar-org/wgo-base-models";
 import { TemplateInput } from "../resolvers/template.inputs";
-import { TranslationModel } from "../translation";
 import { TemplateEntity } from "../database/entities/TemplateEntity";
+import { TranslationService } from "./translation.service";
 
 export class TemplateService {
   private ctx: IContextBase;
   private dataSource: DataSource;
   private templateRepository: Repository<TemplateEntity>;
-  private translationModel: TranslationModel;
+  private translationModel: TranslationService;
   /**
    *
    */
@@ -16,7 +16,7 @@ export class TemplateService {
     this.ctx = ctx;
     this.dataSource = this.ctx.dataSource;
     this.templateRepository = this.dataSource.getRepository(TemplateEntity);
-    this.translationModel = new TranslationModel(ctx);
+    this.translationModel = new TranslationService(ctx);
   }
 
   async saveTamplate(data: TemplateInput) {

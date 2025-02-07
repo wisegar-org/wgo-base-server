@@ -1,5 +1,5 @@
 import { DataSource, ILike, In } from "typeorm";
-import { TranslationEntity } from "../../database/entities/TranslationEntity";
+import { TranslationEntity } from "../database/entities/TranslationEntity";
 import {
   IGetAllTranslationsByKeyArg,
   IGetAllTranslationArg,
@@ -9,11 +9,11 @@ import {
   ILanguageModel,
   StorageKeys,
 } from "@wisegar-org/wgo-base-models";
-import { UtilService } from "../../core/services/UtilService";
-import { LanguageService } from "../../services/language.service";
-import { HistoryService } from "../../services/historic.service";
+import { UtilService } from "../core/services/UtilService";
+import { LanguageService } from "./language.service";
+import { HistoryService } from "./historic.service";
 
-export class TranslationModel {
+export class TranslationService {
   private ctx: IContextBase;
   private dataSoure: DataSource;
   private historicModel: HistoryService<TranslationEntity>;

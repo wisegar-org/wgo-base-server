@@ -1,6 +1,6 @@
 import { Arg, Mutation, Query, Resolver, Ctx } from "type-graphql";
-import { TranslationResponse as TranslationsResponse } from "./TranslationsResponses";
-import { TranslationModel } from "../models/TranslationModel";
+import { TranslationResponse as TranslationsResponse } from "./translation.responses";
+import { TranslationService } from "../services/translation.service";
 
 import {
   DeleteTranslationInput,
@@ -9,7 +9,7 @@ import {
   GetTranslationByKeysInput,
   ImportTranslationsInput,
   SetTranslationInput,
-} from "./TranslationsInputs";
+} from "./translation.inputs";
 import { GraphQLUpload } from "graphql-upload";
 import {
   TRANSLATION_PATH_DELETE_TRANSLATION,
@@ -30,7 +30,7 @@ export class TranslationsResolver {
     @Arg("data") data: GetAllTranslationsInput,
     @Ctx() ctx: IContextBase
   ) {
-    const translationModel = new TranslationModel(ctx);
+    const translationModel = new TranslationService(ctx);
     const translations = await translationModel.getAllTranslation(data);
     return translations;
   }
@@ -42,7 +42,7 @@ export class TranslationsResolver {
     @Arg("data") data: GetTranslationByKeysInput,
     @Ctx() ctx: IContextBase
   ) {
-    const translationModel = new TranslationModel(ctx);
+    const translationModel = new TranslationService(ctx);
     const translations = await translationModel.getAllTranslationByKeys(data);
     return translations;
   }
@@ -54,7 +54,7 @@ export class TranslationsResolver {
     @Arg("data") data: SetTranslationInput,
     @Ctx() ctx: IContextBase
   ) {
-    const translationModel = new TranslationModel(ctx);
+    const translationModel = new TranslationService(ctx);
     if (data.translation) {
       const translation = await translationModel.setTranslation(
         data.translation.languageId,
@@ -83,7 +83,7 @@ export class TranslationsResolver {
     @Arg("data") data: DeleteTranslationInput,
     @Ctx() ctx: IContextBase
   ) {
-    const translationModel = new TranslationModel(ctx);
+    const translationModel = new TranslationService(ctx);
     return await translationModel.deleteTranslation(data.key);
   }
 
@@ -92,7 +92,7 @@ export class TranslationsResolver {
     @Arg("data") data: ExportTranslationInput,
     @Ctx() ctx: IContextBase
   ) {
-    const translationModel = new TranslationModel(ctx);
+    const translationModel = new TranslationService(ctx);
     const result = await translationModel.exportTranslations(
       data.languagesId || []
     );
@@ -112,7 +112,7 @@ export class TranslationsResolver {
     data: { file: typeof GraphQLUpload },
     ctx: IContextBase
   ) {
-    const translationModel = new TranslationModel(ctx);
+    const translationModel = new TranslationService(ctx);
     const file = await data.file;
     const result = await translationModel.inportTranslations(file);
     return result;
