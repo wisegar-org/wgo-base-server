@@ -16,13 +16,13 @@ import {
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
 import { MediaModel, MediaResponse } from "../../../storage";
-import { HistoricModel } from "../../../historic";
+import { HistoryService } from "../../../services/historic.service";
 
 export class AGVEventModel {
   private eventRepository: Repository<AGVEventEntity>;
   private inscriptionRepository: Repository<AGVInscriptionEntity>;
   private mediaModel: MediaModel;
-  private historicModels: HistoricModel<AGVEventEntity>;
+  private historicModels: HistoryService<AGVEventEntity>;
 
   /**
    *
@@ -32,7 +32,7 @@ export class AGVEventModel {
     this.inscriptionRepository =
       ctx.dataSource.getRepository(AGVInscriptionEntity);
     this.mediaModel = new MediaModel(ctx);
-    this.historicModels = new HistoricModel(AGVEventEntity, ctx);
+    this.historicModels = new HistoryService(AGVEventEntity, ctx);
   }
 
   public async getNexts(urlApi: string): Promise<AGVEventGetNextsResponse> {

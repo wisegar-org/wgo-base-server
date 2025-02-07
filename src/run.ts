@@ -12,12 +12,6 @@ import { getControllers } from "./wgo/controllers";
 
 import { createDatabase, dropDatabase } from "typeorm-extension";
 import { getResolvers } from "./wgo/resolvers";
-import {
-  boot,
-  ExpirationFreqEnum,
-  IServerOptions,
-  UseRestMiddleware,
-} from "./core";
 import { UseHandlebarsRenderMiddleware } from "./agv/middlewares/HandlebarsRenderMiddleware";
 import {
   UseAssetsHBHostMiddleware,
@@ -27,6 +21,10 @@ import {
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
 import { rolesDataSeeder } from "./database/seeders/roles.seeder";
 import { usersDataSeeder } from "./database/seeders/users.seeder";
+import { IServerOptions } from "./core/interfaces/IServerOptions";
+import { UseRestMiddleware } from "./core/middlewares/RestMiddleware";
+import { ExpirationFreqEnum } from "./core/services/JwtAuthService";
+import { boot } from "./core/handlers/bootHandler";
 
 const port = GetPortKey();
 

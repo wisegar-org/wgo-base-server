@@ -1,5 +1,4 @@
 import { DataSource } from "typeorm";
-import { HistoricModel } from "../../historic/models/HistoricModel";
 import { LanguageEntity } from "../../database/entities/LanguageEntity";
 import {
   WRONG_LANGUAGE_CODE,
@@ -11,11 +10,12 @@ import {
   IContextBase,
   IIdInput,
 } from "@wisegar-org/wgo-base-models";
+import { HistoryService } from "../../services/historic.service";
 
 export class LanguageModel {
   private dataSoure: DataSource;
   private ctx: IContextBase;
-  private historicModel: HistoricModel<LanguageEntity>;
+  private historicModel: HistoryService<LanguageEntity>;
 
   /**
    *
@@ -23,7 +23,7 @@ export class LanguageModel {
   constructor(ctx: IContextBase) {
     this.ctx = ctx;
     this.dataSoure = ctx.dataSource;
-    this.historicModel = new HistoricModel(LanguageEntity, ctx);
+    this.historicModel = new HistoryService(LanguageEntity, ctx);
   }
 
   async getAllLanguage() {

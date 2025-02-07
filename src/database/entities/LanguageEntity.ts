@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { WGBaseEntity } from "./WGBaseEntity";
-import { MediaEntity } from "../../core";
+import MediaEntity from "./MediaEntity";
 
 @Entity({ name: "languages" })
 export class LanguageEntity extends WGBaseEntity {

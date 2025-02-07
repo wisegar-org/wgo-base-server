@@ -1,6 +1,5 @@
 import { IsString } from "wgo-extensions";
 import { DataSource, Like, Repository } from "typeorm";
-import { HistoricModel } from "../../historic/models/HistoricModel";
 import { MediaModel } from "./MediaModel";
 import {
   IMediaModel,
@@ -12,6 +11,7 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { TranslationModel } from "../../translation/models/TranslationModel";
 import StorageEntity from "../../database/entities/StorageEntity";
+import { HistoryService } from "../../services/historic.service";
 
 export class StorageModel {
   dataSource: DataSource;
@@ -19,7 +19,7 @@ export class StorageModel {
   ctx: IContextBase;
   private mediaModel: MediaModel;
   private translationModel: TranslationModel;
-  private historicModel: HistoricModel<StorageEntity>;
+  private historicModel: HistoryService<StorageEntity>;
 
   /**
    *
@@ -30,7 +30,7 @@ export class StorageModel {
     this.storageRepository = this.dataSource.getRepository(StorageEntity);
     this.mediaModel = new MediaModel(ctx);
     this.translationModel = new TranslationModel(ctx);
-    this.historicModel = new HistoricModel<StorageEntity>(StorageEntity, ctx);
+    this.historicModel = new HistoryService<StorageEntity>(StorageEntity, ctx);
   }
 
   async allByType(type: string, relations: string[] = [], search: string = "") {

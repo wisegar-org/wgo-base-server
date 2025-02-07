@@ -28,23 +28,23 @@ import {
   WRONG_USER_NAME,
   WRONG_USER_PASSWORD,
 } from "@wisegar-org/wgo-base-models";
-import { HistoricModel } from "../historic/models/HistoricModel";
 import { UserEntity } from "../database/entities/UserEntity";
+import { UserRolesService } from "./users-roles.service";
+import { UserUtils } from "../utils/user.utils";
+import { EmailService } from "./email.service";
+import { HistoryService } from "./historic.service";
 import {
   ExpirationFreqEnum,
   generateAccessToken,
   validateAccessToken,
-} from "../core";
-import { UserRolesService } from "./users-roles.service";
-import { UserUtils } from "../utils/user.utils";
-import { EmailService } from "./email.service";
+} from "../core/services/JwtAuthService";
 
 export class AuthenticationService {
   private dataSource: DataSource;
   private emailModel: EmailService;
   private options: IAuthModelArg;
   private userRolesModel: UserRolesService;
-  private historicModel: HistoricModel<UserEntity>;
+  private historicModel: HistoryService<UserEntity>;
   private ctx: IContextBase;
   /**
    *
@@ -59,7 +59,7 @@ export class AuthenticationService {
     };
     this.emailModel = new EmailService(options.ctx);
     this.userRolesModel = new UserRolesService(options);
-    this.historicModel = new HistoricModel(UserEntity, options.ctx);
+    this.historicModel = new HistoryService(UserEntity, options.ctx);
     this.ctx = options.ctx;
   }
 
@@ -347,7 +347,7 @@ export class AuthenticationService {
         const result = await repo.save(user);
         const historicModel = this.ctx.user?.id
           ? this.historicModel
-          : new HistoricModel(UserEntity, {
+          : new HistoryService(UserEntity, {
               ...this.ctx,
               user: <IUserContext>{
                 email: user.email,
@@ -385,7 +385,7 @@ export class AuthenticationService {
         const userEdited = await repo.save(user);
         const historicModel = this.ctx.user?.id
           ? this.historicModel
-          : new HistoricModel(UserEntity, {
+          : new HistoryService(UserEntity, {
               ...this.ctx,
               user: <IUserContext>{
                 email: user.email,

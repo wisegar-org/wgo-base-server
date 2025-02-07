@@ -1,11 +1,4 @@
-import {
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  Entity,
-  Column,
-} from "typeorm";
+import { JoinTable, ManyToMany, ManyToOne, Entity, Column } from "typeorm";
 import { WGBaseEntity } from "./WGBaseEntity";
 import MediaEntity from "./MediaEntity";
 

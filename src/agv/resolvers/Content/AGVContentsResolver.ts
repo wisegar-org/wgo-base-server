@@ -3,7 +3,8 @@ import { SUPERADMIN, IContextBase } from "@wisegar-org/wgo-base-models";
 import { AGVContentsInput } from "./AGVContentsInputs";
 import { AGVContentsResponse } from "./AGVContentsResponses";
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql";
-import { HistoricResponse, HistoricModel } from "../../../historic";
+import { HistoryService } from "../../../services/historic.service";
+import { HistoricResponse } from "../../../resolvers/history.responses";
 
 @Resolver()
 export class AGVContentsResolver {
@@ -33,7 +34,7 @@ export class AGVContentsResolver {
     const contentModel = new AGVContentModel(ctx);
     const result = await contentModel.getAllHistory();
     return result.map((historic: any) =>
-      HistoricModel.ParseHistoricResponse(historic)
+      HistoryService.ParseHistoricResponse(historic)
     );
   }
 }

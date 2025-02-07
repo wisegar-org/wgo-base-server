@@ -10,7 +10,7 @@ import { RoleEntity } from "./RoleEntity";
 import "reflect-metadata";
 import { WGBaseEntity } from "./WGBaseEntity";
 import { LanguageEntity } from "./LanguageEntity";
-import { MediaEntity } from "../../core";
+import MediaEntity from "./MediaEntity";
 
 @Entity({ name: "users" })
 @Unique("userName-unique", ["userName", "code"])

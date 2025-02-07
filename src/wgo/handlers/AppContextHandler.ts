@@ -15,9 +15,9 @@ import {
 import { GetWebRootKey } from "../middlewares/HostAdminMiddleware";
 import { listenersEvents } from "../../settings";
 import { LanguageModel } from "../../language";
-import { IContextOptions } from "../../core";
 import { PostgresDataSource } from "../../database/data-source";
 import { UserRolesService } from "../../services/users-roles.service";
+import { IContextOptions } from "../../core/interfaces/IContextOptions";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,

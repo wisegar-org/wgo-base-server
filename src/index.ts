@@ -1,7 +1,5 @@
 import "reflect-metadata";
 
-export * from "./core";
-export * from "./historic";
 export * from "./language";
 export * from "./settings";
 export * from "./storage";

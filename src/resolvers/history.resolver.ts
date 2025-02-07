@@ -4,13 +4,13 @@ import {
   HISTORIC_PATH_GET_PAGE,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { HistoricModel } from "../models/HistoricModel";
-import { HistoricPageInput } from "./HistoricInputs";
+import { HistoricPageInput } from "./history.inputs";
 import {
   HistoricFiltersResponse,
   HistoricPageResponse,
-} from "./HistoricResponses";
-import { HistoryEntity } from "../../core";
+} from "./history.responses";
+import { HistoryEntity } from "../database/entities/HistoryEntity";
+import { HistoryService } from "../services/historic.service";
 
 @Resolver()
 export class HistoricResolver {
@@ -20,7 +20,7 @@ export class HistoricResolver {
     @Arg("data") data: HistoricPageInput,
     @Ctx() ctx: IContextBase
   ) {
-    const historyService = new HistoricModel(HistoryEntity, ctx);
+    const historyService = new HistoryService(HistoryEntity, ctx);
     const filter: { [key: string]: string } = {};
     if (data.filter?.action) filter.action = data.filter.action;
     if (data.filter?.entity) filter.entity = data.filter.entity;
@@ -38,7 +38,7 @@ export class HistoricResolver {
     );
     return {
       histories: histories[0].map((history) =>
-        HistoricModel.ParseHistoricResponse(history)
+        HistoryService.ParseHistoricResponse(history)
       ),
       count: histories[1],
     };
@@ -47,7 +47,7 @@ export class HistoricResolver {
   @Authorized()
   @Query(() => HistoricFiltersResponse, { name: HISTORIC_PATH_GET_FILTERS })
   async getHistoricFilters(@Ctx() ctx: IContextBase) {
-    const historyService = new HistoricModel(HistoryEntity, ctx);
+    const historyService = new HistoryService(HistoryEntity, ctx);
     const filters = await historyService.getHistoricFilters();
     return filters;
   }

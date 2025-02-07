@@ -42,9 +42,9 @@ import { AuthenticationService } from "../services/authentication.service";
 import { SettingsModel } from "../settings/models/SettingsModel";
 import { IdInput } from "../core/resolvers/CoreInputs";
 import { UserRolesService } from "../services/users-roles.service";
-import { HistoricResponse } from "../historic/resolvers/HistoricResponses";
-import { HistoricModel } from "../historic/models/HistoricModel";
+import { HistoricResponse } from "./history.responses";
 import { EmailService } from "../services/email.service";
+import { HistoryService } from "../services/historic.service";
 
 @Resolver()
 export class AuthResolver {
@@ -265,20 +265,20 @@ export class AuthResolver {
   @Authorized()
   @Query(() => HistoricResponse, { name: AUTH_PATH_GET_HISTORIC })
   async getUserHistoric(@Arg("id") id: number, @Ctx() ctx: IContextBase) {
-    const historyService = new HistoricModel(UserEntity, ctx);
+    const historyService = new HistoryService(UserEntity, ctx);
     const result = await historyService.getHistoric(id);
     return result.map((historic: any) =>
-      HistoricModel.ParseHistoricResponse(historic)
+      HistoryService.ParseHistoricResponse(historic)
     );
   }
 
   @Authorized()
   @Query(() => [HistoricResponse], { name: AUTH_PATH_GET_ALL_HISTORIC })
   async getAllUserHistoric(@Ctx() ctx: IContextBase) {
-    const historyService = new HistoricModel(UserEntity, ctx);
+    const historyService = new HistoryService(UserEntity, ctx);
     const result = await historyService.getAllHistoric();
     return result.map((historic: any) =>
-      HistoricModel.ParseHistoricResponse(historic)
+      HistoryService.ParseHistoricResponse(historic)
     );
   }
 
@@ -288,10 +288,10 @@ export class AuthResolver {
     @Arg("id") id: number,
     @Ctx() ctx: IContextBase
   ) {
-    const historyService = new HistoricModel(UserEntity, ctx);
+    const historyService = new HistoryService(UserEntity, ctx);
     const result = await historyService.getAllHistoricByUser(id);
     return result.map((historic: any) =>
-      HistoricModel.ParseHistoricResponse(historic)
+      HistoryService.ParseHistoricResponse(historic)
     );
   }
 }

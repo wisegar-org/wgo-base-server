@@ -2,8 +2,8 @@ import { IsNullOrUndefined } from "wgo-extensions";
 import { DataSource } from "typeorm";
 import * as bcrypt from "bcrypt";
 import { SUPERADMIN } from "@wisegar-org/wgo-base-models";
-import { UserEntity } from "../../core";
 import { RoleEntity } from "../entities/RoleEntity";
+import { UserEntity } from "../entities/UserEntity";
 
 const seedUser = async (
   dataSource: DataSource,

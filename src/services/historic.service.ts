@@ -1,6 +1,4 @@
 import { DataSource, ObjectType, Repository } from "typeorm";
-import { UserEntity } from "../../database/entities/UserEntity";
-import { WGBaseEntity } from "../../database/entities/WGBaseEntity";
 import {
   DEFAULT_EDIT_MESSAGE,
   WRONG_CONTEXT_USER,
@@ -10,9 +8,11 @@ import {
   Actions,
   IContextBase,
 } from "@wisegar-org/wgo-base-models";
-import { HistoryEntity } from "../../database/entities/HistoryEntity";
+import { HistoryEntity } from "../database/entities/HistoryEntity";
+import { WGBaseEntity } from "../database/entities/WGBaseEntity";
+import { UserEntity } from "../database/entities/UserEntity";
 
-export class HistoricModel<TEntity extends WGBaseEntity> {
+export class HistoryService<TEntity extends WGBaseEntity> {
   private dataSource: DataSource;
   private repository: Repository<HistoryEntity>;
   private readonly type: ObjectType<TEntity>;

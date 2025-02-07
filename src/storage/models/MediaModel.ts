@@ -2,7 +2,6 @@ import { DataSource, Repository } from "typeorm";
 import { writeFileSync, existsSync, mkdirSync, unlinkSync } from "fs-extra";
 import { join, normalize, extname } from "path";
 import { v4 as uuidv4 } from "uuid";
-import { HistoricModel } from "../../historic/models/HistoricModel";
 import { MediaResponse } from "../resolvers/Media/MediaResponses";
 import { UtilService } from "../../core/services/UtilService";
 import {
@@ -10,20 +9,21 @@ import {
   IContextBase,
   IMediaModel,
 } from "@wisegar-org/wgo-base-models";
-import { MediaEntity } from "../../core";
+import MediaEntity from "../../database/entities/MediaEntity";
+import { HistoryService } from "../../services/historic.service";
 
 export class MediaModel {
   private ctx: IContextBase;
   private dataSource: DataSource;
   private web_root: string;
   private mediaRepository: Repository<MediaEntity>;
-  private historicModel: HistoricModel<MediaEntity>;
+  private historicModel: HistoryService<MediaEntity>;
   constructor(ctx: IContextBase) {
     this.ctx = ctx;
     this.dataSource = ctx.dataSource;
     this.mediaRepository = this.dataSource.getRepository(MediaEntity);
     this.web_root = ctx.web_root;
-    this.historicModel = new HistoricModel(MediaEntity, ctx);
+    this.historicModel = new HistoryService(MediaEntity, ctx);
   }
 
   async saveMedia(

@@ -8,7 +8,8 @@ import {
   AGVEventResponse,
 } from "./AGVEventResponses";
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql";
-import { HistoricResponse, HistoricModel } from "../../../historic";
+import { HistoryService } from "../../../services/historic.service";
+import { HistoricResponse } from "../../../resolvers/history.responses";
 
 @Resolver()
 export class AGVEventResolver {
@@ -79,20 +80,20 @@ export class AGVEventResolver {
   @Authorized(SUPERADMIN)
   @Query(() => HistoricResponse)
   async getEventHistory(@Arg("id") id: number, @Ctx() ctx: IContextBase) {
-    const historyModel = new HistoricModel(AGVEventEntity, ctx);
+    const historyModel = new HistoryService(AGVEventEntity, ctx);
     const result = await historyModel.getHistoric(id);
     return result.map((history: any) =>
-      HistoricModel.ParseHistoricResponse(history)
+      HistoryService.ParseHistoricResponse(history)
     );
   }
 
   @Authorized(SUPERADMIN)
   @Query(() => [HistoricResponse])
   async getAllEventHistory(@Ctx() ctx: IContextBase) {
-    const historyModel = new HistoricModel(AGVEventEntity, ctx);
+    const historyModel = new HistoryService(AGVEventEntity, ctx);
     const result = await historyModel.getAllHistoric();
     return result.map((history: any) =>
-      HistoricModel.ParseHistoricResponse(history)
+      HistoryService.ParseHistoricResponse(history)
     );
   }
 }

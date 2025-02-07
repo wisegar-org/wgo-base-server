@@ -9,14 +9,14 @@ import {
   ILanguageModel,
   StorageKeys,
 } from "@wisegar-org/wgo-base-models";
-import { HistoricModel } from "../../historic/models/HistoricModel";
 import { UtilService } from "../../core/services/UtilService";
 import { LanguageModel } from "../../language/models/LanguageModel";
+import { HistoryService } from "../../services/historic.service";
 
 export class TranslationModel {
   private ctx: IContextBase;
   private dataSoure: DataSource;
-  private historicModel: HistoricModel<TranslationEntity>;
+  private historicModel: HistoryService<TranslationEntity>;
 
   /**
    *
@@ -24,7 +24,7 @@ export class TranslationModel {
   constructor(ctx: IContextBase) {
     this.ctx = ctx;
     this.dataSoure = ctx.dataSource;
-    this.historicModel = new HistoricModel(TranslationEntity, ctx);
+    this.historicModel = new HistoryService(TranslationEntity, ctx);
   }
 
   async getAllTranslation(data: IGetAllTranslationArg) {

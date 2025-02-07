@@ -18,20 +18,20 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { cypherData, decypherData } from "wgo-crypto";
 import { EventEmitter } from "events";
-import { HistoricModel } from "../../historic/models/HistoricModel";
 import SettingsEntity from "../../database/entities/SettingsEntity";
+import { HistoryService } from "../../services/historic.service";
 
 export class SettingsModel {
   private dataSource: DataSource;
   private ctx: IContextBase;
   private emiter: EventEmitter;
-  private historicModel: HistoricModel<SettingsEntity>;
+  private historicModel: HistoryService<SettingsEntity>;
 
   constructor(ctx: IContextBase) {
     this.ctx = ctx;
     this.dataSource = ctx.dataSource;
     this.emiter = ctx.emiter;
-    this.historicModel = new HistoricModel(SettingsEntity, ctx);
+    this.historicModel = new HistoryService(SettingsEntity, ctx);
   }
 
   public async getSettingsEntity(

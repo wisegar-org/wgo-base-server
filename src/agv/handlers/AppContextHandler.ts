@@ -17,8 +17,8 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { listenersEvents } from "../../settings";
 import { LanguageModel } from "../../language";
-import { IContextOptions } from "../../core";
 import { UserRolesService } from "../../services/users-roles.service";
+import { IContextOptions } from "../../core/interfaces/IContextOptions";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
