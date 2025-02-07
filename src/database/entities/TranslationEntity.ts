@@ -1,17 +1,9 @@
-import {
-  Entity,
-  Column,
-  BaseEntity,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-} from "typeorm";
+import { Entity, Column, ManyToOne } from "typeorm";
 import { WGBaseEntity } from "./WGBaseEntity";
 import { LanguageEntity } from "./LanguageEntity";
 
 @Entity({ name: "translations" })
 export class TranslationEntity extends WGBaseEntity {
-  @PrimaryGeneratedColumn() id!: number;
-
   @Column({ nullable: false }) key!: string;
   @Column({ default: "Empty" }) value!: string;
 

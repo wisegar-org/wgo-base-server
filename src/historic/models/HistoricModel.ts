@@ -1,6 +1,6 @@
 import { DataSource, ObjectType, Repository } from "typeorm";
-import { UserEntity } from "../../core/database/entities/UserEntity";
-import { WGBaseEntity } from "../../core/database/entities/WGBaseEntity";
+import { UserEntity } from "../../database/entities/UserEntity";
+import { WGBaseEntity } from "../../database/entities/WGBaseEntity";
 import { HistoricEntity } from "../database/entities/HistoricEntity";
 import {
   DEFAULT_EDIT_MESSAGE,

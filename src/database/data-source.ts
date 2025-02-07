@@ -7,39 +7,19 @@ import {
   GetDBUserNameKey,
 } from "wgo-settings";
 
-/** Entities */
-import { AGVEventEntity } from "../agv/database/entities/AGVEventEntity";
-import { AGVInscriptionEntity } from "../agv/database/entities/AGVInscriptionEntity";
-import { AGVPollEntity } from "../agv/database/entities/AGVPollEntity";
-import { AGVNewsletterInscriptionEntity } from "../agv/database/entities/AGVNewsletterInscriptionEntity";
-import { AGVNewsletterMessageEntity } from "../agv/database/entities/AGVNewsletterMessageEntity";
-
 /** Migrations */
-import { getAgvMigrations } from "../agv/database/migrations";
-import { getAuthenticationMigrations, RoleEntity } from "../authentication";
-import { getContactMigrations, ContactMeEntity } from "../contact";
+
 import {
   UserEntity,
   LanguageEntity,
   TranslationEntity,
   MediaEntity,
+  HistoryEntity,
 } from "../core";
-import { getHistoricMigrations, HistoricEntity } from "../historic";
-import { getLanguageMigrations } from "../language";
-import { getSettingsMigrations, SettingsEntity } from "../settings";
-import { getStorageMigrations, StorageEntity } from "../storage";
-import { getTemplateMigrations, TemplateEntity } from "../template";
-import { getTranslationMigrations } from "../translation";
-
-const migrations = getAuthenticationMigrations()
-  .concat(getContactMigrations())
-  .concat(getHistoricMigrations())
-  .concat(getLanguageMigrations())
-  .concat(getSettingsMigrations())
-  .concat(getStorageMigrations())
-  .concat(getTemplateMigrations())
-  .concat(getTranslationMigrations())
-  .concat(getAgvMigrations());
+import { RoleEntity } from "./entities/RoleEntity";
+import SettingsEntity from "./entities/SettingsEntity";
+import StorageEntity from "./entities/StorageEntity";
+import { SchemaUpdate1738944200272 } from "./migrations/1738944200272-schema-update";
 
 export const dataSourceOptions: DataSourceOptions = {
   type: "postgres",
@@ -47,7 +27,7 @@ export const dataSourceOptions: DataSourceOptions = {
   port: parseInt(`${GetDBPortKey() || 5432}`),
   username: GetDBUserNameKey() || "postgres",
   password: GetDBPasswordKey() || "postgres",
-  database: GetDBNameKey() || "wgo-template",
+  database: GetDBNameKey() || "wgo-project",
   useUTC: true,
   migrationsRun: true,
   synchronize: false,
@@ -57,18 +37,11 @@ export const dataSourceOptions: DataSourceOptions = {
     LanguageEntity,
     TranslationEntity,
     SettingsEntity,
-    ContactMeEntity,
-    HistoricEntity,
-    TemplateEntity,
+    HistoryEntity,
     MediaEntity,
     StorageEntity,
-    AGVEventEntity,
-    AGVInscriptionEntity,
-    AGVPollEntity,
-    AGVNewsletterInscriptionEntity,
-    AGVNewsletterMessageEntity,
   ],
-  migrations: migrations,
+  migrations: [SchemaUpdate1738944200272],
   subscribers: [],
   dropSchema: false,
   logging: false,

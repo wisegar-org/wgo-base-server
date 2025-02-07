@@ -5,9 +5,6 @@ import { WGBaseEntity } from "./WGBaseEntity";
 
 @Entity({ name: "roles" })
 export class RoleEntity extends WGBaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: number;
-
   @Column({ unique: true })
   name!: string;
 

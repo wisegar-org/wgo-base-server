@@ -6,17 +6,14 @@ import {
   Entity,
   Column,
 } from "typeorm";
-import { WGBaseEntity } from "../../../database/entities/WGBaseEntity";
-import { MediaEntity } from "../../../core";
+import { WGBaseEntity } from "./WGBaseEntity";
+import MediaEntity from "./MediaEntity";
 
 /**
- * @deprecated
+ * To be used as generic data storage
  */
-@Entity({ name: "storage" })
+@Entity({ name: "storages" })
 export class StorageEntity extends WGBaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: number;
-
   @Column({ default: "" })
   type!: string;
 
@@ -29,7 +26,7 @@ export class StorageEntity extends WGBaseEntity {
   image!: MediaEntity;
 
   @ManyToMany(() => MediaEntity)
-  @JoinTable()
+  @JoinTable({ name: "storages_medias" })
   imageList!: MediaEntity[];
 }
 

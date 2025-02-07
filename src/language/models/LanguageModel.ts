@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { HistoricModel } from "../../historic/models/HistoricModel";
-import { LanguageEntity } from "../../core/database/entities/LanguageEntity";
+import { LanguageEntity } from "../../database/entities/LanguageEntity";
 import {
   WRONG_LANGUAGE_CODE,
   WRONG_LANGUAGE_DONT_EXIST,

@@ -1,9 +1,9 @@
 import { Entity, Column } from "typeorm";
-import { OGBaseEntity } from "./OGBaseEntity";
-import { ISessionLicenze } from "../../models/Models";
+import { ISessionLicenze } from "../../core/models/Models";
+import { WGBaseEntity } from "./WGBaseEntity";
 
-@Entity({ name: "session" })
-export class SessionEntity extends OGBaseEntity {
+@Entity({ name: "sessions" })
+export class SessionEntity extends WGBaseEntity {
   @Column()
   userId!: string;
   @Column()

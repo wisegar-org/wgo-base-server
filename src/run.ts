@@ -10,7 +10,7 @@ import { AppContextHandler, ctx } from "./wgo/handlers/AppContextHandler";
 import { errorHandler } from "./wgo/handlers/ErrorHandler";
 import { getControllers } from "./wgo/controllers";
 
-import { createDatabase } from "typeorm-extension";
+import { createDatabase, dropDatabase } from "typeorm-extension";
 import { roleSuperAdminSeeder, userAdminSeeder } from "./authentication";
 import { languageDefaultSeeder } from "./language";
 import { mediaPublicSeeder } from "./storage";
@@ -61,6 +61,16 @@ const serverOptions: IServerOptions = {
 boot(serverOptions, async () => {
   console.log("Start other services here. ex. database connections");
 
+  await dropDatabase({
+    ifExist: true,
+    options: {
+      ...dataSourceOptions,
+      migrationsRun: false,
+      entities: [],
+      migrations: [],
+    },
+  });
+
   await createDatabase({
     ifNotExist: true,
     options: {
@@ -70,19 +80,20 @@ boot(serverOptions, async () => {
       migrations: [],
     },
   });
+
   const dataSource = await PostgresDataSource.initialize();
   if (!dataSourceOptions.migrationsRun) {
     dataSource.runMigrations();
   }
 
   //Init db settings
-  await settingsSeeder(dataSource);
+  // await settingsSeeder(dataSource);
 
   //Core Seeders
   await roleSuperAdminSeeder(dataSource); //create superadmin rol
   await userAdminSeeder(dataSource); //create admin user with superadmin rol
-  await languageDefaultSeeder(dataSource); //create default language
-  await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
+  // await languageDefaultSeeder(dataSource); //create default language
+  // await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
 
   // Loop function
   setTimeout(async () => {}, 0);

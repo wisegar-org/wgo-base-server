@@ -1,14 +1,8 @@
-import { PrimaryGeneratedColumn, Entity, Column, BaseEntity } from "typeorm";
-import { WGBaseEntity } from "../../../database/entities/WGBaseEntity";
+import { PrimaryGeneratedColumn, Entity, Column } from "typeorm";
+import { WGBaseEntity } from "./WGBaseEntity";
 
-/**
- * @deprecated
- */
 @Entity({ name: "settings" })
 export class SettingsEntity extends WGBaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: number;
-
   @Column({ default: "", unique: true })
   type_settings!: string;
 

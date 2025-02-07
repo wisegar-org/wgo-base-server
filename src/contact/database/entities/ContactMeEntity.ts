@@ -1,6 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
+import { WGBaseEntity } from "../../../database/entities/WGBaseEntity";
 
+/**
+ * @deprecated
+ */
 @Entity({ name: "contact_me" })
 export class ContactMeEntity extends WGBaseEntity {
   @PrimaryGeneratedColumn() id!: number;

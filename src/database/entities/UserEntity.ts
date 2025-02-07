@@ -1,7 +1,6 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   ManyToMany,
   JoinTable,
   Unique,
@@ -11,13 +10,11 @@ import { RoleEntity } from "./RoleEntity";
 import "reflect-metadata";
 import { WGBaseEntity } from "./WGBaseEntity";
 import { LanguageEntity } from "./LanguageEntity";
-import { MediaEntity } from "../..";
+import { MediaEntity } from "../../core";
+
 @Entity({ name: "users" })
 @Unique("userName-unique", ["userName", "code"])
 export class UserEntity extends WGBaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: number;
-
   @Column({ nullable: false, default: "" })
   name?: string;
 
@@ -55,7 +52,7 @@ export class UserEntity extends WGBaseEntity {
   confirmationToken?: string;
 
   @ManyToMany(() => RoleEntity)
-  @JoinTable()
+  @JoinTable({ name: "users_roles" })
   roles?: RoleEntity[];
 
   @Column({ nullable: true })

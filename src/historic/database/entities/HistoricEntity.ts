@@ -1,8 +1,11 @@
 import "reflect-metadata";
 import { Column, Entity } from "typeorm";
 import { Actions } from "@wisegar-org/wgo-base-models";
-import { WGBaseEntity } from "../../../core/database/entities/WGBaseEntity";
+import { WGBaseEntity } from "../../../database/entities/WGBaseEntity";
 
+/**
+ * @deprecated
+ */
 @Entity({ name: "journal_history" })
 export class HistoricEntity extends WGBaseEntity {
   @Column()

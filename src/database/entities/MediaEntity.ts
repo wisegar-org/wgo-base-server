@@ -2,7 +2,7 @@ import { Entity, Column } from "typeorm";
 
 import { WGBaseEntity } from "./WGBaseEntity";
 
-@Entity({ name: "media" })
+@Entity({ name: "medias" })
 export class MediaEntity extends WGBaseEntity {
   @Column({ default: "" })
   displayName!: string;
