@@ -26,6 +26,7 @@ import {
 } from "./agv/middlewares/HostClientMiddleware";
 import { dataSourceOptions, PostgresDataSource } from "./database/data-source";
 import { rolesDataSeeder } from "./database/seeders/roles.seeder";
+import { usersDataSeeder } from "./database/seeders/users.seeder";
 
 const port = GetPortKey();
 
@@ -72,9 +73,7 @@ boot(serverOptions, async () => {
     ifNotExist: true,
     options: {
       ...dataSourceOptions,
-      migrationsRun: false,
-      entities: [],
-      migrations: [],
+      migrationsRun: true,
     },
   });
 
@@ -88,7 +87,7 @@ boot(serverOptions, async () => {
 
   //Core Seeders
   await rolesDataSeeder(dataSource);
-  // await userAdminSeeder(dataSource); //create admin user with superadmin rol
+  await usersDataSeeder(dataSource);
   // await languageDefaultSeeder(dataSource); //create default language
   // await mediaPublicSeeder({ ...ctx, dataSource }); //export public media files
 
