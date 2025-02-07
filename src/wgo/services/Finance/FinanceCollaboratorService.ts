@@ -3,21 +3,22 @@ import CollaboratorEntity from "../../database/entities/Finance/CollaboratorEnti
 import { USER_ROLE } from "../../models/constants";
 import { IAuthRegisterParams, SUPERADMIN } from "@wisegar-org/wgo-base-models";
 import { IContextBase } from "@wisegar-org/wgo-base-models";
-import { AuthModel, UserRolesModel } from "../../../authentication";
 import { RoleEntity } from "../../../database/entities/RoleEntity";
+import { UserRolesModel } from "../../../models/users-roles.model";
+import { AuthenticationModel } from "../../../models/authentication.model";
 
 export class FinanceCollaboratorService {
   private ctx: IContextBase;
   private repo: Repository<CollaboratorEntity>;
   private rolesRepository: Repository<RoleEntity>;
   private userRolesModel: UserRolesModel;
-  private authModel: AuthModel;
+  private authModel: AuthenticationModel;
   constructor(ctx: IContextBase) {
     // debugger
     this.ctx = ctx;
     this.repo = this.ctx.dataSource.getRepository(CollaboratorEntity);
     this.rolesRepository = this.ctx.dataSource.getRepository(RoleEntity);
-    this.authModel = new AuthModel({ ctx: ctx } as any);
+    this.authModel = new AuthenticationModel({ ctx: ctx } as any);
     this.userRolesModel = new UserRolesModel({ ctx: ctx } as any);
   }
 

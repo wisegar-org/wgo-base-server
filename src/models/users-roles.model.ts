@@ -8,9 +8,9 @@ import {
   IIdInput,
   IUser,
 } from "@wisegar-org/wgo-base-models";
-import { UserUtils } from "./UserUtils";
-import { UserEntity } from "../../database/entities/UserEntity";
-import { RoleEntity } from "../../database/entities/RoleEntity";
+import { UserUtils } from "./user-utils.model";
+import { UserEntity } from "../database/entities/UserEntity";
+import { RoleEntity } from "../database/entities/RoleEntity";
 
 export class UserRolesModel {
   private dataSource: DataSource;

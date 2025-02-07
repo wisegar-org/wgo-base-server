@@ -7,8 +7,8 @@ import {
   ResendConfirmationInput,
   ResetPasswordInput,
   ValidUserNameInput,
-} from "./AuthInputs";
-import { LoginResponse, UserResponse } from "./AuthResponses";
+} from "./authentication.inputs";
+import { LoginResponse, UserResponse } from "./authentication.responses";
 import {
   AUTH_PATH_CHANGE_RESET_PASSWORD,
   AUTH_PATH_CHECK_USER_NAME,
@@ -37,14 +37,14 @@ import {
   GetPrivateKey,
   GetPublicKey,
 } from "wgo-settings";
-import { UserEntity } from "../../database/entities/UserEntity";
-import { AuthModel } from "../models/AuthModel";
-import { SettingsModel } from "../../settings/models/SettingsModel";
-import { IdInput } from "../../core/resolvers/CoreInputs";
-import { UserRolesModel } from "../models/UserRolesModel";
-import { HistoricResponse } from "../../historic/resolvers/HistoricResponses";
-import { HistoricModel } from "../../historic/models/HistoricModel";
-import { EmailModel } from "../../email";
+import { UserEntity } from "../database/entities/UserEntity";
+import { AuthenticationModel } from "../models/authentication.model";
+import { SettingsModel } from "../settings/models/SettingsModel";
+import { IdInput } from "../core/resolvers/CoreInputs";
+import { UserRolesModel } from "../models/users-roles.model";
+import { HistoricResponse } from "../historic/resolvers/HistoricResponses";
+import { HistoricModel } from "../historic/models/HistoricModel";
+import { EmailModel } from "../email";
 
 @Resolver()
 export class AuthResolver {
@@ -70,7 +70,7 @@ export class AuthResolver {
 
   @Mutation(() => LoginResponse, { name: AUTH_PATH_LOGIN })
   async login(@Arg("data") data: LoginInput, @Ctx() ctx: IContextBase) {
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
     });
@@ -80,7 +80,7 @@ export class AuthResolver {
 
   @Query(() => UserResponse, { name: AUTH_PATH_ME })
   async me(@Arg("data") data: MeInput, @Ctx() ctx: IContextBase) {
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
     });
@@ -102,7 +102,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -125,7 +125,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -151,7 +151,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -177,7 +177,7 @@ export class AuthResolver {
         pass: settingsModel.getSettingPasswordValue(config.SMTP_EMAIL_PASSWORD),
       },
     };
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
       transportEmailOptions,
@@ -191,7 +191,7 @@ export class AuthResolver {
     @Arg("data") data: ResetPasswordInput,
     @Ctx() ctx: IContextBase
   ) {
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
     });
@@ -201,7 +201,7 @@ export class AuthResolver {
 
   @Mutation(() => Boolean, { name: AUTH_PATH_CONFIRM_REGIST })
   async confirmRegist(@Arg("data") data: MeInput, @Ctx() ctx: IContextBase) {
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
     });
@@ -254,7 +254,7 @@ export class AuthResolver {
     @Arg("data") data: ValidUserNameInput,
     @Ctx() ctx: IContextBase
   ) {
-    const authModel = new AuthModel({
+    const authModel = new AuthenticationModel({
       ...this.options,
       ctx,
     });

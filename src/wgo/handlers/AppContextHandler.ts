@@ -14,10 +14,10 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { GetWebRootKey } from "../middlewares/HostAdminMiddleware";
 import { listenersEvents } from "../../settings";
-import { UserRolesModel } from "../../authentication";
 import { LanguageModel } from "../../language";
 import { IContextOptions } from "../../core";
 import { PostgresDataSource } from "../../database/data-source";
+import { UserRolesModel } from "../../models/users-roles.model";
 
 export const ctx = <IContextBase>{
   dataSource: PostgresDataSource,
