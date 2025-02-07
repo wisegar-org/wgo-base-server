@@ -8,7 +8,7 @@ import {
   IIdInput,
   IUser,
 } from "@wisegar-org/wgo-base-models";
-import { UserUtils } from "../utils/user-utils.model";
+import { UserUtils } from "../utils/user.utils";
 import { UserEntity } from "../database/entities/UserEntity";
 import { RoleEntity } from "../database/entities/RoleEntity";
 

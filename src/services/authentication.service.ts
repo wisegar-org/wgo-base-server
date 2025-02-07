@@ -30,18 +30,18 @@ import {
 } from "@wisegar-org/wgo-base-models";
 import { HistoricModel } from "../historic/models/HistoricModel";
 import { UserEntity } from "../database/entities/UserEntity";
-import { EmailModel } from "../email";
 import {
   ExpirationFreqEnum,
   generateAccessToken,
   validateAccessToken,
 } from "../core";
 import { UserRolesService } from "./users-roles.service";
-import { UserUtils } from "../utils/user-utils.model";
+import { UserUtils } from "../utils/user.utils";
+import { EmailService } from "./email.service";
 
 export class AuthenticationService {
   private dataSource: DataSource;
-  private emailModel: EmailModel;
+  private emailModel: EmailService;
   private options: IAuthModelArg;
   private userRolesModel: UserRolesService;
   private historicModel: HistoricModel<UserEntity>;
@@ -57,7 +57,7 @@ export class AuthenticationService {
       tokenRegisterExpiresIn:
         options.tokenRegisterExpiresIn || TOKEN_REGISTER_EXP,
     };
-    this.emailModel = new EmailModel(options.ctx);
+    this.emailModel = new EmailService(options.ctx);
     this.userRolesModel = new UserRolesService(options);
     this.historicModel = new HistoricModel(UserEntity, options.ctx);
     this.ctx = options.ctx;

@@ -9,8 +9,8 @@ import { HistoricResolver } from "../../historic";
 import { LanguageResolver } from "../../language";
 import { SettingsResolver } from "../../settings";
 import { TemplateResolver } from "../../template";
-import { EmailResolver } from "../../email";
 import { AuthResolver } from "../../resolvers/authentication.resolver";
+import { EmailResolver } from "../../resolvers/email.resolver";
 
 export const getResolverList = () => {
   return [

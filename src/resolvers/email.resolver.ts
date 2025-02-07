@@ -9,7 +9,7 @@ import {
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
 
 import { EmailResponse } from "./email.responses";
-import { EmailModel } from "../models/email.model";
+import { EmailService } from "../services/email.service";
 import {
   WGEmailFromToAppInput,
   WGEmailInput,
@@ -25,7 +25,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new EmailModel(ctx);
+      const wgEmailModel = new EmailService(ctx);
       const result = await wgEmailModel.sendEmail(data);
       return <EmailResponse>{
         error: "",
@@ -46,7 +46,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new EmailModel(ctx);
+      const wgEmailModel = new EmailService(ctx);
       const result = await wgEmailModel.sendEmailToApp(data);
       return <EmailResponse>{
         error: "",
@@ -67,7 +67,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new EmailModel(ctx);
+      const wgEmailModel = new EmailService(ctx);
       const result = await wgEmailModel.sendEmailFromToApp(data);
       return <EmailResponse>{
         error: "",
@@ -90,7 +90,7 @@ export class EmailResolver {
     @Ctx() ctx: IContextBase
   ): Promise<EmailResponse> {
     try {
-      const wgEmailModel = new EmailModel(ctx);
+      const wgEmailModel = new EmailService(ctx);
       const result = await wgEmailModel.sendEmailFromToAddressAndApp(data);
       return <EmailResponse>{
         error: "",

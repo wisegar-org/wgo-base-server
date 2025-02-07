@@ -16,8 +16,8 @@ import { AGVEventResolver } from "../../agv/resolvers/Event/AGVEventResolver";
 import { AGVContentsResolver } from "../../agv/resolvers/Content/AGVContentsResolver";
 import { AGVNewsletterResolver } from "../../agv/resolvers/Newsletter/AGVNewsletterResolver";
 import { AGVInscriptionResolver } from "../../agv/resolvers/Inscription/AGVInscriptionResolver";
-import { EmailResolver } from "../../email";
 import { AuthResolver } from "../../resolvers/authentication.resolver";
+import { EmailResolver } from "../../resolvers/email.resolver";
 
 export const getResolvers = () => {
   return [

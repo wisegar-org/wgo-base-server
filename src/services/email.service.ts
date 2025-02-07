@@ -11,17 +11,17 @@ import {
   SmtpSettings,
   SETTINGS_SMTP,
 } from "@wisegar-org/wgo-base-models";
-import { HandlebarsTemplateModel, TemplateModel } from "../../template";
+import { HandlebarsTemplateModel, TemplateModel } from "../template";
 import {
   WGEmailFromToAppInput,
   WGEmailToAddressAndAppInput,
   WGEmailToAppInput,
 } from "../resolvers/email.inputs";
-import { getInlineStyle } from "./style.model";
-import { SettingsModel } from "../../settings";
+import { getInlineStyle } from "../utils/email-style.utils";
+import { SettingsModel } from "../settings";
 import { EmailResponse } from "../resolvers/email.responses";
 
-export class EmailModel {
+export class EmailService {
   emailServer: EmailServer;
   dataSource: DataSource;
   ctx: IContextBase;
@@ -230,7 +230,7 @@ export class EmailModel {
     });
     const to = toSend.splice(0, 1)[0];
     const bcc = toSend.join(",");
-    const from = EmailModel.getFromAppConfig();
+    const from = EmailService.getFromAppConfig();
     return {
       to,
       bcc,
