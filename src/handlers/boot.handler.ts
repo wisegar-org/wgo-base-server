@@ -14,6 +14,7 @@ import { join } from "path";
 import { PublicDirectoryMiddleware } from "../middlewares/public-directory.middleware";
 import { ITranslationModel } from "@wisegar-org/wgo-base-models";
 import { GetOpenCRMPathRoot } from "../core/services/EnvService";
+import { UseLoggerMiddleware } from "../middlewares/logger.middleware";
 
 export type BootFunc = (options: IServerOptions) => void;
 
@@ -30,6 +31,9 @@ export const boot = async (options: IServerOptions, onStart?: BootFunc) => {
 
   const rootPath = GetOpenCRMPathRoot();
   console.debug("wgo-opencrm root path: ", rootPath);
+
+  UseLoggerMiddleware(options);
+  console.debug("Registering Logger middleware");
 
   console.debug("Registering Cors middleware");
   UseCorsMiddleware(options);

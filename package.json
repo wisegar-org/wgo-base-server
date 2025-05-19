@@ -92,7 +92,8 @@
     "wgo-crypto": "^0.0.4",
     "wgo-extensions": "^0.0.1",
     "wgo-mailer": "^0.0.4",
-    "wgo-settings": "^0.0.1"
+    "wgo-settings": "^0.0.1",
+    "winston": "^3.17.0"
   },
   "nodemonConfig": {
     "watch": [
